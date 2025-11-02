@@ -129,10 +129,17 @@ export function Navigation() {
               <Button
                 size="sm"
                 className="bg-linear-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white shadow-lg shadow-violet-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/50"
-                onClick={() => scrollToSection("#contact")}
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/cv.pdf";
+                  link.download = "Mahadi Hasan Fardin.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
                 <Terminal className="w-4 h-4 mr-2" />
-                Hire Me
+                Download CV
               </Button>
             </div>
 
