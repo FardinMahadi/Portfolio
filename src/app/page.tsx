@@ -5,6 +5,7 @@ import { ContactSection } from "@/components/LandingPage/ContactSection";
 import { ExperienceSection } from "@/components/LandingPage/ExperienceSection";
 import { Footer } from "@/components/LandingPage/Footer";
 import { HeroSection } from "@/components/LandingPage/HeroSection";
+import { IntroSummary } from "@/components/LandingPage/IntroSummary";
 import { Navigation } from "@/components/LandingPage/Navigation";
 import { ProjectsSection } from "@/components/LandingPage/ProjectsSection";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -47,6 +48,7 @@ export default function Home() {
         </header>
         <main id="main-content" role="main">
           <HeroSection />
+          <IntroSummary />
           <AboutSection />
           <ExperienceSection />
           <ProjectsSection />

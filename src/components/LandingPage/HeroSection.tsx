@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
@@ -125,56 +126,85 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="space-y-6"
+          className="flex flex-col items-center gap-12 text-center md:flex-row md:justify-center md:items-center md:gap-16 md:text-left"
         >
-          <p className="text-slate-300 max-w-2xl mx-auto text-lg">
-            Full Stack Developer specializing in React, Next.js, and Node.js.
-            Building modern web applications with clean code and best practices.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative h-44 w-44 sm:h-52 sm:w-52 md:h-56 md:w-56 rounded-full overflow-hidden border-4 border-slate-700/70 shadow-xl shadow-theme-accent/20"
+            aria-hidden="true"
+          >
+            <Image
+              src="/Images/me.jpg"
+              alt="Portrait of Fardin Mahadi"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500/20 via-transparent to-violet-500/20 blur-3xl" />
+          </motion.div>
 
-          <div className="flex gap-4 justify-center items-center flex-wrap">
-            <MagneticButton magneticStrength={0.2}>
-              <Button
-                size="lg"
-                className="text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 min-h-[44px]"
-                style={{
-                  background: `linear-gradient(to right, var(--color-primary), var(--color-secondary))`,
-                  boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 20px -5px var(--color-primary)`,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = `linear-gradient(to right, var(--color-primary), var(--color-secondary))`;
-                  e.currentTarget.style.filter = "brightness(1.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = `linear-gradient(to right, var(--color-primary), var(--color-secondary))`;
-                  e.currentTarget.style.filter = "brightness(1)";
-                }}
-                onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                aria-label="Navigate to projects section"
-              >
-                View Projects
-              </Button>
-            </MagneticButton>
-            <MagneticButton magneticStrength={0.2}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-slate-600 text-slate-200 hover:bg-slate-800/50 transition-all duration-300 min-h-[44px] hover:border-theme-accent hover:text-theme-accent"
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                aria-label="Navigate to contact section"
-              >
-                Get In Touch
-              </Button>
-            </MagneticButton>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+            className="space-y-6 max-w-2xl"
+          >
+            <h2 className="text-slate-100 text-2xl sm:text-3xl font-semibold">
+              Shipping purposeful digital products with empathy and code.
+            </h2>
+            <p className="text-slate-400 text-base">
+              Full-stack engineer focused on thoughtful UX and performant React
+              & Next.js applications. I lean on calm interfaces, inclusive
+              accessibility, and fast feedback loops to help teams move from
+              idea to impact.
+            </p>
+
+            <div className="flex gap-4 justify-center md:justify-start flex-wrap">
+              <MagneticButton magneticStrength={0.2}>
+                <Button
+                  size="lg"
+                  className="text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 min-h-[44px]"
+                  style={{
+                    background: `linear-gradient(to right, var(--color-primary), var(--color-secondary))`,
+                    boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 20px -5px var(--color-primary)`,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = `linear-gradient(to right, var(--color-primary), var(--color-secondary))`;
+                    e.currentTarget.style.filter = "brightness(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = `linear-gradient(to right, var(--color-primary), var(--color-secondary))`;
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
+                  onClick={() =>
+                    document
+                      .getElementById("projects")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  aria-label="Navigate to projects section"
+                >
+                  View Projects
+                </Button>
+              </MagneticButton>
+              <MagneticButton magneticStrength={0.2}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-slate-600 text-slate-200 hover:bg-slate-800/50 transition-all duration-300 min-h-[44px] hover:border-theme-accent hover:text-theme-accent"
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  aria-label="Navigate to contact section"
+                >
+                  Get In Touch
+                </Button>
+              </MagneticButton>
+            </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
