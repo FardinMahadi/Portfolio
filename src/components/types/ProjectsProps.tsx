@@ -7,4 +7,6 @@ export interface ProjectsProps {
   height: number;
   liveUrl?: string;
   codeUrl?: string;
+  role?: string;
+  highlights?: string[];
 }

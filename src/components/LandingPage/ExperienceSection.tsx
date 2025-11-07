@@ -120,7 +120,7 @@ export function ExperienceSection() {
               {/* Content card */}
               <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-lg backdrop-blur-sm hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 p-6 md:pl-12 group">
                 {/* Timeline dot */}
-                <div className="absolute left-6 top-8 w-3 h-3 rounded-full bg-blue-400 border-2 border-slate-900 hidden md:block" />
+                <div className="absolute left-6 top-8 w-3 h-3 rounded-full bg-theme-primary border-2 border-slate-900 hidden md:block" />
 
                 <header className="mb-4">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
@@ -210,7 +210,7 @@ export function ExperienceSection() {
                               role="listitem"
                             >
                               <span
-                                className="text-blue-400 mt-1.5 shrink-0"
+                                className="text-theme-primary mt-1.5 shrink-0"
                                 aria-hidden="true"
                               >
                                 ▹
