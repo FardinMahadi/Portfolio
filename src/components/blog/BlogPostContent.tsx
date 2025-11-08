@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Calendar, Clock, ArrowLeft, Home } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -16,13 +17,14 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
 
+  const publishedTime = new Date(post.date).toISOString();
   const articleSchema = generateArticleSchema(
     post.title,
     post.excerpt,
-    post.date,
-    post.date,
+    publishedTime,
+    publishedTime,
     "Mahadi Hasan Fardin",
-    `${siteUrl}/og-image.png`
+    post.image ?? `${siteUrl}/og-image.png`
   );
 
   return (
@@ -96,7 +98,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
 
           {/* Meta information */}
           <div className="mb-8 flex flex-wrap items-center gap-4 text-sm text-theme-text/70">
-            <time dateTime={post.date} className="flex items-center gap-2">
+            <time dateTime={publishedTime} className="flex items-center gap-2">
               <Calendar className="w-4 h-4" aria-hidden="true" />
               <span>{post.date}</span>
             </time>
@@ -109,6 +111,26 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             </div>
           </div>
         </motion.header>
+
+        {post.image && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-10 overflow-hidden rounded-2xl border border-theme-border/60 shadow-lg shadow-theme-primary/10"
+          >
+            <div className="relative h-72 w-full sm:h-56 lg:h-80">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                priority
+              />
+            </div>
+          </motion.div>
+        )}
 
         {/* Content */}
         <motion.div

@@ -22,12 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const defaultOgImage = `${siteUrl}/og-image.png`;
+  const publishedTime = new Date(post.date).toISOString();
   const metadata = generateSEOMetadata({
     title: post.title,
     description: post.excerpt,
     keywords: [post.category, "programming", "web development", "learning"],
     canonical: `${siteUrl}/blog/${slug}`,
-    ogImage: `${siteUrl}/og-image.png`,
+    ogImage: post.image ?? defaultOgImage,
     ogType: "article",
   });
 
@@ -40,10 +42,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       ...metadata.openGraph,
       title: post.title,
+      type: "article",
+      publishedTime,
+      modifiedTime: publishedTime,
+      authors: ["Mahadi Hasan Fardin"],
+      tags: [post.category, "Programming", "Web Development"],
+      images: [
+        {
+          url: post.image ?? defaultOgImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       ...metadata.twitter,
       title: post.title,
+      images: [post.image ?? defaultOgImage],
     },
   };
 }

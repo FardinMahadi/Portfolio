@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef, useState, useMemo } from "react";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -144,6 +145,19 @@ export function BlogIndexPage() {
                         "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 90%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))",
                     }}
                   >
+                    {post.image && (
+                      <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-theme-border/50">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          priority={index === 0}
+                        />
+                      </div>
+                    )}
+
                     {/* Category badge */}
                     <header className="flex items-center justify-between mb-4">
                       <span className="px-3 py-1 text-xs font-mono bg-theme-primary/10 text-theme-primary rounded-full border border-theme-primary/20">
