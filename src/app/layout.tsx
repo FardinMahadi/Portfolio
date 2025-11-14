@@ -351,7 +351,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <ColorPaletteProvider>
           <ScrollProgressIndicator />
