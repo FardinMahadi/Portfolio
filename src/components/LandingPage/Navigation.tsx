@@ -134,7 +134,7 @@ export function Navigation() {
                 className="font-mono text-slate-100 transition-colors group-hover:text-theme-primary"
                 aria-label="Navigate to home"
               >
-                {"<FardinMahadi />"}
+                {"<MahadiHasanFardin />"}
               </Link>
             </motion.div>
 

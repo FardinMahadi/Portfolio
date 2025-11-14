@@ -54,10 +54,10 @@ git clone https://github.com/FardinMahadi/Portfolio.git
 cd portfolio
 
 # 2. Install deps
-npm install
+pnpm install
 
 # 3. Run dev server
-npm run dev
+pnpm run dev
 # open http://localhost:3000
 ```
 
@@ -134,15 +134,15 @@ src/
 ## 🚀 Deployment
 
 ```bash
-npm run build    # production build (.next/)
-npm run start    # preview production
+pnpm run build    # production build (.next/)
+pnpm run start    # preview production
 
 # Vercel CLI
-npm i -g vercel
+pnpm add -g vercel
 vercel
 
 # Netlify CLI
-npm i -g netlify-cli
+pnpm add -g netlify-cli
 netlify deploy --prod
 ```
 
