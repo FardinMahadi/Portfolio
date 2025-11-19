@@ -39,14 +39,7 @@ export function Navigation() {
 
       // Only detect active section on homepage
       if (pathname === "/") {
-        const sections = [
-          "home",
-          "about",
-          "experience",
-          "projects",
-          "blog",
-          "contact",
-        ];
+        const sections = ["home", "blog"];
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
@@ -300,12 +293,22 @@ export function Navigation() {
                   e.currentTarget.style.filter = "brightness(1)";
                 }}
                 onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "/cv.pdf";
-                  link.download = "Mahadi Hasan Fardin.pdf";
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
+                  try {
+                    const link = document.createElement("a");
+                    link.href = "/cv.pdf";
+                    link.download = "Mahadi Hasan Fardin.pdf";
+                    link.style.display = "none";
+                    document.body.appendChild(link);
+                    link.click();
+                    // Safely remove the link after a short delay to ensure click processed
+                    setTimeout(() => {
+                      if (link.parentNode === document.body) {
+                        document.body.removeChild(link);
+                      }
+                    }, 100);
+                  } catch (error) {
+                    console.error("Error downloading CV:", error);
+                  }
                 }}
                 aria-label="Download CV as PDF"
               >

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal } from "lucide-react";
 
@@ -17,6 +18,19 @@ export function PageLoader({
   const prefersReducedMotion =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  useEffect(() => {
+    // Disable cursor effects when PageLoader is shown
+    if (typeof window !== "undefined") {
+      document.body.dataset.cursorSuspended = "true";
+      window.dispatchEvent(new CustomEvent("target-cursor:suspend", { detail: true }));
+
+      return () => {
+        document.body.dataset.cursorSuspended = "false";
+        window.dispatchEvent(new CustomEvent("target-cursor:suspend", { detail: false }));
+      };
+    }
+  }, []);
 
   if (variant === "inline") {
     return (
