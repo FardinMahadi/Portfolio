@@ -401,52 +401,60 @@ export function TargetCursor({
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999] mix-blend-difference"
+      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-9999"
       style={{ transform: "translate(-50%, -50%)" }}
     >
       <div
         ref={dotRef}
-        className="absolute left-1/2 top-1/2 w-1 h-1 bg-white rounded-full"
-        style={{ transform: "translate(-50%, -50%)", willChange: "transform" }}
+        className="absolute left-1/2 top-1/2 w-1 h-1 bg-cyan-400 rounded-full"
+        style={{
+          transform: "translate(-50%, -50%)",
+          willChange: "transform",
+          boxShadow: "0 0 8px rgba(34, 211, 238, 0.8)",
+        }}
       />
 
       <div
-        className="target-cursor-corner corner-tl absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-white"
+        className="target-cursor-corner corner-tl absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
         style={{
           transform: "translate(-150%, -150%)",
           borderRight: "none",
           borderBottom: "none",
           willChange: "transform",
+          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
         }}
       />
 
       <div
-        className="target-cursor-corner corner-tr absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-white"
+        className="target-cursor-corner corner-tr absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
         style={{
           transform: "translate(50%, -150%)",
           borderLeft: "none",
           borderBottom: "none",
           willChange: "transform",
+          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
         }}
       />
 
       <div
-        className="target-cursor-corner corner-br absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-white"
+        className="target-cursor-corner corner-br absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
         style={{
           transform: "translate(50%, 50%)",
           borderLeft: "none",
           borderTop: "none",
           willChange: "transform",
+          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
         }}
       />
 
       <div
-        className="target-cursor-corner corner-bl absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-white"
+        className="target-cursor-corner corner-bl absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
         style={{
           transform: "translate(-150%, 50%)",
           borderRight: "none",
           borderTop: "none",
           willChange: "transform",
+          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
         }}
       />
     </div>

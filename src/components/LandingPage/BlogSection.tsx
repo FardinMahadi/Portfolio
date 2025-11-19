@@ -135,15 +135,9 @@ export function BlogSection() {
                     <Button
                       variant="ghost"
                       className="group/btn min-h-[44px] w-full justify-between text-theme-text/70 transition-all duration-300 hover:bg-theme-primary/5 hover:text-theme-primary"
-                      asChild
                     >
-                      <Link
-                        href={post.slug ? `/blog/${post.slug}` : "#"}
-                        aria-label={`Read article: ${post.title}`}
-                      >
-                        <span>Read article</span>
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      </Link>
+                      <span>Read article</span>
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </Button>
                   </div>
                 </GlassmorphismPanel>
