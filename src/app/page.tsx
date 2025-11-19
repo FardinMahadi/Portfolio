@@ -9,10 +9,12 @@ import { IntroSummary } from "@/components/LandingPage/IntroSummary";
 import { Navigation } from "@/components/LandingPage/Navigation";
 import { ProjectsSection } from "@/components/LandingPage/ProjectsSection";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { PageLoader } from "@/components/ui/loading";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -27,7 +29,22 @@ export default function Home() {
       );
     };
     checkTouchDevice();
+
+    // Simulate initial page load
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
   }, []);
+
+  if (isLoading) {
+    return (
+      <ErrorBoundary>
+        <PageLoader message="Loading portfolio..." />
+      </ErrorBoundary>
+    );
+  }
 
   return (
     <ErrorBoundary>

@@ -5,6 +5,7 @@ import { Analytics } from "./analytics";
 import { ScrollProgressIndicator } from "@/components/effects/ScrollProgressIndicator";
 import { ColorPaletteProvider } from "@/contexts/ColorPaletteContext";
 import { AppCursorLayer } from "@/components/effects/AppCursorLayer";
+import { NavigationLoader } from "@/components/ui/loading/NavigationLoader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -356,6 +357,7 @@ export default function RootLayout({
         <ColorPaletteProvider>
           <ScrollProgressIndicator />
           <AppCursorLayer />
+          <NavigationLoader />
           {children}
           <Suspense fallback={null}>
             <Analytics />

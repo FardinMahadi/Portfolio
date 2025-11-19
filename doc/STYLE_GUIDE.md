@@ -600,6 +600,160 @@ const HeavyComponent = dynamic(() => import("./HeavyComponent"), {
 });
 ```
 
+### Loading States
+
+The project includes a comprehensive loading component system located in `src/components/ui/loading/`. All loading components follow the terminal/code editor aesthetic and integrate with the color palette system.
+
+#### LoadingSpinner
+
+Use for inline loading indicators:
+
+```typescript
+import { LoadingSpinner } from '@/components/ui/loading';
+
+// Default spinner
+<LoadingSpinner />
+
+// Terminal variant with text
+<LoadingSpinner variant="terminal" size="lg" text="Loading..." />
+
+// Minimal variant
+<LoadingSpinner variant="minimal" size="sm" />
+```
+
+**Variants:**
+
+- `default` - Standard spinner (Loader2 icon)
+- `terminal` - Terminal-themed with blinking cursor
+- `minimal` - Simple border spinner
+- `pulse` - Pulsing dot animation
+
+**Sizes:** `sm`, `md`, `lg`
+
+#### SkeletonLoader
+
+Use for content placeholders:
+
+```typescript
+import { SkeletonLoader } from '@/components/ui/loading';
+
+// Text skeleton
+<SkeletonLoader variant="text" height="1.5rem" width="80%" />
+
+// Image skeleton
+<SkeletonLoader variant="image" height="200px" />
+
+// Multiple skeletons
+<SkeletonLoader variant="text" count={3} />
+```
+
+**Variants:**
+
+- `text` - Text line placeholder
+- `image` - Image placeholder with aspect ratio
+- `card` - Card container placeholder
+- `list` - List item placeholder
+- `custom` - Custom dimensions
+
+#### PageLoader
+
+Use for full-page loading states:
+
+```typescript
+import { PageLoader } from '@/components/ui/loading';
+
+// Overlay variant (default)
+<PageLoader message="Loading page..." />
+
+// With progress
+<PageLoader message="Loading..." showProgress progress={75} />
+
+// Inline variant
+<PageLoader variant="inline" message="Loading content..." />
+```
+
+#### ContentSkeleton
+
+Pre-built skeletons for common content types:
+
+```typescript
+import { ContentSkeleton } from '@/components/ui/loading';
+
+// Blog post skeleton
+<ContentSkeleton type="blogPost" />
+
+// Blog list skeleton
+<ContentSkeleton type="blogList" count={3} />
+
+// Project grid skeleton
+<ContentSkeleton type="projectGrid" count={6} />
+
+// Contact form skeleton
+<ContentSkeleton type="contactForm" />
+```
+
+**Types:**
+
+- `blogPost` - Full blog post layout
+- `blogList` - Blog list with cards
+- `projectCard` - Individual project card
+- `projectGrid` - Grid of project cards
+- `contactForm` - Contact form layout
+
+#### Next.js Route Loading
+
+Create `loading.tsx` files in route directories for automatic loading states:
+
+```typescript
+// app/blog/loading.tsx
+import { ContentSkeleton } from '@/components/ui/loading';
+
+export default function BlogLoading() {
+  return (
+    <div className="min-h-screen py-20 px-4">
+      <ContentSkeleton type="blogList" count={3} />
+    </div>
+  );
+}
+```
+
+#### Best Practices
+
+1. **Always provide loading states** for async operations
+2. **Use appropriate skeleton types** that match the content structure
+3. **Respect reduced motion** - all components handle `prefers-reduced-motion`
+4. **Accessibility** - All loading components include ARIA labels
+5. **Terminal theme** - Loading components match the project's aesthetic
+6. **Color integration** - Uses CSS variables from color palette system
+
+#### Integration Examples
+
+```typescript
+// In component with async data
+const [isLoading, setIsLoading] = useState(true);
+
+if (isLoading) {
+  return <ContentSkeleton type="blogList" count={3} />;
+}
+
+// In Suspense boundary
+<Suspense fallback={<PageLoader message="Loading..." />}>
+  <AsyncComponent />
+</Suspense>
+
+// Button loading state
+<Button disabled={isLoading}>
+  {isLoading ? (
+    <>
+      <LoadingSpinner variant="minimal" size="sm" />
+      Loading...
+    </>
+  ) : (
+    'Submit'
+  )}
+</Button>
+```
+
 ### Lazy Loading
 
 ```typescript
