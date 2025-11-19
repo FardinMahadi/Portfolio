@@ -27,10 +27,11 @@ export function BlogIndexPage() {
   return (
     <section
       id="blog-index"
-      className="relative min-h-screen overflow-hidden bg-(--color-background) py-20 px-4 text-theme-text sm:px-6 lg:px-8 scroll-mt-28 md:scroll-mt-32"
+      className="relative min-h-screen overflow-hidden bg-(--color-background) pt-24 pb-20 px-4 text-theme-text sm:px-6 lg:px-8 scroll-mt-16 md:scroll-mt-32"
       style={{
         background:
           "linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 94%, transparent), var(--color-background))",
+        zIndex: 1,
       }}
     >
       {/* Background accent */}
@@ -63,9 +64,9 @@ export function BlogIndexPage() {
           );
         })}
         <motion.header
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
           className="mb-12 text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-3 text-theme-primary">
@@ -89,8 +90,8 @@ export function BlogIndexPage() {
         {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <CategoryFilter
             selectedCategory={selectedCategory}

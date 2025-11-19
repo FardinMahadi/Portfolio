@@ -11,10 +11,6 @@ import { ColorPaletteSwitcher } from "../ui/ColorPaletteSwitcher";
 
 const navItems: NavItemsProps[] = [
   { name: "Home", href: "/", icon: "~/", isRoute: true },
-  { name: "About", href: "#about", icon: "</>" },
-  { name: "Experience", href: "#experience", icon: "{}" },
-  { name: "Projects", href: "#projects", icon: "[]" },
-  { name: "Contact", href: "#contact", icon: ">_" },
   {
     name: "Blog",
     href: "/blog",
@@ -258,7 +254,7 @@ export function Navigation() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 mt-2 bg-gradient-to-br from-[#0a0e1a] to-[#111827] border border-slate-800 rounded-lg shadow-xl min-w-[200px]"
+                            className="absolute top-full left-0 mt-2 bg-linear-to-br from-(--color-background) to-(--color-surface) border border-slate-800 rounded-lg shadow-xl min-w-[200px]"
                             onMouseEnter={() => setOpenSubmenu(item.name)}
                             onMouseLeave={() => setOpenSubmenu(null)}
                           >
@@ -290,7 +286,19 @@ export function Navigation() {
               <ColorPaletteSwitcher />
               <Button
                 size="sm"
-                className="bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white shadow-lg shadow-violet-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/50 min-h-[44px]"
+                className="text-white shadow-lg transition-all duration-300 hover:shadow-xl min-h-[44px]"
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
+                  boxShadow:
+                    "0 10px 15px -3px rgba(0,0,0,0.2), 0 4px 6px -2px rgba(0,0,0,0.12), 0 0 25px -8px var(--color-primary)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.filter = "brightness(1.1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.filter = "brightness(1)";
+                }}
                 onClick={() => {
                   const link = document.createElement("a");
                   link.href = "/cv.pdf";
@@ -359,7 +367,11 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 backdrop-blur-sm z-40 lg:hidden"
+              style={{
+                backgroundColor:
+                  "color-mix(in srgb, var(--color-background) 60%, transparent)",
+              }}
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -370,7 +382,12 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-64 bg-gradient-to-br from-[#0a0e1a] to-[#111827] border-l border-slate-800 z-50 lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-64 border-l z-50 lg:hidden"
+              style={{
+                background:
+                  "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 95%, transparent), color-mix(in srgb, var(--color-background) 98%, transparent))",
+                borderColor: "var(--color-border)",
+              }}
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
@@ -380,11 +397,11 @@ export function Navigation() {
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-2">
                     <Code2 className="w-5 h-5 text-theme-primary" />
-                    <span className="font-mono text-slate-100">Menu</span>
+                    <span className="font-mono text-theme-text">Menu</span>
                   </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-slate-400 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-theme-primary"
+                    className="p-2 text-theme-text/60 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-theme-primary"
                     aria-label="Close menu"
                   >
                     <X className="w-5 h-5" />
@@ -412,9 +429,24 @@ export function Navigation() {
                               transition={{ delay: index * 0.1 }}
                               className={`w-full text-left p-4 rounded-lg border transition-all duration-300 min-h-[44px] ${
                                 itemIsActive
-                                  ? "bg-cyan-500/10 border-cyan-500/50 text-cyan-400"
-                                  : "bg-slate-800/30 border-slate-700/50 text-slate-300 hover:bg-slate-800/50 hover:border-cyan-500/30"
+                                  ? "text-theme-primary"
+                                  : "text-theme-text/70 hover:text-theme-primary"
                               }`}
+                              style={
+                                itemIsActive
+                                  ? {
+                                      backgroundColor:
+                                        "color-mix(in srgb, var(--color-primary) 10%, transparent)",
+                                      borderColor:
+                                        "color-mix(in srgb, var(--color-primary) 50%, transparent)",
+                                    }
+                                  : {
+                                      backgroundColor:
+                                        "color-mix(in srgb, var(--color-surface) 30%, transparent)",
+                                      borderColor:
+                                        "color-mix(in srgb, var(--color-border) 70%, transparent)",
+                                    }
+                              }
                               aria-label={`Navigate to ${item.name}`}
                               aria-current={itemIsActive ? "page" : undefined}
                             >
@@ -443,9 +475,24 @@ export function Navigation() {
                             onClick={(e) => handleNavClick(item, e)}
                             className={`w-full text-left p-4 rounded-lg border transition-all duration-300 min-h-[44px] ${
                               itemIsActive
-                                ? "bg-cyan-500/10 border-cyan-500/50 text-cyan-400"
-                                : "bg-slate-800/30 border-slate-700/50 text-slate-300 hover:bg-slate-800/50 hover:border-cyan-500/30"
+                                ? "text-theme-primary"
+                                : "text-theme-text/70 hover:text-theme-primary"
                             }`}
+                            style={
+                              itemIsActive
+                                ? {
+                                    backgroundColor:
+                                      "color-mix(in srgb, var(--color-primary) 10%, transparent)",
+                                    borderColor:
+                                      "color-mix(in srgb, var(--color-primary) 50%, transparent)",
+                                  }
+                                : {
+                                    backgroundColor:
+                                      "color-mix(in srgb, var(--color-surface) 30%, transparent)",
+                                    borderColor:
+                                      "color-mix(in srgb, var(--color-border) 70%, transparent)",
+                                  }
+                            }
                             aria-label={`Navigate to ${item.name} section`}
                             aria-current={itemIsActive ? "page" : undefined}
                           >
@@ -477,7 +524,18 @@ export function Navigation() {
                                       setIsMobileMenuOpen(false);
                                       setOpenSubmenu(null);
                                     }}
-                                    className="block px-4 py-2 text-sm text-slate-400 hover:text-cyan-400 hover:bg-slate-800/30 rounded transition-colors"
+                                    className="block px-4 py-2 text-sm text-theme-text/60 hover:text-theme-primary rounded transition-colors"
+                                    style={{
+                                      backgroundColor: "transparent",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "color-mix(in srgb, var(--color-surface) 30%, transparent)";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "transparent";
+                                    }}
                                   >
                                     {subItem.icon && (
                                       <span className="mr-2 font-mono text-xs opacity-60">
@@ -519,7 +577,21 @@ export function Navigation() {
                     <ColorPaletteSwitcher />
                   </div>
                   <Button
-                    className="w-full bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white shadow-lg shadow-violet-500/30 min-h-[44px]"
+                    className="w-full text-white shadow-lg min-h-[44px]"
+                    style={{
+                      background:
+                        "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
+                      boxShadow:
+                        "0 10px 15px -3px rgba(0,0,0,0.2), 0 4px 6px -2px rgba(0,0,0,0.12), 0 0 25px -8px var(--color-primary)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background =
+                        "linear-gradient(to right, var(--color-primary), var(--color-secondary))";
+                      e.currentTarget.style.filter = "brightness(1.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.filter = "brightness(1)";
+                    }}
                     onClick={() => {
                       const link = document.createElement("a");
                       link.href = "/cv.pdf";
@@ -540,11 +612,27 @@ export function Navigation() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
-                  className="mt-8 p-4 bg-slate-900/50 rounded-lg border border-slate-700/50 font-mono text-xs"
+                  className="mt-8 p-4 rounded-lg border font-mono text-xs"
+                  style={{
+                    backgroundColor:
+                      "color-mix(in srgb, var(--color-surface) 50%, transparent)",
+                    borderColor:
+                      "color-mix(in srgb, var(--color-border) 50%, transparent)",
+                  }}
                 >
-                  <div className="text-green-400 mb-1">$ whoami</div>
-                  <div className="text-slate-400">Fardin - MERN Developer</div>
-                  <div className="text-green-400 mt-2 flex items-center gap-1">
+                  <div
+                    className="mb-1"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    $ whoami
+                  </div>
+                  <div className="text-theme-text/60">
+                    Fardin - MERN Developer
+                  </div>
+                  <div
+                    className="mt-2 flex items-center gap-1"
+                    style={{ color: "var(--color-primary)" }}
+                  >
                     $ <span className="animate-pulse">_</span>
                   </div>
                 </motion.div>

@@ -24,9 +24,9 @@ export const metadata: Metadata = generateSEOMetadata({
 
 export default function BlogPage() {
   return (
-    <div className="relative flex min-h-screen flex-col gap-16">
+    <div className="relative flex min-h-screen flex-col bg-(--color-background)">
       <Navigation />
-      <main className="flex-1">
+      <main className="flex-1 relative pt-16" style={{ zIndex: 1 }}>
         <BlogIndexPage />
       </main>
       <Footer />
