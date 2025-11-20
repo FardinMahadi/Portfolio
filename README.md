@@ -152,8 +152,10 @@ netlify deploy --prod
 
 Issues and PRs welcome. Please review:
 
-- [Style Guide](./doc/STYLE_GUIDE.md)
-- [AI Training Guide](./doc/AI_TRAINING_GUIDE.md)
+- [Style Guide](./docs/reference/style-guide.md)
+- [AI Training Guide](./docs/ai/training-guide.md)
+- [Contributing Guide](./docs/getting-started/contributing.md)
+- [Documentation Index](./docs/README.md)
 
 ---
 

@@ -100,7 +100,7 @@ RESEND_FROM_EMAIL=onboarding@resend.dev
 3. Select environment (Production/Preview/Development)
 4. Save and redeploy
 
-For detailed information, see [Environment Variables](./ENVIRONMENT_VARIABLES.md).
+For detailed information, see [Environment Variables](../getting-started/environment-variables.md).
 
 ---
 
@@ -317,4 +317,4 @@ For more information:
 
 - [Vercel Documentation](https://vercel.com/docs)
 - [Next.js Deployment](https://nextjs.org/docs/deployment)
-- [Environment Variables](./ENVIRONMENT_VARIABLES.md)
+- [Environment Variables](../getting-started/environment-variables.md)

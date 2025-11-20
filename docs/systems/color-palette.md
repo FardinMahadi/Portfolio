@@ -392,5 +392,5 @@ The color palette system provides:
 
 For more information, see:
 
-- [Style Guide](./STYLE_GUIDE.md#color-palette-system)
-- [Component Reference](./COMPONENT_REFERENCE.md#ui-components)
+- [Style Guide](../reference/style-guide.md#color-palette-system)
+- [Component Reference](../reference/components.md#ui-components)
