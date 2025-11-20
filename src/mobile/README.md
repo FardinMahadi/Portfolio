@@ -2,6 +2,10 @@
 
 This folder contains all mobile-specific code for the Ionic Framework and Capacitor integration. This separation makes it easier to maintain both web and mobile versions of the app.
 
+> **📚 For complete setup and usage instructions, see the [Mobile Setup Guide](../../docs/guides/mobile-setup.md)**
+
+This file provides technical reference for the mobile module. For setup, configuration, and development workflow, refer to the main documentation.
+
 ## Folder Structure
 
 ```

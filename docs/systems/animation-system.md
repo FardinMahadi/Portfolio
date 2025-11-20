@@ -443,5 +443,5 @@ useEffect(() => {
 
 For more information, see:
 
-- [Style Guide](./STYLE_GUIDE.md#animation-patterns)
-- [Cursor Effects](./CURSOR_EFFECTS.md)
+- [Style Guide](../reference/style-guide.md#animation-patterns)
+- [Cursor Effects](./cursor-effects.md)

@@ -110,7 +110,7 @@ Thank you for your interest in contributing to this portfolio project! This docu
    - Select your branch
    - Fill out PR template
 
-For detailed setup, see [Development Workflow](./DEVELOPMENT_WORKFLOW.md).
+For detailed setup, see [Development Workflow](./development-workflow.md).
 
 ---
 
@@ -260,7 +260,7 @@ Any other relevant information
 - Use index files
 - Group by feature
 
-For detailed standards, see [Style Guide](./STYLE_GUIDE.md).
+For detailed standards, see [Style Guide](../reference/style-guide.md).
 
 ---
 
@@ -276,7 +276,7 @@ For detailed standards, see [Style Guide](./STYLE_GUIDE.md).
 ### Documentation Files
 
 - `README.md` - Project overview
-- `doc/` - Detailed documentation
+- `docs/` - Detailed documentation
 - Code comments - Complex logic
 
 ---
@@ -341,6 +341,6 @@ Thank you for contributing! 🎉
 
 For more information:
 
-- [Development Workflow](./DEVELOPMENT_WORKFLOW.md)
-- [Style Guide](./STYLE_GUIDE.md)
-- [AI Training Guide](./AI_TRAINING_GUIDE.md)
+- [Development Workflow](./development-workflow.md)
+- [Style Guide](../reference/style-guide.md)
+- [AI Training Guide](../ai/training-guide.md)

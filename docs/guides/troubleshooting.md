@@ -538,6 +538,6 @@ Common fixes:
 
 For more information:
 
-- [Development Workflow](./DEVELOPMENT_WORKFLOW.md)
-- [Deployment Guide](./DEPLOYMENT_GUIDE.md)
-- [API Documentation](./API_DOCUMENTATION.md)
+- [Development Workflow](../getting-started/development-workflow.md)
+- [Deployment Guide](./deployment.md)
+- [API Documentation](../reference/api.md)

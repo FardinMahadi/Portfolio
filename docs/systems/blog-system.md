@@ -415,5 +415,5 @@ The blog system provides:
 
 For more information, see:
 
-- [Data Structures](./DATA_STRUCTURES.md#blog-posts-data)
-- [Component Reference](./COMPONENT_REFERENCE.md#blog-components)
+- [Data Structures](../reference/data-structures.md#blog-posts-data)
+- [Component Reference](../reference/components.md#blog-components)

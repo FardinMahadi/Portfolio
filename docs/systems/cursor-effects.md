@@ -380,5 +380,5 @@ Always test that effects are disabled on mobile:
 
 For more information, see:
 
-- [Style Guide](./STYLE_GUIDE.md#cursor-effects)
-- [Component Reference](./COMPONENT_REFERENCE.md#effects-components)
+- [Style Guide](../reference/style-guide.md#cursor-effects)
+- [Component Reference](../reference/components.md#effects-components)

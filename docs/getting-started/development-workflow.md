@@ -443,6 +443,6 @@ Development workflow:
 
 For more information:
 
-- [Style Guide](./STYLE_GUIDE.md)
-- [Contributing](./CONTRIBUTING.md)
-- [Troubleshooting](./TROUBLESHOOTING.md)
+- [Style Guide](../reference/style-guide.md)
+- [Contributing](./contributing.md)
+- [Troubleshooting](../guides/troubleshooting.md)
