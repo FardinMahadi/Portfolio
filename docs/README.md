@@ -1,6 +1,7 @@
 # Documentation Index
 
-Welcome to the portfolio project documentation! This index provides quick access to all documentation resources.
+Welcome to the portfolio project documentation! This index provides quick access to all
+documentation resources.
 
 ## Quick Start
 
@@ -14,7 +15,8 @@ New to the project? Start here:
 
 ### Getting Started
 
-- **[Development Workflow](./getting-started/development-workflow.md)** - Local setup, Git workflow, and common tasks
+- **[Development Workflow](./getting-started/development-workflow.md)** - Local setup, Git workflow,
+  and common tasks
 - **[Contributing](./getting-started/contributing.md)** - How to contribute to the project
 - **[Environment Variables](./getting-started/environment-variables.md)** - Configuration and setup
 
@@ -109,32 +111,27 @@ Essential reading:
 
 ### Common Tasks
 
-**Setting up locally:**
-→ [Development Workflow - Local Setup](./getting-started/development-workflow.md#local-setup)
+**Setting up locally:** →
+[Development Workflow - Local Setup](./getting-started/development-workflow.md#local-setup)
 
-**Adding a new component:**
-→ [Component Reference](./reference/components.md) + [Style Guide - Component Patterns](./reference/style-guide.md#component-patterns)
+**Adding a new component:** → [Component Reference](./reference/components.md) +
+[Style Guide - Component Patterns](./reference/style-guide.md#component-patterns)
 
-**Adding a blog post:**
-→ [Blog System - Adding Blog Posts](./systems/blog-system.md#adding-blog-posts)
+**Adding a blog post:** →
+[Blog System - Adding Blog Posts](./systems/blog-system.md#adding-blog-posts)
 
-**Deploying to production:**
-→ [Deployment Guide](./guides/deployment.md)
+**Deploying to production:** → [Deployment Guide](./guides/deployment.md)
 
-**Fixing build errors:**
-→ [Troubleshooting - Build Errors](./guides/troubleshooting.md#build-errors)
+**Fixing build errors:** →
+[Troubleshooting - Build Errors](./guides/troubleshooting.md#build-errors)
 
-**Understanding the color system:**
-→ [Color Palette System](./systems/color-palette.md)
+**Understanding the color system:** → [Color Palette System](./systems/color-palette.md)
 
-**Working with animations:**
-→ [Animation System](./systems/animation-system.md)
+**Working with animations:** → [Animation System](./systems/animation-system.md)
 
-**API integration:**
-→ [API Documentation](./reference/api.md)
+**API integration:** → [API Documentation](./reference/api.md)
 
-**Mobile development:**
-→ [Mobile Setup Guide](./guides/mobile-setup.md)
+**Mobile development:** → [Mobile Setup Guide](./guides/mobile-setup.md)
 
 ## Documentation Categories
 
@@ -234,6 +231,10 @@ When updating docs:
 - Test code snippets
 - Update links when moving files
 
+Before reshaping architecture or mentoring behavior, read `.cursor/commands/code-structure.md` and
+`.cursor/commands/tutor.md` (and the new companion guides) so you understand the expected
+checkpoints, decision logging, and learner-facing tone that keep the project consistent.
+
 ## Documentation Maintenance
 
 ### Keeping Docs Updated
@@ -267,7 +268,8 @@ This documentation covers:
 - ✅ Content management
 - ✅ AI assistant resources
 
-**Start with**: [Development Workflow](./getting-started/development-workflow.md) for setup, or [Style Guide](./reference/style-guide.md) for coding standards.
+**Start with**: [Development Workflow](./getting-started/development-workflow.md) for setup, or
+[Style Guide](./reference/style-guide.md) for coding standards.
 
 ---
 

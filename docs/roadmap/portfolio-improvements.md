@@ -116,5 +116,16 @@ are grouped by area with motivation and metrics where applicable.
 - **Analytics** – Add tracking to measure which projects or CTAs get traction.
 - **Core Web Vitals** – Monitor LCP/FID/CLS as new hero animations or content are added.
 
+## 13. Documentation & Best Practices
+
+- **Future guides** – Build `docs/ai/architecture.md` and `docs/ai/testing.md` so the structural
+  roadmap in this document links directly to the architectural rationale (layout, rendering choices,
+  shared layers) and the verification steps (lint, format, testing, manual smoke checks) that should
+  accompany every structural change. Reference `docs/ai/future-guides.md` to show where the
+  recommendations live.
+- **Decision traceability** – Use `docs/ai/code-decisions.md` to describe why directories or exports
+  moved in response to these guides so reviewers can trace the rationale without hunting through
+  commits.
+
 This roadmap captures the high-level requests; feel free to convert each bullet into an issue/PR
 when you're ready to tackle it.

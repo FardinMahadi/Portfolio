@@ -1,8 +1,34 @@
 ## Code Structure Guidance
 
-1. **Start with docs/ai/README.md** – Review the high-level goals, architecture principles, and conventions documented there before changing structural elements.
-2. **Follow subsystem guides** – Refer to the relevant `docs/ai` subfolders (e.g., `training-guide`, `quick-prompt`) for practice patterns such as component naming, layout decisions, or animation hooks; mirror their directory examples.
-3. **Preserve existing folders** – When adding new components or utilities, keep them aligned with their thematic homes (`components`, `data`, `lib`, etc.) as outlined in the guides so navigation stays logical. When refactoring types, mirror the feature grouping under `src/components/types` (e.g., `about`, `landing`, `resume`, `shared`) and rely on the barrel `index.ts` files so consumers import from the feature directory instead of individual files.
-4. **Document architectural decisions** – If a change introduces a new pattern, log it back in `docs/ai/architecture` (or whichever guide fits) so future contributors can follow the same rationale.
-5. **Validate with lint/tests** – After restructuring and whenever new code is written, run `pnpm lint -- --fix` (or other relevant verification) so lint errors are resolved and imports stay aligned with the architecture described in the guides.
-6. **Keep code readable** – Use consistent naming, spacing, and file grouping as the docs recommend so any parts of the project remain easy for subsequent contributors to understand.
+1. **Reaffirm the architectural intent.** Start by reviewing `docs/ai/README.md`, then check
+   `docs/ai/architecture` (and any subsystem-specific files such as `docs/ai/training-guide` or
+   `docs/ai/quick-prompt`) to understand the current rationale, constraints, and expected data
+   flows. Note any unmet assumptions before rearranging directories so your changes align with
+   documented goals.
+2. **Verify the stack-level checks.** Before committing structure changes, confirm that your new
+   layout, exports, or naming conventions match the expectations described in `docs/ai/architecture`
+   (e.g., feature boundaries, shared layers, data-versus-ui rules). If you deviate, record why the
+   existing guidance wasn’t sufficient and which tests or manual checks you ran to feel confident.
+3. **Keep files in thematic homes.** Add or refactor components/utilities within their established
+   folders (`components`, `data`, `lib`, `hooks`, etc.). When reorganizing types or barrels,
+   maintain the hierarchy under `src/components/types` and prefer exporting through the
+   feature-level `index.ts` files so consumers continue importing via namespaces like
+   `from "@/components/types/landing"`.
+4. **Capture and surface rationales.** After implementing the change, summarize the architectural
+   motivations, migration notes, or constraints in `docs/ai/architecture` (or a more specific guide)
+   so future contributors can trace why this layout exists and avoid accidental reversions.
+5. **Document decisions in the log.** For each non-trivial layout change, add a short entry to
+   `docs/ai/code-decisions.md` (create the file if it’s missing). Use this template to keep things
+   consistent:
+   - Date: YYYY-MM-DD
+   - Change: [What was moved/refactored]
+   - Rationale: [Why this structure better matches the architecture goals]
+   - Impact: [Systems, imports, or consumers affected]
+
+6. **Run formatting and lint before submitting.** After every structural adjustment, execute
+   `pnpm format` and then `pnpm lint`; document the commands you ran in your PR/TODO comment so
+   reviewers know the clean state is verified. This step enforces consistent imports, spacing, and
+   TypeScript hygiene before anyone merges the change.
+7. **Keep the surface understandable.** Continue using the naming, spacing, and grouping conventions
+   from the docs so new contributors can read the structure quickly and understand how features map
+   to folders.
