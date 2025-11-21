@@ -1,41 +1,40 @@
-import Link from "next/link";
-import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Footer } from "@/components/LandingPage/Footer";
-import { AboutSection } from "@/components/about/AboutSection";
-import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
-import { PageTransition } from "@/components/effects/PageTransition";
-import { Navigation } from "@/components/shared/navigation/Navigation";
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import { AboutSection } from '@/components/about/AboutSection';
+import { Footer } from '@/components/LandingPage/Footer/Footer';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { PageTransition } from '@/components/effects/PageTransition';
+import { Navigation } from '@/components/shared/navigation/Navigation';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "About Me",
+  title: 'About Me',
   description:
-    "Full Stack Developer passionate about creating seamless web experiences. Expertise in MERN stack (MongoDB, Express, React, Node.js) and modern frameworks like Next.js. Transforming ideas into robust, scalable applications.",
+    'Full Stack Developer passionate about creating seamless web experiences. Expertise in MERN stack (MongoDB, Express, React, Node.js) and modern frameworks like Next.js. Transforming ideas into robust, scalable applications.',
   keywords: [
-    "about",
-    "full stack developer",
-    "MERN stack",
-    "web development",
-    "React",
-    "Next.js",
-    "Node.js",
-    "TypeScript",
-    "portfolio",
+    'about',
+    'full stack developer',
+    'MERN stack',
+    'web development',
+    'React',
+    'Next.js',
+    'Node.js',
+    'TypeScript',
+    'portfolio',
   ],
   canonical: `${siteUrl}/about`,
 });
 
 const backdropStyle = {
-  backgroundColor: "var(--color-background)",
+  backgroundColor: 'var(--color-background)',
   backgroundImage: `
     radial-gradient(circle at top, color-mix(in srgb, var(--color-primary) 35%, transparent) 0%, transparent 55%),
     radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0%, transparent 45%),
     radial-gradient(circle at bottom, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 60%)
   `,
-  backgroundAttachment: "fixed",
+  backgroundAttachment: 'fixed',
 };
 
 export default function AboutPage() {
@@ -56,16 +55,11 @@ export default function AboutPage() {
                 Ready to build your next product?
               </h2>
               <p className="mt-3 text-theme-text/70">
-                I collaborate with product-minded teams to ship polished,
-                accessible experiences. Tell me about your roadmap and I&apos;ll
-                help you get there faster.
+                I collaborate with product-minded teams to ship polished, accessible experiences.
+                Tell me about your roadmap and I&apos;ll help you get there faster.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="min-h-[48px] px-8 text-white"
-                >
+                <Button asChild size="lg" className="min-h-[48px] px-8 text-white">
                   <Link href="/contact" aria-label="Navigate to contact page">
                     Start a conversation
                   </Link>

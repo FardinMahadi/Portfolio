@@ -1,41 +1,40 @@
-import Link from "next/link";
-import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Footer } from "@/components/LandingPage/Footer";
-import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
-import { PageTransition } from "@/components/effects/PageTransition";
-import { Navigation } from "@/components/shared/navigation/Navigation";
-import { ExperienceSection } from "@/components/experience/ExperienceSection";
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import { Footer } from '@/components/LandingPage/Footer/Footer';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { PageTransition } from '@/components/effects/PageTransition';
+import { Navigation } from '@/components/shared/navigation/Navigation';
+import { ExperienceSection } from '@/components/experience/ExperienceSection';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Work Experience",
+  title: 'Work Experience',
   description:
-    "A timeline of my professional journey, showcasing my growth and contributions in web development and software engineering. Experience in frontend development, React, Next.js, and TypeScript.",
+    'A timeline of my professional journey, showcasing my growth and contributions in web development and software engineering. Experience in frontend development, React, Next.js, and TypeScript.',
   keywords: [
-    "experience",
-    "work history",
-    "career",
-    "frontend engineer",
-    "web development",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "professional experience",
+    'experience',
+    'work history',
+    'career',
+    'frontend engineer',
+    'web development',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'professional experience',
   ],
   canonical: `${siteUrl}/experience`,
 });
 
 const backdropStyle = {
-  backgroundColor: "var(--color-background)",
+  backgroundColor: 'var(--color-background)',
   backgroundImage: `
     radial-gradient(circle at top, color-mix(in srgb, var(--color-primary) 35%, transparent) 0%, transparent 55%),
     radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0%, transparent 45%),
     radial-gradient(circle at bottom, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 60%)
   `,
-  backgroundAttachment: "fixed",
+  backgroundAttachment: 'fixed',
 };
 
 export default function ExperiencePage() {
@@ -56,16 +55,12 @@ export default function ExperiencePage() {
                 Let&apos;s bring this experience to your team.
               </h2>
               <p className="mt-3 text-theme-text/70">
-                I partner with engineering leads and founders to deliver
-                production-ready, accessible interfaces. Tell me about your
-                technical gap—we&apos;ll design the fastest path to impact.
+                I partner with engineering leads and founders to deliver production-ready,
+                accessible interfaces. Tell me about your technical gap—we&apos;ll design the
+                fastest path to impact.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="min-h-[48px] px-8 text-white"
-                >
+                <Button asChild size="lg" className="min-h-[48px] px-8 text-white">
                   <Link href="/contact" aria-label="Navigate to contact page">
                     Book a call
                   </Link>

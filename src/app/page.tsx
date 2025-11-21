@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Footer } from "@/components/LandingPage/Footer";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { IntroSummary } from "@/components/LandingPage/IntroSummary";
-import { Navigation } from "@/components/shared/navigation/Navigation";
-import { BlogSection } from "@/components/LandingPage/blog/BlogSection";
-import { HeroSection } from "@/components/LandingPage/hero/HeroSection";
-import { ContactSection } from "@/components/LandingPage/contact/ContactSection";
-import { ProjectsSection } from "@/components/LandingPage/projects/ProjectsSection";
+import { useEffect, useState } from 'react';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { Footer } from '@/components/LandingPage/Footer/Footer';
+import { Navigation } from '@/components/shared/navigation/Navigation';
+import { BlogSection } from '@/components/LandingPage/blog/BlogSection';
+import { HeroSection } from '@/components/LandingPage/hero/HeroSection';
+import { ContactSection } from '@/components/LandingPage/contact/ContactSection';
+import { IntroSummary } from '@/components/LandingPage/IntroSummary/IntroSummary';
+import { ProjectsSection } from '@/components/LandingPage/projects/ProjectsSection';
 
 export default function Home() {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -19,17 +19,17 @@ export default function Home() {
     setMounted(true);
 
     // Only run client-side code after mount
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
-    document.documentElement.classList.add("dark");
+    document.documentElement.classList.add('dark');
 
     // Check if device supports touch
     const checkTouchDevice = () => {
       setIsTouchDevice(
-        "ontouchstart" in window ||
+        'ontouchstart' in window ||
           navigator.maxTouchPoints > 0 ||
           // @ts-expect-error - for older browsers (IE/Edge legacy)
-          navigator.msMaxTouchPoints > 0
+          navigator.msMaxTouchPoints > 0,
       );
     };
     checkTouchDevice();
@@ -41,7 +41,7 @@ export default function Home() {
     <ErrorBoundary>
       <div
         className={`min-h-screen bg-[#0a0e1a] text-slate-100 overflow-x-hidden ${
-          mounted && !isTouchDevice ? "cursor-none" : ""
+          mounted && !isTouchDevice ? 'cursor-none' : ''
         }`}
       >
         {/* Skip to main content link for accessibility */}

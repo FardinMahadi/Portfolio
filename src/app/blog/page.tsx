@@ -1,25 +1,17 @@
-import { Metadata } from "next";
-import { Footer } from "@/components/LandingPage/Footer";
-import { BlogIndexPage } from "@/components/blog/BlogIndexPage";
-import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
-import { PageTransition } from "@/components/effects/PageTransition";
-import { Navigation } from "@/components/shared/navigation/Navigation";
+import { Metadata } from 'next';
+import { Footer } from '@/components/LandingPage/Footer/Footer';
+import { BlogIndexPage } from '@/components/blog/BlogIndexPage';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { PageTransition } from '@/components/effects/PageTransition';
+import { Navigation } from '@/components/shared/navigation/Navigation';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Blog Articles",
+  title: 'Blog Articles',
   description:
-    "Read articles about web development, programming tips, career insights, and learning resources. Learn from practical examples and personal experiences in full-stack development.",
-  keywords: [
-    "blog",
-    "programming",
-    "web development",
-    "learning",
-    "tutorials",
-    "articles",
-  ],
+    'Read articles about web development, programming tips, career insights, and learning resources. Learn from practical examples and personal experiences in full-stack development.',
+  keywords: ['blog', 'programming', 'web development', 'learning', 'tutorials', 'articles'],
   canonical: `${siteUrl}/blog`,
 });
 
