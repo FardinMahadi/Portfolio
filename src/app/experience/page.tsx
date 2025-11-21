@@ -48,7 +48,7 @@ export default function ExperiencePage() {
         <main className="relative z-10 pt-16">
           <ExperienceSection />
           <section className="mt-16 px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl rounded-2xl border border-theme-border/50 bg-linear-to-br from-(--color-surface) to-(--color-background) p-8 text-center shadow-lg shadow-theme-secondary/10">
+            <div className="mx-auto max-w-4xl rounded-2xl border border-theme-border/50 bg-gradient-to-br from-(--color-surface) to-(--color-background) p-8 text-center shadow-lg shadow-theme-secondary/10">
               <p className="font-mono text-sm uppercase tracking-[0.3em] text-theme-secondary/70">
                 Hiring Now?
               </p>

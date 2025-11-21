@@ -5,11 +5,9 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Navigation } from "@/components/LandingPage/Navigation";
 import { BlogSection } from "@/components/LandingPage/BlogSection";
 import { HeroSection } from "@/components/LandingPage/HeroSection";
-import { AboutSection } from "@/components/LandingPage/AboutSection";
 import { IntroSummary } from "@/components/LandingPage/IntroSummary";
 import { ContactSection } from "@/components/LandingPage/ContactSection";
 import { ProjectsSection } from "@/components/LandingPage/ProjectsSection";
-import { ExperienceSection } from "@/components/LandingPage/ExperienceSection";
 
 export default function Home() {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -58,8 +56,6 @@ export default function Home() {
         <main id="main-content" role="main">
           <HeroSection />
           <IntroSummary />
-          <AboutSection />
-          <ExperienceSection />
           <ProjectsSection />
           <BlogSection />
           <ContactSection />

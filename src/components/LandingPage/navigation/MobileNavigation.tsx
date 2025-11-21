@@ -1,12 +1,14 @@
 "use client";
 
+import type { Dispatch, MouseEvent, SetStateAction } from "react";
+
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Code2, Terminal, X } from "lucide-react";
-import type { Dispatch, MouseEvent, SetStateAction } from "react";
 
 import { Button } from "../../ui/button";
 import { ColorPaletteSwitcher } from "../../ui/ColorPaletteSwitcher";
+
 import type { NavItemsProps } from "../../types/NavItemsProps";
 
 type MobileNavigationProps = {

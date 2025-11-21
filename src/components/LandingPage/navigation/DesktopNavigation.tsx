@@ -1,13 +1,15 @@
 "use client";
 
+import type { Dispatch, MouseEvent, SetStateAction } from "react";
+
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, Terminal, X } from "lucide-react";
-import type { MouseEvent, Dispatch, SetStateAction } from "react";
 
 import { Button } from "../../ui/button";
-import type { NavItemsProps } from "../../types/NavItemsProps";
 import { ColorPaletteSwitcher } from "../../ui/ColorPaletteSwitcher";
+
+import type { NavItemsProps } from "../../types/NavItemsProps";
 
 type DesktopNavigationProps = {
   isScrolled: boolean;
@@ -187,7 +189,7 @@ export function DesktopNavigation({
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 bg-linear-to-br from-(--color-background) to-(--color-surface) border border-slate-800 rounded-lg shadow-xl min-w-[200px]"
+                          className="absolute top-full left-0 mt-2 bg-gradient-to-br from-(--color-background) to-(--color-surface) border border-slate-800 rounded-lg shadow-xl min-w-[200px]"
                           onMouseEnter={() => setOpenSubmenu(item.name)}
                           onMouseLeave={() => setOpenSubmenu(null)}
                         >
