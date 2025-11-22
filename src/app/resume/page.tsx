@@ -4,6 +4,7 @@ import { Footer } from '@/components/LandingPage/Footer/Footer';
 import { ResumeHero } from '@/components/resume/ResumeRouteHero';
 import { ResumePreview } from '@/components/resume/ResumePreview';
 import { Navigation } from '@/components/shared/navigation/Navigation';
+import { FeatureUnavailable } from '@/components/shared/FeatureUnavailable';
 
 export const metadata: Metadata = {
   title: 'Resume | Mahadi Hasan Fardin',
@@ -28,8 +29,9 @@ export default function ResumePage() {
         <Navigation />
       </header>
       <main className="relative z-10 mx-auto max-w-6xl px-4 pt-32 pb-16 md:pb-24">
-        <ResumeHero portfolioUrl={resumeData.personalInfo.portfolio} />
-        <ResumePreview />
+        {/* <ResumeHero portfolioUrl={resumeData.personalInfo.portfolio} /> */}
+        <FeatureUnavailable />
+        {/* <ResumePreview /> */}
       </main>
       <footer className="mt-10 border-t border-theme-border/40 bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
         <Footer />
