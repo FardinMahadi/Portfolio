@@ -1,12 +1,14 @@
 # Systems Documentation
 
-This section documents the various systems and features that power the portfolio.
+This section documents the various systems and features that power the
+portfolio.
 
 ## Available Systems
 
 ### Animation System
 
-[**Animation System**](./animation-system.md) - Framer Motion and GSAP animation patterns.
+[**Animation System**](./animation-system.md) - Framer Motion and GSAP animation
+patterns.
 
 **Topics covered:**
 
@@ -31,7 +33,8 @@ This section documents the various systems and features that power the portfolio
 
 ### Color Palette System
 
-[**Color Palette System**](./color-palette.md) - Theme system and color management.
+[**Color Palette System**](./color-palette.md) - Theme system and color
+management.
 
 **Topics covered:**
 

@@ -1,19 +1,16 @@
-"use client";
+'use client';
 
-import type { PageTransitionProps } from "@/components/types/shared/effects";
+import type { PageTransitionProps } from '@/components/types/shared/effects';
 
-import { usePathname } from "next/navigation";
-import { TRANSITION_PRESETS } from "@/lib/transitions";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from 'next/navigation';
+import { TRANSITION_PRESETS } from '@/lib/transitions';
+import { motion, AnimatePresence } from 'framer-motion';
 
 /**
  * Page-level transition wrapper with Framer Motion fallback
  * Works alongside View Transitions API for browsers without support
  */
-export function PageTransition({
-  children,
-  variant = "fade",
-}: PageTransitionProps) {
+export function PageTransition({ children, variant = 'fade' }: PageTransitionProps) {
   const pathname = usePathname();
   const preset = TRANSITION_PRESETS[variant];
 
@@ -40,7 +37,7 @@ export function PageTransition({
     // Extract numbers from cubic-bezier string
     const match = easing.match(/cubic-bezier\(([^)]+)\)/);
     if (match) {
-      const values = match[1].split(",").map((v) => parseFloat(v.trim()));
+      const values = match[1].split(',').map(v => parseFloat(v.trim()));
       if (values.length === 4) {
         return values as [number, number, number, number];
       }

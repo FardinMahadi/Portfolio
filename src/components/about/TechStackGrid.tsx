@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import type { TechStackGridProps } from "@/components/types/about";
+import type { TechStackGridProps } from '@/components/types/about';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-import { techStack } from "./techStack";
+import { techStack } from './techStack';
 
 export function TechStackGrid({ isInView }: TechStackGridProps) {
   return (
@@ -14,8 +14,8 @@ export function TechStackGrid({ isInView }: TechStackGridProps) {
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.4 }}
     >
-      <h3 className="mb-6 font-mono text-xl text-theme-text">Tech Stack</h3>
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
+      <h3 className="text-theme-text mb-6 font-mono text-xl">Tech Stack</h3>
+      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
         {techStack.map((tech, index) => (
           <motion.div
             key={tech.name}
@@ -26,13 +26,13 @@ export function TechStackGrid({ isInView }: TechStackGridProps) {
             className="group relative"
           >
             <div
-              className="flex aspect-square flex-col items-center justify-center rounded-lg border border-theme-border/60 bg-theme-surface/80 p-4 backdrop-blur-sm transition-all duration-300 hover:border-theme-primary/50"
+              className="border-theme-border/60 bg-theme-surface/80 hover:border-theme-primary/50 flex aspect-square flex-col items-center justify-center rounded-lg border p-4 backdrop-blur-sm transition-all duration-300"
               style={{
                 background:
-                  "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 92%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))",
+                  'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 92%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))',
               }}
             >
-              <div className="text-3xl mb-2">
+              <div className="mb-2 text-3xl">
                 <Image
                   src={tech.icon.link}
                   alt={`${tech.name} technology icon - Frontend and backend development tool`}
@@ -43,13 +43,11 @@ export function TechStackGrid({ isInView }: TechStackGridProps) {
                   quality={90}
                 />
               </div>
-              <div className="text-center text-xs font-mono text-theme-text/70">
-                {tech.name}
-              </div>
+              <div className="text-theme-text/70 text-center font-mono text-xs">{tech.name}</div>
 
               {/* Glow effect on hover */}
               <div
-                className={`absolute inset-0 rounded-lg bg-gradient-to-br ${tech.color} opacity-0 transition-opacity duration-300 blur-xl group-hover:opacity-20`}
+                className={`absolute inset-0 rounded-lg bg-gradient-to-br ${tech.color} opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20`}
               />
             </div>
           </motion.div>

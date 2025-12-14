@@ -33,7 +33,8 @@ Both systems:
 
 ### Description
 
-An animated cursor that responds to interactive elements marked with the `.cursor-target` class. Features corner animations and smooth following.
+An animated cursor that responds to interactive elements marked with the
+`.cursor-target` class. Features corner animations and smooth following.
 
 ### Location
 
@@ -102,7 +103,8 @@ Add the `.cursor-target` class to interactive elements:
 
 ### Description
 
-A cursor effect specifically for blog pages that displays category labels as you hover over blog-related elements.
+A cursor effect specifically for blog pages that displays category labels as you
+hover over blog-related elements.
 
 ### Location
 
@@ -173,10 +175,10 @@ Both cursor effects automatically detect and disable on mobile devices.
 
 ```typescript
 const isMobile = useMemo(() => {
-  if (typeof window === "undefined") return false;
+  if (typeof window === 'undefined') return false;
 
   const hasTouchScreen =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isSmallScreen = window.innerWidth <= 768;
   const mobileRegex =
     /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
@@ -250,14 +252,14 @@ Cursor effects use CSS classes that can be customized:
 Both cursor effects use GSAP for animations:
 
 ```typescript
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
 // Smooth cursor movement
 gsap.to(cursorRef.current, {
   x: mouseX,
   y: mouseY,
   duration: 0.1,
-  ease: "power3.out",
+  ease: 'power3.out',
 });
 
 // Corner animations
@@ -265,7 +267,7 @@ gsap.to(corner, {
   x: targetX,
   y: targetY,
   duration: 0.2,
-  ease: "power2.out",
+  ease: 'power2.out',
 });
 ```
 
@@ -292,8 +294,8 @@ const scrollHandler = () => {
 
 // Cleanup
 return () => {
-  window.removeEventListener("mousemove", moveHandler);
-  window.removeEventListener("scroll", scrollHandler);
+  window.removeEventListener('mousemove', moveHandler);
+  window.removeEventListener('scroll', scrollHandler);
 };
 ```
 

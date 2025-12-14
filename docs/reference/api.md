@@ -1,6 +1,7 @@
 # API Documentation
 
-This document describes the API routes available in this Next.js portfolio project.
+This document describes the API routes available in this Next.js portfolio
+project.
 
 ## Table of Contents
 
@@ -22,7 +23,8 @@ POST /api/contact
 
 ### Description
 
-Handles contact form submissions from the portfolio website. Validates input, sends emails via Resend, and returns appropriate responses.
+Handles contact form submissions from the portfolio website. Validates input,
+sends emails via Resend, and returns appropriate responses.
 
 ### Request
 
@@ -99,7 +101,8 @@ Content-Type: application/json
 ### Validation Rules
 
 1. **Name**: Required, non-empty string
-2. **Email**: Required, must match email regex pattern: `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`
+2. **Email**: Required, must match email regex pattern:
+   `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`
 3. **Message**: Required, maximum length of 5000 characters
 
 ### Email Integration
@@ -133,7 +136,7 @@ export async function POST(request: NextRequest) {
     // Validation
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        { error: 'All fields are required' },
         { status: 400 }
       );
     }
@@ -142,7 +145,7 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { error: "Invalid email address" },
+        { error: 'Invalid email address' },
         { status: 400 }
       );
     }
@@ -150,7 +153,7 @@ export async function POST(request: NextRequest) {
     // Message length check
     if (message.length > 5000) {
       return NextResponse.json(
-        { error: "Message is too long" },
+        { error: 'Message is too long' },
         { status: 400 }
       );
     }
@@ -163,9 +166,9 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: "Failed to send message. Please try again later." },
+      { error: 'Failed to send message. Please try again later.' },
       { status: 500 }
     );
   }
@@ -283,20 +286,20 @@ curl -X POST http://localhost:3000/api/contact \
 #### Using JavaScript Fetch
 
 ```javascript
-fetch("/api/contact", {
-  method: "POST",
+fetch('/api/contact', {
+  method: 'POST',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    name: "Test User",
-    email: "test@example.com",
-    message: "This is a test message",
+    name: 'Test User',
+    email: 'test@example.com',
+    message: 'This is a test message',
   }),
 })
-  .then((res) => res.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.error("Error:", error));
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
 ```
 
 ### Test Cases
@@ -330,7 +333,8 @@ fetch("/api/contact", {
 
 1. **Input Validation**: All inputs are validated before processing
 2. **Rate Limiting**: Basic rate limiting via message length check
-3. **Email Sanitization**: Email addresses are validated but not sanitized (handled by Resend)
+3. **Email Sanitization**: Email addresses are validated but not sanitized
+   (handled by Resend)
 4. **Error Messages**: Generic error messages prevent information leakage
 5. **CORS**: Handled by Next.js middleware
 

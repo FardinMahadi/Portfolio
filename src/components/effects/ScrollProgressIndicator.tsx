@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type { ScrollProgressIndicatorProps } from "@/components/types/shared/effects";
+import type { ScrollProgressIndicatorProps } from '@/components/types/shared/effects';
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 export function ScrollProgressIndicator({
-  position = "top",
-  height = "2px",
+  position = 'top',
+  height = '2px',
   showOnMobile = false,
 }: ScrollProgressIndicatorProps) {
   const { scrollYProgress } = useScroll();
@@ -17,30 +17,30 @@ export function ScrollProgressIndicator({
   });
 
   const positionClasses = {
-    top: "top-0 left-0 right-0",
-    bottom: "bottom-0 left-0 right-0",
-    left: "left-0 top-0 bottom-0",
-    right: "right-0 top-0 bottom-0",
+    top: 'top-0 left-0 right-0',
+    bottom: 'bottom-0 left-0 right-0',
+    left: 'left-0 top-0 bottom-0',
+    right: 'right-0 top-0 bottom-0',
   };
 
-  const isHorizontal = position === "left" || position === "right";
+  const isHorizontal = position === 'left' || position === 'right';
 
   return (
     <motion.div
-      className={`fixed ${positionClasses[position]} z-[9998] pointer-events-none ${
-        showOnMobile ? "" : "hidden md:block"
+      className={`fixed ${positionClasses[position]} pointer-events-none z-[9998] ${
+        showOnMobile ? '' : 'hidden md:block'
       }`}
       style={
         isHorizontal
           ? {
               width: height,
               scaleY: scaleX,
-              transformOrigin: "top",
+              transformOrigin: 'top',
             }
           : {
               height: height,
               scaleX: scaleX,
-              transformOrigin: "left",
+              transformOrigin: 'left',
             }
       }
     >

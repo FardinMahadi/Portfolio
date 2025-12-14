@@ -1,6 +1,8 @@
 # Project Style Guide & Patterns
 
-This document outlines the coding style, patterns, and conventions used throughout this portfolio project. Use this guide to maintain consistency and train AI assistants to follow similar patterns.
+This document outlines the coding style, patterns, and conventions used
+throughout this portfolio project. Use this guide to maintain consistency and
+train AI assistants to follow similar patterns.
 
 ## Table of Contents
 
@@ -78,7 +80,7 @@ src/
 
 ```typescript
 // Variables: camelCase
-const siteUrl = "https://example.com";
+const siteUrl = 'https://example.com';
 const isScrolled = false;
 
 // Functions: camelCase
@@ -117,14 +119,14 @@ export function AboutSection() {}
 7. Styles
 
 ```typescript
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "../ui/button";
-import { NavItemsProps } from "../types/NavItemsProps";
-import { generateMetadata } from "@/lib/seo";
-import "./styles.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '../ui/button';
+import { NavItemsProps } from '../types/NavItemsProps';
+import { generateMetadata } from '@/lib/seo';
+import './styles.css';
 ```
 
 ### Code Formatting
@@ -391,31 +393,31 @@ const schema = {
 // In layout.tsx or page metadata
 export const metadata: Metadata = {
   title: {
-    default: "Full Title | Site Name",
-    template: "%s | Site Name",
+    default: 'Full Title | Site Name',
+    template: '%s | Site Name',
   },
-  description: "Descriptive meta description (150-160 chars)",
-  keywords: ["keyword1", "keyword2"],
+  description: 'Descriptive meta description (150-160 chars)',
+  keywords: ['keyword1', 'keyword2'],
   openGraph: {
-    type: "website",
-    locale: "en_US",
+    type: 'website',
+    locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: "Full Title",
-    description: "OG description",
+    title: 'Full Title',
+    description: 'OG description',
     images: [
       {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Alt text",
+        alt: 'Alt text',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Title",
-    description: "Description",
+    card: 'summary_large_image',
+    title: 'Title',
+    description: 'Description',
     images: [`${siteUrl}/og-image.png`],
   },
 };
@@ -453,9 +455,9 @@ text-slate-500        // Very muted text
 
 ```typescript
 // Mobile-first approach
-className = "px-4 sm:px-6 lg:px-8";
-className = "text-sm sm:text-base lg:text-lg";
-className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+className = 'px-4 sm:px-6 lg:px-8';
+className = 'text-sm sm:text-base lg:text-lg';
+className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
 ```
 
 #### Spacing Patterns
@@ -542,7 +544,7 @@ interface ExtendedProps extends ComponentProps {
 }
 
 // Union types
-type Status = "idle" | "loading" | "success" | "error";
+type Status = 'idle' | 'loading' | 'success' | 'error';
 
 // Utility types
 type Optional<T> = T | undefined;
@@ -566,7 +568,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 const ref = useRef<HTMLDivElement>(null);
 
 // Type state
-const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
 ```
 
 ---
@@ -607,7 +609,9 @@ const HeavyComponent = dynamic(() => import("./HeavyComponent"), {
 
 ### Loading States
 
-The project includes a comprehensive loading component system located in `src/components/ui/loading/`. All loading components follow the terminal/code editor aesthetic and integrate with the color palette system.
+The project includes a comprehensive loading component system located in
+`src/components/ui/loading/`. All loading components follow the terminal/code
+editor aesthetic and integrate with the color palette system.
 
 #### LoadingSpinner
 
@@ -972,27 +976,27 @@ export interface ComponentProps {
 // Always include comprehensive metadata
 export const metadata: Metadata = {
   title: {
-    default: "Full Descriptive Title | Brand Name",
-    template: "%s | Brand Name",
+    default: 'Full Descriptive Title | Brand Name',
+    template: '%s | Brand Name',
   },
-  description: "150-160 character description with keywords",
-  keywords: ["keyword1", "keyword2", "keyword3"],
-  authors: [{ name: "Author Name", url: siteUrl }],
-  creator: "Author Name",
-  publisher: "Author Name",
+  description: '150-160 character description with keywords',
+  keywords: ['keyword1', 'keyword2', 'keyword3'],
+  authors: [{ name: 'Author Name', url: siteUrl }],
+  creator: 'Author Name',
+  publisher: 'Author Name',
   openGraph: {
-    type: "website",
-    locale: "en_US",
+    type: 'website',
+    locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: "Title",
-    description: "Description",
+    title: 'Title',
+    description: 'Description',
     images: [{ url, width: 1200, height: 630, alt }],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Title",
-    description: "Description",
+    card: 'summary_large_image',
+    title: 'Title',
+    description: 'Description',
     images: [imageUrl],
   },
   robots: {
@@ -1001,8 +1005,8 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
 };
@@ -1201,7 +1205,7 @@ try {
 const validateForm = () => {
   const errors: Record<string, string> = {};
   if (!value.trim()) {
-    errors.field = "Field is required";
+    errors.field = 'Field is required';
   }
   return errors;
 };
@@ -1230,14 +1234,14 @@ const delay = index * 0.1;
 
 ```typescript
 // Test accessibility
-describe("Component", () => {
-  it("should be accessible", () => {
+describe('Component', () => {
+  it('should be accessible', () => {
     // Test ARIA attributes
     // Test keyboard navigation
     // Test screen reader compatibility
   });
 
-  it("should handle interactions", () => {
+  it('should handle interactions', () => {
     // Test user interactions
     // Test state changes
   });
@@ -1297,7 +1301,8 @@ describe("Component", () => {
 
 ### TargetCursor Component
 
-The `TargetCursor` component provides an animated cursor that responds to interactive elements marked with the `.cursor-target` class.
+The `TargetCursor` component provides an animated cursor that responds to
+interactive elements marked with the `.cursor-target` class.
 
 ```typescript
 // Elements that should trigger cursor effects
@@ -1327,9 +1332,9 @@ All cursor effects automatically detect and disable on mobile devices:
 
 ```typescript
 const isMobile = useMemo(() => {
-  if (typeof window === "undefined") return false;
+  if (typeof window === 'undefined') return false;
   const hasTouchScreen =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isSmallScreen = window.innerWidth <= 768;
   return hasTouchScreen && isSmallScreen;
 }, []);
@@ -1339,7 +1344,8 @@ const isMobile = useMemo(() => {
 
 - Always disable on mobile devices
 - Use `.cursor-target` class for interactive elements
-- Cursor effects are automatically disabled on blog routes (uses BlogCursorEffect instead)
+- Cursor effects are automatically disabled on blog routes (uses
+  BlogCursorEffect instead)
 - GSAP is used for smooth animations
 - Cursor effects use `mix-blend-difference` for visibility
 
@@ -1353,7 +1359,7 @@ API routes follow Next.js 15 App Router conventions:
 
 ```typescript
 // app/api/endpoint/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
@@ -1361,20 +1367,20 @@ export async function POST(request: NextRequest) {
 
     // Validate input
     if (!body.field) {
-      return NextResponse.json({ error: "Field is required" }, { status: 400 });
+      return NextResponse.json({ error: 'Field is required' }, { status: 400 });
     }
 
     // Process request
     const result = await processRequest(body);
 
     return NextResponse.json(
-      { message: "Success", data: result },
+      { message: 'Success', data: result },
       { status: 200 }
     );
   } catch (error) {
-    console.error("API Error:", error);
+    console.error('API Error:', error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: 'Internal server error' },
       { status: 500 }
     );
   }
@@ -1426,7 +1432,7 @@ The middleware (`src/middleware.ts`) handles:
 
 ```typescript
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 };
 ```
 
@@ -1514,16 +1520,16 @@ interface BlogPostsProps {
 ### Accessing Blog Posts
 
 ```typescript
-import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blogData";
+import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blogData';
 
 // Get all posts
 const posts = getAllBlogPosts();
 
 // Get single post
-const post = getBlogPostBySlug("slug-name");
+const post = getBlogPostBySlug('slug-name');
 
 // Filter by category
-const filtered = posts.filter((p) => p.category === "Beginners");
+const filtered = posts.filter(p => p.category === 'Beginners');
 ```
 
 ### Markdown Rendering
@@ -1555,4 +1561,5 @@ Each blog post includes:
 
 ---
 
-This style guide ensures consistency across the codebase and helps AI assistants understand the project's patterns and conventions.
+This style guide ensures consistency across the codebase and helps AI assistants
+understand the project's patterns and conventions.

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
-import type { SkeletonLoaderProps } from "./schema";
+import type { SkeletonLoaderProps } from './schema';
 
 export function SkeletonLoader({
-  variant = "text",
+  variant = 'text',
   width,
   height,
   count = 1,
@@ -14,36 +14,35 @@ export function SkeletonLoader({
   rounded = true,
 }: SkeletonLoaderProps) {
   const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const getVariantStyles = () => {
     const baseStyles = {
-      width: width || "100%",
+      width: width || '100%',
       height: height || undefined,
     };
 
     switch (variant) {
-      case "image":
+      case 'image':
         return {
           ...baseStyles,
-          height: height || "200px",
-          aspectRatio: "16/9",
+          height: height || '200px',
+          aspectRatio: '16/9',
         };
-      case "card":
+      case 'card':
         return {
           ...baseStyles,
-          height: height || "300px",
+          height: height || '300px',
         };
-      case "list":
+      case 'list':
         return {
           ...baseStyles,
-          height: height || "60px",
+          height: height || '60px',
         };
-      case "text":
+      case 'text':
         return {
           ...baseStyles,
-          height: height || "1em",
+          height: height || '1em',
         };
       default:
         return baseStyles;
@@ -54,11 +53,7 @@ export function SkeletonLoader({
 
   const skeletonItem = (
     <div
-      className={cn(
-        "relative overflow-hidden bg-slate-800/50",
-        rounded && "rounded-md",
-        className
-      )}
+      className={cn('relative overflow-hidden bg-slate-800/50', rounded && 'rounded-md', className)}
       style={styles}
     >
       <motion.div
@@ -70,13 +65,13 @@ export function SkeletonLoader({
           prefersReducedMotion
             ? {}
             : {
-                x: ["-100%", "100%"],
+                x: ['-100%', '100%'],
               }
         }
         transition={{
           duration: 1.5,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
       />
     </div>

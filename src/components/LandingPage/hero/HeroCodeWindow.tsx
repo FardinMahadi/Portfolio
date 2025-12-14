@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-import { HeroActions } from "./HeroActions";
+import { HeroActions } from './HeroActions';
 
 export function HeroCodeWindow() {
-  const [displayedText, setDisplayedText] = useState("");
-  const fullText = "FardinMahadi";
+  const [displayedText, setDisplayedText] = useState('');
+  const fullText = 'FardinMahadi';
 
   useEffect(() => {
     let index = 0;
@@ -33,39 +33,33 @@ export function HeroCodeWindow() {
         className="mb-8"
       >
         <div
-          className="flex items-center gap-2 rounded-t-lg border border-theme-border/70 bg-theme-surface/90 p-3 backdrop-blur"
+          className="border-theme-border/70 bg-theme-surface/90 flex items-center gap-2 rounded-t-lg border p-3 backdrop-blur"
           role="presentation"
         >
           <div className="flex gap-1.5" aria-hidden="true">
-            <div className="h-3 w-3 rounded-full bg-theme-primary/70" />
-            <div className="h-3 w-3 rounded-full bg-theme-accent/70" />
-            <div className="h-3 w-3 rounded-full bg-theme-secondary/70" />
+            <div className="bg-theme-primary/70 h-3 w-3 rounded-full" />
+            <div className="bg-theme-accent/70 h-3 w-3 rounded-full" />
+            <div className="bg-theme-secondary/70 h-3 w-3 rounded-full" />
           </div>
-          <div
-            className="ml-4 text-sm font-mono text-theme-text/60"
-            aria-label="File path"
-          >
+          <div className="text-theme-text/60 ml-4 font-mono text-sm" aria-label="File path">
             ~/portfolio/dev.ts
           </div>
         </div>
 
-        <div className="rounded-b-lg border-x border-b border-theme-border/70 bg-theme-surface/80 p-8 text-left backdrop-blur">
+        <div className="border-theme-border/70 bg-theme-surface/80 rounded-b-lg border-x border-b p-8 text-left backdrop-blur">
           <div className="flex gap-4">
-            <div
-              className="select-none font-mono text-sm text-theme-text/50"
-              aria-hidden="true"
-            >
+            <div className="text-theme-text/50 font-mono text-sm select-none" aria-hidden="true">
               1
             </div>
             <div className="flex-1">
-              <h1 className="font-mono text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center">
+              <h1 className="text-center font-mono text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 <span className="text-purple-400" aria-hidden="true">
                   const
-                </span>{" "}
-                <span className="text-theme-primary">dev</span>{" "}
+                </span>{' '}
+                <span className="text-theme-primary">dev</span>{' '}
                 <span className="text-pink-400" aria-hidden="true">
                   =
-                </span>{" "}
+                </span>{' '}
                 <span className="text-green-400">
                   &apos;{displayedText}
                   <span className="animate-pulse" aria-hidden="true">
@@ -86,13 +80,13 @@ export function HeroCodeWindow() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex flex-col items-center gap-12 text-center md:flex-row md:justify-center md:items-center md:gap-16 md:text-left"
+        className="flex flex-col items-center gap-12 text-center md:flex-row md:items-center md:justify-center md:gap-16 md:text-left"
       >
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative h-44 w-44 sm:h-52 sm:w-52 md:h-56 md:w-56 rounded-full overflow-hidden border-4 border-slate-700/70 shadow-xl shadow-theme-accent/20"
+          className="shadow-theme-accent/20 relative h-44 w-44 overflow-hidden rounded-full border-4 border-slate-700/70 shadow-xl sm:h-52 sm:w-52 md:h-56 md:w-56"
           aria-hidden="true"
         >
           <Image
@@ -106,7 +100,7 @@ export function HeroCodeWindow() {
             className="absolute inset-0 rounded-full blur-3xl"
             style={{
               background:
-                "linear-gradient(to bottom right, rgba(34,211,238,0.2), transparent 50%, rgba(139,92,246,0.2))",
+                'linear-gradient(to bottom right, rgba(34,211,238,0.2), transparent 50%, rgba(139,92,246,0.2))',
             }}
           />
         </motion.div>
@@ -115,16 +109,15 @@ export function HeroCodeWindow() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="space-y-6 max-w-2xl"
+          className="max-w-2xl space-y-6"
         >
-          <h2 className="text-2xl font-semibold text-theme-text sm:text-3xl">
+          <h2 className="text-theme-text text-2xl font-semibold sm:text-3xl">
             Shipping purposeful digital products with empathy and code.
           </h2>
-          <p className="text-base text-theme-text/75">
-            Full-stack engineer focused on thoughtful UX and performant React &
-            Next.js applications. I lean on calm interfaces, inclusive
-            accessibility, and fast feedback loops to help teams move from idea
-            to impact.
+          <p className="text-theme-text/75 text-base">
+            Full-stack engineer focused on thoughtful UX and performant React & Next.js
+            applications. I lean on calm interfaces, inclusive accessibility, and fast feedback
+            loops to help teams move from idea to impact.
           </p>
 
           <HeroActions />

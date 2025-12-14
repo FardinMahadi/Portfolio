@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export interface SEOConfig {
   title: string;
@@ -6,14 +6,13 @@ export interface SEOConfig {
   keywords?: string[];
   canonical?: string;
   ogImage?: string;
-  ogType?: "website" | "article" | "profile";
+  ogType?: 'website' | 'article' | 'profile';
   noindex?: boolean;
   nofollow?: boolean;
 }
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
-const siteName = "FardinMahadi - MERN Stack Developer Portfolio";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
+const siteName = 'FardinMahadi - MERN Stack Developer Portfolio';
 
 /**
  * Generate SEO metadata for a page
@@ -25,12 +24,12 @@ export function generateMetadata(config: SEOConfig): Metadata {
     keywords = [],
     canonical,
     ogImage = `${siteUrl}/og-image.png`,
-    ogType = "website",
+    ogType = 'website',
     noindex = false,
     nofollow = false,
   } = config;
 
-  const fullTitle = title.includes("|") ? title : `${title} | ${siteName}`;
+  const fullTitle = title.includes('|') ? title : `${title} | ${siteName}`;
 
   return {
     title: fullTitle,
@@ -41,7 +40,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
     },
     openGraph: {
       type: ogType,
-      locale: "en_US",
+      locale: 'en_US',
       url: canonical || siteUrl,
       siteName,
       title: fullTitle,
@@ -56,7 +55,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: fullTitle,
       description,
       images: [ogImage],
@@ -84,26 +83,26 @@ export function generateArticleSchema(
   image?: string
 ) {
   return {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    '@context': 'https://schema.org',
+    '@type': 'Article',
     headline: title,
     description,
     datePublished,
     dateModified: dateModified || datePublished,
     author: {
-      "@type": "Person",
-      name: author || "Mahadi Hasan Fardin",
+      '@type': 'Person',
+      name: author || 'Mahadi Hasan Fardin',
       url: siteUrl,
     },
     publisher: {
-      "@type": "Organization",
+      '@type': 'Organization',
       name: siteName,
       url: siteUrl,
     },
     image: image || `${siteUrl}/og-image.png`,
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": siteUrl,
+      '@type': 'WebPage',
+      '@id': siteUrl,
     },
   };
 }
@@ -120,14 +119,14 @@ export function generateItemListSchema(
   }>
 ) {
   return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
     numberOfItems: items.length,
     itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: index + 1,
       item: {
-        "@type": "SoftwareApplication",
+        '@type': 'SoftwareApplication',
         name: item.name,
         description: item.description,
         url: item.url || siteUrl,
@@ -146,16 +145,16 @@ export function generateProfessionalServiceSchema(
   areaServed?: string
 ) {
   return {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
     name: serviceType,
     description,
     provider: {
-      "@type": "Person",
-      name: "Mahadi Hasan Fardin",
+      '@type': 'Person',
+      name: 'Mahadi Hasan Fardin',
       url: siteUrl,
     },
-    areaServed: areaServed || "Worldwide",
+    areaServed: areaServed || 'Worldwide',
     serviceType,
   };
 }
@@ -163,14 +162,12 @@ export function generateProfessionalServiceSchema(
 /**
  * Generate BreadcrumbList structured data
  */
-export function generateBreadcrumbSchema(
-  items: Array<{ name: string; url: string }>
-) {
+export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: index + 1,
       name: item.name,
       item: item.url,

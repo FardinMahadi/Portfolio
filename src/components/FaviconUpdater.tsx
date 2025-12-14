@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useColorPalette } from "@/contexts/ColorPaletteContext";
+import { useEffect } from 'react';
+import { useColorPalette } from '@/contexts/ColorPaletteContext';
 
 /**
  * Component that dynamically updates the favicon based on the current color palette theme.
@@ -11,12 +11,12 @@ export function FaviconUpdater() {
   const { currentPalette } = useColorPalette();
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
     // Helper function to adjust color brightness
     const adjustBrightness = (color: string, percent: number): string => {
       // Convert hex to RGB
-      const hex = color.replace("#", "");
+      const hex = color.replace('#', '');
       const r = parseInt(hex.substr(0, 2), 16);
       const g = parseInt(hex.substr(2, 2), 16);
       const b = parseInt(hex.substr(4, 2), 16);
@@ -29,11 +29,11 @@ export function FaviconUpdater() {
 
       // Convert back to hex
       return `#${[newR, newG, newB]
-        .map((x) => {
+        .map(x => {
           const hex = x.toString(16);
-          return hex.length === 1 ? "0" + hex : hex;
+          return hex.length === 1 ? '0' + hex : hex;
         })
-        .join("")}`;
+        .join('')}`;
     };
 
     // Generate SVG favicon with theme color and high contrast
@@ -70,12 +70,10 @@ export function FaviconUpdater() {
     let previousBlobUrl: string | null = null;
 
     // Remove existing dynamic favicon links and revoke their blob URLs
-    const existingLinks = document.querySelectorAll(
-      'link[rel*="icon"][data-dynamic-favicon]'
-    );
-    existingLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href && href.startsWith("blob:")) {
+    const existingLinks = document.querySelectorAll('link[rel*="icon"][data-dynamic-favicon]');
+    existingLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('blob:')) {
         URL.revokeObjectURL(href);
       }
       link.remove();
@@ -83,26 +81,26 @@ export function FaviconUpdater() {
 
     // Create SVG blob URL
     const svgString = generateFaviconSVG(currentPalette.primary);
-    const blob = new Blob([svgString], { type: "image/svg+xml" });
+    const blob = new Blob([svgString], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
     previousBlobUrl = url;
 
     // Create and add favicon link
-    const link = document.createElement("link");
-    link.rel = "icon";
-    link.type = "image/svg+xml";
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/svg+xml';
     link.href = url;
-    link.setAttribute("data-dynamic-favicon", "true");
+    link.setAttribute('data-dynamic-favicon', 'true');
     document.head.appendChild(link);
 
     // Also update theme-color meta tag
     let themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (!themeColorMeta) {
-      themeColorMeta = document.createElement("meta");
-      themeColorMeta.setAttribute("name", "theme-color");
+      themeColorMeta = document.createElement('meta');
+      themeColorMeta.setAttribute('name', 'theme-color');
       document.head.appendChild(themeColorMeta);
     }
-    themeColorMeta.setAttribute("content", currentPalette.primary);
+    themeColorMeta.setAttribute('content', currentPalette.primary);
 
     // Cleanup function
     return () => {

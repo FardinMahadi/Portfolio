@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type { ResumePreviewModalProps } from "@/components/types/resume";
+import type { ResumePreviewModalProps } from '@/components/types/resume';
 
-import { createPortal } from "react-dom";
-import { Button } from "@/components/ui/button";
-import { X, Download, Loader2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useCallback } from "react";
+import { createPortal } from 'react-dom';
+import { Button } from '@/components/ui/button';
+import { X, Download, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
 
 export function ResumePreviewModal({
   isOpen,
@@ -25,18 +25,18 @@ export function ResumePreviewModal({
       setLoading(true);
       setError(null);
       const response = await fetch(`/api/resume/${templateKey}`, {
-        cache: "no-store",
+        cache: 'no-store',
       });
       if (!response.ok) {
         const message = await response.text();
-        throw new Error(message || "Failed to generate preview");
+        throw new Error(message || 'Failed to generate preview');
       }
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       setPdfUrl(url);
     } catch (err) {
       console.error(err);
-      setError((err as Error).message || "Unable to load preview.");
+      setError((err as Error).message || 'Unable to load preview.');
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,7 @@ export function ResumePreviewModal({
     if (!isMounted) return;
     if (isOpen) {
       const previousOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
       return () => {
         document.body.style.overflow = previousOverflow;
       };
@@ -82,7 +82,7 @@ export function ResumePreviewModal({
 
   const handleDownload = () => {
     if (!pdfUrl) return;
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = pdfUrl;
     link.download = `Mahadi-Hasan-Fardin-${templateKey}-resume.pdf`;
     document.body.appendChild(link);
@@ -110,22 +110,18 @@ export function ResumePreviewModal({
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", duration: 0.3 }}
-            className="fixed inset-4 z-210 mx-auto flex max-w-6xl flex-col overflow-hidden rounded-2xl border border-theme-border/40 bg-[color-mix(in_srgb,var(--color-surface)_95%,transparent)] shadow-2xl"
+            transition={{ type: 'spring', duration: 0.3 }}
+            className="border-theme-border/40 fixed inset-4 z-210 mx-auto flex max-w-6xl flex-col overflow-hidden rounded-2xl border bg-[color-mix(in_srgb,var(--color-surface)_95%,transparent)] shadow-2xl"
             style={{
               background:
-                "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 95%, transparent), color-mix(in srgb, var(--color-background) 98%, transparent))",
+                'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 95%, transparent), color-mix(in srgb, var(--color-background) 98%, transparent))',
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-theme-border/40 px-6 py-4">
+            <div className="border-theme-border/40 flex items-center justify-between border-b px-6 py-4">
               <div>
-                <h2 className="text-xl font-semibold text-theme-text">
-                  {templateName} Preview
-                </h2>
-                <p className="text-sm text-theme-text/60">
-                  Review your resume before downloading
-                </p>
+                <h2 className="text-theme-text text-xl font-semibold">{templateName} Preview</h2>
+                <p className="text-theme-text/60 text-sm">Review your resume before downloading</p>
               </div>
               <div className="flex items-center gap-3">
                 {pdfUrl && (
@@ -134,9 +130,9 @@ export function ResumePreviewModal({
                     className="text-white shadow-lg transition-all duration-300 hover:shadow-xl"
                     style={{
                       background:
-                        "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
+                        'linear-gradient(to right, var(--color-primary), var(--color-secondary))',
                       boxShadow:
-                        "0 10px 15px -3px rgba(0,0,0,0.2), 0 4px 6px -2px rgba(0,0,0,0.12), 0 0 25px -8px var(--color-primary)",
+                        '0 10px 15px -3px rgba(0,0,0,0.2), 0 4px 6px -2px rgba(0,0,0,0.12), 0 0 25px -8px var(--color-primary)',
                     }}
                   >
                     <Download className="mr-2 h-4 w-4" />
@@ -145,7 +141,7 @@ export function ResumePreviewModal({
                 )}
                 <button
                   onClick={onClose}
-                  className="rounded-lg p-2 text-theme-text/70 transition-colors hover:bg-theme-border/30 hover:text-theme-text"
+                  className="text-theme-text/70 hover:bg-theme-border/30 hover:text-theme-text rounded-lg p-2 transition-colors"
                   aria-label="Close preview"
                 >
                   <X className="h-5 w-5" />
@@ -158,10 +154,8 @@ export function ResumePreviewModal({
               {loading && (
                 <div className="flex h-full items-center justify-center">
                   <div className="text-center">
-                    <Loader2 className="mx-auto h-8 w-8 animate-spin text-theme-primary" />
-                    <p className="mt-4 text-sm text-theme-text/70">
-                      Generating preview...
-                    </p>
+                    <Loader2 className="text-theme-primary mx-auto h-8 w-8 animate-spin" />
+                    <p className="text-theme-text/70 mt-4 text-sm">Generating preview...</p>
                   </div>
                 </div>
               )}
@@ -170,11 +164,7 @@ export function ResumePreviewModal({
                 <div className="flex h-full items-center justify-center">
                   <div className="text-center">
                     <p className="text-sm text-red-400">{error}</p>
-                    <Button
-                      onClick={loadPreview}
-                      className="mt-4"
-                      variant="outline"
-                    >
+                    <Button onClick={loadPreview} className="mt-4" variant="outline">
                       Retry
                     </Button>
                   </div>

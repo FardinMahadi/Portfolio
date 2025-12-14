@@ -37,7 +37,7 @@ export function ImageWithFallback({
 
   const handleRetry = () => {
     setDidError(false);
-    setRetryCount((prev) => prev + 1);
+    setRetryCount(prev => prev + 1);
   };
 
   return didError ? (
@@ -47,14 +47,14 @@ export function ImageWithFallback({
       role="img"
       aria-label={alt || 'Image failed to load'}
     >
-      <div className="flex flex-col items-center justify-center w-full h-full gap-2 p-2">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-2">
         <Image
           src={fallbackSrc}
           alt="Error loading image"
           width={width || 88}
           height={height || 88}
-          className="max-w-full max-h-full"
-          onError={(e) => {
+          className="max-h-full max-w-full"
+          onError={e => {
             // Prevent infinite loop if fallback also fails
             e.currentTarget.style.display = 'none';
           }}
@@ -64,7 +64,7 @@ export function ImageWithFallback({
         {showRetry && src && (
           <button
             onClick={handleRetry}
-            className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800 underline"
+            className="px-3 py-1 text-sm text-gray-600 underline hover:text-gray-800"
             aria-label="Retry loading image"
           >
             Retry

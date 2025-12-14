@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 export function ProjectsBackground() {
   return (
@@ -8,7 +8,7 @@ export function ProjectsBackground() {
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, color-mix(in srgb, var(--color-primary) 18%, transparent) 55%, color-mix(in srgb, var(--color-accent) 16%, transparent))",
+            'linear-gradient(to bottom, transparent, color-mix(in srgb, var(--color-primary) 18%, transparent) 55%, color-mix(in srgb, var(--color-accent) 16%, transparent))',
         }}
       />
     </>

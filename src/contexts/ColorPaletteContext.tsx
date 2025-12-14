@@ -1,17 +1,7 @@
-"use client";
+'use client';
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from "react";
-import {
-  colorPalettes,
-  ColorPalette,
-  getPaletteCSSVariables,
-} from "@/lib/colorPalettes";
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { colorPalettes, ColorPalette, getPaletteCSSVariables } from '@/lib/colorPalettes';
 
 interface ColorPaletteContextType {
   currentPalette: ColorPalette;
@@ -19,12 +9,10 @@ interface ColorPaletteContextType {
   availablePalettes: Record<string, ColorPalette>;
 }
 
-const ColorPaletteContext = createContext<ColorPaletteContextType | undefined>(
-  undefined
-);
+const ColorPaletteContext = createContext<ColorPaletteContextType | undefined>(undefined);
 
 export function ColorPaletteProvider({ children }: { children: ReactNode }) {
-  const [currentPaletteKey, setCurrentPaletteKey] = useState<string>("default");
+  const [currentPaletteKey, setCurrentPaletteKey] = useState<string>('default');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -32,8 +20,8 @@ export function ColorPaletteProvider({ children }: { children: ReactNode }) {
     setMounted(true);
 
     // Load saved palette from localStorage (client-side only)
-    if (typeof window !== "undefined") {
-      const savedPalette = localStorage.getItem("colorPalette");
+    if (typeof window !== 'undefined') {
+      const savedPalette = localStorage.getItem('colorPalette');
       if (savedPalette && colorPalettes[savedPalette]) {
         setCurrentPaletteKey(savedPalette);
       } else {
@@ -55,8 +43,8 @@ export function ColorPaletteProvider({ children }: { children: ReactNode }) {
     setCurrentPaletteKey(paletteKey);
 
     // Only access localStorage on client side
-    if (typeof window !== "undefined") {
-      localStorage.setItem("colorPalette", paletteKey);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('colorPalette', paletteKey);
     }
 
     // Apply CSS variables to document root
@@ -88,19 +76,13 @@ export function ColorPaletteProvider({ children }: { children: ReactNode }) {
     availablePalettes: colorPalettes,
   };
 
-  return (
-    <ColorPaletteContext.Provider value={value}>
-      {children}
-    </ColorPaletteContext.Provider>
-  );
+  return <ColorPaletteContext.Provider value={value}>{children}</ColorPaletteContext.Provider>;
 }
 
 export function useColorPalette() {
   const context = useContext(ColorPaletteContext);
   if (context === undefined) {
-    throw new Error(
-      "useColorPalette must be used within a ColorPaletteProvider"
-    );
+    throw new Error('useColorPalette must be used within a ColorPaletteProvider');
   }
   return context;
 }

@@ -1,23 +1,19 @@
-"use client";
+'use client';
 
-import type { BlogPostContentProps } from "@/components/types/blog";
+import type { BlogPostContentProps } from '@/components/types/blog';
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { generateArticleSchema } from "@/lib/seo";
-import { Calendar, Clock, ArrowLeft, Home } from "lucide-react";
-import {
-  getBlogImageTransitionName,
-  getBlogCardTransitionName,
-} from "@/lib/transitions";
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { generateArticleSchema } from '@/lib/seo';
+import { Calendar, Clock, ArrowLeft, Home } from 'lucide-react';
+import { getBlogImageTransitionName, getBlogCardTransitionName } from '@/lib/transitions';
 
-import { MarkdownRenderer } from "./MarkdownRenderer";
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 export function BlogPostContent({ post }: BlogPostContentProps) {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
   const publishedTime = new Date(post.date).toISOString();
   const articleSchema = generateArticleSchema(
@@ -25,16 +21,16 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
     post.excerpt,
     publishedTime,
     publishedTime,
-    "Mahadi Hasan Fardin",
+    'Mahadi Hasan Fardin',
     post.image ?? `${siteUrl}/og-image.png`
   );
 
   return (
     <article
-      className="relative min-h-screen bg-(--color-background) text-theme-text"
+      className="text-theme-text relative min-h-screen bg-(--color-background)"
       style={{
         background:
-          "linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 92%, transparent), var(--color-background))",
+          'linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 92%, transparent), var(--color-background))',
       }}
     >
       {/* Structured data */}
@@ -45,21 +41,21 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
 
       {/* Background accents */}
       <div
-        className="absolute left-0 top-0 h-96 w-96 rounded-full blur-3xl"
+        className="absolute top-0 left-0 h-96 w-96 rounded-full blur-3xl"
         style={{
           background:
-            "radial-gradient(circle at center, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent 70%)",
+            'radial-gradient(circle at center, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent 70%)',
         }}
       />
       <div
-        className="absolute bottom-0 right-0 h-96 w-96 rounded-full blur-3xl"
+        className="absolute right-0 bottom-0 h-96 w-96 rounded-full blur-3xl"
         style={{
           background:
-            "radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%)",
+            'radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%)',
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Back button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -70,7 +66,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           <Button
             variant="ghost"
             asChild
-            className="transition-all duration-300 text-theme-text/70 hover:bg-theme-primary/5 hover:text-theme-primary"
+            className="text-theme-text/70 hover:bg-theme-primary/5 hover:text-theme-primary transition-all duration-300"
           >
             <Link href="/blog" aria-label="Back to blog">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -88,27 +84,24 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
         >
           {/* Category badge */}
           <div className="mb-6">
-            <span className="px-3 py-1 text-xs font-mono bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+            <span className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 font-mono text-xs text-blue-400">
               {post.category}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="mb-6 font-mono text-4xl font-bold leading-tight text-theme-text md:text-5xl">
+          <h1 className="text-theme-text mb-6 font-mono text-4xl leading-tight font-bold md:text-5xl">
             {post.title}
           </h1>
 
           {/* Meta information */}
-          <div className="mb-8 flex flex-wrap items-center gap-4 text-sm text-theme-text/70">
+          <div className="text-theme-text/70 mb-8 flex flex-wrap items-center gap-4 text-sm">
             <time dateTime={publishedTime} className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" aria-hidden="true" />
+              <Calendar className="h-4 w-4" aria-hidden="true" />
               <span>{post.date}</span>
             </time>
-            <div
-              className="flex items-center gap-2"
-              aria-label={`Reading time: ${post.readTime}`}
-            >
-              <Clock className="w-4 h-4" aria-hidden="true" />
+            <div className="flex items-center gap-2" aria-label={`Reading time: ${post.readTime}`}>
+              <Clock className="h-4 w-4" aria-hidden="true" />
               <span>{post.readTime}</span>
             </div>
           </div>
@@ -119,7 +112,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="mb-10 overflow-hidden rounded-2xl border border-theme-border/60 shadow-lg shadow-theme-primary/10"
+            className="border-theme-border/60 shadow-theme-primary/10 mb-10 overflow-hidden rounded-2xl border shadow-lg"
             style={{
               viewTransitionName: getBlogCardTransitionName(post.slug),
             }}
@@ -150,10 +143,10 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           className="prose prose-invert max-w-none"
         >
           <div
-            className="rounded-lg border border-theme-border/60 p-8 backdrop-blur-sm"
+            className="border-theme-border/60 rounded-lg border p-8 backdrop-blur-sm"
             style={{
               background:
-                "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 92%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))",
+                'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 92%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))',
             }}
           >
             <MarkdownRenderer content={post.content} />
@@ -165,12 +158,12 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-theme-border/60 pt-8 sm:flex-row"
+          className="border-theme-border/60 mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row"
         >
           <Button
             variant="outline"
             asChild
-            className="border-theme-border/70 text-theme-text/80 transition-all duration-300 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary"
+            className="border-theme-border/70 text-theme-text/80 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary transition-all duration-300"
           >
             <Link href="/blog" aria-label="Back to blog">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -180,7 +173,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           <Button
             variant="outline"
             asChild
-            className="border-theme-border/70 text-theme-text/80 transition-all duration-300 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary"
+            className="border-theme-border/70 text-theme-text/80 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary transition-all duration-300"
           >
             <Link href="/" aria-label="Go to homepage">
               <Home className="mr-2 h-4 w-4" />

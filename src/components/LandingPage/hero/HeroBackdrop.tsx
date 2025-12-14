@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function HeroBackdrop() {
   return (
@@ -9,13 +9,13 @@ export function HeroBackdrop() {
         className="absolute inset-0 opacity-90"
         style={{
           background:
-            "linear-gradient(to bottom right, color-mix(in srgb, var(--color-background) 92%, transparent), color-mix(in srgb, var(--color-surface) 85%, transparent) 45%, color-mix(in srgb, var(--color-accent) 28%, transparent))",
+            'linear-gradient(to bottom right, color-mix(in srgb, var(--color-background) 92%, transparent), color-mix(in srgb, var(--color-surface) 85%, transparent) 45%, color-mix(in srgb, var(--color-accent) 28%, transparent))',
         }}
       />
 
       <motion.div
-        className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-20"
-        style={{ backgroundColor: "var(--color-primary)" }}
+        className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full opacity-20 blur-3xl"
+        style={{ backgroundColor: 'var(--color-primary)' }}
         animate={{
           x: [0, 50, 0],
           y: [0, 30, 0],
@@ -23,12 +23,12 @@ export function HeroBackdrop() {
         transition={{
           duration: 8,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
-        style={{ backgroundColor: "var(--color-accent)" }}
+        className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full opacity-20 blur-3xl"
+        style={{ backgroundColor: 'var(--color-accent)' }}
         animate={{
           x: [0, -30, 0],
           y: [0, 50, 0],
@@ -36,7 +36,7 @@ export function HeroBackdrop() {
         transition={{
           duration: 10,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
       />
 

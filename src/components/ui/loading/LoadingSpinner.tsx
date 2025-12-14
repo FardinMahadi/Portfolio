@@ -1,36 +1,35 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { Loader2, Terminal } from "lucide-react";
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { Loader2, Terminal } from 'lucide-react';
 
-import type { LoadingSpinnerProps } from "./schema";
+import type { LoadingSpinnerProps } from './schema';
 
 const sizeClasses = {
-  sm: "w-4 h-4",
-  md: "w-6 h-6",
-  lg: "w-8 h-8",
+  sm: 'w-4 h-4',
+  md: 'w-6 h-6',
+  lg: 'w-8 h-8',
 };
 
 const textSizeClasses = {
-  sm: "text-xs",
-  md: "text-sm",
-  lg: "text-base",
+  sm: 'text-xs',
+  md: 'text-sm',
+  lg: 'text-base',
 };
 
 export function LoadingSpinner({
-  variant = "default",
-  size = "md",
+  variant = 'default',
+  size = 'md',
   text,
   className,
 }: LoadingSpinnerProps) {
   const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const spinnerContent = () => {
     switch (variant) {
-      case "terminal":
+      case 'terminal':
         return (
           <div className="flex items-center gap-2 font-mono">
             <motion.div
@@ -38,23 +37,23 @@ export function LoadingSpinner({
               transition={{
                 duration: 1,
                 repeat: Infinity,
-                ease: "linear",
+                ease: 'linear',
               }}
-              className={cn("text-theme-primary", sizeClasses[size])}
+              className={cn('text-theme-primary', sizeClasses[size])}
             >
-              <Terminal className="w-full h-full" />
+              <Terminal className="h-full w-full" />
             </motion.div>
             {text && (
-              <span className={cn("text-theme-text", textSizeClasses[size])}>
+              <span className={cn('text-theme-text', textSizeClasses[size])}>
                 {text}
                 <motion.span
                   animate={prefersReducedMotion ? {} : { opacity: [1, 0] }}
                   transition={{
                     duration: 0.8,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease: 'easeInOut',
                   }}
-                  className="inline-block ml-1"
+                  className="ml-1 inline-block"
                 >
                   _
                 </motion.span>
@@ -63,27 +62,27 @@ export function LoadingSpinner({
           </div>
         );
 
-      case "minimal":
+      case 'minimal':
         return (
           <motion.div
             animate={prefersReducedMotion ? {} : { rotate: 360 }}
             transition={{
               duration: 1,
               repeat: Infinity,
-              ease: "linear",
+              ease: 'linear',
             }}
             className={cn(
-              "border-2 border-theme-primary border-t-transparent rounded-full",
+              'border-theme-primary rounded-full border-2 border-t-transparent',
               sizeClasses[size]
             )}
             style={{
-              borderColor: "var(--color-primary)",
-              borderTopColor: "transparent",
+              borderColor: 'var(--color-primary)',
+              borderTopColor: 'transparent',
             }}
           />
         );
 
-      case "pulse":
+      case 'pulse':
         return (
           <motion.div
             animate={
@@ -97,11 +96,11 @@ export function LoadingSpinner({
             transition={{
               duration: 1.5,
               repeat: Infinity,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
-            className={cn("rounded-full bg-theme-primary", sizeClasses[size])}
+            className={cn('bg-theme-primary rounded-full', sizeClasses[size])}
             style={{
-              backgroundColor: "var(--color-primary)",
+              backgroundColor: 'var(--color-primary)',
             }}
           />
         );
@@ -113,11 +112,11 @@ export function LoadingSpinner({
             transition={{
               duration: 1,
               repeat: Infinity,
-              ease: "linear",
+              ease: 'linear',
             }}
-            className={cn("text-theme-primary", sizeClasses[size])}
+            className={cn('text-theme-primary', sizeClasses[size])}
           >
-            <Loader2 className="w-full h-full" />
+            <Loader2 className="h-full w-full" />
           </motion.div>
         );
     }
@@ -125,9 +124,9 @@ export function LoadingSpinner({
 
   return (
     <div
-      className={cn("flex items-center justify-center", className)}
+      className={cn('flex items-center justify-center', className)}
       role="status"
-      aria-label={text || "Loading"}
+      aria-label={text || 'Loading'}
       aria-live="polite"
     >
       {spinnerContent()}

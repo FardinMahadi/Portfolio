@@ -24,7 +24,7 @@ const backdropStyle = {
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen text-theme-text" style={backdropStyle}>
+    <div className="text-theme-text min-h-screen" style={backdropStyle}>
       <header>
         <Navigation />
       </header>
@@ -33,7 +33,7 @@ export default function ResumePage() {
         <FeatureUnavailable />
         {/* <ResumePreview /> */}
       </main>
-      <footer className="mt-10 border-t border-theme-border/40 bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
+      <footer className="border-theme-border/40 mt-10 border-t bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
         <Footer />
       </footer>
     </div>

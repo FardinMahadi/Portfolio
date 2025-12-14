@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import type { ProjectsHeaderProps } from "@/components/types/landing/projects";
+import type { ProjectsHeaderProps } from '@/components/types/landing/projects';
 
-import { motion } from "framer-motion";
-import { Terminal } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Terminal } from 'lucide-react';
 
 export function ProjectsHeader({ isInView, schemaJson }: ProjectsHeaderProps) {
   return (
@@ -20,14 +20,14 @@ export function ProjectsHeader({ isInView, schemaJson }: ProjectsHeaderProps) {
         transition={{ duration: 0.6 }}
         className="mb-12"
       >
-        <div className="mb-6 flex items-center gap-3 text-theme-primary">
+        <div className="text-theme-primary mb-6 flex items-center gap-3">
           <Terminal className="h-6 w-6" aria-hidden="true" />
-          <h2 className="text-3xl font-bold text-theme-accent">Projects</h2>
+          <h2 className="text-theme-accent text-3xl font-bold">Projects</h2>
         </div>
-        <p className="max-w-2xl text-lg text-theme-text/75">
-          A curated collection of my best work, showcasing full-stack
-          development projects from concept to deployment. Each project
-          demonstrates technical skills and problem-solving abilities.
+        <p className="text-theme-text/75 max-w-2xl text-lg">
+          A curated collection of my best work, showcasing full-stack development projects from
+          concept to deployment. Each project demonstrates technical skills and problem-solving
+          abilities.
         </p>
       </motion.header>
     </>

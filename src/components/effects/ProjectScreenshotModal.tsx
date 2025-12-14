@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type { ProjectScreenshotModalProps } from "@/components/types/shared/effects";
+import type { ProjectScreenshotModalProps } from '@/components/types/shared/effects';
 
-import { createPortal } from "react-dom";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import { createPortal } from 'react-dom';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, motion, type Variants } from 'framer-motion';
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 
 const overlayVariants: Variants = {
   hidden: { opacity: 0 },
@@ -19,7 +19,7 @@ const dialogVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 260, damping: 30 },
+    transition: { type: 'spring', stiffness: 260, damping: 30 },
   },
   exit: {
     opacity: 0,
@@ -67,18 +67,17 @@ export function ProjectScreenshotModal({
     }
 
     const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         event.preventDefault();
         onClose();
       }
-      if (event.key === "Tab") {
-        const focusableElements =
-          dialogRef.current?.querySelectorAll<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
+      if (event.key === 'Tab') {
+        const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
         if (!focusableElements || focusableElements.length === 0) {
           return;
         }
@@ -95,42 +94,38 @@ export function ProjectScreenshotModal({
       }
 
       if (gallery.length > 1) {
-        if (event.key === "ArrowRight") {
+        if (event.key === 'ArrowRight') {
           event.preventDefault();
-          setActiveIndex((current) => (current + 1) % gallery.length);
-        } else if (event.key === "ArrowLeft") {
+          setActiveIndex(current => (current + 1) % gallery.length);
+        } else if (event.key === 'ArrowLeft') {
           event.preventDefault();
-          setActiveIndex(
-            (current) => (current - 1 + gallery.length) % gallery.length
-          );
+          setActiveIndex(current => (current - 1 + gallery.length) % gallery.length);
         }
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
     closeButtonRef.current?.focus({ preventScroll: true });
 
     return () => {
       document.body.style.overflow = originalOverflow;
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
       focusReturnPoint?.focus({ preventScroll: true });
     };
   }, [isOpen, onClose, focusReturnPoint, gallery.length]);
 
   useEffect(() => {
     const updateSuspended = (value: boolean) => {
-      if (typeof document === "undefined") return;
+      if (typeof document === 'undefined') return;
 
       if (value) {
-        document.body.dataset.cursorSuspended = "true";
+        document.body.dataset.cursorSuspended = 'true';
       } else {
         delete document.body.dataset.cursorSuspended;
       }
 
-      if (typeof window !== "undefined") {
-        window.dispatchEvent(
-          new CustomEvent("target-cursor:suspend", { detail: value })
-        );
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('target-cursor:suspend', { detail: value }));
       }
     };
 
@@ -160,8 +155,7 @@ export function ProjectScreenshotModal({
           <motion.div
             className="absolute inset-0 backdrop-blur-md"
             style={{
-              background:
-                "color-mix(in srgb, var(--color-background) 88%, rgba(6, 5, 17, 0.9))",
+              background: 'color-mix(in srgb, var(--color-background) 88%, rgba(6, 5, 17, 0.9))',
             }}
             initial="hidden"
             animate="visible"
@@ -176,10 +170,10 @@ export function ProjectScreenshotModal({
             aria-labelledby={`${modalId}-title`}
             aria-describedby={`${modalId}-description`}
             id={modalId}
-            className="relative z-1 mx-4 flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-theme-border/60 text-theme-text shadow-2xl"
+            className="border-theme-border/60 text-theme-text relative z-1 mx-4 flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border shadow-2xl"
             style={{
               background:
-                "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 94%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))",
+                'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 94%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))',
             }}
             ref={dialogRef}
             variants={dialogVariants}
@@ -187,22 +181,16 @@ export function ProjectScreenshotModal({
             animate="visible"
             exit="exit"
           >
-            <div className="flex items-start justify-between border-b border-theme-border/50 bg-theme-surface/80 px-6 py-4 backdrop-blur">
+            <div className="border-theme-border/50 bg-theme-surface/80 flex items-start justify-between border-b px-6 py-4 backdrop-blur">
               <div>
-                <h2
-                  id={`${modalId}-title`}
-                  className="font-mono text-lg text-theme-primary"
-                >
+                <h2 id={`${modalId}-title`} className="text-theme-primary font-mono text-lg">
                   {project.title}
                 </h2>
-                <p
-                  id={`${modalId}-description`}
-                  className="mt-1 text-sm text-theme-text/70"
-                >
+                <p id={`${modalId}-description`} className="text-theme-text/70 mt-1 text-sm">
                   {project.description}
                 </p>
                 {project.role && (
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-theme-text/60">
+                  <p className="text-theme-text/60 mt-2 text-xs font-semibold tracking-[0.2em] uppercase">
                     {project.role}
                   </p>
                 )}
@@ -212,7 +200,7 @@ export function ProjectScreenshotModal({
                 ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
-                className="rounded-full border border-theme-border/60 bg-theme-surface/80 p-2 text-theme-text/70 transition hover:border-theme-primary/60 hover:text-theme-primary focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-primary/60"
+                className="border-theme-border/60 bg-theme-surface/80 text-theme-text/70 hover:border-theme-primary/60 hover:text-theme-primary focus-visible:ring-theme-primary/60 rounded-full border p-2 transition focus-visible:ring focus-visible:outline-none"
                 aria-label="Close screenshot preview"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
@@ -225,18 +213,15 @@ export function ProjectScreenshotModal({
             >
               <div className="relative mx-auto w-full max-w-4xl">
                 <div
-                  className="relative rounded-xl border border-theme-border/60 bg-theme-surface/80 p-3 shadow-inner"
+                  className="border-theme-border/60 bg-theme-surface/80 relative rounded-xl border p-3 shadow-inner"
                   style={{
                     background:
-                      "linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 94%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))",
+                      'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 94%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))',
                   }}
                 >
                   <ImageWithFallback
                     src={gallery[activeIndex]?.src ?? project.image}
-                    alt={
-                      gallery[activeIndex]?.alt ??
-                      `${project.title} full-size screenshot`
-                    }
+                    alt={gallery[activeIndex]?.alt ?? `${project.title} full-size screenshot`}
                     width={gallery[activeIndex]?.width ?? project.width}
                     height={gallery[activeIndex]?.height ?? project.height}
                     className="h-auto w-full rounded-md object-cover"
@@ -250,29 +235,21 @@ export function ProjectScreenshotModal({
                           type="button"
                           onClick={() =>
                             setActiveIndex(
-                              (current) =>
-                                (current - 1 + gallery.length) % gallery.length
+                              current => (current - 1 + gallery.length) % gallery.length
                             )
                           }
-                          className="pointer-events-auto rounded-full border border-theme-border/60 bg-theme-surface/80 p-2 text-theme-text/70 transition hover:border-theme-primary/60 hover:text-theme-primary focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-primary/60"
+                          className="border-theme-border/60 bg-theme-surface/80 text-theme-text/70 hover:border-theme-primary/60 hover:text-theme-primary focus-visible:ring-theme-primary/60 pointer-events-auto rounded-full border p-2 transition focus-visible:ring focus-visible:outline-none"
                           aria-label="View previous screenshot"
                         >
                           <ChevronLeft className="h-4 w-4" aria-hidden="true" />
                         </button>
                         <button
                           type="button"
-                          onClick={() =>
-                            setActiveIndex(
-                              (current) => (current + 1) % gallery.length
-                            )
-                          }
-                          className="pointer-events-auto rounded-full border border-theme-border/60 bg-theme-surface/80 p-2 text-theme-text/70 transition hover:border-theme-primary/60 hover:text-theme-primary focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-primary/60"
+                          onClick={() => setActiveIndex(current => (current + 1) % gallery.length)}
+                          className="border-theme-border/60 bg-theme-surface/80 text-theme-text/70 hover:border-theme-primary/60 hover:text-theme-primary focus-visible:ring-theme-primary/60 pointer-events-auto rounded-full border p-2 transition focus-visible:ring focus-visible:outline-none"
                           aria-label="View next screenshot"
                         >
-                          <ChevronRight
-                            className="h-4 w-4"
-                            aria-hidden="true"
-                          />
+                          <ChevronRight className="h-4 w-4" aria-hidden="true" />
                         </button>
                       </div>
                       <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
@@ -285,10 +262,10 @@ export function ProjectScreenshotModal({
                               onClick={() => setActiveIndex(index)}
                               aria-label={`View screenshot ${index + 1}`}
                               aria-pressed={isActive}
-                              className={`relative overflow-hidden rounded-lg border transition focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-primary/60 ${
+                              className={`focus-visible:ring-theme-primary/60 relative overflow-hidden rounded-lg border transition focus-visible:ring focus-visible:outline-none ${
                                 isActive
-                                  ? "border-theme-primary shadow-[0_0_0_2px_rgba(56,189,248,0.35)]"
-                                  : "border-theme-border/60 hover:border-theme-primary/50"
+                                  ? 'border-theme-primary shadow-[0_0_0_2px_rgba(56,189,248,0.35)]'
+                                  : 'border-theme-border/60 hover:border-theme-primary/50'
                               }`}
                             >
                               <ImageWithFallback
@@ -300,7 +277,7 @@ export function ProjectScreenshotModal({
                                 sizes="128px"
                               />
                               {isActive && (
-                                <span className="absolute inset-0 border-2 border-theme-primary/70" />
+                                <span className="border-theme-primary/70 absolute inset-0 border-2" />
                               )}
                             </button>
                           );
@@ -313,7 +290,7 @@ export function ProjectScreenshotModal({
             </motion.div>
 
             {footerSlot && (
-              <div className="border-t border-theme-border/60 bg-theme-surface/80 px-6 py-4 text-sm text-theme-text/75 backdrop-blur">
+              <div className="border-theme-border/60 bg-theme-surface/80 text-theme-text/75 border-t px-6 py-4 text-sm backdrop-blur">
                 {footerSlot}
               </div>
             )}

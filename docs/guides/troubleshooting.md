@@ -1,6 +1,7 @@
 # Troubleshooting
 
-This document provides solutions to common issues you might encounter while working with this portfolio project.
+This document provides solutions to common issues you might encounter while
+working with this portfolio project.
 
 ## Table of Contents
 
@@ -47,10 +48,10 @@ pnpm tsc --noEmit
 
    ```typescript
    // ✅ Good
-   import { Component } from "@/components/Component";
+   import { Component } from '@/components/Component';
 
    // ❌ Bad
-   import { Component } from "../../components/Component";
+   import { Component } from '../../components/Component';
    ```
 
 3. Clear cache and reinstall
@@ -85,11 +86,13 @@ pnpm tsc --noEmit
 
 ### Hydration Errors
 
-**Error**: `Hydration failed because the initial UI does not match` or `Minified React error #418`
+**Error**: `Hydration failed because the initial UI does not match` or
+`Minified React error #418`
 
 **Solutions**:
 
-1. **Use mounted state pattern** - Prevent conditional rendering based on client-only state
+1. **Use mounted state pattern** - Prevent conditional rendering based on
+   client-only state
 
 ```typescript
 // ✅ Good - Prevents hydration mismatch
@@ -158,14 +161,14 @@ function Component() {
 ```typescript
 // ❌ Bad - Different initial values
 const [value, setValue] = useState(
-  typeof window !== "undefined" ? localStorage.getItem("key") : null
+  typeof window !== 'undefined' ? localStorage.getItem('key') : null
 );
 
 // ✅ Good - Consistent initial state
 const [value, setValue] = useState(null);
 
 useEffect(() => {
-  setValue(localStorage.getItem("key"));
+  setValue(localStorage.getItem('key'));
 }, []);
 ```
 
@@ -176,7 +179,7 @@ useEffect(() => {
 const date = new Date().toLocaleString(); // Timezone differences
 
 // ✅ Good - Use consistent formatting or client-only
-const [date, setDate] = useState("");
+const [date, setDate] = useState('');
 
 useEffect(() => {
   setDate(new Date().toLocaleString());
@@ -204,10 +207,10 @@ useEffect(() => {
 
    ```typescript
    // ✅ Good - absolute path from public
-   src = "/Images/me.jpg";
+   src = '/Images/me.jpg';
 
    // ❌ Bad - relative path
-   src = "./Images/me.jpg";
+   src = './Images/me.jpg';
    ```
 
 2. Check images are in `public/` folder
@@ -295,9 +298,9 @@ const isInView = useInView(ref, { once: true });
 
    ```typescript
    useEffect(() => {
-     window.addEventListener("resize", handleResize);
+     window.addEventListener('resize', handleResize);
      return () => {
-       window.removeEventListener("resize", handleResize);
+       window.removeEventListener('resize', handleResize);
      };
    }, []);
    ```
@@ -316,7 +319,8 @@ const isInView = useInView(ref, { once: true });
 
 ### Hydration Errors on Vercel
 
-**Error**: `Minified React error #418` or `Hydration failed` on production but works locally
+**Error**: `Minified React error #418` or `Hydration failed` on production but
+works locally
 
 **Common Causes**:
 

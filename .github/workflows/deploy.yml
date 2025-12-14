@@ -19,8 +19,8 @@ permissions:
   pull-requests: write
 
 env:
-  NODE_VERSION: "20"
-  PNPM_VERSION: "latest"
+  NODE_VERSION: '20'
+  PNPM_VERSION: 'latest'
 
 jobs:
   lint-and-test:
@@ -41,7 +41,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -75,7 +75,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: "--prod"
+          vercel-args: '--prod'
           scope: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Comment deployment URL on PR

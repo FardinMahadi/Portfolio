@@ -36,7 +36,8 @@ Projects are managed in `src/data/projects.json`. See:
 
 Social links are managed in `src/data/socialLinks.json`. See:
 
-- [Data Structures](../reference/data-structures.md) - Social links data structure
+- [Data Structures](../reference/data-structures.md) - Social links data
+  structure
 
 ## Quick Reference
 
@@ -46,8 +47,8 @@ Social links are managed in `src/data/socialLinks.json`. See:
 
 ### Managing Content
 
-→ [Blog System](../systems/blog-system.md) - Blog content management
-→ [Data Structures](../reference/data-structures.md) - Content data formats
+→ [Blog System](../systems/blog-system.md) - Blog content management →
+[Data Structures](../reference/data-structures.md) - Content data formats
 
 ## Related Documentation
 

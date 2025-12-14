@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
-import { HeroBackdrop } from "./HeroBackdrop";
-import { HeroCodeWindow } from "./HeroCodeWindow";
+import { HeroBackdrop } from './HeroBackdrop';
+import { HeroCodeWindow } from './HeroCodeWindow';
 
 export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-(--color-background) py-16 text-theme-text"
+      className="text-theme-text relative flex min-h-screen items-center justify-center overflow-hidden bg-(--color-background) py-16"
     >
       <HeroBackdrop />
       <HeroCodeWindow />
@@ -25,7 +25,7 @@ export function HeroSection() {
         }}
         className="absolute -bottom-10 left-1/2 -translate-x-1/2"
       >
-        <ChevronDown className="w-6 h-6 text-theme-primary" />
+        <ChevronDown className="text-theme-primary h-6 w-6" />
       </motion.div>
     </section>
   );

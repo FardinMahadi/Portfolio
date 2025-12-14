@@ -37,6 +37,9 @@ module.exports = {
   // Embedded language formatting
   embeddedLanguageFormatting: 'auto',
 
+  // Plugins - Tailwind plugin must be last
+  plugins: ['prettier-plugin-tailwindcss'],
+
   // File-specific overrides for special cases
   overrides: [
     {

@@ -1,6 +1,7 @@
 # Component Reference
 
-This document provides a comprehensive reference for all components in the portfolio project.
+This document provides a comprehensive reference for all components in the
+portfolio project.
 
 ## Table of Contents
 
@@ -18,7 +19,8 @@ This document provides a comprehensive reference for all components in the portf
 
 **Location**: `src/components/LandingPage/HeroSection.tsx`
 
-**Description**: Main hero section with animated text and call-to-action buttons.
+**Description**: Main hero section with animated text and call-to-action
+buttons.
 
 **Props**: None (uses internal state)
 

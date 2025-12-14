@@ -1,6 +1,6 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties, ReactNode } from 'react';
 
-import type { ProjectsProps } from "../landing/projects";
+import type { ProjectsProps } from '../landing/projects';
 
 export interface GlassmorphismPanelProps {
   children: ReactNode;
@@ -21,7 +21,7 @@ export interface MagneticButtonProps {
 
 export interface PageTransitionProps {
   children: ReactNode;
-  variant?: "fade" | "slide" | "scale";
+  variant?: 'fade' | 'slide' | 'scale';
 }
 
 export interface ParticleProps {
@@ -33,7 +33,7 @@ export interface ParticleProps {
 }
 
 export interface ScrollProgressIndicatorProps {
-  position?: "top" | "bottom" | "left" | "right";
+  position?: 'top' | 'bottom' | 'left' | 'right';
   height?: string;
   showOnMobile?: boolean;
 }

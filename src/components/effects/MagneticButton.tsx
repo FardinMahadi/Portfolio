@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import type { MagneticButtonProps } from "@/components/types/shared/effects";
+import type { MagneticButtonProps } from '@/components/types/shared/effects';
 
-import { useRef, type MouseEvent } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef, type MouseEvent } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export function MagneticButton({
   children,
-  className = "",
+  className = '',
   magneticStrength = 0.3,
   ...props
 }: MagneticButtonProps) {
@@ -24,16 +24,8 @@ export function MagneticButton({
     damping: 15,
   });
 
-  const rotateX = useTransform(
-    mouseYSpring,
-    [-0.5, 0.5],
-    ["17.5deg", "-17.5deg"]
-  );
-  const rotateY = useTransform(
-    mouseXSpring,
-    [-0.5, 0.5],
-    ["-17.5deg", "17.5deg"]
-  );
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['17.5deg', '-17.5deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-17.5deg', '17.5deg']);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -63,7 +55,7 @@ export function MagneticButton({
       style={{
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
+        transformStyle: 'preserve-3d',
       }}
       className={className}
       {...props}

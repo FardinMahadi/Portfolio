@@ -40,21 +40,21 @@ const backdropStyle = {
 export default function AboutPage() {
   return (
     <PageTransition variant="fade">
-      <div className="min-h-screen text-theme-text" style={backdropStyle}>
+      <div className="text-theme-text min-h-screen" style={backdropStyle}>
         <header>
           <Navigation />
         </header>
         <main className="relative z-10 pt-16">
           <AboutSection />
           <section className="mt-16 px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl rounded-2xl border border-theme-border/50 bg-gradient-to-br from-(--color-surface) to-(--color-background) p-8 text-center shadow-lg shadow-theme-primary/10">
-              <p className="font-mono text-sm uppercase tracking-[0.3em] text-theme-primary/70">
+            <div className="border-theme-border/50 shadow-theme-primary/10 mx-auto max-w-4xl rounded-2xl border bg-gradient-to-br from-(--color-surface) to-(--color-background) p-8 text-center shadow-lg">
+              <p className="text-theme-primary/70 font-mono text-sm tracking-[0.3em] uppercase">
                 Let&apos;s Work Together
               </p>
-              <h2 className="mt-4 text-3xl font-semibold text-theme-text">
+              <h2 className="text-theme-text mt-4 text-3xl font-semibold">
                 Ready to build your next product?
               </h2>
-              <p className="mt-3 text-theme-text/70">
+              <p className="text-theme-text/70 mt-3">
                 I collaborate with product-minded teams to ship polished, accessible experiences.
                 Tell me about your roadmap and I&apos;ll help you get there faster.
               </p>
@@ -68,7 +68,7 @@ export default function AboutPage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="min-h-[48px] border-theme-border/60 bg-transparent px-8 text-theme-text hover:text-theme-primary"
+                  className="border-theme-border/60 text-theme-text hover:text-theme-primary min-h-[48px] bg-transparent px-8"
                 >
                   <Link href="/resume" aria-label="View resume">
                     View resume
@@ -78,7 +78,7 @@ export default function AboutPage() {
             </div>
           </section>
         </main>
-        <footer className="mt-10 border-t border-theme-border/40 bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
+        <footer className="border-theme-border/40 mt-10 border-t bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
           <Footer />
         </footer>
       </div>

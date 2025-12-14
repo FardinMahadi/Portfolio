@@ -9,10 +9,10 @@ export const TRANSITION_DURATION = {
 } as const;
 
 export const TRANSITION_EASING = {
-  ease: "cubic-bezier(0.4, 0, 0.2, 1)",
-  easeIn: "cubic-bezier(0.4, 0, 1, 1)",
-  easeOut: "cubic-bezier(0, 0, 0.2, 1)",
-  easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+  ease: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
+  easeOut: 'cubic-bezier(0, 0, 0.2, 1)',
+  easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
 } as const;
 
 /**
@@ -33,16 +33,14 @@ export function getBlogCardTransitionName(slug: string): string {
  * Check if View Transitions API is supported
  */
 export function supportsViewTransitions(): boolean {
-  if (typeof document === "undefined") return false;
-  return "startViewTransition" in document;
+  if (typeof document === 'undefined') return false;
+  return 'startViewTransition' in document;
 }
 
 /**
  * Start a view transition with fallback
  */
-export function startViewTransition(
-  callback: () => void | Promise<void>
-): void {
+export function startViewTransition(callback: () => void | Promise<void>): void {
   if (supportsViewTransitions()) {
     document.startViewTransition(callback);
   } else {

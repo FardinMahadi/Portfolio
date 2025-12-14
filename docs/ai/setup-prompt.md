@@ -1,6 +1,7 @@
 # AI Setup Prompt: Import Ordering & Spacing Configuration
 
-Use this prompt with AI IDEs (Cursor, GitHub Copilot, etc.) to configure ESLint import ordering with pyramid structure and spacing between groups.
+Use this prompt with AI IDEs (Cursor, GitHub Copilot, etc.) to configure ESLint
+import ordering with pyramid structure and spacing between groups.
 
 ---
 
@@ -113,7 +114,8 @@ Set up ESLint import ordering with:
 
 - Pyramid structure (sort by line length within groups)
 - Blank lines between import groups
-- Group order: types → external → @mui → src/routes → src/hooks → src/utils → internal → src/components → src/sections → relative imports
+- Group order: types → external → @mui → src/routes → src/hooks → src/utils →
+  internal → src/components → src/sections → relative imports
 - Use eslint-plugin-perfectionist with 'perfectionist/sort-imports' rule
 - Configure custom groups for src/\* patterns
 - Set newlinesBetween: 'always' and type: 'line-length'
@@ -315,5 +317,4 @@ Reorder items in the `groups` array to match your preference.
 
 ---
 
-**Last Updated**: 2024
-**Compatible With**: ESLint 9+, TypeScript projects
+**Last Updated**: 2024 **Compatible With**: ESLint 9+, TypeScript projects

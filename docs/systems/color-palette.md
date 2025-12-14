@@ -1,6 +1,7 @@
 # Color Palette System
 
-This document describes the dynamic color palette system used throughout the portfolio.
+This document describes the dynamic color palette system used throughout the
+portfolio.
 
 ## Table of Contents
 
@@ -16,7 +17,8 @@ This document describes the dynamic color palette system used throughout the por
 
 ## Overview
 
-The portfolio uses a dynamic color palette system that allows users to switch between different color themes. Palettes are:
+The portfolio uses a dynamic color palette system that allows users to switch
+between different color themes. Palettes are:
 
 - Defined in `src/lib/colorPalettes.ts`
 - Managed by `ColorPaletteContext`
@@ -196,14 +198,14 @@ Edit `src/lib/colorPalettes.ts`:
 export const colorPalettes: Record<string, ColorPalette> = {
   // ... existing palettes
   pink: {
-    name: "Pink Paradise",
-    primary: "#ec4899", // pink-500
-    secondary: "#f472b6", // pink-400
-    accent: "#f43f5e", // rose-500
-    background: "#0f0a0a",
-    surface: "#1f1111",
-    text: "#fdf2f8",
-    border: "#3a1f1f",
+    name: 'Pink Paradise',
+    primary: '#ec4899', // pink-500
+    secondary: '#f472b6', // pink-400
+    accent: '#f43f5e', // rose-500
+    background: '#0f0a0a',
+    surface: '#1f1111',
+    text: '#fdf2f8',
+    border: '#3a1f1f',
   },
 };
 ```
@@ -228,21 +230,21 @@ The project includes Tailwind utility classes that use CSS variables:
 ### Background Colors
 
 ```typescript
-className = "bg-theme-background"; // Uses --color-background
-className = "bg-theme-surface"; // Uses --color-surface
+className = 'bg-theme-background'; // Uses --color-background
+className = 'bg-theme-surface'; // Uses --color-surface
 ```
 
 ### Text Colors
 
 ```typescript
-className = "text-theme-primary"; // Uses --color-primary
-className = "text-theme-text"; // Uses --color-text
+className = 'text-theme-primary'; // Uses --color-primary
+className = 'text-theme-text'; // Uses --color-text
 ```
 
 ### Border Colors
 
 ```typescript
-className = "border-theme-border"; // Uses --color-border
+className = 'border-theme-border'; // Uses --color-border
 ```
 
 ### Custom CSS Variables
@@ -250,8 +252,8 @@ className = "border-theme-border"; // Uses --color-border
 You can also use CSS variables directly:
 
 ```typescript
-className = "bg-[var(--color-background)]";
-className = "text-[var(--color-primary)]";
+className = 'bg-[var(--color-background)]';
+className = 'text-[var(--color-primary)]';
 ```
 
 ---
@@ -310,13 +312,13 @@ Object.entries(cssVars).forEach(([key, value]) => {
 Palette selection is saved to `localStorage`:
 
 ```typescript
-localStorage.setItem("colorPalette", paletteKey);
+localStorage.setItem('colorPalette', paletteKey);
 ```
 
 On page load, the saved palette is restored:
 
 ```typescript
-const savedPalette = localStorage.getItem("colorPalette");
+const savedPalette = localStorage.getItem('colorPalette');
 if (savedPalette && colorPalettes[savedPalette]) {
   setCurrentPaletteKey(savedPalette);
 }
@@ -332,7 +334,8 @@ Ensure sufficient contrast for accessibility:
 
 - Text on background: WCAG AA minimum (4.5:1)
 - Large text: WCAG AA minimum (3:1)
-- Use tools like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- Use tools like
+  [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 
 ### 2. Consistent Usage
 

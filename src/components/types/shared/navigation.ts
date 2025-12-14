@@ -1,4 +1,4 @@
-import type { Dispatch, MouseEvent, ReactNode, SetStateAction } from "react";
+import type { Dispatch, MouseEvent, ReactNode, SetStateAction } from 'react';
 
 export interface NavItemsProps {
   name: string;
@@ -17,10 +17,7 @@ export interface NavSubItemProps {
 export type DesktopNavigationProps = {
   isScrolled: boolean;
   navItems: NavItemsProps[];
-  handleNavClick: (
-    item: NavItemsProps,
-    e?: MouseEvent<HTMLButtonElement>
-  ) => void;
+  handleNavClick: (item: NavItemsProps, e?: MouseEvent<HTMLButtonElement>) => void;
   isActive: (item: NavItemsProps) => boolean;
   openSubmenu: string | null;
   setOpenSubmenu: Dispatch<SetStateAction<string | null>>;
@@ -32,10 +29,7 @@ export type MobileNavigationProps = {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
   navItems: NavItemsProps[];
-  handleNavClick: (
-    item: NavItemsProps,
-    e?: MouseEvent<HTMLButtonElement>
-  ) => void;
+  handleNavClick: (item: NavItemsProps, e?: MouseEvent<HTMLButtonElement>) => void;
   isActive: (item: NavItemsProps) => boolean;
   openSubmenu: string | null;
   setOpenSubmenu: Dispatch<SetStateAction<string | null>>;

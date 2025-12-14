@@ -1,39 +1,39 @@
-"use client";
+'use client';
 
-import type { NavItemsProps } from "@/components/types/shared/navigation";
+import type { NavItemsProps } from '@/components/types/shared/navigation';
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
-import { navItems } from "./navItems";
-import { MobileNavigation } from "./MobileNavigation";
-import { DesktopNavigation } from "./DesktopNavigation";
+import { navItems } from './navItems';
+import { MobileNavigation } from './MobileNavigation';
+import { DesktopNavigation } from './DesktopNavigation';
 
 export function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
-    if (pathname === "/blog" || pathname?.startsWith("/blog/")) {
-      setActiveSection("blog");
-    } else if (pathname === "/about") {
-      setActiveSection("about");
-    } else if (pathname === "/experience") {
-      setActiveSection("experience");
-    } else if (pathname === "/contact") {
-      setActiveSection("contact");
-    } else if (pathname === "/") {
-      setActiveSection("home");
+    if (pathname === '/blog' || pathname?.startsWith('/blog/')) {
+      setActiveSection('blog');
+    } else if (pathname === '/about') {
+      setActiveSection('about');
+    } else if (pathname === '/experience') {
+      setActiveSection('experience');
+    } else if (pathname === '/contact') {
+      setActiveSection('contact');
+    } else if (pathname === '/') {
+      setActiveSection('home');
     }
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      if (pathname === "/") {
-        const sections = ["home", "blog"];
+      if (pathname === '/') {
+        const sections = ['home', 'blog'];
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
@@ -47,8 +47,8 @@ export function Navigation() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
 
   const handleNavClick = (item: NavItemsProps, e?: React.MouseEvent) => {
@@ -58,13 +58,13 @@ export function Navigation() {
     }
 
     e?.preventDefault();
-    const sectionId = item.href.replace("#", "");
+    const sectionId = item.href.replace('#', '');
     const element = document.getElementById(sectionId);
     if (element) {
-      if (pathname !== "/") {
+      if (pathname !== '/') {
         window.location.href = `/${item.href}`;
       } else {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
     setIsMobileMenuOpen(false);
@@ -72,16 +72,16 @@ export function Navigation() {
 
   const isActive = (item: NavItemsProps) => {
     if (item.isRoute) {
-      if (item.href === "/") {
-        return pathname === "/" && activeSection === "home";
+      if (item.href === '/') {
+        return pathname === '/' && activeSection === 'home';
       }
       return pathname?.startsWith(item.href);
     }
-    return activeSection === item.href.replace("#", "");
+    return activeSection === item.href.replace('#', '');
   };
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
+    setIsMobileMenuOpen(prev => !prev);
   };
 
   return (

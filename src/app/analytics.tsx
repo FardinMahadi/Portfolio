@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
 
 export function Analytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || typeof window === "undefined") return;
+    if (!GA_MEASUREMENT_ID || typeof window === 'undefined') return;
 
     // Initialize Google Analytics
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     script.async = true;
     document.head.appendChild(script);
@@ -22,16 +22,14 @@ export function Analytics() {
     function gtag(...args: unknown[]) {
       window.dataLayer.push(args);
     }
-    gtag("js", new Date());
-    gtag("config", GA_MEASUREMENT_ID, {
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, {
       page_path: pathname,
     });
 
     return () => {
       // Cleanup on unmount
-      const existingScript = document.querySelector(
-        `script[src*="googletagmanager.com"]`
-      );
+      const existingScript = document.querySelector(`script[src*="googletagmanager.com"]`);
       if (existingScript) {
         existingScript.remove();
       }
@@ -39,13 +37,11 @@ export function Analytics() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || typeof window === "undefined") return;
+    if (!GA_MEASUREMENT_ID || typeof window === 'undefined') return;
 
-    const url =
-      pathname +
-      (searchParams?.toString() ? `?${searchParams.toString()}` : "");
+    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
 
-    window.gtag?.("config", GA_MEASUREMENT_ID, {
+    window.gtag?.('config', GA_MEASUREMENT_ID, {
       page_path: url,
     });
   }, [pathname, searchParams]);

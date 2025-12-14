@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
-import { blogPosts } from "@/lib/blogData";
-import { Button } from "@/components/ui/button";
-import { motion, useInView } from "framer-motion";
+import Link from 'next/link';
+import { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { blogPosts } from '@/lib/blogData';
+import { Button } from '@/components/ui/button';
+import { motion, useInView } from 'framer-motion';
 
-import { BlogList } from "./BlogList";
-import { BlogHeader } from "./BlogHeader";
-import { BlogBackground } from "./BlogBackground";
+import { BlogList } from './BlogList';
+import { BlogHeader } from './BlogHeader';
+import { BlogBackground } from './BlogBackground';
 
 export function BlogSection() {
   const ref = useRef(null);
@@ -21,15 +21,15 @@ export function BlogSection() {
   return (
     <section
       id="blog"
-      className="relative overflow-hidden bg-(--color-background) py-20 px-4 text-theme-text sm:px-6 lg:px-8"
+      className="text-theme-text relative overflow-hidden bg-(--color-background) px-4 py-20 sm:px-6 lg:px-8"
       style={{
         background:
-          "linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 92%, transparent), var(--color-background))",
+          'linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 92%, transparent), var(--color-background))',
       }}
     >
       <BlogBackground />
 
-      <div ref={ref} className="max-w-7xl mx-auto relative z-10">
+      <div ref={ref} className="relative z-10 mx-auto max-w-7xl">
         <BlogHeader />
 
         <BlogList posts={displayedPosts} isInView={isInView} />
@@ -43,12 +43,12 @@ export function BlogSection() {
           <Button
             variant="outline"
             size="lg"
-            className="border-theme-border/70 text-theme-text/80 transition-all duration-300 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary"
+            className="border-theme-border/70 text-theme-text/80 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary transition-all duration-300"
             asChild
           >
             <Link href="/blog" aria-label="View all blog articles">
               View All Articles
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </motion.div>

@@ -1,6 +1,7 @@
 # Data Structures
 
-This document describes the JSON data structures and TypeScript types used throughout the portfolio project.
+This document describes the JSON data structures and TypeScript types used
+throughout the portfolio project.
 
 ## Table of Contents
 
@@ -74,13 +75,13 @@ interface ProjectsProps {
 ### Usage
 
 ```typescript
-import { projects } from "@/lib/projects";
+import { projects } from '@/lib/projects';
 
 // Access all projects
 const allProjects = projects;
 
 // Filter projects
-const filteredProjects = projects.filter((p) => p.tags.includes("Next.js"));
+const filteredProjects = projects.filter(p => p.tags.includes('Next.js'));
 ```
 
 ---
@@ -125,18 +126,18 @@ interface BlogPostsProps {
 ### Usage
 
 ```typescript
-import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blogData";
+import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blogData';
 
 // Get all posts
 const allPosts = getAllBlogPosts();
 
 // Get single post by slug
 const post = getBlogPostBySlug(
-  "programming-should-be-fun-breaking-down-intimidation-barrier"
+  'programming-should-be-fun-breaking-down-intimidation-barrier'
 );
 
 // Filter by category
-const beginnerPosts = allPosts.filter((p) => p.category === "Beginners");
+const beginnerPosts = allPosts.filter(p => p.category === 'Beginners');
 ```
 
 ### Categories
@@ -184,7 +185,7 @@ interface SocialLinksProps {
 ### Usage
 
 ```typescript
-import socialLinksData from "@/data/socialLinks.json";
+import socialLinksData from '@/data/socialLinks.json';
 
 // Access all social links
 const socialLinks = socialLinksData;
@@ -277,8 +278,8 @@ export interface SocialLinksProps {
 **File**: `src/lib/projects.ts`
 
 ```typescript
-import type { ProjectsProps } from "@/components/types/ProjectsProps";
-import projectsData from "@/data/projects.json";
+import type { ProjectsProps } from '@/components/types/ProjectsProps';
+import projectsData from '@/data/projects.json';
 
 export const projects: ProjectsProps[] = projectsData;
 ```
@@ -288,14 +289,14 @@ export const projects: ProjectsProps[] = projectsData;
 **File**: `src/lib/blogData.ts`
 
 ```typescript
-import { BlogPostsProps } from "@/components/types/BlogPostsProps";
-import blogPostsData from "@/data/blogPosts.json";
+import { BlogPostsProps } from '@/components/types/BlogPostsProps';
+import blogPostsData from '@/data/blogPosts.json';
 
 export const blogPosts: BlogPostsProps[] = blogPostsData as BlogPostsProps[];
 
 // Helper function to get blog post by slug
 export function getBlogPostBySlug(slug: string): BlogPostsProps | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+  return blogPosts.find(post => post.slug === slug);
 }
 
 // Helper function to get all blog posts
@@ -309,7 +310,7 @@ export function getAllBlogPosts(): BlogPostsProps[] {
 Social links are imported directly from JSON:
 
 ```typescript
-import socialLinksData from "@/data/socialLinks.json";
+import socialLinksData from '@/data/socialLinks.json';
 ```
 
 ---
@@ -364,7 +365,8 @@ Consider adding runtime validation for production:
 ## Best Practices
 
 1. **Keep JSON files clean**: Use proper formatting and indentation
-2. **Use descriptive slugs**: Blog post slugs should be readable and SEO-friendly
+2. **Use descriptive slugs**: Blog post slugs should be readable and
+   SEO-friendly
 3. **Optimize images**: Use appropriate sizes and formats
 4. **Provide alt text**: Always include descriptive alt text for images
 5. **Validate data**: Use TypeScript types and consider runtime validation

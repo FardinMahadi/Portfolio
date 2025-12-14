@@ -37,14 +37,14 @@ const backdropStyle = {
 export default function ContactPage() {
   return (
     <PageTransition variant="fade">
-      <div className="min-h-screen text-theme-text" style={backdropStyle}>
+      <div className="text-theme-text min-h-screen" style={backdropStyle}>
         <header>
           <Navigation />
         </header>
         <main className="relative z-10 pt-16">
           <ContactSection variant="page" />
         </main>
-        <footer className="mt-10 border-t border-theme-border/40 bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
+        <footer className="border-theme-border/40 mt-10 border-t bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
           <Footer />
         </footer>
       </div>

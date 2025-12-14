@@ -1,12 +1,14 @@
 # AI Documentation
 
-This section contains documentation specifically for AI assistants working on this project.
+This section contains documentation specifically for AI assistants working on
+this project.
 
 ## Available AI Documentation
 
 ### Training Guide
 
-[**AI Training Guide**](./training-guide.md) - Comprehensive quick reference for AI assistants.
+[**AI Training Guide**](./training-guide.md) - Comprehensive quick reference for
+AI assistants.
 
 **Topics covered:**
 
@@ -18,7 +20,8 @@ This section contains documentation specifically for AI assistants working on th
 
 ### Quick Prompt
 
-[**Quick Prompt**](./quick-prompt.md) - Quick reference for configuring ESLint import ordering.
+[**Quick Prompt**](./quick-prompt.md) - Quick reference for configuring ESLint
+import ordering.
 
 **Topics covered:**
 
@@ -28,7 +31,8 @@ This section contains documentation specifically for AI assistants working on th
 
 ### Setup Prompt
 
-[**Setup Prompt**](./setup-prompt.md) - Detailed setup instructions for ESLint import ordering.
+[**Setup Prompt**](./setup-prompt.md) - Detailed setup instructions for ESLint
+import ordering.
 
 **Topics covered:**
 

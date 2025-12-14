@@ -1,6 +1,7 @@
 # AI Training Guide - Quick Reference
 
-This document provides quick reference patterns for AI assistants to follow when working on this Next.js 15 portfolio project.
+This document provides quick reference patterns for AI assistants to follow when
+working on this Next.js 15 portfolio project.
 
 ## Component Template
 
@@ -45,19 +46,25 @@ export function ComponentSection() {
 
 ## Key Rules
 
-1. **Always use semantic HTML** (`<section>`, `<header>`, `<article>`, `<aside>`, `<footer>`)
+1. **Always use semantic HTML** (`<section>`, `<header>`, `<article>`,
+   `<aside>`, `<footer>`)
 2. **Always include ARIA attributes** for accessibility
 3. **Always use Framer Motion** with `useInView` for scroll animations
 4. **Always use TypeScript** with explicit types
 5. **Always optimize images** with `sizes`, `loading`, and `quality` props
 6. **Always include structured data** for SEO when applicable
 7. **Always use Tailwind classes** - no inline styles
-8. **Always use color palette CSS variables** - `bg-[var(--color-background)]`, `text-theme-primary`, etc.
+8. **Always use color palette CSS variables** - `bg-[var(--color-background)]`,
+   `text-theme-primary`, etc.
 9. **Always use terminal/code editor aesthetic** for developer-themed elements
 10. **Always ensure minimum touch target** of 44x44px
-11. **Always use Next.js 15 App Router patterns** - Server Components by default, "use client" when needed
-12. **Always handle mobile devices** - Cursor effects should be disabled on mobile
-13. **Define any new types or interfaces inside `src/components/types/`** and import them wherever needed, so the shared folder stays authoritative for typing contracts.
+11. **Always use Next.js 15 App Router patterns** - Server Components by
+    default, "use client" when needed
+12. **Always handle mobile devices** - Cursor effects should be disabled on
+    mobile
+13. **Define any new types or interfaces inside `src/components/types/`** and
+    import them wherever needed, so the shared folder stays authoritative for
+    typing contracts.
 
 ## Common Patterns
 
@@ -156,23 +163,23 @@ export function Component() {
 ### Blog System Patterns
 
 ```typescript
-import { getBlogPosts, getBlogPostBySlug } from "@/lib/blogData";
+import { getBlogPosts, getBlogPostBySlug } from '@/lib/blogData';
 
 // Get all posts
 const posts = await getBlogPosts();
 
 // Get single post
-const post = await getBlogPostBySlug("slug-name");
+const post = await getBlogPostBySlug('slug-name');
 
 // Filter by category
-const filteredPosts = posts.filter((post) => post.category === "Beginners");
+const filteredPosts = posts.filter(post => post.category === 'Beginners');
 ```
 
 ### API Route Pattern
 
 ```typescript
 // app/api/endpoint/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
@@ -181,8 +188,8 @@ export async function POST(request: NextRequest) {
     // Process request
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json({ error: "Error message" }, { status: 500 });
+    console.error('Error:', error);
+    return NextResponse.json({ error: 'Error message' }, { status: 500 });
   }
 }
 ```
@@ -228,9 +235,9 @@ export function ClientComponent() {
 ```typescript
 // Always check for mobile before enabling cursor effects
 const isMobile = useMemo(() => {
-  if (typeof window === "undefined") return false;
+  if (typeof window === 'undefined') return false;
   const hasTouchScreen =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isSmallScreen = window.innerWidth <= 768;
   return hasTouchScreen && isSmallScreen;
 }, []);
@@ -250,7 +257,7 @@ import { MarkdownRenderer } from "@/components/blog/MarkdownRenderer";
 ### Project Data Structure
 
 ```typescript
-import { projects } from "@/lib/projects";
+import { projects } from '@/lib/projects';
 
 // Access projects
 const allProjects = projects;

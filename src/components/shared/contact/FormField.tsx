@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import type { FormFieldProps } from "@/components/types/landing/contact";
+import type { FormFieldProps } from '@/components/types/landing/contact';
 
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input';
 
 export function FormField({
   label,
   placeholder,
-  type = "text",
+  type = 'text',
   value,
   error,
   onChange,
@@ -15,7 +15,7 @@ export function FormField({
   return (
     <div>
       <label
-        className="mb-2 flex items-center gap-2 font-mono text-sm text-theme-text/75"
+        className="text-theme-text/75 mb-2 flex items-center gap-2 font-mono text-sm"
         aria-label={label}
       >
         <span className="text-purple-400">const</span>
@@ -26,20 +26,16 @@ export function FormField({
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={`min-h-[44px] border-theme-border/70 bg-theme-surface/70 text-theme-text placeholder:text-theme-text/50 focus:border-theme-primary ${
-          error ? "border-red-500" : ""
+        onChange={e => onChange(e.target.value)}
+        className={`border-theme-border/70 bg-theme-surface/70 text-theme-text placeholder:text-theme-text/50 focus:border-theme-primary min-h-[44px] ${
+          error ? 'border-red-500' : ''
         }`}
         aria-required="true"
         aria-invalid={!!error}
         aria-describedby={error ? `${label}-error` : undefined}
       />
       {error && (
-        <p
-          id={`${label}-error`}
-          className="mt-1 text-sm text-red-400"
-          role="alert"
-        >
+        <p id={`${label}-error`} className="mt-1 text-sm text-red-400" role="alert">
           {error}
         </p>
       )}

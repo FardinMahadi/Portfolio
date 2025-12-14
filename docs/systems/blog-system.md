@@ -1,6 +1,7 @@
 # Blog System
 
-This document describes the blog system architecture and how to manage blog content.
+This document describes the blog system architecture and how to manage blog
+content.
 
 ## Table of Contents
 
@@ -169,7 +170,7 @@ import { MarkdownRenderer } from "@/components/blog/MarkdownRenderer";
 
 ````markdown
 ```javascript
-const code = "example";
+const code = 'example';
 ```
 ````
 
@@ -248,10 +249,10 @@ The MarkdownRenderer applies custom styles:
 ### Filtering by Category
 
 ```typescript
-import { getAllBlogPosts } from "@/lib/blogData";
+import { getAllBlogPosts } from '@/lib/blogData';
 
 const posts = getAllBlogPosts();
-const filtered = posts.filter((p) => p.category === "Beginners");
+const filtered = posts.filter(p => p.category === 'Beginners');
 ```
 
 ---
@@ -264,15 +265,15 @@ Each blog post includes structured data:
 
 ```typescript
 const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
+  '@context': 'https://schema.org',
+  '@type': 'Article',
   headline: post.title,
   description: post.excerpt,
   image: post.image,
   datePublished: post.date,
   author: {
-    "@type": "Person",
-    name: "Mahadi Hasan Fardin",
+    '@type': 'Person',
+    name: 'Mahadi Hasan Fardin',
   },
 };
 ```

@@ -1,6 +1,7 @@
 # Development Workflow
 
-This document describes the development workflow, setup, and best practices for working on this project.
+This document describes the development workflow, setup, and best practices for
+working on this project.
 
 ## Table of Contents
 
@@ -232,9 +233,14 @@ components/
 
 ### Formatting
 
-- Follow the shared `.prettierrc.cjs` rules (two-space indent, single quotes, trailing commas, `arrowParens: "always"`, `printWidth: 100`) so markup, JS/TS, and Markdown stay consistent across docs and code.
-- `pnpm format` rewrites files, while `pnpm format:check` reports misalignment before linting or committing.
-- ESLint/perfectionist still governs import ordering, unused imports, and restricted class names; keep formatting separate and run the format command before or after lint runs as needed.
+- Follow the shared `.prettierrc.cjs` rules (two-space indent, single quotes,
+  trailing commas, `arrowParens: "always"`, `printWidth: 100`) so markup, JS/TS,
+  and Markdown stay consistent across docs and code.
+- `pnpm format` rewrites files, while `pnpm format:check` reports misalignment
+  before linting or committing.
+- ESLint/perfectionist still governs import ordering, unused imports, and
+  restricted class names; keep formatting separate and run the format command
+  before or after lint runs as needed.
 
 ---
 
@@ -319,8 +325,8 @@ pnpm install
 
 ```typescript
 // Development only
-if (process.env.NODE_ENV === "development") {
-  console.log("Debug info:", data);
+if (process.env.NODE_ENV === 'development') {
+  console.log('Debug info:', data);
 }
 ```
 

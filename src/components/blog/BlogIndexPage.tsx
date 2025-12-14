@@ -19,13 +19,13 @@ export function BlogIndexPage() {
   // Filter blog posts based on selected category
   const filteredPosts = useMemo(() => {
     if (!selectedCategory) return blogPosts;
-    return blogPosts.filter((post) => post.category === selectedCategory);
+    return blogPosts.filter(post => post.category === selectedCategory);
   }, [selectedCategory]);
 
   return (
     <section
       id="blog-index"
-      className="relative min-h-screen overflow-hidden bg-(--color-background) pt-24 pb-20 px-4 text-theme-text sm:px-6 lg:px-8 scroll-mt-16 md:scroll-mt-32"
+      className="text-theme-text relative min-h-screen scroll-mt-16 overflow-hidden bg-(--color-background) px-4 pt-24 pb-20 sm:px-6 md:scroll-mt-32 lg:px-8"
       style={{
         background:
           'linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 94%, transparent), var(--color-background))',
@@ -34,14 +34,14 @@ export function BlogIndexPage() {
     >
       {/* Background accent */}
       <div
-        className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[200px] opacity-20"
+        className="absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-[200px]"
         style={{
           background:
             'radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%)',
         }}
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl">
         {blogPosts.map((post, index) => {
           const articleSchema = generateArticleSchema(
             post.title,
@@ -49,7 +49,7 @@ export function BlogIndexPage() {
             post.date,
             post.date,
             'Mahadi Hasan Fardin',
-            `${siteUrl}/og-image.png`,
+            `${siteUrl}/og-image.png`
           );
           return (
             <script
@@ -67,16 +67,16 @@ export function BlogIndexPage() {
           transition={{ duration: 0.4 }}
           className="mb-12 text-center"
         >
-          <div className="mb-6 flex items-center justify-center gap-3 text-theme-primary">
+          <div className="text-theme-primary mb-6 flex items-center justify-center gap-3">
             <span className="font-mono" aria-hidden="true">
               {'</'}
             </span>
-            <h1 className="text-4xl font-bold text-theme-accent">Blog Articles</h1>
+            <h1 className="text-theme-accent text-4xl font-bold">Blog Articles</h1>
             <span className="font-mono" aria-hidden="true">
               {'>'}
             </span>
           </div>
-          <p className="mx-auto max-w-2xl text-lg text-theme-text/75">
+          <p className="text-theme-text/75 mx-auto max-w-2xl text-lg">
             Explore articles about web development, programming tips, career insights, and learning
             resources. Written to help developers grow and succeed in their journey.
           </p>
@@ -99,7 +99,7 @@ export function BlogIndexPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mb-6 text-slate-400 text-sm font-mono"
+            className="mb-6 font-mono text-sm text-slate-400"
           >
             {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} in{' '}
             <span className="text-theme-primary">{selectedCategory}</span>
@@ -112,7 +112,7 @@ export function BlogIndexPage() {
             animate={{ opacity: 1, y: 0 }}
             className="py-12 text-center"
           >
-            <p className="text-lg text-theme-text/70">No articles found in this category.</p>
+            <p className="text-theme-text/70 text-lg">No articles found in this category.</p>
           </motion.div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -132,7 +132,7 @@ export function BlogIndexPage() {
                   aria-label={`Read article: ${post.title}`}
                 >
                   <div
-                    className="flex h-full cursor-pointer flex-col rounded-lg border border-theme-border/60 p-6 transition-all duration-300 backdrop-blur-sm hover:border-theme-primary/60"
+                    className="border-theme-border/60 hover:border-theme-primary/60 flex h-full cursor-pointer flex-col rounded-lg border p-6 backdrop-blur-sm transition-all duration-300"
                     style={{
                       background:
                         'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 90%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))',
@@ -141,7 +141,7 @@ export function BlogIndexPage() {
                   >
                     {post.image && (
                       <div
-                        className="relative mb-4 h-44 overflow-hidden rounded-lg border border-theme-border/50"
+                        className="border-theme-border/50 relative mb-4 h-44 overflow-hidden rounded-lg border"
                         style={{
                           viewTransitionName: getBlogImageTransitionName(post.slug),
                         }}
@@ -158,37 +158,37 @@ export function BlogIndexPage() {
                     )}
 
                     {/* Category badge */}
-                    <header className="flex items-center justify-between mb-4">
-                      <span className="px-3 py-1 text-xs font-mono bg-theme-primary/10 text-theme-primary rounded-full border border-theme-primary/20">
+                    <header className="mb-4 flex items-center justify-between">
+                      <span className="bg-theme-primary/10 text-theme-primary border-theme-primary/20 rounded-full border px-3 py-1 font-mono text-xs">
                         {post.category}
                       </span>
-                      <div className="flex items-center gap-4 text-theme-text/60 text-xs">
+                      <div className="text-theme-text/60 flex items-center gap-4 text-xs">
                         <time dateTime={post.date} className="flex items-center gap-1">
-                          <Calendar className="w-3 h-3" aria-hidden="true" />
+                          <Calendar className="h-3 w-3" aria-hidden="true" />
                           <span>{post.date}</span>
                         </time>
                         <div
                           className="flex items-center gap-1"
                           aria-label={`Reading time: ${post.readTime}`}
                         >
-                          <Clock className="w-3 h-3" aria-hidden="true" />
+                          <Clock className="h-3 w-3" aria-hidden="true" />
                           <span>{post.readTime}</span>
                         </div>
                       </div>
                     </header>
 
                     {/* Content */}
-                    <div className="flex-1 space-y-3 mb-4">
-                      <h3 className="text-xl font-semibold tracking-tight text-theme-text transition-colors duration-300 group-hover:text-theme-primary">
+                    <div className="mb-4 flex-1 space-y-3">
+                      <h3 className="text-theme-text group-hover:text-theme-primary text-xl font-semibold tracking-tight transition-colors duration-300">
                         {post.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-theme-text/70">{post.excerpt}</p>
+                      <p className="text-theme-text/70 text-sm leading-relaxed">{post.excerpt}</p>
                     </div>
 
                     {/* Read more */}
-                    <div className="group/btn flex h-[44px] w-full items-center justify-between rounded border border-theme-border/40 px-4 text-theme-text/70 transition-all duration-300 group-hover:border-theme-primary/60 group-hover:text-theme-primary">
+                    <div className="group/btn border-theme-border/40 text-theme-text/70 group-hover:border-theme-primary/60 group-hover:text-theme-primary flex h-[44px] w-full items-center justify-between rounded border px-4 transition-all duration-300">
                       <span className="text-sm font-medium">Read article</span>
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </div>
                   </div>
                 </Link>

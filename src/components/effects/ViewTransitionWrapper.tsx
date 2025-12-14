@@ -1,21 +1,16 @@
-"use client";
+'use client';
 
-import type { ViewTransitionWrapperProps } from "@/components/types/shared/effects";
+import type { ViewTransitionWrapperProps } from '@/components/types/shared/effects';
 
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
-import {
-  supportsViewTransitions,
-  startViewTransition,
-} from "@/lib/transitions";
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { supportsViewTransitions, startViewTransition } from '@/lib/transitions';
 
 /**
  * Wrapper component that enables View Transitions API for navigation
  * Provides fallback for browsers without support
  */
-export function ViewTransitionWrapper({
-  children,
-}: ViewTransitionWrapperProps) {
+export function ViewTransitionWrapper({ children }: ViewTransitionWrapperProps) {
   const pathname = usePathname();
 
   useEffect(() => {

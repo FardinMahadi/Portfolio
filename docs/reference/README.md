@@ -1,6 +1,7 @@
 # Reference Documentation
 
-This section contains reference documentation for APIs, components, data structures, and coding standards.
+This section contains reference documentation for APIs, components, data
+structures, and coding standards.
 
 ## Available Reference
 
@@ -43,7 +44,8 @@ This section contains reference documentation for APIs, components, data structu
 
 ### Style Guide
 
-[**Style Guide**](./style-guide.md) - Coding standards, patterns, and conventions.
+[**Style Guide**](./style-guide.md) - Coding standards, patterns, and
+conventions.
 
 **Topics covered:**
 

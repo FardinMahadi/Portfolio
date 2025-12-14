@@ -1,11 +1,8 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { PropsWithChildren, useEffect, useMemo, useRef, useState } from "react";
-import {
-  CursorFollow,
-  CursorProvider,
-} from "@/components/ui/shadcn-io/animated-cursor";
+import { cn } from '@/lib/utils';
+import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
+import { CursorFollow, CursorProvider } from '@/components/ui/shadcn-io/animated-cursor';
 
 type BlogCursorEffectProps = PropsWithChildren<{
   className?: string;
@@ -13,12 +10,12 @@ type BlogCursorEffectProps = PropsWithChildren<{
   targetSelector?: string;
 }>;
 
-const DEFAULT_SELECTOR = "[data-blog-category]";
+const DEFAULT_SELECTOR = '[data-blog-category]';
 
 export function BlogCursorEffect({
   children,
   className,
-  label = "Creative Reading",
+  label = 'Creative Reading',
   targetSelector = DEFAULT_SELECTOR,
 }: BlogCursorEffectProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -27,7 +24,7 @@ export function BlogCursorEffect({
   const [isMdOrLarger, setIsMdOrLarger] = useState(false);
 
   const selectorList = useMemo(
-    () => targetSelector.split(",").map((selector) => selector.trim()),
+    () => targetSelector.split(',').map(selector => selector.trim()),
     [targetSelector]
   );
 
@@ -44,10 +41,10 @@ export function BlogCursorEffect({
     checkScreenSize();
 
     // Listen for resize events
-    window.addEventListener("resize", checkScreenSize);
+    window.addEventListener('resize', checkScreenSize);
 
     return () => {
-      window.removeEventListener("resize", checkScreenSize);
+      window.removeEventListener('resize', checkScreenSize);
     };
   }, []);
 
@@ -63,8 +60,7 @@ export function BlogCursorEffect({
     const resolveLabel = (element: Element | null) => {
       if (!(element instanceof HTMLElement)) return label;
 
-      const matchedElement =
-        element.closest<HTMLElement>(DEFAULT_SELECTOR) ?? element;
+      const matchedElement = element.closest<HTMLElement>(DEFAULT_SELECTOR) ?? element;
 
       const category = matchedElement.dataset.blogCategory?.trim();
 
@@ -81,9 +77,7 @@ export function BlogCursorEffect({
       if (rafId) cancelAnimationFrame(rafId);
 
       rafId = requestAnimationFrame(() => {
-        const target =
-          (event.target as Element | null)?.closest(selectorList.join(",")) ??
-          null;
+        const target = (event.target as Element | null)?.closest(selectorList.join(',')) ?? null;
         updateLabel(resolveLabel(target));
       });
     };
@@ -92,23 +86,20 @@ export function BlogCursorEffect({
       updateLabel(label);
     };
 
-    wrapper.addEventListener("mousemove", handleMouseMove);
-    wrapper.addEventListener("mouseleave", handleMouseLeave);
+    wrapper.addEventListener('mousemove', handleMouseMove);
+    wrapper.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
-      wrapper.removeEventListener("mousemove", handleMouseMove);
-      wrapper.removeEventListener("mouseleave", handleMouseLeave);
+      wrapper.removeEventListener('mousemove', handleMouseMove);
+      wrapper.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [mounted, label, selectorList, isMdOrLarger]);
 
   return (
     <div
       ref={wrapperRef}
-      className={cn(
-        "relative min-h-screen bg-theme-background text-theme-text",
-        className
-      )}
+      className={cn('bg-theme-background text-theme-text relative min-h-screen', className)}
     >
       {children}
 
@@ -120,7 +111,7 @@ export function BlogCursorEffect({
             className="pointer-events-none"
             aria-hidden="true"
           >
-            <div className="select-none rounded-full bg-theme-primary/90 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-theme-primary shadow-[0_12px_32px_-16px_var(--color-primary)] ring-1 ring-theme-accent/40">
+            <div className="bg-theme-primary/90 text-theme-primary ring-theme-accent/40 rounded-full px-3 py-1 text-xs font-medium tracking-[0.2em] uppercase shadow-[0_12px_32px_-16px_var(--color-primary)] ring-1 select-none">
               {activeLabel}
             </div>
           </CursorFollow>

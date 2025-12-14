@@ -1,20 +1,24 @@
 # Getting Started
 
-Welcome to the getting started guide for the portfolio project! This section covers everything you need to know to start developing.
+Welcome to the getting started guide for the portfolio project! This section
+covers everything you need to know to start developing.
 
 ## Quick Start
 
 New to the project? Start here:
 
-1. [Development Workflow](./development-workflow.md) - Set up your local environment
-2. [Environment Variables](./environment-variables.md) - Configure environment settings
+1. [Development Workflow](./development-workflow.md) - Set up your local
+   environment
+2. [Environment Variables](./environment-variables.md) - Configure environment
+   settings
 3. [Contributing](./contributing.md) - Learn how to contribute
 
 ## Documentation
 
 ### Development Workflow
 
-[**Development Workflow**](./development-workflow.md) - Complete guide to local setup, Git workflow, and common development tasks.
+[**Development Workflow**](./development-workflow.md) - Complete guide to local
+setup, Git workflow, and common development tasks.
 
 **Topics covered:**
 
@@ -26,7 +30,8 @@ New to the project? Start here:
 
 ### Environment Variables
 
-[**Environment Variables**](./environment-variables.md) - Configuration and environment setup.
+[**Environment Variables**](./environment-variables.md) - Configuration and
+environment setup.
 
 **Topics covered:**
 
@@ -37,7 +42,8 @@ New to the project? Start here:
 
 ### Contributing
 
-[**Contributing**](./contributing.md) - Guidelines for contributing to the project.
+[**Contributing**](./contributing.md) - Guidelines for contributing to the
+project.
 
 **Topics covered:**
 

@@ -1,18 +1,17 @@
-"use client";
+'use client';
 
-import type { BlogCardProps } from "@/components/types/blog";
+import type { BlogCardProps } from '@/components/types/blog';
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { generateArticleSchema } from "@/lib/seo";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { getBlogCardTransitionName } from "@/lib/transitions";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { generateArticleSchema } from '@/lib/seo';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { getBlogCardTransitionName } from '@/lib/transitions';
 
-import { Button } from "../../ui/button";
-import { GlassmorphismPanel } from "../../effects/GlassmorphismPanel";
+import { Button } from '../../ui/button';
+import { GlassmorphismPanel } from '../../effects/GlassmorphismPanel';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
 export function BlogCard({ post, index, isInView }: BlogCardProps) {
   const articleSchema = generateArticleSchema(
@@ -20,7 +19,7 @@ export function BlogCard({ post, index, isInView }: BlogCardProps) {
     post.excerpt,
     post.date,
     post.date,
-    "Mahadi Hasan Fardin",
+    'Mahadi Hasan Fardin',
     `${siteUrl}/og-image.png`
   );
 
@@ -42,57 +41,50 @@ export function BlogCard({ post, index, isInView }: BlogCardProps) {
         className="group"
       >
         <Link
-          href={post.slug ? `/blog/${post.slug}` : "#"}
+          href={post.slug ? `/blog/${post.slug}` : '#'}
           className="block h-full"
           aria-label={`Read article: ${post.title}`}
         >
           <GlassmorphismPanel
-            className="h-full flex flex-col p-6"
+            className="flex h-full flex-col p-6"
             hover
             style={{
-              viewTransitionName: post.slug
-                ? getBlogCardTransitionName(post.slug)
-                : undefined,
+              viewTransitionName: post.slug ? getBlogCardTransitionName(post.slug) : undefined,
             }}
           >
-            <div className="h-full flex flex-col cursor-pointer">
-              <header className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 text-xs font-mono bg-theme-primary/10 text-theme-primary rounded-full border border-theme-primary/20">
+            <div className="flex h-full cursor-pointer flex-col">
+              <header className="mb-4 flex items-center justify-between">
+                <span className="bg-theme-primary/10 text-theme-primary border-theme-primary/20 rounded-full border px-3 py-1 font-mono text-xs">
                   {post.category}
                 </span>
-                <div className="flex items-center gap-4 text-xs text-theme-text/60">
-                  <time
-                    dateTime={post.date}
-                    className="flex items-center gap-1"
-                  >
-                    <Calendar className="w-3 h-3" aria-hidden="true" />
+                <div className="text-theme-text/60 flex items-center gap-4 text-xs">
+                  <time dateTime={post.date} className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" aria-hidden="true" />
                     <span>{post.date}</span>
                   </time>
                   <div
                     className="flex items-center gap-1"
                     aria-label={`Reading time: ${post.readTime}`}
                   >
-                    <Clock className="w-3 h-3" aria-hidden="true" />
+                    <Clock className="h-3 w-3" aria-hidden="true" />
                     <span>{post.readTime}</span>
                   </div>
                 </div>
               </header>
 
-              <div className="flex-1 space-y-3 mb-4">
-                <h3 className="text-xl font-semibold tracking-tight text-theme-text transition-colors duration-300 group-hover:text-theme-primary">
+              <div className="mb-4 flex-1 space-y-3">
+                <h3 className="text-theme-text group-hover:text-theme-primary text-xl font-semibold tracking-tight transition-colors duration-300">
                   {post.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-theme-text/70">
-                  {post.excerpt}
-                </p>
+                <p className="text-theme-text/70 text-sm leading-relaxed">{post.excerpt}</p>
               </div>
 
               <Button
                 variant="ghost"
-                className="group/btn min-h-[44px] w-full justify-between text-theme-text/70 transition-all duration-300 hover:bg-theme-primary/5 hover:text-theme-primary"
+                className="group/btn text-theme-text/70 hover:bg-theme-primary/5 hover:text-theme-primary min-h-[44px] w-full justify-between transition-all duration-300"
               >
                 <span>Read article</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
               </Button>
             </div>
           </GlassmorphismPanel>

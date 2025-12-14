@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import type { GlassmorphismPanelProps } from "@/components/types/shared/effects";
+import type { GlassmorphismPanelProps } from '@/components/types/shared/effects';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function GlassmorphismPanel({
   children,
-  className = "",
-  blur = "8px",
+  className = '',
+  blur = '8px',
   opacity = 0.1,
   borderOpacity = 0.2,
   hover = true,
@@ -16,7 +16,7 @@ export function GlassmorphismPanel({
   return (
     <motion.div
       className={`relative rounded-lg border backdrop-blur-md transition-all duration-300 ${
-        hover ? "hover:border-opacity-40 hover:shadow-lg" : ""
+        hover ? 'hover:border-opacity-40 hover:shadow-lg' : ''
       } ${className}`}
       style={{
         backgroundColor: `rgba(15, 23, 42, ${opacity})`,

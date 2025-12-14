@@ -1,36 +1,30 @@
-"use client";
+'use client';
 
-import type { TargetCursorProps } from "@/components/types/shared/effects";
+import type { TargetCursorProps } from '@/components/types/shared/effects';
 
-import { gsap } from "gsap";
-import { useEffect, useRef, useCallback, useMemo, useState } from "react";
+import { gsap } from 'gsap';
+import { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 
 type MediaQueryListener = (event: MediaQueryListEvent) => void;
 
-const addMediaListener = (
-  query: MediaQueryList,
-  listener: MediaQueryListener
-) => {
-  if (typeof query.addEventListener === "function") {
-    query.addEventListener("change", listener);
+const addMediaListener = (query: MediaQueryList, listener: MediaQueryListener) => {
+  if (typeof query.addEventListener === 'function') {
+    query.addEventListener('change', listener);
   } else {
     query.addListener(listener);
   }
 };
 
-const removeMediaListener = (
-  query: MediaQueryList,
-  listener: MediaQueryListener
-) => {
-  if (typeof query.removeEventListener === "function") {
-    query.removeEventListener("change", listener);
+const removeMediaListener = (query: MediaQueryList, listener: MediaQueryListener) => {
+  if (typeof query.removeEventListener === 'function') {
+    query.removeEventListener('change', listener);
   } else {
     query.removeListener(listener);
   }
 };
 
 export function TargetCursor({
-  targetSelector = ".cursor-target",
+  targetSelector = '.cursor-target',
   spinDuration = 2,
   hideDefaultCursor = true,
 }: TargetCursorProps) {
@@ -47,8 +41,8 @@ export function TargetCursor({
   useEffect(() => {
     setMounted(true);
 
-    const finePointerQuery = window.matchMedia("(pointer: fine)");
-    const hoverQuery = window.matchMedia("(hover: hover)");
+    const finePointerQuery = window.matchMedia('(pointer: fine)');
+    const hoverQuery = window.matchMedia('(hover: hover)');
 
     const updateFromMediaQueries = () => {
       const hasMouseLikeInput = finePointerQuery.matches && hoverQuery.matches;
@@ -56,8 +50,7 @@ export function TargetCursor({
     };
 
     const pointerDownHandler = (event: PointerEvent) => {
-      const mouseLikePointer =
-        event.pointerType === "mouse" || event.pointerType === "pen";
+      const mouseLikePointer = event.pointerType === 'mouse' || event.pointerType === 'pen';
       setDisableCursor(!mouseLikePointer);
     };
 
@@ -66,13 +59,13 @@ export function TargetCursor({
     addMediaListener(finePointerQuery, updateFromMediaQueries);
     addMediaListener(hoverQuery, updateFromMediaQueries);
 
-    window.addEventListener("pointerdown", pointerDownHandler);
+    window.addEventListener('pointerdown', pointerDownHandler);
 
     return () => {
       removeMediaListener(finePointerQuery, updateFromMediaQueries);
       removeMediaListener(hoverQuery, updateFromMediaQueries);
 
-      window.removeEventListener("pointerdown", pointerDownHandler);
+      window.removeEventListener('pointerdown', pointerDownHandler);
     };
   }, []);
 
@@ -91,7 +84,7 @@ export function TargetCursor({
       x,
       y,
       duration: 0.1,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
   }, []);
 
@@ -99,13 +92,11 @@ export function TargetCursor({
     if (!mounted || disableCursor || !cursorRef.current) return;
     const originalCursor = document.body.style.cursor;
     if (hideDefaultCursor) {
-      document.body.style.cursor = "none";
+      document.body.style.cursor = 'none';
     }
 
     const cursor = cursorRef.current;
-    cornersRef.current = cursor.querySelectorAll<HTMLDivElement>(
-      ".target-cursor-corner"
-    );
+    cornersRef.current = cursor.querySelectorAll<HTMLDivElement>('.target-cursor-corner');
     let activeTarget: HTMLElement | null = null;
     let currentTargetMove: ((e: MouseEvent) => void) | null = null;
     let currentLeaveHandler: (() => void) | null = null;
@@ -114,10 +105,10 @@ export function TargetCursor({
 
     const cleanupTarget = (target: HTMLElement) => {
       if (currentTargetMove) {
-        target.removeEventListener("mousemove", currentTargetMove);
+        target.removeEventListener('mousemove', currentTargetMove);
       }
       if (currentLeaveHandler) {
-        target.removeEventListener("mouseleave", currentLeaveHandler);
+        target.removeEventListener('mouseleave', currentLeaveHandler);
       }
       currentTargetMove = null;
       currentLeaveHandler = null;
@@ -135,9 +126,9 @@ export function TargetCursor({
         spinTl.current.kill();
       }
       spinTl.current = gsap.timeline({ repeat: -1 }).to(cursor, {
-        rotation: "+=360",
+        rotation: '+=360',
         duration: spinDuration,
-        ease: "none",
+        ease: 'none',
       });
     };
 
@@ -145,12 +136,12 @@ export function TargetCursor({
 
     const moveHandler = (e: MouseEvent) => moveCursor(e.clientX, e.clientY);
 
-    window.addEventListener("mousemove", moveHandler);
+    window.addEventListener('mousemove', moveHandler);
 
     const scrollHandler = () => {
       if (!activeTarget || !cursorRef.current) return;
-      const mouseX = gsap.getProperty(cursorRef.current, "x") as number;
-      const mouseY = gsap.getProperty(cursorRef.current, "y") as number;
+      const mouseX = gsap.getProperty(cursorRef.current, 'x') as number;
+      const mouseY = gsap.getProperty(cursorRef.current, 'y') as number;
       const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
       const isStillOverTarget =
         elementUnderMouse &&
@@ -164,7 +155,7 @@ export function TargetCursor({
       }
     };
 
-    window.addEventListener("scroll", scrollHandler, { passive: true });
+    window.addEventListener('scroll', scrollHandler, { passive: true });
 
     const mouseDownHandler = () => {
       if (!dotRef.current) return;
@@ -178,8 +169,8 @@ export function TargetCursor({
       gsap.to(cursorRef.current, { scale: 1, duration: 0.2 });
     };
 
-    window.addEventListener("mousedown", mouseDownHandler);
-    window.addEventListener("mouseup", mouseUpHandler);
+    window.addEventListener('mousedown', mouseDownHandler);
+    window.addEventListener('mouseup', mouseUpHandler);
 
     const enterHandler = (e: MouseEvent) => {
       const directTarget = e.target as HTMLElement;
@@ -211,11 +202,11 @@ export function TargetCursor({
 
       const corners = Array.from(cornersRef.current);
 
-      corners.forEach((corner) => {
+      corners.forEach(corner => {
         gsap.killTweensOf(corner);
       });
 
-      gsap.killTweensOf(cursorRef.current, "rotation");
+      gsap.killTweensOf(cursorRef.current, 'rotation');
 
       spinTl.current?.pause();
 
@@ -292,7 +283,7 @@ export function TargetCursor({
               x: offsets[index].x,
               y: offsets[index].y,
               duration: 0.2,
-              ease: "power2.out",
+              ease: 'power2.out',
             },
             0
           );
@@ -344,7 +335,7 @@ export function TargetCursor({
                 x: positions[index].x,
                 y: positions[index].y,
                 duration: 0.3,
-                ease: "power3.out",
+                ease: 'power3.out',
               },
               0
             );
@@ -353,26 +344,21 @@ export function TargetCursor({
 
         resumeTimeout = setTimeout(() => {
           if (!activeTarget && cursorRef.current && spinTl.current) {
-            const currentRotation = gsap.getProperty(
-              cursorRef.current,
-              "rotation"
-            ) as number;
+            const currentRotation = gsap.getProperty(cursorRef.current, 'rotation') as number;
             const normalizedRotation = currentRotation % 360;
 
             spinTl.current.kill();
 
-            spinTl.current = gsap
-              .timeline({ repeat: -1 })
-              .to(cursorRef.current, {
-                rotation: "+=360",
-                duration: spinDuration,
-                ease: "none",
-              });
+            spinTl.current = gsap.timeline({ repeat: -1 }).to(cursorRef.current, {
+              rotation: '+=360',
+              duration: spinDuration,
+              ease: 'none',
+            });
 
             gsap.to(cursorRef.current, {
               rotation: normalizedRotation + 360,
               duration: spinDuration * (1 - normalizedRotation / 360),
-              ease: "none",
+              ease: 'none',
               onComplete: () => {
                 spinTl.current?.restart();
               },
@@ -388,18 +374,18 @@ export function TargetCursor({
       currentTargetMove = targetMove;
       currentLeaveHandler = leaveHandler;
 
-      target.addEventListener("mousemove", targetMove);
-      target.addEventListener("mouseleave", leaveHandler);
+      target.addEventListener('mousemove', targetMove);
+      target.addEventListener('mouseleave', leaveHandler);
     };
 
-    window.addEventListener("mouseover", enterHandler, { passive: true });
+    window.addEventListener('mouseover', enterHandler, { passive: true });
 
     return () => {
-      window.removeEventListener("mousemove", moveHandler);
-      window.removeEventListener("mouseover", enterHandler);
-      window.removeEventListener("scroll", scrollHandler);
-      window.removeEventListener("mousedown", mouseDownHandler);
-      window.removeEventListener("mouseup", mouseUpHandler);
+      window.removeEventListener('mousemove', moveHandler);
+      window.removeEventListener('mouseover', enterHandler);
+      window.removeEventListener('scroll', scrollHandler);
+      window.removeEventListener('mousedown', mouseDownHandler);
+      window.removeEventListener('mouseup', mouseUpHandler);
 
       if (activeTarget) {
         cleanupTarget(activeTarget);
@@ -419,16 +405,15 @@ export function TargetCursor({
   ]);
 
   useEffect(() => {
-    if (!mounted || disableCursor || !cursorRef.current || !spinTl.current)
-      return;
+    if (!mounted || disableCursor || !cursorRef.current || !spinTl.current) return;
 
     if (spinTl.current.isActive()) {
       spinTl.current.kill();
 
       spinTl.current = gsap.timeline({ repeat: -1 }).to(cursorRef.current, {
-        rotation: "+=360",
+        rotation: '+=360',
         duration: spinDuration,
-        ease: "none",
+        ease: 'none',
       });
     }
   }, [mounted, spinDuration, disableCursor]);
@@ -441,60 +426,60 @@ export function TargetCursor({
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-9999"
-      style={{ transform: "translate(-50%, -50%)", isolation: "isolate" }}
+      className="pointer-events-none fixed top-0 left-0 z-9999 h-0 w-0"
+      style={{ transform: 'translate(-50%, -50%)', isolation: 'isolate' }}
     >
       <div
         ref={dotRef}
-        className="absolute left-1/2 top-1/2 w-1 h-1 bg-cyan-400 rounded-full"
+        className="absolute top-1/2 left-1/2 h-1 w-1 rounded-full bg-cyan-400"
         style={{
-          transform: "translate(-50%, -50%)",
-          willChange: "transform",
-          boxShadow: "0 0 8px rgba(34, 211, 238, 0.8)",
+          transform: 'translate(-50%, -50%)',
+          willChange: 'transform',
+          boxShadow: '0 0 8px rgba(34, 211, 238, 0.8)',
         }}
       />
 
       <div
-        className="target-cursor-corner corner-tl absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
+        className="target-cursor-corner corner-tl absolute top-1/2 left-1/2 h-3 w-3 border-[3px] border-cyan-400"
         style={{
-          transform: "translate(-150%, -150%)",
-          borderRight: "none",
-          borderBottom: "none",
-          willChange: "transform",
-          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
+          transform: 'translate(-150%, -150%)',
+          borderRight: 'none',
+          borderBottom: 'none',
+          willChange: 'transform',
+          filter: 'drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))',
         }}
       />
 
       <div
-        className="target-cursor-corner corner-tr absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
+        className="target-cursor-corner corner-tr absolute top-1/2 left-1/2 h-3 w-3 border-[3px] border-cyan-400"
         style={{
-          transform: "translate(50%, -150%)",
-          borderLeft: "none",
-          borderBottom: "none",
-          willChange: "transform",
-          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
+          transform: 'translate(50%, -150%)',
+          borderLeft: 'none',
+          borderBottom: 'none',
+          willChange: 'transform',
+          filter: 'drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))',
         }}
       />
 
       <div
-        className="target-cursor-corner corner-br absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
+        className="target-cursor-corner corner-br absolute top-1/2 left-1/2 h-3 w-3 border-[3px] border-cyan-400"
         style={{
-          transform: "translate(50%, 50%)",
-          borderLeft: "none",
-          borderTop: "none",
-          willChange: "transform",
-          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
+          transform: 'translate(50%, 50%)',
+          borderLeft: 'none',
+          borderTop: 'none',
+          willChange: 'transform',
+          filter: 'drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))',
         }}
       />
 
       <div
-        className="target-cursor-corner corner-bl absolute left-1/2 top-1/2 w-3 h-3 border-[3px] border-cyan-400"
+        className="target-cursor-corner corner-bl absolute top-1/2 left-1/2 h-3 w-3 border-[3px] border-cyan-400"
         style={{
-          transform: "translate(-150%, 50%)",
-          borderRight: "none",
-          borderTop: "none",
-          willChange: "transform",
-          filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
+          transform: 'translate(-150%, 50%)',
+          borderRight: 'none',
+          borderTop: 'none',
+          willChange: 'transform',
+          filter: 'drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))',
         }}
       />
     </div>

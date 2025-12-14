@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties } from 'react';
 
 export interface ImageWithFallbackProps {
   src: string;
@@ -13,5 +13,5 @@ export interface ImageWithFallbackProps {
   priority?: boolean;
   quality?: number;
   sizes?: string;
-  loading?: "lazy" | "eager";
+  loading?: 'lazy' | 'eager';
 }

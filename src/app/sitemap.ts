@@ -1,8 +1,7 @@
-import { MetadataRoute } from "next";
-import { getAllBlogPosts } from "@/lib/blogData";
+import { MetadataRoute } from 'next';
+import { getAllBlogPosts } from '@/lib/blogData';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://fardinmahadi.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseDate = new Date();
@@ -14,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogUrls = blogPosts.map((post: { slug: string }) => ({
     url: `${siteUrl}/blog/${post.slug}`,
     lastModified: baseDate,
-    changeFrequency: "monthly" as const,
+    changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
@@ -22,37 +21,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: siteUrl,
       lastModified: baseDate,
-      changeFrequency: "weekly",
+      changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${siteUrl}/about`,
       lastModified: baseDate,
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${siteUrl}/experience`,
       lastModified: baseDate,
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${siteUrl}/#projects`,
       lastModified: baseDate,
-      changeFrequency: "weekly",
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${siteUrl}/#blog`,
       lastModified: baseDate,
-      changeFrequency: "weekly",
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${siteUrl}/contact`,
       lastModified: baseDate,
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     ...blogUrls,

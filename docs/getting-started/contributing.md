@@ -1,6 +1,7 @@
 # Contributing
 
-Thank you for your interest in contributing to this portfolio project! This document provides guidelines for contributing.
+Thank you for your interest in contributing to this portfolio project! This
+document provides guidelines for contributing.
 
 ## Table of Contents
 
@@ -184,21 +185,17 @@ Add screenshots here
 **Template**:
 
 ```markdown
-**Describe the bug**
-Clear description of the bug
+**Describe the bug** Clear description of the bug
 
-**To Reproduce**
-Steps to reproduce:
+**To Reproduce** Steps to reproduce:
 
 1. Go to '...'
 2. Click on '...'
 3. See error
 
-**Expected behavior**
-What you expected to happen
+**Expected behavior** What you expected to happen
 
-**Screenshots**
-If applicable, add screenshots
+**Screenshots** If applicable, add screenshots
 
 **Environment**
 
@@ -206,8 +203,7 @@ If applicable, add screenshots
 - Browser: [e.g., Chrome 120]
 - Version: [e.g., 1.0.0]
 
-**Additional context**
-Any other relevant information
+**Additional context** Any other relevant information
 ```
 
 ### Feature Requests
@@ -215,17 +211,14 @@ Any other relevant information
 **Template**:
 
 ```markdown
-**Is your feature request related to a problem?**
-Clear description of the problem
+**Is your feature request related to a problem?** Clear description of the
+problem
 
-**Describe the solution you'd like**
-What you want to happen
+**Describe the solution you'd like** What you want to happen
 
-**Describe alternatives considered**
-Other solutions you've considered
+**Describe alternatives considered** Other solutions you've considered
 
-**Additional context**
-Any other relevant information
+**Additional context** Any other relevant information
 ```
 
 ---

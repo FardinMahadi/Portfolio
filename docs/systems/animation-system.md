@@ -188,7 +188,7 @@ gsap.to(cursorRef.current, {
   x: mouseX,
   y: mouseY,
   duration: 0.1,
-  ease: "power3.out",
+  ease: 'power3.out',
 });
 
 // Corner animations
@@ -196,7 +196,7 @@ gsap.to(corner, {
   x: targetX,
   y: targetY,
   duration: 0.2,
-  ease: "power2.out",
+  ease: 'power2.out',
 });
 ```
 
@@ -206,7 +206,7 @@ gsap.to(corner, {
 const tl = gsap.timeline();
 
 tl.to(element1, { x: 100, duration: 1 })
-  .to(element2, { y: 50, duration: 0.5 }, "-=0.5") // Start 0.5s before previous ends
+  .to(element2, { y: 50, duration: 0.5 }, '-=0.5') // Start 0.5s before previous ends
   .to(element3, { opacity: 0, duration: 0.3 });
 ```
 
@@ -215,9 +215,9 @@ tl.to(element1, { x: 100, duration: 1 })
 ```typescript
 // Infinite rotation
 gsap.timeline({ repeat: -1 }).to(element, {
-  rotation: "+=360",
+  rotation: '+=360',
   duration: 2,
-  ease: "none",
+  ease: 'none',
 });
 ```
 
@@ -348,16 +348,16 @@ console.log(`Animation took ${endTime - startTime}ms`);
 
 ```typescript
 // Entry animations
-ease: "easeOut";
+ease: 'easeOut';
 
 // Exit animations
-ease: "easeIn";
+ease: 'easeIn';
 
 // Continuous animations
-ease: "easeInOut";
+ease: 'easeInOut';
 
 // Bouncy animations
-ease: "back.out";
+ease: 'back.out';
 ```
 
 ### 3. Reduced Motion

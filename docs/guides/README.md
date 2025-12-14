@@ -6,7 +6,8 @@ This section contains practical guides for common tasks and workflows.
 
 ### Deployment
 
-[**Deployment Guide**](./deployment.md) - Step-by-step instructions for deploying to production.
+[**Deployment Guide**](./deployment.md) - Step-by-step instructions for
+deploying to production.
 
 **Topics covered:**
 
@@ -30,7 +31,8 @@ This section contains practical guides for common tasks and workflows.
 
 ### Mobile Setup
 
-[**Mobile Setup Guide**](./mobile-setup.md) - Complete guide to mobile app setup and development.
+[**Mobile Setup Guide**](./mobile-setup.md) - Complete guide to mobile app setup
+and development.
 
 **Topics covered:**
 

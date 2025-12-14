@@ -1,6 +1,7 @@
 # Deployment Guide
 
-This document provides step-by-step instructions for deploying the portfolio to production.
+This document provides step-by-step instructions for deploying the portfolio to
+production.
 
 ## Table of Contents
 
@@ -100,7 +101,8 @@ RESEND_FROM_EMAIL=onboarding@resend.dev
 3. Select environment (Production/Preview/Development)
 4. Save and redeploy
 
-For detailed information, see [Environment Variables](../getting-started/environment-variables.md).
+For detailed information, see
+[Environment Variables](../getting-started/environment-variables.md).
 
 ---
 

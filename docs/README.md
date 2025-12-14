@@ -1,13 +1,14 @@
 # Documentation Index
 
-Welcome to the portfolio project documentation! This index provides quick access to all
-documentation resources.
+Welcome to the portfolio project documentation! This index provides quick access
+to all documentation resources.
 
 ## Quick Start
 
 New to the project? Start here:
 
-1. [Development Workflow](./getting-started/development-workflow.md) - Get set up locally
+1. [Development Workflow](./getting-started/development-workflow.md) - Get set
+   up locally
 2. [Style Guide](./reference/style-guide.md) - Learn coding standards
 3. [Component Reference](./reference/components.md) - Explore components
 
@@ -15,48 +16,60 @@ New to the project? Start here:
 
 ### Getting Started
 
-- **[Development Workflow](./getting-started/development-workflow.md)** - Local setup, Git workflow,
-  and common tasks
-- **[Contributing](./getting-started/contributing.md)** - How to contribute to the project
-- **[Environment Variables](./getting-started/environment-variables.md)** - Configuration and setup
+- **[Development Workflow](./getting-started/development-workflow.md)** - Local
+  setup, Git workflow, and common tasks
+- **[Contributing](./getting-started/contributing.md)** - How to contribute to
+  the project
+- **[Environment Variables](./getting-started/environment-variables.md)** -
+  Configuration and setup
 
 See [Getting Started Index](./getting-started/README.md) for more details.
 
 ### Guides
 
 - **[Deployment Guide](./guides/deployment.md)** - Production deployment steps
-- **[Troubleshooting](./guides/troubleshooting.md)** - Common issues and solutions
-- **[Mobile Setup](./guides/mobile-setup.md)** - Mobile app setup and development
+- **[Troubleshooting](./guides/troubleshooting.md)** - Common issues and
+  solutions
+- **[Mobile Setup](./guides/mobile-setup.md)** - Mobile app setup and
+  development
 
 See [Guides Index](./guides/README.md) for more details.
 
 ### Reference
 
 - **[API Documentation](./reference/api.md)** - API routes and endpoints
-- **[Component Reference](./reference/components.md)** - Complete component catalog
-- **[Data Structures](./reference/data-structures.md)** - JSON schemas and type definitions
-- **[Style Guide](./reference/style-guide.md)** - Coding standards, patterns, and conventions
+- **[Component Reference](./reference/components.md)** - Complete component
+  catalog
+- **[Data Structures](./reference/data-structures.md)** - JSON schemas and type
+  definitions
+- **[Style Guide](./reference/style-guide.md)** - Coding standards, patterns,
+  and conventions
 
 See [Reference Index](./reference/README.md) for more details.
 
 ### Systems
 
-- **[Animation System](./systems/animation-system.md)** - Framer Motion and GSAP patterns
-- **[Blog System](./systems/blog-system.md)** - Blog architecture and content management
-- **[Color Palette System](./systems/color-palette.md)** - Theme system and color management
+- **[Animation System](./systems/animation-system.md)** - Framer Motion and GSAP
+  patterns
+- **[Blog System](./systems/blog-system.md)** - Blog architecture and content
+  management
+- **[Color Palette System](./systems/color-palette.md)** - Theme system and
+  color management
 - **[Cursor Effects](./systems/cursor-effects.md)** - Cursor animation system
 
 See [Systems Index](./systems/README.md) for more details.
 
 ### Content
 
-- **[Blog Topics](./content/blog-topics.md)** - Blog topic suggestions and learning paths
+- **[Blog Topics](./content/blog-topics.md)** - Blog topic suggestions and
+  learning paths
 
 See [Content Index](./content/README.md) for more details.
 
 ### AI Documentation
 
-- **[AI Training Guide](./ai/training-guide.md)** - Quick reference for AI assistants
+- **[AI Training Guide](./ai/training-guide.md)** - Quick reference for AI
+  assistants
 - **[Quick Prompt](./ai/quick-prompt.md)** - Quick ESLint setup prompt
 - **[Setup Prompt](./ai/setup-prompt.md)** - Detailed ESLint setup instructions
 
@@ -125,7 +138,8 @@ Essential reading:
 **Fixing build errors:** →
 [Troubleshooting - Build Errors](./guides/troubleshooting.md#build-errors)
 
-**Understanding the color system:** → [Color Palette System](./systems/color-palette.md)
+**Understanding the color system:** →
+[Color Palette System](./systems/color-palette.md)
 
 **Working with animations:** → [Animation System](./systems/animation-system.md)
 
@@ -150,20 +164,23 @@ Essential reading:
 
 ### Development
 
-- [Development Workflow](./getting-started/development-workflow.md) - Daily workflow
+- [Development Workflow](./getting-started/development-workflow.md) - Daily
+  workflow
 - [Contributing](./getting-started/contributing.md) - Contribution process
 - [Troubleshooting](./guides/troubleshooting.md) - Problem solving
 
 ### Deployment
 
 - [Deployment Guide](./guides/deployment.md) - Production deployment
-- [Environment Variables](./getting-started/environment-variables.md) - Configuration
+- [Environment Variables](./getting-started/environment-variables.md) -
+  Configuration
 - [API Documentation](./reference/api.md) - API endpoints
 
 ### Mobile
 
 - [Mobile Setup Guide](./guides/mobile-setup.md) - Mobile app setup
-- [Mobile Module README](../src/mobile/README.md) - Mobile module technical reference
+- [Mobile Module README](../src/mobile/README.md) - Mobile module technical
+  reference
 
 ## File Structure
 
@@ -212,7 +229,8 @@ docs/
 If you can't find what you're looking for:
 
 1. **Search the documentation** - Use your editor's search
-2. **Check Troubleshooting** - [Troubleshooting Guide](./guides/troubleshooting.md)
+2. **Check Troubleshooting** -
+   [Troubleshooting Guide](./guides/troubleshooting.md)
 3. **Review Style Guide** - [Style Guide](./reference/style-guide.md)
 4. **Ask for help** - Open a GitHub issue or discussion
 
@@ -231,9 +249,10 @@ When updating docs:
 - Test code snippets
 - Update links when moving files
 
-Before reshaping architecture or mentoring behavior, read `.cursor/commands/code-structure.md` and
-`.cursor/commands/tutor.md` (and the new companion guides) so you understand the expected
-checkpoints, decision logging, and learner-facing tone that keep the project consistent.
+Before reshaping architecture or mentoring behavior, read
+`.cursor/commands/code-structure.md` and `.cursor/commands/tutor.md` (and the
+new companion guides) so you understand the expected checkpoints, decision
+logging, and learner-facing tone that keep the project consistent.
 
 ## Documentation Maintenance
 
@@ -268,7 +287,8 @@ This documentation covers:
 - ✅ Content management
 - ✅ AI assistant resources
 
-**Start with**: [Development Workflow](./getting-started/development-workflow.md) for setup, or
+**Start with**:
+[Development Workflow](./getting-started/development-workflow.md) for setup, or
 [Style Guide](./reference/style-guide.md) for coding standards.
 
 ---

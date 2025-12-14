@@ -1,6 +1,7 @@
 # Environment Variables
 
-This document describes all environment variables used in this Next.js portfolio project.
+This document describes all environment variables used in this Next.js portfolio
+project.
 
 ## Table of Contents
 
@@ -16,7 +17,8 @@ This document describes all environment variables used in this Next.js portfolio
 
 ### None for Basic Functionality
 
-The portfolio works without any environment variables. However, certain features require configuration:
+The portfolio works without any environment variables. However, certain features
+require configuration:
 
 ---
 
@@ -94,7 +96,8 @@ RESEND_FROM_EMAIL=onboarding@resend.dev
 
 ### Development Behavior
 
-- **Without `RESEND_API_KEY`**: Contact form still works, but emails are logged to console instead of being sent
+- **Without `RESEND_API_KEY`**: Contact form still works, but emails are logged
+  to console instead of being sent
 - **With `RESEND_API_KEY`**: Contact form sends actual emails via Resend
 
 ### Testing Locally
@@ -196,8 +199,8 @@ The application handles missing variables gracefully:
 // Example from contact API route
 const resendApiKey = process.env.RESEND_API_KEY;
 const recipientEmail =
-  process.env.CONTACT_EMAIL || "mahadihasanfardin2015@gmail.com";
-const senderEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+  process.env.CONTACT_EMAIL || 'mahadihasanfardin2015@gmail.com';
+const senderEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 ```
 
 ---
@@ -267,4 +270,5 @@ const senderEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 | `CONTACT_EMAIL`     | No       | `mahadihasanfardin2015@gmail.com` | Contact form recipient |
 | `RESEND_FROM_EMAIL` | No       | `onboarding@resend.dev`           | Email sender address   |
 
-**Note**: The portfolio works perfectly without any environment variables. They're only needed for email functionality.
+**Note**: The portfolio works perfectly without any environment variables.
+They're only needed for email functionality.

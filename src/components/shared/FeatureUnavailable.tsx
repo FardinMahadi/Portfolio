@@ -1,10 +1,10 @@
 export function FeatureUnavailable() {
   return (
-    <section className="mx-auto flex max-w-3xl flex-col items-center gap-6 rounded-3xl border border-theme-border/60 bg-[color-mix(in_srgb,var(--color-surface)_75%,transparent)] p-10 text-center shadow-[0_20px_60px_rgba(15,15,15,0.25)]">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-theme-secondary">
+    <section className="border-theme-border/60 mx-auto flex max-w-3xl flex-col items-center gap-6 rounded-3xl border bg-[color-mix(in_srgb,var(--color-surface)_75%,transparent)] p-10 text-center shadow-[0_20px_60px_rgba(15,15,15,0.25)]">
+      <p className="text-theme-secondary text-sm font-semibold tracking-[0.2em] uppercase">
         Technical pause
       </p>
-      <h2 className="text-3xl font-semibold tracking-tight text-theme-text md:text-4xl">
+      <h2 className="text-theme-text text-3xl font-semibold tracking-tight md:text-4xl">
         Resume experience is coming soon
       </h2>
       <p className="text-theme-muted text-base leading-relaxed md:text-lg">
@@ -12,10 +12,10 @@ export function FeatureUnavailable() {
         ship a themed download soon. Sign up for notifications or revisit shortly.
       </p>
       <div className="flex gap-3">
-        <span className="rounded-full border border-theme-border/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-theme-muted">
+        <span className="border-theme-border/60 text-theme-muted rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.3em] uppercase">
           Coming soon
         </span>
-        <span className="rounded-full border border-theme-border/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-theme-muted">
+        <span className="border-theme-border/60 text-theme-muted rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.3em] uppercase">
           Stay tuned
         </span>
       </div>

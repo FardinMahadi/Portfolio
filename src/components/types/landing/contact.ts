@@ -1,11 +1,11 @@
-import type { LucideIcon } from "lucide-react";
-import type { ElementType, FormEvent } from "react";
+import type { LucideIcon } from 'lucide-react';
+import type { ElementType, FormEvent } from 'react';
 
 export type ContactSectionProps = {
-  variant?: "landing" | "page";
+  variant?: 'landing' | 'page';
 };
 
-export type ContactFormStatus = "idle" | "loading" | "success" | "error";
+export type ContactFormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 export type ContactFormData = {
   name: string;
@@ -26,7 +26,7 @@ export type ContactFormPanelProps = {
 export type FormFieldProps = {
   label: string;
   placeholder: string;
-  type?: "text" | "email";
+  type?: 'text' | 'email';
   value: string;
   error?: string;
   onChange: (value: string) => void;
@@ -41,7 +41,7 @@ export type TextareaFieldProps = {
 };
 
 export type NotificationProps = {
-  variant: "success" | "error";
+  variant: 'success' | 'error';
   message: string;
   Icon: LucideIcon;
 };

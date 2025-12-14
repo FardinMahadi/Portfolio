@@ -20,7 +20,7 @@ export default function BlogPage() {
     <PageTransition variant="fade">
       <div className="relative flex min-h-screen flex-col bg-(--color-background)">
         <Navigation />
-        <main className="flex-1 relative pt-16" style={{ zIndex: 1 }}>
+        <main className="relative flex-1 pt-16" style={{ zIndex: 1 }}>
           <BlogIndexPage />
         </main>
         <Footer />

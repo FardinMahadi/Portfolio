@@ -1,30 +1,25 @@
-import type { ResumeLayoutProps } from "@/components/types/resume";
+import type { ResumeLayoutProps } from '@/components/types/resume';
 
-import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { Document, Page, StyleSheet, View } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
   page: {
-    fontFamily: "Helvetica",
+    fontFamily: 'Helvetica',
     fontSize: 11,
-    padding: "24pt 28pt",
+    padding: '24pt 28pt',
     lineHeight: 1.4,
-    color: "#1f2937",
-    display: "flex",
-    flexDirection: "column",
+    color: '#1f2937',
+    display: 'flex',
+    flexDirection: 'column',
     gap: 12,
   },
 });
 
-export function ResumeLayout({
-  children,
-  backgroundColor = "#ffffff",
-}: ResumeLayoutProps) {
+export function ResumeLayout({ children, backgroundColor = '#ffffff' }: ResumeLayoutProps) {
   return (
     <Document>
       <Page size="A4" style={[styles.page, { backgroundColor }]}>
-        <View style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {children}
-        </View>
+        <View style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>{children}</View>
       </Page>
     </Document>
   );
