@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import { Footer } from '@/components/LandingPage/Footer/Footer';
+import Footer from '@/components/LandingPage/Footer/Footer';
 import { BlogIndexPage } from '@/components/blog/BlogIndexPage';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { PageTransition } from '@/components/effects/PageTransition';
-import { Navigation } from '@/components/shared/navigation/Navigation';
+import Navbar from '@/components/shared/navigation/Navigation';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -19,7 +19,7 @@ export default function BlogPage() {
   return (
     <PageTransition variant="fade">
       <div className="relative flex min-h-screen flex-col bg-(--color-background)">
-        <Navigation />
+        <Navbar />
         <main className="relative flex-1 pt-16" style={{ zIndex: 1 }}>
           <BlogIndexPage />
         </main>

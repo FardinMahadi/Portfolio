@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { resumeData } from '@/components/resume/resumeData';
-import { Footer } from '@/components/LandingPage/Footer/Footer';
+import Footer from '@/components/LandingPage/Footer/Footer';
 import { ResumeHero } from '@/components/resume/ResumeRouteHero';
 import { ResumePreview } from '@/components/resume/ResumePreview';
-import { Navigation } from '@/components/shared/navigation/Navigation';
+import Navbar from '@/components/shared/navigation/Navigation';
 import { FeatureUnavailable } from '@/components/shared/FeatureUnavailable';
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function ResumePage() {
   return (
     <div className="text-theme-text min-h-screen" style={backdropStyle}>
       <header>
-        <Navigation />
+        <Navbar />
       </header>
       <main className="relative z-10 mx-auto max-w-6xl px-4 pt-32 pb-16 md:pb-24">
         {/* <ResumeHero portfolioUrl={resumeData.personalInfo.portfolio} /> */}

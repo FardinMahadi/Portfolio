@@ -1,71 +1,36 @@
-'use client';
+import { motion } from "framer-motion";
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { generateProfessionalServiceSchema } from '@/lib/seo';
-
-import { AboutCopy } from './AboutCopy';
-import { TechStackGrid } from './TechStackGrid';
-
-export function AboutSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  const professionalServiceSchema = generateProfessionalServiceSchema(
-    'Full Stack Web Development',
-    'MERN stack development services including React, Next.js, Node.js, MongoDB, and TypeScript. Specializing in building scalable web applications and modern user interfaces.',
-    'Worldwide'
-  );
-
+const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="text-theme-text relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8"
-    >
-      {/* Background accents */}
-      <div
-        className="absolute top-0 right-0 h-96 w-96 rounded-full blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 24%, transparent), transparent 70%)',
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 h-96 w-96 rounded-full blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle at center, color-mix(in srgb, var(--color-primary) 26%, transparent), transparent 70%)',
-        }}
-      />
-
-      <div ref={ref} className="relative z-10 mx-auto max-w-7xl">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(professionalServiceSchema),
-          }}
-        />
-        <motion.header
+    <section id="about" className="py-24">
+      <div className="container max-w-3xl">
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-6 flex items-center gap-3">
-            <span className="text-theme-primary font-mono" aria-hidden="true">
-              {'<'}
-            </span>
-            <h2 className="text-theme-primary text-3xl font-bold">About Me</h2>
-            <span className="text-theme-primary font-mono" aria-hidden="true">
-              {'/>'}
-            </span>
+          <p className="font-mono text-sm text-primary mb-2">// about me</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Crafting experiences that <span className="text-gradient-primary">feel as good as they look.</span>
+          </h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              Full-stack engineer crafting resilient, accessible digital products with React, Next.js, and expressive motion design. I love bringing complex ideas to life with clean code and thoughtful storytelling.
+            </p>
+            <p>
+              From conference platforms with DevGenit to AI learning tools I build independently, I partner closely with founders and product teams to ship experiences that feel as good as they look.
+            </p>
           </div>
 
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <AboutCopy isInView={isInView} />
-            <TechStackGrid isInView={isInView} />
+          <div className="mt-8 p-4 bg-card border border-border rounded-lg font-mono text-sm">
+            <p className="text-muted-foreground mb-1">$ cat availability.txt</p>
+            <p className="text-primary">✓ Available for collaborative builds & speaking engagements</p>
           </div>
-        </motion.header>
+        </motion.div>
       </div>
     </section>
   );
-}
+};
+
+export default AboutSection;

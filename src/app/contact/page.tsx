@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import { Footer } from '@/components/LandingPage/Footer/Footer';
+import Footer from '@/components/LandingPage/Footer/Footer';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { PageTransition } from '@/components/effects/PageTransition';
-import { Navigation } from '@/components/shared/navigation/Navigation';
-import { ContactSection } from '@/components/LandingPage/contact/ContactSection';
+import Navbar from '@/components/shared/navigation/Navigation';
+import ContactSection from '@/components/LandingPage/contact/ContactSection';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -39,10 +39,10 @@ export default function ContactPage() {
     <PageTransition variant="fade">
       <div className="text-theme-text min-h-screen" style={backdropStyle}>
         <header>
-          <Navigation />
+          <Navbar />
         </header>
         <main className="relative z-10 pt-16">
-          <ContactSection variant="page" />
+          <ContactSection />
         </main>
         <footer className="border-theme-border/40 mt-10 border-t bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
           <Footer />

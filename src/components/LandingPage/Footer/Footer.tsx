@@ -1,33 +1,36 @@
-import { Heart, Code2 } from 'lucide-react';
+'use client';
 
-export function Footer() {
-  const currentYear = new Date().getFullYear();
+import { forwardRef } from "react";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 
-  return (
-    <footer
-      className="border-theme-border/70 text-theme-text border-t bg-(--color-background) px-4 py-8 sm:px-6 lg:px-8"
-      role="contentinfo"
-    >
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="text-theme-text/70 flex items-center gap-2 text-sm">
-            <Code2 className="text-theme-primary h-4 w-4" aria-hidden="true" />
-            <span className="text-theme-text/75 font-mono">
-              Built with{' '}
-              <Heart
-                className="text-theme-accent mx-1 inline h-4 w-4 fill-current"
-                aria-label="love"
-              />{' '}
-              using Next.js, ShadCN, Framer-Motion, TypeScript & TailwindCSS
-            </span>
-          </div>
-
-          <div className="text-theme-text/60 font-mono text-sm">
-            © <time dateTime={currentYear.toString()}>{currentYear}</time> FardinMahadi. All rights
-            reserved.
-          </div>
-        </div>
+const Footer = forwardRef<HTMLElement>((_, ref) => (
+  <footer className="border-t border-border py-8" ref={ref}>
+    <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p className="font-mono text-xs text-muted-foreground">
+        © {new Date().getFullYear()} Fardin Mahadi. Built with React & Tailwind.
+      </p>
+      <div className="flex items-center gap-4">
+        {[
+          { icon: Github, href: "https://github.com/FardinMahadi" },
+          { icon: Linkedin, href: "https://www.linkedin.com/in/mahadi-hasan-fardin" },
+          { icon: Mail, href: "mailto:mahadihasanfardin2015@gmail.com" },
+          { icon: MessageCircle, href: "https://discord.gg/fardinmahadi" },
+        ].map(({ icon: Icon, href }) => (
+          <a
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Icon size={16} />
+          </a>
+        ))}
       </div>
-    </footer>
-  );
-}
+    </div>
+  </footer>
+));
+
+Footer.displayName = "Footer";
+
+export default Footer;

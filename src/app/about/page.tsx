@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { AboutSection } from '@/components/about/AboutSection';
-import { Footer } from '@/components/LandingPage/Footer/Footer';
+import AboutSection from '@/components/about/AboutSection';
+import Footer from '@/components/LandingPage/Footer/Footer';
+import Navbar from '@/components/shared/navigation/Navigation';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { PageTransition } from '@/components/effects/PageTransition';
-import { Navigation } from '@/components/shared/navigation/Navigation';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
     <PageTransition variant="fade">
       <div className="text-theme-text min-h-screen" style={backdropStyle}>
         <header>
-          <Navigation />
+          <Navbar />
         </header>
         <main className="relative z-10 pt-16">
           <AboutSection />

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 import { Suspense } from 'react';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { AppCursorLayer } from '@/components/effects/AppCursorLayer';
+
 import { ColorPaletteProvider } from '@/contexts/ColorPaletteContext';
 import { NavigationLoader } from '@/components/ui/loading/NavigationLoader';
 import { ViewTransitionWrapper } from '@/components/effects/ViewTransitionWrapper';
@@ -346,7 +346,7 @@ export default function RootLayout({
           <ViewTransitionWrapper>
             <FaviconUpdater />
             <ScrollProgressIndicator />
-            <AppCursorLayer />
+
             <NavigationLoader />
             {children}
             <Suspense fallback={null}>

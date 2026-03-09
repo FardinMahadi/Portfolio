@@ -38,12 +38,6 @@ export interface ScrollProgressIndicatorProps {
   showOnMobile?: boolean;
 }
 
-export interface TargetCursorProps {
-  targetSelector?: string;
-  spinDuration?: number;
-  hideDefaultCursor?: boolean;
-}
-
 export interface ViewTransitionWrapperProps {
   children: ReactNode;
 }

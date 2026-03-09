@@ -1,58 +1,69 @@
 'use client';
 
-import Link from 'next/link';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { blogPosts } from '@/lib/blogData';
-import { Button } from '@/components/ui/button';
-import { motion, useInView } from 'framer-motion';
 
-import { BlogList } from './BlogList';
-import { BlogHeader } from './BlogHeader';
-import { BlogBackground } from './BlogBackground';
-
-export function BlogSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  // Limit to 4 most recent blog posts
-  const displayedPosts = blogPosts.slice(0, 4);
+const BlogSection = () => {
+  // Limit to 3 most recent blog posts for the landing page
+  const displayedPosts = blogPosts.slice(0, 3);
 
   return (
-    <section
-      id="blog"
-      className="text-theme-text relative overflow-hidden bg-(--color-background) px-4 py-20 sm:px-6 lg:px-8"
-      style={{
-        background:
-          'linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 92%, transparent), var(--color-background))',
-      }}
-    >
-      <BlogBackground />
-
-      <div ref={ref} className="relative z-10 mx-auto max-w-7xl">
-        <BlogHeader />
-
-        <BlogList posts={displayedPosts} isInView={isInView} />
-
+    <section id="blog" className="py-24">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 text-center"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
         >
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-theme-border/70 text-theme-text/80 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary transition-all duration-300"
-            asChild
-          >
-            <Link href="/blog" aria-label="View all blog articles">
-              View All Articles
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <p className="font-mono text-sm text-primary mb-2">// blog</p>
+          <h2 className="text-2xl md:text-3xl font-bold">Latest Thoughts</h2>
         </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {displayedPosts.map((post, i) => {
+            // Extract emoji from title if it exists, otherwise use a default
+            const emojiMatch = post.title.match(/^(\p{Emoji_Presentation}|\p{Emoji})/u);
+            const emoji = emojiMatch ? emojiMatch[0] : '📝';
+            const title = post.title.replace(/^(\p{Emoji_Presentation}|\p{Emoji})\s*/u, '');
+
+            return (
+              <motion.a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-6 bg-card border border-border rounded-xl hover:border-primary/30 transition-all duration-300"
+              >
+                <span className="text-2xl mb-3 block">{emoji}</span>
+                <h3 className="font-semibold text-sm mb-2 group-hover:text-primary transition-colors leading-snug">
+                  {title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                  {post.excerpt}
+                </p>
+                <span className="flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  Read article <ArrowRight size={12} />
+                </span>
+              </motion.a>
+            );
+          })}
+        </div>
+
+        <div className="text-center mt-8">
+          <a
+            href="/blog"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            View All Articles →
+          </a>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default BlogSection;

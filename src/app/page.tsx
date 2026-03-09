@@ -1,49 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { Footer } from '@/components/LandingPage/Footer/Footer';
-import { Navigation } from '@/components/shared/navigation/Navigation';
-import { BlogSection } from '@/components/LandingPage/blog/BlogSection';
-import { HeroSection } from '@/components/LandingPage/hero/HeroSection';
-import { ContactSection } from '@/components/LandingPage/contact/ContactSection';
+import Footer from '@/components/LandingPage/Footer/Footer';
+import Navbar from '@/components/shared/navigation/Navigation';
+import HeroSection from '@/components/LandingPage/hero/HeroSection';
+import BlogSection from '@/components/LandingPage/blog/BlogSection';
+import ContactSection from '@/components/LandingPage/contact/ContactSection';
+import ProjectsSection from '@/components/LandingPage/projects/ProjectsSection';
 import { IntroSummary } from '@/components/LandingPage/IntroSummary/IntroSummary';
-import { ProjectsSection } from '@/components/LandingPage/projects/ProjectsSection';
 
 export default function Home() {
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Mark component as mounted to prevent hydration mismatch
-    setMounted(true);
-
-    // Only run client-side code after mount
-    if (typeof window === 'undefined') return;
-
-    document.documentElement.classList.add('dark');
-
-    // Check if device supports touch
-    const checkTouchDevice = () => {
-      setIsTouchDevice(
-        'ontouchstart' in window ||
-          navigator.maxTouchPoints > 0 ||
-          // @ts-expect-error - for older browsers (IE/Edge legacy)
-          navigator.msMaxTouchPoints > 0
-      );
-    };
-    checkTouchDevice();
-  }, []);
-
-  // Prevent hydration mismatch by using consistent initial render
-  // Only apply cursor-none class after mount to avoid SSR/client mismatch
   return (
     <ErrorBoundary>
-      <div
-        className={`min-h-screen overflow-x-hidden bg-[#0a0e1a] text-slate-100 ${
-          mounted && !isTouchDevice ? 'cursor-none' : ''
-        }`}
-      >
+      <div className="min-h-screen overflow-x-hidden bg-[#0a0e1a] text-slate-100">
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
@@ -52,7 +21,7 @@ export default function Home() {
           Skip to main content
         </a>
         <header role="banner">
-          <Navigation />
+          <Navbar />
         </header>
         <main id="main-content" role="main">
           <HeroSection />

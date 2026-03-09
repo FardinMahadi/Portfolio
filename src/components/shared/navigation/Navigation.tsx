@@ -1,110 +1,127 @@
 'use client';
 
-import type { NavItemsProps } from '@/components/types/shared/navigation';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { ColorPaletteSwitcher } from "@/components/ui/ColorPaletteSwitcher";
+import { NavLink } from "./NavLink";
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+  { label: "Resume", href: "/resume" },
+];
 
-import { navItems } from './navItems';
-import { MobileNavigation } from './MobileNavigation';
-import { DesktopNavigation } from './DesktopNavigation';
-
-export function Navigation() {
-  const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (pathname === '/blog' || pathname?.startsWith('/blog/')) {
-      setActiveSection('blog');
-    } else if (pathname === '/about') {
-      setActiveSection('about');
-    } else if (pathname === '/experience') {
-      setActiveSection('experience');
-    } else if (pathname === '/contact') {
-      setActiveSection('contact');
-    } else if (pathname === '/') {
-      setActiveSection('home');
-    }
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      if (pathname === '/') {
-        const sections = ['home', 'blog'];
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-              setActiveSection(section);
-              break;
-            }
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname]);
-
-  const handleNavClick = (item: NavItemsProps, e?: React.MouseEvent) => {
-    if (item.isRoute) {
-      setIsMobileMenuOpen(false);
-      return;
-    }
-
-    e?.preventDefault();
-    const sectionId = item.href.replace('#', '');
-    const element = document.getElementById(sectionId);
-    if (element) {
-      if (pathname !== '/') {
-        window.location.href = `/${item.href}`;
-      } else {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    setIsMobileMenuOpen(false);
-  };
-
-  const isActive = (item: NavItemsProps) => {
-    if (item.isRoute) {
-      if (item.href === '/') {
-        return pathname === '/' && activeSection === 'home';
-      }
-      return pathname?.startsWith(item.href);
-    }
-    return activeSection === item.href.replace('#', '');
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prev => !prev);
-  };
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <>
-      <DesktopNavigation
-        isScrolled={isScrolled}
-        navItems={navItems}
-        handleNavClick={handleNavClick}
-        isActive={isActive}
-        openSubmenu={openSubmenu}
-        setOpenSubmenu={setOpenSubmenu}
-        isMobileMenuOpen={isMobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-      />
-      <MobileNavigation
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        navItems={navItems}
-        handleNavClick={handleNavClick}
-        isActive={isActive}
-        openSubmenu={openSubmenu}
-        setOpenSubmenu={setOpenSubmenu}
-      />
-    </>
+    <motion.header
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""
+        }`}
+    >
+      <nav className="container mx-auto px-4 flex items-center justify-between h-16">
+        <a href="/" className="font-mono text-sm text-primary">
+          {"<FardinMahadi />"}
+        </a>
+
+        {/* Desktop */}
+        <ul className="hidden md:flex items-center gap-1">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              {item.href.startsWith("/") && !item.href.includes("#") ? (
+                <NavLink
+                  href={item.href}
+                  exact={item.href === "/"}
+                  className="px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-md"
+                  activeClassName="text-primary font-medium"
+                >
+                  {item.label}
+                </NavLink>
+              ) : (
+                <a
+                  href={item.href}
+                  className="px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-md"
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))}
+          <li className="flex items-center gap-2 ml-2">
+            <ColorPaletteSwitcher />
+            <a
+              href="/mahadi-hasan-fardin.pdf"
+              download="Mahadi_Hasan_Fardin_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity"
+            >
+              Download CV
+            </a>
+          </li>
+        </ul>
+
+        {/* Mobile toggle */}
+        <div className="flex items-center gap-4 md:hidden">
+          <ColorPaletteSwitcher />
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-foreground"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile menu */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden bg-card border-b border-border"
+        >
+          <ul className="container mx-auto py-4 flex flex-col gap-2">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  activeClassName="text-primary font-medium"
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+            <li className="px-4 pt-2">
+              <a
+                href="/mahadi-hasan-fardin.pdf"
+                download="Mahadi_Hasan_Fardin_CV.pdf"
+                className="inline-block w-full text-center px-4 py-3 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity text-sm font-medium"
+              >
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </motion.div>
+      )}
+    </motion.header>
   );
-}
+};
+
+export default Navbar;
