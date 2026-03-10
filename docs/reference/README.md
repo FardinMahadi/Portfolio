@@ -1,7 +1,15 @@
 # Reference Documentation
 
-This section contains reference documentation for APIs, components, data
-structures, and coding standards.
+v2 component architecture, data types, coding standards, and API contracts.
+
+- **[Component Reference](./components.md)** — All `components/` folders, props, token usage
+- **[Data Structures](./data-structures.md)** — TypeScript types for `Project`, `ExperienceEntry`, `Testimonial`, `BlogPost`
+- **[Style Guide](./style-guide.md)** — Conventions, patterns, rules
+- **[API Documentation](./api.md)** — `POST /api/contact` endpoint
+
+---
+
+**Back to**: [Documentation Index](../README.md)
 
 ## Available Reference
 

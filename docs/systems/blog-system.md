@@ -1,17 +1,62 @@
 # Blog System
 
-This document describes the blog system architecture and how to manage blog
-content.
+Blogs are MDX files in `content/blog/`. Static generation via `@next/mdx`.
 
-## Table of Contents
+## File Location
 
-- [Overview](#overview)
-- [Blog Post Structure](#blog-post-structure)
-- [Adding Blog Posts](#adding-blog-posts)
-- [Markdown Rendering](#markdown-rendering)
-- [Categories](#categories)
-- [SEO Implementation](#seo-implementation)
-- [Routing](#routing)
+```
+content/
+  blog/
+    my-post.mdx    # slug = /blog/my-post
+    another.mdx
+```
+
+## Frontmatter Schema
+
+```yaml
+---
+title: string           # post title
+date: YYYY-MM-DD        # publish date
+excerpt: string         # one-sentence summary (card + meta description)
+category: string        # one of the categories below
+tags: string[]          # optional
+featuredImage: string   # path in /public/blog/
+readTime: string        # e.g. "5 min read" (auto-calculated if omitted)
+---
+```
+
+## Categories
+
+No emoji in category labels. Use plain text:
+
+- `Development`
+- `Design`
+- `Career`
+- `Tools`
+
+## Rendering
+
+| Component | Role |
+|---|---|
+| `BlogBody.tsx` | Renders MDX prose with typography styles from `styles/typography.css` |
+| `BlogMeta.tsx` | DM Mono date / read-time / category row |
+| `BlogCard.tsx` | Card for index page |
+| `CategoryFilter.tsx` | Filter bar |
+
+## Adding a Post
+
+1. Create `content/blog/<slug>.mdx` with correct frontmatter.
+2. Images go in `public/blog/<slug>/`.
+3. Run `pnpm dev` and verify at `/blog/<slug>`.
+4. Ensure `excerpt` is filled — it drives the Open Graph description.
+
+## SEO
+
+Each post page generates `<head>` metadata via `generateMetadata()` in `app/blog/[slug]/page.tsx`. The `excerpt` frontmatter field becomes the meta description.
+
+---
+
+**Back to**: [Systems Index](./README.md)
 
 ---
 

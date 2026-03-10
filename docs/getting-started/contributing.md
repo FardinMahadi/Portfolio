@@ -1,16 +1,60 @@
 # Contributing
 
-Thank you for your interest in contributing to this portfolio project! This
-document provides guidelines for contributing.
+## Code Conventions
 
-## Table of Contents
+These rules are enforced on all code in this project. AI assistants must follow them as strictly as human contributors.
 
-- [Code of Conduct](#code-of-conduct)
-- [How to Contribute](#how-to-contribute)
-- [Development Setup](#development-setup)
-- [Pull Request Process](#pull-request-process)
-- [Issue Reporting](#issue-reporting)
-- [Code Standards](#code-standards)
+### Component Rules
+
+| Rule | Correct | Wrong |
+|---|---|---|
+| Exports | `export function Foo()` | `export default function Foo()` |
+| Prop types | `type FooProps = { ... }` | `interface FooProps { ... }` |
+| Prop type location | `src/components/types/<feature>/` | inside the component file |
+| Client marker | `'use client'` on line 1 if using hooks/events/motion | omitting it |
+| Class composition | `cn('base', condition && 'extra')` | template literals / inline ternary strings |
+| Color values | `var(--mag-500)` | `#B400D9` hardcoded |
+| Path aliases | `@/components/...` | `../../../components/...` |
+| TypeScript | `unknown` + narrowing | `any` |
+
+### Import Order (strict)
+
+```ts
+'use client';                        // 1. directive
+import type { Foo } from './types';  // 2. type-only imports
+import { useRef } from 'react';      // 3. React / Next.js
+import { motion } from 'framer-motion'; // 4. third-party
+import { Button } from '@/components/ui/Button'; // 5. internal @/
+```
+
+### Animation Rules
+
+- Default to Framer Motion for all UI animations.
+- Define all variants in `config/animations.ts` — never inline on JSX.
+- GSAP is reserved for complex scroll-driven or timeline sequences only.
+- Standard entry: `initial={{ opacity: 0, y: 24 }}` → `animate={{ opacity: 1, y: 0 }}`.
+- Stagger children via `delay: index * 0.08`.
+- Always add `prefers-reduced-motion` guard.
+
+### Styling Rules
+
+- Use Tailwind utility classes directly on JSX — no `@apply`.
+- Use `cn()` from `@/lib/utils` for all conditional class composition.
+- `style={{}}` only for values that cannot be expressed as static Tailwind: dynamic opacity, runtime CSS variable injection, radial gradients.
+- All neutrals must have warm violet undertone — never cold/blue-tinted gray.
+
+---
+
+## Pull Request Process
+
+1. Branch from `main` using the naming convention in [Development Workflow](./development-workflow.md).
+2. Keep PRs scoped to a single phase step (e.g., one component, one section).
+3. Run `pnpm lint` and `pnpm build` before opening a PR — CI must pass.
+4. Write a short description: what was built, what token/variant was used, any decisions made.
+
+---
+
+**Back to**: [Getting Started](./README.md)
 
 ---
 

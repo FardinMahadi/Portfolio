@@ -1,18 +1,25 @@
-# Content Documentation
+# Content
 
-This section covers content management and content-related resources.
+All content is MDX files. No JSON content files in v2.
 
-## Available Content
+## Blog Posts
 
-### Blog Topics
+Location: `content/blog/*.mdx`
 
-[**Blog Topics**](./blog-topics.md) - Blog topic suggestions and learning paths.
+Each file's filename becomes the URL slug. E.g. `content/blog/react-server-components.mdx` → `/blog/react-server-components`.
 
-**Topics covered:**
+See [Blog System](../systems/blog-system.md) for the full frontmatter schema.
 
-- Software engineering basics
-- Development fundamentals
-- MERN stack learning path
+## Project Case Studies
+
+Location: `content/projects/*.mdx`
+
+Used by the `/projects/[slug]` dynamic route for extended case study pages.
+
+## Blog Topic Ideas
+
+See `blog-topics.md` in this folder for a list of planned post topics.
+
 - General topics
 - Learning path recommendations
 

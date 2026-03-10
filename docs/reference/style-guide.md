@@ -1,26 +1,181 @@
-# Project Style Guide & Patterns
+# Style Guide
 
-This document outlines the coding style, patterns, and conventions used
-throughout this portfolio project. Use this guide to maintain consistency and
-train AI assistants to follow similar patterns.
+Coding standards for the v2 portfolio. These rules are also in `.github/copilot-instructions.md` — this document expands on them with examples.
 
-## Table of Contents
+---
 
-1. [Project Architecture](#project-architecture)
-2. [Code Style & Conventions](#code-style--conventions)
-3. [Component Patterns](#component-patterns)
-4. [SEO & Semantic HTML](#seo--semantic-html)
-5. [Styling Patterns](#styling-patterns)
-6. [TypeScript Patterns](#typescript-patterns)
-7. [Performance Optimizations](#performance-optimizations)
-8. [Animation Patterns](#animation-patterns)
-9. [Accessibility Patterns](#accessibility-patterns)
-10. [File Organization](#file-organization)
-11. [Cursor Effects](#cursor-effects)
-12. [API Routes](#api-routes)
-13. [Middleware](#middleware)
-14. [Color Palette System](#color-palette-system)
-15. [Blog System](#blog-system)
+## Project Architecture
+
+```
+src/
+├── app/                    # App Router pages
+├── components/
+│   ├── layout/             # Navbar, Footer, PageTransition
+│   ├── ui/                 # Design system primitives
+│   ├── sections/           # Homepage section components
+│   ├── hero/               # Hero sub-components
+│   ├── cards/              # Standalone card components
+│   ├── forms/              # Form components
+│   ├── project/            # /projects page components
+│   ├── blog/               # Blog-specific components
+│   ├── experience/         # /experience page components
+│   └── types/              # Prop types (mirrors component folders)
+├── lib/
+│   ├── data/               # Typed data (projects, experience, skills, site)
+│   ├── types/              # TypeScript type definitions
+│   ├── utils/              # cn.ts, formatDate.ts, readTime.ts
+│   └── hooks/              # useScrollY, useInView, useCountUp
+├── config/
+│   └── animations.ts       # All Framer Motion variants
+├── content/
+│   ├── blog/               # *.mdx blog posts
+│   └── projects/           # *.mdx case studies
+└── styles/
+    ├── typography.css      # MDX prose styles
+    └── animations.css      # @keyframes (blink, pulse)
+```
+
+---
+
+## Component Rules
+
+### Named exports only
+
+```tsx
+// ✓ correct
+export function HeroSection() { ... }
+
+// ✗ wrong
+export default function HeroSection() { ... }
+```
+
+### `'use client'` directive
+
+Add on line 1 when the component uses hooks, event handlers, browser APIs, or Framer Motion. Server components have no directive.
+
+### Prop types
+
+- Use `type`, never `interface`.
+- Name: `{ComponentName}Props`.
+- Location: `src/components/types/<feature>/<file>.ts` — never inside the component file.
+
+```ts
+// src/components/types/ui/button.ts
+export type ButtonProps = {
+  variant?: 'primary' | 'secondary' | 'teal' | 'ghost' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  children: React.ReactNode;
+};
+```
+
+### File import order
+
+```ts
+'use client';                              // 1
+import type { ButtonProps } from '...';    // 2 type-only
+import Link from 'next/link';              // 3 React/Next
+import { motion } from 'framer-motion';    // 4 third-party
+import { cn } from '@/lib/utils';          // 5 internal @/
+```
+
+---
+
+## Styling Rules
+
+### Class composition
+
+Only use `cn()` for conditional classes — never string concatenation.
+
+```tsx
+import { cn } from '@/lib/utils';
+
+className={cn('rounded-sm border', isActive && 'border-[--mag-500]', className)}
+```
+
+### Inline styles
+
+Only for values that **cannot** be expressed as static Tailwind: dynamic opacity, runtime CSS variable injection, `radial-gradient`, `clip-path`.
+
+```tsx
+// ✓ inline is justified — runtime value
+style={{ opacity: progress }}
+
+// ✓ inline is justified — gradient not expressible in static Tailwind
+style={{ background: 'linear-gradient(160deg, var(--mag-800), var(--canvas-dark))' }}
+
+// ✗ wrong — use a Tailwind class instead
+style={{ color: '#B400D9' }}
+```
+
+### Color values
+
+Always use CSS tokens. Never hardcode hex values in JSX or CSS.
+
+```tsx
+// ✓
+color: 'var(--mag-500)'
+
+// ✗
+color: '#B400D9'
+```
+
+---
+
+## TypeScript Rules
+
+- Strict mode is on. Never use `any`.
+- Use `unknown` + type narrowing for truly unknown shapes.
+- Use `as const` for constant literal objects and arrays.
+- Use `@/` path alias for all internal imports — no `../../` paths beyond one level.
+
+---
+
+## Animation Rules
+
+All variants are defined in `config/animations.ts` — never inline.
+
+```ts
+// config/animations.ts
+export const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+export const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+```
+
+```tsx
+// in component
+import { fadeUp, staggerContainer } from '@/config/animations';
+
+<motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+  {items.map((item, i) => (
+    <motion.div key={i} variants={fadeUp}>{item}</motion.div>
+  ))}
+</motion.div>
+```
+
+---
+
+## What NOT To Do
+
+- No `export default` on components
+- No `interface` for prop types
+- No hardcoded hex color values
+- No `@apply` in CSS
+- No prop types inside component files
+- No `../` paths more than one level deep
+- No `console.log`
+- No new icon libraries (Lucide React only)
+- No new animation libraries (Framer Motion + GSAP only)
+- No comments explaining self-evident code
+
+---
+
+**Back to**: [Reference Index](./README.md)
 
 ---
 

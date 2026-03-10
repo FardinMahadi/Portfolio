@@ -1,18 +1,64 @@
-# Portfolio Improvements Roadmap
+# Roadmap — v2 Implementation
 
-Documenting the ideas you've surfaced so the team can pick the highest-impact
-work in follow-up sprints. The new light palette and Discord link updates are
-already deployed; the remaining items are grouped by area with motivation and
-metrics where applicable.
+Phase tracking for the v2 redesign. See `IMPLEMENTATION_PLAN.md` for the full spec.
 
-## ✅ Recent updates
+| Phase | Name | Status |
+|---|---|---|
+| 1 | Foundation & Layout | not started |
+| 2 | Hero Section | not started |
+| 3 | Homepage Sections | not started |
+| 4 | Project & Blog Pages | not started |
+| 5 | Resume Page | not started |
+| 6 | Performance & SEO | not started |
+| 7 | Polish & QA | not started |
 
-- **Light Mode palette (Dec 2025)** – Adds a bright background/surface/text
-  option in the palette switcher while keeping the existing accent colors,
-  letting visitors evaluate the portfolio in a high-contrast layout without
-  disrupting the current theme selector logic.
-- **Hero CTA refresh & Discord invite (Dec 2025)** – “View Projects”/“Get in
-  Touch” remain the primary actions while new helper buttons surface “Hire Me”,
+## Phase 1 — Foundation & Layout
+
+- [ ] Set up `config/animations.ts` with all Framer Motion variants
+- [ ] Set up `lib/types/` and `lib/data/` directory
+- [ ] Build `Navbar`, `Footer`, `PageTransition` in `components/layout/`
+- [ ] Build design system primitives in `components/ui/`
+
+## Phase 2 — Hero Section
+
+- [ ] `HeroText` — Syne 800 headline, DM Mono eyebrow, availability chip
+- [ ] `HeroPhoto` — portrait with radial glow
+- [ ] `HeroStats` — animated counters
+- [ ] `HeroCtas` — primary/secondary CTA buttons
+
+## Phase 3 — Homepage Sections
+
+- [ ] `SkillsSection` — tech stack grid
+- [ ] `ProjectsSection` — featured project cards
+- [ ] `ExperienceSection` — timeline
+- [ ] `BlogSection` — latest 3 posts
+- [ ] `TestimonialsSection`
+- [ ] `ContactSection`
+
+## Phase 4 — Project & Blog Pages
+
+- [ ] `/projects` page with `ProjectCard` grid
+- [ ] `/blog` index with `CategoryFilter` + `BlogCard` grid
+- [ ] `/blog/[slug]` MDX post renderer
+
+## Phase 5 — Resume Page
+
+- [ ] Resume page with download button + inline preview
+
+## Phase 6 — Performance & SEO
+
+- [ ] `generateMetadata()` for all pages
+- [ ] Sitemap + robots.txt
+- [ ] `prefers-reduced-motion` guard on all animated components
+- [ ] Image optimization (next/image for all images)
+
+## Phase 7 — Polish & QA
+
+- [ ] Cross-browser testing
+- [ ] Mobile responsiveness audit
+- [ ] Lighthouse scores (target: 95+ Performance, 100 Accessibility)
+- [ ] Final copy review
+
   “View GitHub”, “Connect on LinkedIn”, and “Join Discord”; the Discord entry
   now points to a reliable invite link instead of the profile URL.
 

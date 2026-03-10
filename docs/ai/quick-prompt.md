@@ -1,18 +1,38 @@
-# Quick AI Prompt: Import Ordering Setup
+# Quick AI Prompt — v2
 
-Copy and paste this prompt into your AI IDE (Cursor, GitHub Copilot, etc.):
+Copy-paste this into a new AI session to give it full context about the project:
 
 ---
 
-## Copy-Paste Prompt
-
 ```
-Configure ESLint import ordering for this project with:
+You are working on a Next.js 15 (App Router) + TypeScript + Tailwind CSS 4 portfolio.
 
-1. Pyramid structure: Sort imports by line length within each group (type: 'line-length')
-2. Spacing: Add blank lines between different import groups (newlinesBetween: 'always')
-3. Group order:
-   - Type imports (from external)
+Design system: "Deep Magenta Signal"
+- Primary accent: var(--mag-500) = #B400D9
+- Hover: var(--mag-400) = #CC22EE
+- Background: var(--canvas) = #F5F1ED
+- Panel: var(--canvas-raised) = #FDFCFB
+- Secondary: var(--teal-500) = #009B82
+- Fonts: Syne 800 (display), DM Mono (labels/code), Inter (body)
+
+Component rules:
+- Named exports only (no export default)
+- Prop types use `type`, not `interface`
+- Prop types live in src/components/types/, never in component files
+- Use cn() from @/lib/utils for conditional classes
+- Never hardcode hex colors; use CSS var() tokens
+- No @apply in CSS
+- Import order: 'use client' > type imports > React/Next > third-party > internal @/
+
+Animation rules:
+- All Framer Motion variants defined in config/animations.ts
+- Never define variants inline in components
+- Import: import { fadeUp, staggerContainer } from '@/config/animations'
+- Include useReducedMotion() guard on all in-view animations
+
+For full rules, read: .github/copilot-instructions.md
+```
+
    - External packages (React, libraries)
    - @mui/* imports
    - src/routes/* imports

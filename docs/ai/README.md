@@ -1,18 +1,21 @@
-# AI Documentation
+# AI Reference
 
-This section contains documentation specifically for AI assistants working on
-this project.
+Quick orientation for AI assistants working on this project.
 
-## Available AI Documentation
+## Must-Read First
 
-### Training Guide
+1. **`.github/copilot-instructions.md`** — The authoritative coding rules. Read this file before every code edit.
+2. **`DESIGN_SYSTEM.md`** — Typography, color tokens, component anatomy.
+3. **`IMPLEMENTATION_PLAN.md`** — The full v2 redesign spec with component list, data schemas, and phase order.
 
-[**AI Training Guide**](./training-guide.md) - Comprehensive quick reference for
-AI assistants.
+## Guides in This Folder
 
-**Topics covered:**
+| File | Purpose |
+|---|---|
+| [training-guide.md](./training-guide.md) | Component patterns and code templates for v2 |
+| [quick-prompt.md](./quick-prompt.md) | Copy-paste context prompt for new AI sessions |
+| [setup-prompt.md](./setup-prompt.md) | Context prompt for setup/configuration tasks |
 
-- Component template
 - Key rules and patterns
 - Common code patterns
 - Best practices

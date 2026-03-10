@@ -1,18 +1,27 @@
-# AI Setup Prompt: Import Ordering & Spacing Configuration
+# AI Setup Prompt — v2
 
-Use this prompt with AI IDEs (Cursor, GitHub Copilot, etc.) to configure ESLint
-import ordering with pyramid structure and spacing between groups.
+Use this when starting a new AI session focused on configuration or tooling tasks:
 
 ---
 
-## Prompt for AI IDE
+```
+You are working on a Next.js 15 (App Router) portfolio project.
 
-````
-Configure ESLint to enforce import ordering with the following requirements:
+Stack: React 19, TypeScript strict mode, Tailwind CSS 4, Framer Motion 12.
+Content: MDX via @next/mdx (blog: content/blog/*.mdx, projects: content/projects/*.mdx).
+Data: lib/data/ (projects.ts, experience.ts, skills.ts, testimonials.ts, site.ts).
+Animation config: config/animations.ts (all Framer Motion variants live here).
+Types: lib/types/ for data types, components/types/ for prop types.
 
-1. **Import Grouping Order** (with blank lines between groups):
-   - Type imports first (from external packages)
-   - External packages (React, libraries, etc.)
+Key commands:
+  pnpm dev      # start dev server
+  pnpm build    # production build
+  pnpm lint     # eslint
+  pnpm type-check # tsc --noEmit
+
+For full conventions, read: .github/copilot-instructions.md
+```
+
    - MUI imports (@mui/*)
    - Custom route imports (src/routes/*)
    - Custom hook imports (src/hooks/*)

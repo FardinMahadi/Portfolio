@@ -1,14 +1,14 @@
-# Systems Documentation
+# Systems
 
-This section documents the various systems and features that power the
-portfolio.
+Core technical systems for the v2 portfolio.
 
-## Available Systems
+| System | File | Description |
+|---|---|---|
+| Animation | [animation-system.md](./animation-system.md) | Framer Motion variants in `config/animations.ts` |
+| Blog | [blog-system.md](./blog-system.md) | MDX-based blog in `content/blog/*.mdx` |
+| Color | [color-palette.md](./color-palette.md) | Deep Magenta Signal CSS token system |
 
-### Animation System
-
-[**Animation System**](./animation-system.md) - Framer Motion and GSAP animation
-patterns.
+> **Note:** `cursor-effects.md` documents the v0.1.1 cursor system which was removed in v2.
 
 **Topics covered:**
 

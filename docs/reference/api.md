@@ -1,15 +1,55 @@
 # API Documentation
 
-This document describes the API routes available in this Next.js portfolio
-project.
+## Contact API
 
-## Table of Contents
+### `POST /api/contact`
 
-- [Contact API](#contact-api)
-- [Request/Response Formats](#requestresponse-formats)
-- [Error Handling](#error-handling)
-- [Environment Variables](#environment-variables)
-- [Testing](#testing)
+Handles contact form submissions. Validates input, sends email via Resend, returns a JSON response.
+
+#### Request
+
+```
+Content-Type: application/json
+```
+
+```typescript
+{
+  name: string;     // required
+  email: string;    // required, valid email
+  message: string;  // required, max 5000 chars
+}
+```
+
+#### Responses
+
+| Status | Body |
+|---|---|
+| 200 | `{ "message": "Thank you for your message! I'll get back to you soon." }` |
+| 400 | `{ "error": "All fields are required" }` |
+| 400 | `{ "error": "Invalid email address" }` |
+| 429 | `{ "error": "Too many requests. Please try again later." }` |
+| 500 | `{ "error": "Failed to send message. Please try again." }` |
+
+#### Environment variables required
+
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | Resend API key (`re_...`) |
+| `CONTACT_EMAIL` | Destination email address |
+| `RESEND_FROM_EMAIL` | Verified sender domain email |
+
+See [Environment Variables](../getting-started/environment-variables.md) for setup.
+
+#### Security
+
+- Input is validated and sanitized before sending.
+- Rate limiting is applied per IP.
+- Message length is capped at 5000 characters to prevent abuse.
+- Email format is validated server-side — never trust client-only validation.
+
+---
+
+**Back to**: [Reference Index](./README.md)
 
 ---
 

@@ -1,15 +1,148 @@
 # Data Structures
 
-This document describes the JSON data structures and TypeScript types used
-throughout the portfolio project.
+TypeScript type definitions and data schemas for the v2 portfolio. All types live in `src/lib/types/`.
 
-## Table of Contents
+---
 
-- [Projects Data](#projects-data)
-- [Blog Posts Data](#blog-posts-data)
-- [Social Links Data](#social-links-data)
-- [Type Definitions](#type-definitions)
-- [Data Loading Patterns](#data-loading-patterns)
+## `lib/types/project.ts`
+
+```typescript
+export type Project = {
+  slug: string;
+  title: string;
+  shortDesc: string;        // One-sentence card description
+  problem: string;          // Case study: problem statement
+  decision: string;         // Case study: key engineering/design decision
+  result: string;           // Case study: measurable outcome
+  role: string;             // "Full Stack Engineer", "Product Designer & Engineer"
+  company?: string;
+  stack: string[];
+  category: ('fullstack' | 'frontend' | 'ai' | 'mobile')[];
+  featured: boolean;        // Show on homepage FeaturedProjectsSection
+  liveUrl?: string;
+  codeUrl?: string;
+  thumbnail: string;        // /images/projects/[slug]/thumbnail.png  (800×500)
+  heroImage: string;        // /images/projects/[slug]/hero.png       (1200×675)
+  screens: string[];        // gallery screenshots
+  date: string;             // "2024-12"
+  duration?: string;        // "3 months"
+};
+```
+
+**Data file:** `src/lib/data/projects.ts`
+
+---
+
+## `lib/types/experience.ts`
+
+```typescript
+export type ExperienceEntry = {
+  company: string;
+  role: string;
+  type: 'full-time' | 'freelance' | 'contract' | 'part-time';
+  startDate: string;        // "2024-01"
+  endDate: string | 'present';
+  impact: string;           // One-line impact statement (shown in homepage preview)
+  description: string[];    // Bullet points for full /experience timeline
+  stack: string[];
+  logo?: string;            // /images/logos/[company].svg
+};
+
+export type EducationEntry = {
+  institution: string;
+  degree: string;
+  field: string;
+  startDate: string;
+  endDate: string;
+  highlights?: string[];
+};
+```
+
+**Data file:** `src/lib/data/experience.ts`
+
+---
+
+## `lib/types/testimonial.ts`
+
+```typescript
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar?: string;
+  linkedIn?: string;
+};
+```
+
+**Data file:** `src/lib/data/testimonials.ts`
+
+---
+
+## `lib/types/blog.ts`
+
+```typescript
+export type BlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;             // "2025-03-10"
+  readTime: string;         // "8 min read"
+  category: string;         // DM Mono tag — no emojis
+  content?: string;         // MDX content (for JSON-backed posts)
+};
+```
+
+**Content files:** `content/blog/*.mdx`
+
+---
+
+## `lib/data/site.ts`
+
+Site-wide config — single source of truth for name, email, social URLs, nav items.
+
+```typescript
+export const site = {
+  name: 'Fardin Mahadi',
+  role: 'Full Stack Engineer · Next.js · MERN · AI Integration',
+  email: 'mahadihasanfardin2015@gmail.com',
+  location: 'Remote / Dhaka, Bangladesh',
+  availability: 'Open to work',
+  stats: {
+    years: '2+',
+    projects: '10+',
+  },
+  socials: {
+    github: 'https://github.com/FardinMahadi',
+    linkedin: 'https://linkedin.com/in/fardinmahadi',
+  },
+  nav: [
+    { label: 'About', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Experience', href: '/experience' },
+    { label: 'Blog', href: '/blog' },
+  ],
+};
+```
+
+---
+
+## `lib/data/skills.ts`
+
+Tech stack grouped by category — used by `TechStackSection` and `/about`.
+
+```typescript
+export type SkillCategory = {
+  label: string;    // "Frontend", "Backend", "Tools"
+  items: string[];  // ["Next.js", "React", "TypeScript", ...]
+};
+
+export const skills: SkillCategory[] = [ ... ];
+```
+
+---
+
+**Back to**: [Reference Index](./README.md)
 
 ---
 

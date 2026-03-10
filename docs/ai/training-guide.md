@@ -1,23 +1,82 @@
-# AI Training Guide - Quick Reference
+# AI Training Guide — v2
 
-This document provides quick reference patterns for AI assistants to follow when
-working on this Next.js 15 portfolio project.
+Key patterns for AI assistants working on the v2 portfolio. Also see `.github/copilot-instructions.md` for the full rules.
 
 ## Component Template
 
-```typescript
-"use client"; // If using hooks
+```tsx
+'use client';
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Icon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ComponentProps } from "@/components/types/ComponentProps";
-import { useColorPalette } from "@/contexts/ColorPaletteContext";
+import type { MySectionProps } from '@/components/types/sections/my-section';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { fadeUp, staggerContainer } from '@/config/animations';
+import { SectionEyebrow, SectionHeading } from '@/components/ui';
 
-export function ComponentSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+export function MySection({ title, items }: MySectionProps) {
+  return (
+    <section className="py-24">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.div variants={fadeUp}>
+          <SectionEyebrow>label</SectionEyebrow>
+          <SectionHeading>{title}</SectionHeading>
+        </motion.div>
+        {items.map((item, i) => (
+          <motion.div key={i} variants={fadeUp}>
+            {item}
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
+```
+
+## Prop Type Template
+
+```ts
+// src/components/types/sections/my-section.ts
+export type MySectionProps = {
+  title: string;
+  items: string[];
+};
+```
+
+## Color Usage
+
+```tsx
+// ✓ Always
+className="text-[var(--mag-500)]"
+style={{ borderColor: 'var(--mag-400)' }}
+
+// ✗ Never
+className="text-[#B400D9]"
+style={{ color: '#B400D9' }}
+```
+
+## Import Order
+
+1. `'use client'` (if needed)
+2. `import type` — type-only
+3. React/Next imports
+4. Third-party (framer-motion, lucide-react, etc.)
+5. Internal `@/` imports
+
+## What NOT To Do
+
+- `export default function` — always named exports
+- `interface` for prop types — always `type`
+- Prop types inside component files — always in `src/components/types/`
+- Hardcoded hex in JSX or CSS
+- `@apply` in CSS files
+- `any` in TypeScript
+- Relative `../../` paths more than one level
+
   const { currentPalette } = useColorPalette();
 
   return (

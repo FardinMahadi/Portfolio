@@ -1,122 +1,78 @@
 # Documentation Index
 
-Welcome to the portfolio project documentation! This index provides quick access
-to all documentation resources.
+Fardin Mahadi Portfolio — v2 Redesign documentation.
+
+> **Status:** Active redesign · Theme: Deep Magenta Signal · Previous version live at `/v0.1.1/`
+
+---
 
 ## Quick Start
 
-New to the project? Start here:
+1. [Development Workflow](./getting-started/development-workflow.md) — Local setup and commands
+2. [Implementation Plan](../IMPLEMENTATION_PLAN.md) — Full phase-by-phase build order
+3. [Design System](../DESIGN_SYSTEM.md) — Color tokens, typography, spacing, component specs
+4. [UX Architecture](../UX_ARCHITECTURE.md) — UX audit, strategy, and routing decisions
 
-1. [Development Workflow](./getting-started/development-workflow.md) - Get set
-   up locally
-2. [Style Guide](./reference/style-guide.md) - Learn coding standards
-3. [Component Reference](./reference/components.md) - Explore components
+---
 
 ## Documentation Structure
 
 ### Getting Started
 
-- **[Development Workflow](./getting-started/development-workflow.md)** - Local
-  setup, Git workflow, and common tasks
-- **[Contributing](./getting-started/contributing.md)** - How to contribute to
-  the project
-- **[Environment Variables](./getting-started/environment-variables.md)** -
-  Configuration and setup
-
-See [Getting Started Index](./getting-started/README.md) for more details.
-
-### Guides
-
-- **[Deployment Guide](./guides/deployment.md)** - Production deployment steps
-- **[Troubleshooting](./guides/troubleshooting.md)** - Common issues and
-  solutions
-- **[Mobile Setup](./guides/mobile-setup.md)** - Mobile app setup and
-  development
-
-See [Guides Index](./guides/README.md) for more details.
+- **[Development Workflow](./getting-started/development-workflow.md)** — Local setup, commands, Git workflow
+- **[Contributing](./getting-started/contributing.md)** — Code conventions and PR process
+- **[Environment Variables](./getting-started/environment-variables.md)** — Required env vars and setup
 
 ### Reference
 
-- **[API Documentation](./reference/api.md)** - API routes and endpoints
-- **[Component Reference](./reference/components.md)** - Complete component
-  catalog
-- **[Data Structures](./reference/data-structures.md)** - JSON schemas and type
-  definitions
-- **[Style Guide](./reference/style-guide.md)** - Coding standards, patterns,
-  and conventions
-
-See [Reference Index](./reference/README.md) for more details.
+- **[Component Reference](./reference/components.md)** — All new v2 components, props, and locations
+- **[Data Structures](./reference/data-structures.md)** — TypeScript types and data schema for v2
+- **[Style Guide](./reference/style-guide.md)** — Coding standards and patterns
+- **[API Documentation](./reference/api.md)** — API routes and request/response formats
 
 ### Systems
 
-- **[Animation System](./systems/animation-system.md)** - Framer Motion and GSAP
-  patterns
-- **[Blog System](./systems/blog-system.md)** - Blog architecture and content
-  management
-- **[Color Palette System](./systems/color-palette.md)** - Theme system and
-  color management
-- **[Cursor Effects](./systems/cursor-effects.md)** - Cursor animation system
-
-See [Systems Index](./systems/README.md) for more details.
+- **[Animation System](./systems/animation-system.md)** — Framer Motion variants and GSAP patterns
+- **[Blog System](./systems/blog-system.md)** — MDX-based blog architecture
+- **[Color System](./systems/color-palette.md)** — Deep Magenta Signal token system
 
 ### Content
 
-- **[Blog Topics](./content/blog-topics.md)** - Blog topic suggestions and
-  learning paths
+- **[Blog Topics](./content/blog-topics.md)** — Blog topic suggestions
+- **[Content Structure](./content/README.md)** — MDX content management guide
 
-See [Content Index](./content/README.md) for more details.
+### Roadmap
+
+- **[Portfolio Improvements](./roadmap/portfolio-improvements.md)** — v2 phase tracking
 
 ### AI Documentation
 
-- **[AI Training Guide](./ai/training-guide.md)** - Quick reference for AI
-  assistants
-- **[Quick Prompt](./ai/quick-prompt.md)** - Quick ESLint setup prompt
-- **[Setup Prompt](./ai/setup-prompt.md)** - Detailed ESLint setup instructions
+- **[AI Training Guide](./ai/training-guide.md)** — Quick reference for AI assistants
 
-See [AI Documentation Index](./ai/README.md) for more details.
+### Archive
+
+- **[v0.1.1 Feature Plan](./archive/feature-plan.md)** — Old feature backlog (superseded)
+- **Code Archive** — `src/archive/v0.1.1/` — Full code snapshot of v0.1.1
+- **Live Preview** — `/v0.1.1/` — Running version of the old portfolio
+
+---
 
 ## Documentation by Role
 
 ### For Developers
 
-Essential reading:
-
 1. [Development Workflow](./getting-started/development-workflow.md)
-2. [Style Guide](./reference/style-guide.md)
+2. [Implementation Plan](../IMPLEMENTATION_PLAN.md) — build sequence
 3. [Component Reference](./reference/components.md)
-4. [Data Structures](./reference/data-structures.md)
-
-### For Contributors
-
-Essential reading:
-
-1. [Contributing](./getting-started/contributing.md)
-2. [Development Workflow](./getting-started/development-workflow.md)
-3. [Style Guide](./reference/style-guide.md)
-4. [AI Training Guide](./ai/training-guide.md)
+4. [Style Guide](./reference/style-guide.md)
 
 ### For AI Assistants
 
-Essential reading:
-
 1. [AI Training Guide](./ai/training-guide.md)
 2. [Style Guide](./reference/style-guide.md)
-3. [Component Reference](./reference/components.md)
-4. [Data Structures](./reference/data-structures.md)
-
-### For Content Creators
-
-Essential reading:
-
-1. [Blog System](./systems/blog-system.md)
-2. [Data Structures](./reference/data-structures.md)
-3. [Blog Topics](./content/blog-topics.md)
-
-### For Mobile Developers
-
-Essential reading:
-
-1. [Mobile Setup Guide](./guides/mobile-setup.md)
+3. [Design System](../DESIGN_SYSTEM.md)
+4. [Component Reference](./reference/components.md)
+5. [Data Structures](./reference/data-structures.md)
 2. [Development Workflow](./getting-started/development-workflow.md)
 3. [Component Reference](./reference/components.md)
 
