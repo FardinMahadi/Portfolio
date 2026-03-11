@@ -1,0 +1,20 @@
+export type Project = {
+  slug: string;
+  title: string;
+  shortDesc: string;
+  problem: string;
+  decision: string;
+  result: string;
+  role: string;
+  company?: string;
+  stack: string[];
+  category: ('fullstack' | 'frontend' | 'ai' | 'mobile')[];
+  featured: boolean;
+  liveUrl?: string;
+  codeUrl?: string;
+  thumbnail: string;
+  heroImage: string;
+  screens: string[];
+  date: string;
+  duration?: string;
+};

@@ -3,23 +3,22 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 import { Suspense } from 'react';
-import { Geist, Geist_Mono } from 'next/font/google';
-
-import { ColorPaletteProvider } from '@/contexts/ColorPaletteContext';
-import { NavigationLoader } from '@/components/ui/loading/NavigationLoader';
-import { ViewTransitionWrapper } from '@/components/effects/ViewTransitionWrapper';
+import { Syne, DM_Mono } from 'next/font/google';
 
 import { Analytics } from './analytics';
-import { FaviconUpdater } from '../components/FaviconUpdater';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const syne = Syne({
+  variable: '--font-syne',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const dmMono = DM_Mono({
+  variable: '--font-dm-mono',
   subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  display: 'swap',
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
@@ -134,6 +133,13 @@ export const metadata: Metadata = {
     // google: "your-google-verification-code",
     // yandex: "your-yandex-verification-code",
     // bing: "your-bing-verification-code",
+  },
+  icons: {
+    icon: [
+      { url: '/images/favicon.png', type: 'image/png' },
+    ],
+    apple: '/images/favicon.png',
+    shortcut: '/images/favicon.png',
   },
   other: {
     'mobile-web-app-capable': 'yes',
@@ -337,21 +343,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <meta name="theme-color" content="#06b6d4" />
-        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#b400d9" />
+        <meta name="color-scheme" content="light" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased`}>
-        <ColorPaletteProvider>
-          <ViewTransitionWrapper>
-            <FaviconUpdater />
-
-            <NavigationLoader />
-            {children}
-            <Suspense fallback={null}>
-              <Analytics />
-            </Suspense>
-          </ViewTransitionWrapper>
-        </ColorPaletteProvider>
+      <body className={`${syne.variable} ${dmMono.variable} overflow-x-hidden antialiased`}>
+        {children}
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );

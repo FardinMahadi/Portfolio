@@ -1,0 +1,86 @@
+'use client';
+
+import type { ExperienceCardProps } from '@/components/types/cards/cards';
+import { Badge } from '@/components/ui/Badge';
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+
+const TYPE_LABEL: Record<string, string> = {
+  'full-time': 'Full-time',
+  freelance: 'Freelance',
+  contract: 'Contract',
+  'part-time': 'Part-time',
+};
+
+export function ExperienceCard({ entry, isLast, className }: ExperienceCardProps) {
+  const { company, role, type, startDate, endDate, impact, description, stack } = entry;
+
+  const start = new Date(startDate).toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric',
+  });
+  const end =
+    endDate === 'present'
+      ? 'Present'
+      : new Date(endDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+  return (
+    <div className={cn('relative flex gap-6', className)}>
+      {/* Timeline spine */}
+      <div className="flex flex-col items-center">
+        <motion.div
+          className="border-mag-500 bg-canvas mt-1.5 h-3 w-3 shrink-0 rounded-full border-2"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.3, ease: 'backOut' }}
+        />
+        {!isLast && (
+          <motion.div
+            className="bg-n200 w-px flex-1"
+            initial={{ scaleY: 0, originY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+          />
+        )}
+      </div>
+
+      {/* Content */}
+      <div className={cn('flex flex-col gap-3 pb-10', isLast && 'pb-0')}>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-display text-n900 text-lg font-bold">{role}</span>
+          <span className="text-n400 font-mono text-[0.65rem] tracking-[0.15em] uppercase">
+            {TYPE_LABEL[type]}
+          </span>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <span className="font-display text-mag-500 text-base font-semibold">{company}</span>
+          <span className="text-n400 font-mono text-xs">
+            {start} — {end}
+          </span>
+        </div>
+
+        <p className="text-n700 text-sm font-medium">{impact}</p>
+
+        <ul className="flex flex-col gap-1.5">
+          {description.map((item, i) => (
+            <li key={i} className="text-n500 flex gap-2 text-sm">
+              <span className="text-mag-500">▹</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-wrap gap-1.5">
+          {stack.map(tech => (
+            <Badge key={tech} variant="neutral">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

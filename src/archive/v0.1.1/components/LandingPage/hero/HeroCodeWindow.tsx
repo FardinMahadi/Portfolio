@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { HeroActions } from './HeroActions';
@@ -90,7 +90,7 @@ export function HeroCodeWindow() {
           aria-hidden="true"
         >
           <Image
-            src="/Images/me.jpg"
+            src="/images/avatar/fardin-mahadi.jpg"
             alt="Portrait of Fardin Mahadi"
             fill
             priority

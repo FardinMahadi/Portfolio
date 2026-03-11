@@ -6,7 +6,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'React',
     icon: {
-      link: '/Icons/reactjs.png',
+      link: '/images/tech/react.png',
       height: 40,
       width: 40,
     },
@@ -15,7 +15,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'Node.js',
     icon: {
-      link: '/Icons/nodejs.png',
+      link: '/images/tech/nodejs.png',
       height: 40,
       width: 40,
     },
@@ -24,7 +24,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'MongoDB',
     icon: {
-      link: '/Icons/mongodb.png',
+      link: '/images/tech/mongodb.png',
       height: 40,
       width: 40,
     },
@@ -33,7 +33,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'Express',
     icon: {
-      link: '/Icons/express.png',
+      link: '/images/tech/express.png',
       height: 40,
       width: 40,
     },
@@ -42,7 +42,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'Next.js',
     icon: {
-      link: '/Icons/nextjs.png',
+      link: '/images/tech/nextjs.png',
       height: 40,
       width: 40,
     },
@@ -51,7 +51,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'TypeScript',
     icon: {
-      link: '/Icons/ts.png',
+      link: '/images/tech/typescript.png',
       height: 40,
       width: 40,
     },
@@ -60,7 +60,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'TailwindCSS',
     icon: {
-      link: '/Icons/tailwind.png',
+      link: '/images/tech/tailwindcss.png',
       height: 40,
       width: 40,
     },
@@ -69,7 +69,7 @@ export const techStack: TechStackProps[] = [
   {
     name: 'PostgreSQL',
     icon: {
-      link: '/Icons/PostgreSQL.png',
+      link: '/images/tech/postgresql.png',
       height: 40,
       width: 40,
     },
