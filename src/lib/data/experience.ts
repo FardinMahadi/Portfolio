@@ -1,4 +1,4 @@
-import type { ExperienceEntry, EducationEntry } from '@/lib/types/experience';
+import type { EducationEntry, ExperienceEntry } from '@/lib/types/experience';
 
 export const experience: ExperienceEntry[] = [
   {
@@ -6,8 +6,9 @@ export const experience: ExperienceEntry[] = [
     role: 'Frontend Engineer',
     type: 'contract',
     startDate: '2025-07',
-    endDate: 'present',
-    impact: 'Shipped the ACS Bangladesh Youth Summit platform — ranked #1 on Google within days of launch.',
+    endDate: '2025-12',
+    impact:
+      'Shipped the ACS Bangladesh Youth Summit platform — ranked #1 on Google within days of launch.',
     description: [
       'Led frontend architecture for high-visibility conference and product experiences using React/Next.js.',
       'Collaborated with designers and backend engineers to hit sprint deadlines on tight cycles.',
@@ -24,7 +25,8 @@ export const experience: ExperienceEntry[] = [
     type: 'freelance',
     startDate: '2024-01',
     endDate: '2025-06',
-    impact: 'Delivered production web applications for clients across education, events, and SaaS verticals.',
+    impact:
+      'Delivered production web applications for clients across education, events, and SaaS verticals.',
     description: [
       'Designed and built end-to-end web applications from schema to deployment.',
       'Worked directly with clients to scope, prototype, and iterate on product requirements.',

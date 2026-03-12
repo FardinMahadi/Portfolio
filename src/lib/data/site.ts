@@ -13,9 +13,9 @@ export const site = {
   },
   nav: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Experience', href: '/experience' },
+    { label: 'About', href: '/#about' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Experience', href: '/#experience' },
     { label: 'Blog', href: '/blog' },
   ],
   stats: [

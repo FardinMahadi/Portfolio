@@ -73,6 +73,7 @@
       "type": "Contract",
       "location": "Remote",
       "startDate": "2025-07",
+      "endDate": "2025-12",
       "current": true,
       "summary": "Lead frontend engineer delivering high-visibility conference and product experiences with React/Next.js.",
       "achievements": [
@@ -143,7 +144,7 @@
       "institution": "Comilla University",
       "location": "Cumilla, Bangladesh",
       "startDate": "2024",
-      "endDate": "2028",
+      "endDate": "Present",
       "details": [
         "Expected graduation 2028.",
         "2nd Prize – Intra-Department Programming Contest (ICT Week 2025, Junior Segment)."

@@ -1,9 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, subject, message } = body;
 
     // Validate input
     if (!name || !email || !message) {
@@ -21,6 +30,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Message is too long' }, { status: 400 });
     }
 
+    const safeName = escapeHtml(String(name));
+    const safeEmail = escapeHtml(String(email));
+    const safeSubject = subject ? escapeHtml(String(subject)) : 'No subject';
+    const safeMessage = escapeHtml(String(message)).replace(/\n/g, '<br>');
+
     // Email service integration with Resend
     // If RESEND_API_KEY is not set, it will log to console (for development)
     const resendApiKey = process.env.RESEND_API_KEY;
@@ -37,26 +51,24 @@ export async function POST(request: NextRequest) {
           from: senderEmail,
           to: recipientEmail,
           replyTo: email,
-          subject: `Contact Form Submission from ${name}`,
+          subject: `[Portfolio] ${safeSubject} — from ${safeName}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #06b6d4;">New Contact Form Submission</h2>
+              <h2 style="color: #B400D9;">New Contact Form Submission</h2>
               <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                <p><strong>Name:</strong> ${safeName}</p>
+                <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
+                <p><strong>Subject:</strong> ${safeSubject}</p>
                 <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
               </div>
-              <div style="background-color: #ffffff; padding: 20px; border-left: 4px solid #06b6d4;">
+              <div style="background-color: #ffffff; padding: 20px; border-left: 4px solid #B400D9;">
                 <h3 style="color: #333;">Message:</h3>
-                <p style="color: #666; line-height: 1.6; white-space: pre-wrap;">${message.replace(
-                  /\n/g,
-                  '<br>'
-                )}</p>
+                <p style="color: #666; line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
               </div>
             </div>
           `,
-          text: `
-New Contact Form Submission
+          text: `New Contact Form Submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject ?? 'No subject'}\nSubmitted: ${new Date().toLocaleString()}\n\nMessage:\n${message}`,
+        });
 
 Name: ${name}
 Email: ${email}
@@ -67,25 +79,11 @@ ${message}
           `,
         });
 
-        // Log successful submission
-        console.log('Contact form email sent successfully:', {
-          name,
-          email,
-          timestamp: new Date().toISOString(),
-        });
       } catch (emailError) {
         console.error('Resend email error:', emailError);
-        // Fall through to logging for development
       }
     } else {
-      // Development mode: log to console
-      console.log('Contact form submission (development mode):', {
-        name,
-        email,
-        message,
-        timestamp: new Date().toISOString(),
-        note: 'Set RESEND_API_KEY in environment variables to enable email sending',
-      });
+      console.log('Contact form submission (dev):', { name, email, subject, message, timestamp: new Date().toISOString() });
     }
 
     return NextResponse.json(

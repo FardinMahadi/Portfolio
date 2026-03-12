@@ -48,7 +48,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                   onClick={onClose}
                   className={cn(
                     'font-display text-2xl font-bold transition-colors duration-200',
-                    pathname === href ? 'text-mag-500' : 'text-n800 hover:text-mag-500'
+                    (!href.includes('#') && pathname === href) ? 'text-mag-500' : 'text-n800 hover:text-mag-500'
                   )}
                 >
                   {label}

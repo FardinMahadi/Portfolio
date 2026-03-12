@@ -22,6 +22,8 @@ export type ServiceCardProps = {
 
 export type ProjectCardProps = {
   project: Project;
+  variant?: 'hero' | 'default';
+  onOpenModal: (project: Project, el: HTMLElement) => void;
   className?: string;
 };
 

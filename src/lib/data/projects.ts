@@ -40,6 +40,7 @@ export const projects: Project[] = [
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'MUI', 'Vercel'],
     category: ['fullstack', 'frontend'],
     featured: true,
+    liveUrl: 'https://acsduyouthsummit2025.org/',
     thumbnail: '/images/projects/acs-youth-summit/cover.png',
     heroImage: '/images/projects/acs-youth-summit/cover.png',
     screens: [

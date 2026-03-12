@@ -353,7 +353,7 @@ html {
 
   /* Text Gradients */
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-[hsl(172,66%,50%)] to-[hsl(265,60%,60%)] bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-[hsl(172,66%,50%)] to-[hsl(265,60%,60%)] bg-clip-text text-transparent;
   }
 
   /* Border Glow */

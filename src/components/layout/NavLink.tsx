@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation';
 
 export function NavLink({ href, children, className }: NavLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isHashLink = href.includes('#');
+  const isActive = isHashLink ? false : pathname === href;
 
   return (
     <Link

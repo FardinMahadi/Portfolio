@@ -75,4 +75,13 @@ export const techStack: TechStackProps[] = [
     },
     color: 'from-blue-400 to-blue-600',
   },
+  {
+    name: 'Framer Motion',
+    icon: {
+      link: '/images/tech/fm.jpg',
+      height: 40,
+      width: 40,
+    },
+    color: 'from-blue-400 to-blue-600',
+  },
 ];

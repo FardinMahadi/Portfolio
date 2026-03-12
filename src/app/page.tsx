@@ -1,12 +1,13 @@
 import { HeroSection } from '@/components/hero/HeroSection';
-import { ServicesSection } from '@/components/sections/ServicesSection';
-import { ProjectsSection } from '@/components/sections/ProjectsSection';
-import { ExperienceSection } from '@/components/sections/ExperienceSection';
-import { SkillsSection } from '@/components/sections/SkillsSection';
+import { Footer } from '@/components/layout/Footer';
+import { Navbar } from '@/components/layout/Navbar';
+import { AboutSection } from '@/components/sections/AboutSection';
 import { BlogSection } from '@/components/sections/BlogSection';
 import { ContactSection } from '@/components/sections/ContactSection';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
+import { ExperienceSection } from '@/components/sections/ExperienceSection';
+import { ProjectsSection } from '@/components/sections/ProjectsSection';
+import { ServicesSection } from '@/components/sections/ServicesSection';
+import { SkillsSection } from '@/components/sections/SkillsSection';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <HeroSection />
+        <AboutSection />
         <ServicesSection />
         <ProjectsSection />
         <ExperienceSection />
