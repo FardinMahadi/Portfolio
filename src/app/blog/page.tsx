@@ -1,9 +1,9 @@
-import { Metadata } from 'next';
 import Footer from '@/components/LandingPage/Footer/Footer';
 import { BlogIndexPage } from '@/components/blog/BlogIndexPage';
-import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { PageTransition } from '@/components/effects/PageTransition';
 import Navbar from '@/components/shared/navigation/Navigation';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { Metadata } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = generateSEOMetadata({
 export default function BlogPage() {
   return (
     <PageTransition variant="fade">
-      <div className="relative flex min-h-screen flex-col bg-(--color-background)">
+      <div className="bg-canvas relative flex min-h-screen flex-col">
         <Navbar />
         <main className="relative flex-1 pt-16" style={{ zIndex: 1 }}>
           <BlogIndexPage />

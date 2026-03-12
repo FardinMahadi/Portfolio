@@ -1,4 +1,4 @@
-export interface BlogPostsProps {
+export type BlogPostsProps = {
   title: string;
   excerpt: string;
   date: string;
@@ -7,29 +7,22 @@ export interface BlogPostsProps {
   slug: string;
   image?: string;
   content: string;
-  link?: string;
-}
+};
 
-export interface BlogPostContentProps {
+export type BlogPostContentProps = {
   post: BlogPostsProps;
-}
+};
 
 export type BlogCardProps = {
   post: BlogPostsProps;
   index: number;
-  isInView: boolean;
 };
 
-export type BlogListProps = {
-  posts: BlogPostsProps[];
-  isInView: boolean;
-};
-
-export interface CategoryFilterProps {
+export type CategoryFilterProps = {
   selectedCategory: string | null;
   onCategoryChange: (category: string | null) => void;
-}
+};
 
-export interface MarkdownRendererProps {
+export type MarkdownRendererProps = {
   content: string;
-}
+};

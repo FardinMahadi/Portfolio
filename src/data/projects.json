@@ -9,12 +9,12 @@
       "Deployed to Vercel with performance budgets to keep the experience fast."
     ],
     "tags": ["Next.js", "Tailwind CSS", "Vercel", "AI"],
-    "image": "/Projects/Lern/image.png",
+    "image": "/images/projects/lern-beta/cover.png",
     "width": 1600,
     "height": 900,
     "gallery": [
       {
-        "src": "/Projects/Lern/image.png",
+        "src": "/images/projects/lern-beta/cover.png",
         "width": 1600,
         "height": 900,
         "alt": "Lern Beta landing page hero showing AI assistant messaging"
@@ -33,30 +33,30 @@
       "Optimized imagery, accessibility, and SEO to support hybrid conference audiences."
     ],
     "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
-    "image": "/Projects/ACS/image.png",
+    "image": "/images/projects/acs-youth-summit/cover.png",
     "width": 1600,
     "height": 900,
     "gallery": [
       {
-        "src": "/Projects/ACS/image.png",
+        "src": "/images/projects/acs-youth-summit/cover.png",
         "width": 1600,
         "height": 900,
         "alt": "ACS Youth Summit homepage above the fold"
       },
       {
-        "src": "/Projects/ACS/image2.png",
+        "src": "/images/projects/acs-youth-summit/screenshot-1.png",
         "width": 1600,
         "height": 900,
         "alt": "ACS Youth Summit sessions overview"
       },
       {
-        "src": "/Projects/ACS/image3.png",
+        "src": "/images/projects/acs-youth-summit/screenshot-2.png",
         "width": 1600,
         "height": 900,
         "alt": "ACS Youth Summit sponsors and partners section"
       },
       {
-        "src": "/Projects/ACS/image4.png",
+        "src": "/images/projects/acs-youth-summit/screenshot-3.png",
         "width": 1600,
         "height": 900,
         "alt": "ACS Youth Summit conference registration CTA"

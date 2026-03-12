@@ -1,87 +1,144 @@
-import Link from 'next/link';
-import { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import Footer from '@/components/LandingPage/Footer/Footer';
-import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { ExperienceCard } from '@/components/cards/ExperienceCard';
 import { PageTransition } from '@/components/effects/PageTransition';
-import Navbar from '@/components/shared/navigation/Navigation';
-import { ExperienceSection } from '@/components/experience/ExperienceSection';
+import { Footer } from '@/components/layout/Footer';
+import { Navbar } from '@/components/layout/Navbar';
+import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { education, experience } from '@/lib/data/experience';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import type { Metadata } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: 'Work Experience',
+  title: 'Experience',
   description:
-    'A timeline of my professional journey, showcasing my growth and contributions in web development and software engineering. Experience in frontend development, React, Next.js, and TypeScript.',
-  keywords: [
-    'experience',
-    'work history',
-    'career',
-    'frontend engineer',
-    'web development',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'professional experience',
-  ],
+    'Full work history and education for Mahadi Hasan Fardin — Frontend Engineer at DevGenit, freelance full-stack developer, and BSc Computer Science student.',
+  keywords: ['experience', 'work history', 'DevGenit', 'full stack', 'frontend engineer'],
   canonical: `${siteUrl}/experience`,
 });
-
-const backdropStyle = {
-  backgroundColor: 'var(--color-background)',
-  backgroundImage: `
-    radial-gradient(circle at top, color-mix(in srgb, var(--color-primary) 35%, transparent) 0%, transparent 55%),
-    radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0%, transparent 45%),
-    radial-gradient(circle at bottom, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 60%)
-  `,
-  backgroundAttachment: 'fixed',
-};
 
 export default function ExperiencePage() {
   return (
     <PageTransition variant="fade">
-      <div className="text-theme-text min-h-screen" style={backdropStyle}>
-        <header>
-          <Navbar />
-        </header>
-        <main className="relative z-10 pt-16">
-          <ExperienceSection />
-          <section className="mt-16 px-4 sm:px-6 lg:px-8">
-            <div className="border-theme-border/50 shadow-theme-secondary/10 mx-auto max-w-4xl rounded-2xl border bg-gradient-to-br from-(--color-surface) to-(--color-background) p-8 text-center shadow-lg">
-              <p className="text-theme-secondary/70 font-mono text-sm tracking-[0.3em] uppercase">
-                Hiring Now?
+      <div className="bg-canvas relative flex min-h-screen flex-col">
+        <Navbar />
+        <main id="main-content" className="relative flex-1 pt-16">
+          {/* Page header */}
+          <section className="relative overflow-hidden py-20">
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  'radial-gradient(ellipse 60% 50% at 0% 40%, color-mix(in srgb, var(--mag-050) 12%, transparent), transparent)',
+              }}
+              aria-hidden="true"
+            />
+            <div className="relative container mx-auto px-4 md:px-10">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="bg-mag-500 block h-px" style={{ width: 22 }} aria-hidden="true" />
+                <span className="text-n400 font-mono text-[11px] tracking-[0.25em] uppercase">
+                  {'// career'}
+                </span>
+              </div>
+              <SectionEyebrow number="03" className="mb-4">
+                Career
+              </SectionEyebrow>
+              <SectionHeading accent="built" className="mb-4">
+                Where I&apos;ve built.
+              </SectionHeading>
+              <p className="text-n500 max-w-xl text-base leading-relaxed">
+                A focused track record — remote-first, impact-driven, and always shipping.
               </p>
-              <h2 className="text-theme-text mt-4 text-3xl font-semibold">
-                Let&apos;s bring this experience to your team.
-              </h2>
-              <p className="text-theme-text/70 mt-3">
-                I partner with engineering leads and founders to deliver production-ready,
-                accessible interfaces. Tell me about your technical gap—we&apos;ll design the
-                fastest path to impact.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <Button asChild size="lg" className="min-h-[48px] px-8 text-white">
-                  <Link href="/contact" aria-label="Navigate to contact page">
-                    Book a call
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-theme-border/60 text-theme-text hover:text-theme-primary min-h-[48px] bg-transparent px-8"
-                >
-                  <Link href="/blog" aria-label="Read latest case studies">
-                    Read case studies
-                  </Link>
-                </Button>
+            </div>
+          </section>
+
+          {/* Main content */}
+          <section className="py-12">
+            <div className="container mx-auto px-4 md:px-10">
+              <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_22rem]">
+                {/* Work experience */}
+                <div>
+                  <h2 className="text-n400 mb-8 font-mono text-[0.7rem] tracking-widest uppercase">
+                    Work Experience
+                  </h2>
+                  {experience.map((entry, i) => (
+                    <ExperienceCard
+                      key={`${entry.company}-${entry.startDate}`}
+                      entry={entry}
+                      isLast={i === experience.length - 1}
+                    />
+                  ))}
+                </div>
+
+                {/* Education */}
+                <aside>
+                  <h2 className="text-n400 mb-8 font-mono text-[0.7rem] tracking-widest uppercase">
+                    Education
+                  </h2>
+                  {education.map((edu, i) => {
+                    const start = new Date(edu.startDate).toLocaleDateString('en-US', {
+                      month: 'short',
+                      year: 'numeric',
+                    });
+                    const end =
+                      edu.endDate === 'present'
+                        ? 'Present'
+                        : new Date(edu.endDate).toLocaleDateString('en-US', {
+                            month: 'short',
+                            year: 'numeric',
+                          });
+                    return (
+                      <div key={i} className="relative flex gap-5">
+                        <div className="flex flex-col items-center">
+                          <div className="border-n300 bg-canvas mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2" />
+                          {i < education.length - 1 && <div className="bg-n200 w-px flex-1" />}
+                        </div>
+                        <div
+                          className={`flex flex-col gap-2 ${i < education.length - 1 ? 'pb-8' : ''}`}
+                        >
+                          <span className="font-display text-n900 text-base font-bold">
+                            {edu.institution}
+                          </span>
+                          <span className="text-mag-500 font-mono text-[0.65rem] tracking-[0.12em] uppercase">
+                            {edu.degree} · {edu.field}
+                          </span>
+                          <span className="text-n400 font-mono text-xs">
+                            {start} — {end}
+                          </span>
+                          {edu.highlights && (
+                            <ul className="mt-1 flex flex-col gap-1">
+                              {edu.highlights.map((h, j) => (
+                                <li key={j} className="text-n500 flex gap-2 text-sm">
+                                  <span className="text-n300">▹</span>
+                                  {h}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                  {/* Availability block */}
+                  <div
+                    className="mt-8 rounded-sm px-5 py-4 font-mono text-sm"
+                    style={{
+                      background: 'color-mix(in srgb, var(--mag-500) 6%, var(--canvas-raised))',
+                      border: '1px solid color-mix(in srgb, var(--mag-500) 18%, transparent)',
+                    }}
+                  >
+                    <span className="text-n400">$ cat status.txt</span>
+                    <br />
+                    <span className="text-mag-500">✓ Open to new opportunities</span>
+                  </div>
+                </aside>
               </div>
             </div>
           </section>
         </main>
-        <footer className="border-theme-border/40 mt-10 border-t bg-[color-mix(in_srgb,var(--color-surface)_85%,transparent)]">
-          <Footer />
-        </footer>
+        <Footer />
       </div>
     </PageTransition>
   );

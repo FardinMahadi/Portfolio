@@ -1,78 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* ─── Deep Magenta Signal — Design Token Layer ─── */
 :root {
-  --background: 220 20% 7%;
-  --foreground: 210 20% 90%;
-  --card: 220 18% 10%;
-  --card-foreground: 210 20% 90%;
-  --popover: 220 18% 10%;
-  --popover-foreground: 210 20% 90%;
-  --primary: 172 66% 50%;
-  --primary-foreground: 220 20% 7%;
-  --secondary: 220 16% 14%;
-  --secondary-foreground: 210 20% 90%;
-  --muted: 220 14% 16%;
-  --muted-foreground: 215 15% 55%;
-  --accent: 265 60% 60%;
-  --accent-foreground: 210 20% 90%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 20% 98%;
-  --border: 220 14% 18%;
-  --input: 220 14% 18%;
-  --ring: 172 66% 50%;
-  --radius: 0.75rem;
+  /* Magenta primary scale */
+  --mag-950: #1a0022;
+  --mag-900: #2a0038;
+  --mag-800: #480060;
+  --mag-700: #600080;
+  --mag-600: #8c00aa;
+  --mag-500: #b400d9;
+  --mag-400: #cc22ee;
+  --mag-300: #dd66ff;
+  --mag-200: #edb3ff;
+  --mag-100: #f5daff;
+  --mag-050: #faf0ff;
 
-  /* Code tokens */
-  --code-keyword: 265 60% 60%;
-  --code-string: 172 66% 50%;
-  --code-operator: 30 100% 60%;
-  --code-line-number: 215 15% 35%;
+  /* Canvas — warm parchment backgrounds */
+  --canvas: #f5f1ed;
+  --canvas-raised: #fdfcfb;
+  --canvas-sunken: #ede8e2;
+  --canvas-tinted: #f7eeff;
+  --canvas-dark: #0c0814;
 
-  /* Effects */
-  --shadow-glow: 0 0 40px hsl(172 66% 50% / 0.15);
-  --gradient-hero: linear-gradient(to bottom right, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
-}
+  /* Plum — structural accent from photo shirt */
+  --plum-800: #3a0830;
+  --plum-700: #4e1040;
+  --plum-600: #5c1a4a;
+  --plum-500: #7a2462;
+  --plum-400: #9e3880;
 
-:root.dark {
-  /* Same variables for dark mode by default as it's a dark design */
-  --background: 220 20% 7%;
-  --foreground: 210 20% 90%;
+  /* Teal — secondary signal */
+  --teal-700: #005c50;
+  --teal-600: #007a68;
+  --teal-500: #009b82;
+  --teal-400: #00c4a4;
+  --teal-300: #3dd9b8;
+  --teal-200: #9eeedd;
+  --teal-100: #d4f8f0;
+
+  /* Warm neutrals — violet-tinted */
+  --n900: #110818;
+  --n800: #1c1028;
+  --n700: #301840;
+  --n600: #4e3060;
+  --n500: #6e5080;
+  --n400: #9878a8;
+  --n300: #c0a8cc;
+  --n200: #ddd0e8;
+  --n100: #eee6f4;
+
+  /* Shadows */
+  --sh-xs: 0 1px 3px rgba(17, 8, 24, 0.06);
+  --sh-sm: 0 2px 10px rgba(17, 8, 24, 0.09);
+  --sh-md: 0 6px 28px rgba(17, 8, 24, 0.12);
+  --sh-lg: 0 16px 60px rgba(17, 8, 24, 0.16);
+  --sh-xl: 0 32px 100px rgba(17, 8, 24, 0.2);
+  --sh-mag: 0 8px 36px rgba(180, 0, 217, 0.3);
+  --sh-teal: 0 8px 28px rgba(0, 155, 130, 0.22);
+
+  /* Fonts (injected by next/font) */
+  --font-syne: '';
+  --font-dm-mono: '';
 }
 
 @theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --color-mag-950: var(--mag-950);
+  --color-mag-900: var(--mag-900);
+  --color-mag-800: var(--mag-800);
+  --color-mag-700: var(--mag-700);
+  --color-mag-600: var(--mag-600);
+  --color-mag-500: var(--mag-500);
+  --color-mag-400: var(--mag-400);
+  --color-mag-300: var(--mag-300);
+  --color-mag-200: var(--mag-200);
+  --color-mag-100: var(--mag-100);
+  --color-mag-050: var(--mag-050);
+  --color-canvas: var(--canvas);
+  --color-canvas-raised: var(--canvas-raised);
+  --color-canvas-sunken: var(--canvas-sunken);
+  --color-canvas-tinted: var(--canvas-tinted);
+  --color-canvas-dark: var(--canvas-dark);
+  --color-plum-800: var(--plum-800);
+  --color-plum-700: var(--plum-700);
+  --color-plum-600: var(--plum-600);
+  --color-plum-500: var(--plum-500);
+  --color-plum-400: var(--plum-400);
+  --color-teal-700: var(--teal-700);
+  --color-teal-600: var(--teal-600);
+  --color-teal-500: var(--teal-500);
+  --color-teal-400: var(--teal-400);
+  --color-teal-300: var(--teal-300);
+  --color-teal-200: var(--teal-200);
+  --color-teal-100: var(--teal-100);
+  --color-n900: var(--n900);
+  --color-n800: var(--n800);
+  --color-n700: var(--n700);
+  --color-n600: var(--n600);
+  --color-n500: var(--n500);
+  --color-n400: var(--n400);
+  --color-n300: var(--n300);
+  --color-n200: var(--n200);
+  --color-n100: var(--n100);
 
-  --container-max-width-2xl: 1200px;
-  --container-padding: 2rem;
-  --container-center: true;
-
-  --font-sans: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-display: var(--font-syne), 'Syne', sans-serif;
+  --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
+  --font-body: var(--font-syne), 'Syne', sans-serif;
 }
 
 
@@ -80,26 +113,44 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4rem; /* 64px for h-16 navbar */
-  }
-
-  * {
-    @apply border-border outline-ring/50;
+    scroll-padding-top: 4rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-sans);
+    background-color: var(--canvas);
+    color: var(--n700);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-mono);
-  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--canvas-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--mag-700); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--mag-600); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Skip link */
+.sr-only:focus-visible {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--mag-500);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  clip: auto;
+  clip-path: none;
 }
 
 /**
@@ -302,7 +353,7 @@ html {
 
   /* Text Gradients */
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-[hsl(172,66%,50%)] to-[hsl(265,60%,60%)] bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-[hsl(172,66%,50%)] to-[hsl(265,60%,60%)] bg-clip-text text-transparent;
   }
 
   /* Border Glow */

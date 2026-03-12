@@ -6,7 +6,7 @@
     "email": "mahadihasanfardin2015@gmail.com",
     "phone": "+8801540159331",
     "portfolio": "https://fardinmahadi.vercel.app",
-    "image": "/Images/me.jpg"
+    "image": "/images/avatar/fardin-mahadi.jpg"
   },
   "summary": "Full-Stack Developer specializing in React/Next.js ecosystems with a proven ability to ship production features independently and collaboratively. Focused on crafting pixel-perfect, performant experiences with clean architecture, rapid iteration, and measurable SEO gains.",
   "links": [
@@ -73,6 +73,7 @@
       "type": "Contract",
       "location": "Remote",
       "startDate": "2025-07",
+      "endDate": "2025-12",
       "current": true,
       "summary": "Lead frontend engineer delivering high-visibility conference and product experiences with React/Next.js.",
       "achievements": [
@@ -143,7 +144,7 @@
       "institution": "Comilla University",
       "location": "Cumilla, Bangladesh",
       "startDate": "2024",
-      "endDate": "2028",
+      "endDate": "Present",
       "details": [
         "Expected graduation 2028.",
         "2nd Prize – Intra-Department Programming Contest (ICT Week 2025, Junior Segment)."

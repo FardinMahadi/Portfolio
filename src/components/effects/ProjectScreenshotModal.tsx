@@ -149,7 +149,7 @@ export function ProjectScreenshotModal({
     <AnimatePresence>
       {isOpen && project ? (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
+          className="fixed inset-0 z-9999 flex items-center justify-center"
           data-project-modal
         >
           <motion.div
