@@ -1,10 +1,11 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
+
+import { cn } from '@/lib/utils';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { cn } from '@/lib/utils';
-import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
-import { motion } from 'framer-motion';
 
 const HIGHLIGHTS = [
   { label: 'Stack', value: 'MERN · Next.js · TypeScript' },
@@ -23,9 +24,7 @@ export function AboutSection({ className }: { className?: string }) {
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
         >
-          <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
-            {'// 00_about'}
-          </span>
+          <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">// 00_about</span>
           <SectionEyebrow number="00">About</SectionEyebrow>
           <SectionHeading accent="build">I design, build, and ship.</SectionHeading>
         </motion.div>

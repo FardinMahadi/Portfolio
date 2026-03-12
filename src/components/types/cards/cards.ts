@@ -1,8 +1,8 @@
+import type { ReactNode } from 'react';
 import type { BlogPost } from '@/lib/types/blog';
-import type { ExperienceEntry } from '@/lib/types/experience';
 import type { Project } from '@/lib/types/project';
 import type { Testimonial } from '@/lib/types/testimonial';
-import type { ReactNode } from 'react';
+import type { ExperienceEntry } from '@/lib/types/experience';
 
 export type StatCardProps = {
   value: number;

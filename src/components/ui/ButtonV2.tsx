@@ -1,8 +1,10 @@
 'use client';
 
 import type { ButtonV2Props } from '@/components/types/ui/button';
-import { cn } from '@/lib/utils';
+
 import { motion } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
 
 export function ButtonV2({
   variant = 'primary',

@@ -1,9 +1,10 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import type { SkeletonLoaderProps } from './schema';
+
 import { motion } from 'framer-motion';
 
-import type { SkeletonLoaderProps } from './schema';
+import { cn } from '@/lib/utils';
 
 export function SkeletonLoader({
   variant = 'text',

@@ -1,7 +1,11 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { colorPalettes, ColorPalette, getPaletteCSSVariables } from '@/lib/colorPalettes';
+import type { ReactNode } from 'react';
+import type { ColorPalette} from '@/lib/colorPalettes';
+
+import { createContext, useContext, useState, useEffect } from 'react';
+
+import { colorPalettes, getPaletteCSSVariables } from '@/lib/colorPalettes';
 
 interface ColorPaletteContextType {
   currentPalette: ColorPalette;

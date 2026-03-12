@@ -1,8 +1,10 @@
 'use client';
 
 import type { SkillItem } from '@/lib/data/skills';
-import { cn } from '@/lib/utils';
+
 import Image from 'next/image';
+
+import { cn } from '@/lib/utils';
 
 type SkillCardProps = {
   skill: SkillItem;

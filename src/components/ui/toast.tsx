@@ -1,5 +1,6 @@
 import * as React from "react"
 import { X } from "lucide-react"
+
 import { cn } from "@/lib/utils"
 
 const ToastProvider = ({ children }: { children: React.ReactNode }) => <>{children}</>
@@ -26,7 +27,7 @@ interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
-    ({ className, variant = "default", open, onOpenChange, ...props }, ref) => {
+    ({ className, variant = "default", open, onOpenChange: _onOpenChange, ...props }, ref) => {
         if (open === false) return null
 
         return (

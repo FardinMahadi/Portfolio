@@ -1,12 +1,13 @@
-import { ExperienceCard } from '@/components/cards/ExperienceCard';
-import { PageTransition } from '@/components/effects/PageTransition';
+import type { Metadata } from 'next';
+
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
+import { education, experience } from '@/lib/data/experience';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { education, experience } from '@/lib/data/experience';
+import { ExperienceCard } from '@/components/cards/ExperienceCard';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
-import type { Metadata } from 'next';
+import { PageTransition } from '@/components/effects/PageTransition';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -38,7 +39,7 @@ export default function ExperiencePage() {
               <div className="mb-4 flex items-center gap-3">
                 <span className="bg-mag-500 block h-px" style={{ width: 22 }} aria-hidden="true" />
                 <span className="text-n400 font-mono text-[11px] tracking-[0.25em] uppercase">
-                  {'// career'}
+                  // career
                 </span>
               </div>
               <SectionEyebrow number="03" className="mb-4">

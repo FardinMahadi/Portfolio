@@ -1,9 +1,11 @@
 'use client';
 
 import type { NavLinkProps } from '@/components/types/layout/layout';
-import { cn } from '@/lib/utils';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+import { cn } from '@/lib/utils';
 
 export function NavLink({ href, children, className }: NavLinkProps) {
   const pathname = usePathname();

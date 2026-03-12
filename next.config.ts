@@ -39,8 +39,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
   },
 
-  headers: async () => {
-    return [
+  headers: async () => [
       {
         source: '/:path*',
         headers: [
@@ -92,8 +91,7 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-    ];
-  },
+    ],
 };
 
 export default nextConfig;

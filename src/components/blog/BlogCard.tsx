@@ -2,11 +2,12 @@
 
 import type { BlogCardProps } from '@/components/types/blog';
 
-import { motion } from 'framer-motion';
-import { Calendar, Clock } from 'lucide-react';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import { fadeUp } from 'config/animations';
+import { Calendar, Clock } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
 
 export function BlogCard({ post, index }: BlogCardProps) {
   return (

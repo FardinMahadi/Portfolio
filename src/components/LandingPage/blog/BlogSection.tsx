@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+
 import { blogPosts } from '@/lib/blogData';
 
 const MotionLink = motion.create(Link);
@@ -20,11 +21,11 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-primary mb-2">{"// blog"}</p>
-          <h2 className="text-2xl md:text-3xl font-bold">Latest Thoughts</h2>
+          <p className="text-primary mb-2 font-mono text-sm">// blog</p>
+          <h2 className="text-2xl font-bold md:text-3xl">Latest Thoughts</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-3">
           {displayedPosts.map((post, i) => {
             // Extract emoji from title if it exists, otherwise use a default
             const emojiMatch = post.title.match(/^(\p{Emoji_Presentation}|\p{Emoji})/u);
@@ -39,16 +40,14 @@ const BlogSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-6 bg-card border border-border rounded-xl hover:border-primary/30 transition-all duration-300 shadow-sm"
+                className="group bg-card border-border hover:border-primary/30 rounded-xl border p-6 shadow-sm transition-all duration-300"
               >
-                <span className="text-2xl mb-3 block">{emoji}</span>
-                <h3 className="font-semibold text-sm mb-2 group-hover:text-primary transition-colors leading-snug">
+                <span className="mb-3 block text-2xl">{emoji}</span>
+                <h3 className="group-hover:text-primary mb-2 text-sm leading-snug font-semibold transition-colors">
                   {title}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                  {post.excerpt}
-                </p>
-                <span className="flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                <p className="text-muted-foreground mb-4 text-xs leading-relaxed">{post.excerpt}</p>
+                <span className="text-primary flex items-center gap-1 text-xs opacity-0 transition-opacity group-hover:opacity-100">
                   Read article <ArrowRight size={12} />
                 </span>
               </MotionLink>
@@ -56,10 +55,10 @@ const BlogSection = () => {
           })}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="mt-8 text-center">
           <Link
             href="/blog"
-            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            className="text-muted-foreground hover:text-primary text-sm transition-colors"
           >
             View All Articles →
           </Link>

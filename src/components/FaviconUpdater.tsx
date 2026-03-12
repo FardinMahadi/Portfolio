@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+
 import { useColorPalette } from '@/contexts/ColorPaletteContext';
 
 /**
@@ -11,7 +12,7 @@ export function FaviconUpdater() {
   const { currentPalette } = useColorPalette();
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') return () => {};
 
     // Helper function to adjust color brightness
     const adjustBrightness = (color: string, percent: number): string => {
@@ -30,8 +31,8 @@ export function FaviconUpdater() {
       // Convert back to hex
       return `#${[newR, newG, newB]
         .map(x => {
-          const hex = x.toString(16);
-          return hex.length === 1 ? '0' + hex : hex;
+          const hexStr = x.toString(16);
+          return hexStr.length === 1 ? '0' + hexStr : hexStr;
         })
         .join('')}`;
     };

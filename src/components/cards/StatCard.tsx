@@ -1,9 +1,11 @@
 'use client';
 
 import type { StatCardProps } from '@/components/types/cards/cards';
-import { cn } from '@/lib/utils';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+
 import { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
 
 export function StatCard({ value, suffix = '', label, className }: StatCardProps) {
   const ref = useRef<HTMLDivElement>(null);

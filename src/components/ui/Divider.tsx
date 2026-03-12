@@ -1,4 +1,5 @@
 import type { DividerProps } from '@/components/types/ui/primitives';
+
 import { cn } from '@/lib/utils';
 
 export function Divider({ label, className }: DividerProps) {

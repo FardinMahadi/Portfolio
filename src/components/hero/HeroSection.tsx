@@ -1,13 +1,15 @@
 'use client';
 
+import type { HeroSectionProps } from '@/components/types/hero/hero';
+
+import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
+import { site } from '@/lib/data/site';
 import { HeroCtas } from '@/components/hero/HeroCtas';
+import { HeroText } from '@/components/hero/HeroText';
 import { HeroPhoto } from '@/components/hero/HeroPhoto';
 import { HeroStats } from '@/components/hero/HeroStats';
-import { HeroText } from '@/components/hero/HeroText';
-import type { HeroSectionProps } from '@/components/types/hero/hero';
-import { site } from '@/lib/data/site';
-import { cn } from '@/lib/utils';
-import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const PARTICLES: { x: string; y: string; size: number; delay: number; duration: number }[] = [
   { x: '6%', y: '18%', size: 3, delay: 0, duration: 4.2 },

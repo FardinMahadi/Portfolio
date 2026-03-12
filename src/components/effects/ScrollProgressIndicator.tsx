@@ -38,8 +38,8 @@ export function ScrollProgressIndicator({
               transformOrigin: 'top',
             }
           : {
-              height: height,
-              scaleX: scaleX,
+              height,
+              scaleX,
               transformOrigin: 'left',
             }
       }

@@ -1,14 +1,16 @@
 'use client';
 
+import type { ReactNode } from 'react';
+
+import { motion } from 'framer-motion';
+import { Code2, Figma, Sparkles } from 'lucide-react';
+import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
+
+import { cn } from '@/lib/utils';
+import { services } from '@/lib/data/skills';
 import { ServiceCard } from '@/components/cards/ServiceCard';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { services } from '@/lib/data/skills';
-import { cn } from '@/lib/utils';
-import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
-import { motion } from 'framer-motion';
-import { Code2, Figma, Sparkles } from 'lucide-react';
-import type { ReactNode } from 'react';
 
 const ICON_MAP: Record<string, ReactNode> = {
   Code2: <Code2 size={20} />,
@@ -43,9 +45,9 @@ export function ServicesSection({ className }: { className?: string }) {
           </div>
 
           <div className="text-n400 flex flex-col gap-2 font-mono text-[0.7rem] tracking-[0.06em] lg:items-end lg:text-right">
-            <span>{'// three focused disciplines'}</span>
-            <span>{'// shipped in production'}</span>
-            <span>{'// one goal: solve real problems'}</span>
+            <span>// three focused disciplines</span>
+            <span>// shipped in production</span>
+            <span>// one goal: solve real problems</span>
           </div>
         </motion.div>
 

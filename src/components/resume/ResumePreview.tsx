@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { Download, Palette, Eye } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
 
 import { ResumePreviewModal } from './ResumePreviewModal';
 

@@ -3,8 +3,9 @@
 import type { PageTransitionProps } from '@/components/types/shared/effects';
 
 import { usePathname } from 'next/navigation';
-import { TRANSITION_PRESETS } from '@/lib/transitions';
 import { motion, AnimatePresence } from 'framer-motion';
+
+import { TRANSITION_PRESETS } from '@/lib/transitions';
 
 /**
  * Page-level transition wrapper with Framer Motion fallback

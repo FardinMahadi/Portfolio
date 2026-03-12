@@ -10,7 +10,7 @@ export function Analytics() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || typeof window === 'undefined') return;
+    if (!GA_MEASUREMENT_ID || typeof window === 'undefined') return () => {};
 
     // Initialize Google Analytics
     const script = document.createElement('script');

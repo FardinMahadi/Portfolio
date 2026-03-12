@@ -7,8 +7,9 @@ import type {
 } from '@/components/types/shared/error';
 
 import { Component } from 'react';
-import { Button } from '@/components/ui/button';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {

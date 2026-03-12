@@ -5,6 +5,7 @@ import React from 'react';
 import fs from 'fs/promises';
 import { NextResponse } from 'next/server';
 import { renderToBuffer } from '@react-pdf/renderer';
+
 import { resumeData } from '@/components/resume/resumeData';
 import { ModernMinimalTemplate } from '@/components/resume/templates/ModernMinimalTemplate';
 import { ClassicElegantTemplate } from '@/components/resume/templates/ClassicElegantTemplate';

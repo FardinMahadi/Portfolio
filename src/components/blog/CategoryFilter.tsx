@@ -2,11 +2,12 @@
 
 import type { CategoryFilterProps } from '@/components/types/blog';
 
-import { blogPosts } from '@/lib/blogData';
-import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef } from 'react';
+
+import { cn } from '@/lib/utils';
+import { blogPosts } from '@/lib/blogData';
 
 export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryFilterProps) {
   const router = useRouter();

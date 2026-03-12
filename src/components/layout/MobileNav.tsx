@@ -1,12 +1,14 @@
 'use client';
 
 import type { MobileNavProps } from '@/components/types/layout/layout';
-import { site } from '@/lib/data/site';
-import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
+
 import Link from 'next/link';
+import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
+import { site } from '@/lib/data/site';
 
 export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();

@@ -1,12 +1,12 @@
 'use client';
 
+import type { PageLoaderProps } from './schema';
+
 import { useEffect } from 'react';
 import { Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { LoadingSpinner } from './LoadingSpinner';
-
-import type { PageLoaderProps } from './schema';
 
 export function PageLoader({
   message = 'Loading...',
@@ -29,6 +29,7 @@ export function PageLoader({
         window.dispatchEvent(new CustomEvent('target-cursor:suspend', { detail: false }));
       };
     }
+    return () => {};
   }, []);
 
   if (variant === 'inline') {

@@ -1,14 +1,15 @@
 'use client';
 
-import { NoiseOverlay } from '@/components/ui/NoiseOverlay';
-import { PulseDot } from '@/components/ui/PulseDot';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { site } from '@/lib/data/site';
-import { cn } from '@/lib/utils';
-import { fadeUp } from 'config/animations';
-import { motion } from 'framer-motion';
-import { Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { fadeUp } from 'config/animations';
+import { Mail, MapPin } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+import { site } from '@/lib/data/site';
+import { PulseDot } from '@/components/ui/PulseDot';
+import { NoiseOverlay } from '@/components/ui/NoiseOverlay';
+import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 
 export function ContactSection({ className }: { className?: string }) {
   return (

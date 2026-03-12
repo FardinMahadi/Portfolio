@@ -1,7 +1,9 @@
 import type { Project } from '@/lib/types/project';
-import { Badge } from '@/components/ui/Badge';
-import { cn } from '@/lib/utils';
+
 import { Calendar, Clock, ExternalLink, Github } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/Badge';
 
 type ProjectMetaProps = {
   project: Project;

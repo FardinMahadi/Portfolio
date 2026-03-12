@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 
 const TypeWriter = () => {
   const text = 'FardinMahadi';
@@ -18,6 +18,7 @@ const TypeWriter = () => {
     if (displayed.length === text.length) {
       setTimeout(() => setTyping(false), 2000);
     }
+    return () => {};
   }, [displayed, typing]);
 
   return (
@@ -51,8 +52,7 @@ const socials = [
   { icon: MessageCircle, label: 'Discord', href: 'https://discord.gg/fardinmahadi' },
 ];
 
-const HeroSection = () => {
-  return (
+const HeroSection = () => (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-16">
       {/* Background effects */}
       <div className="bg-grid pointer-events-none absolute inset-0 opacity-30" />
@@ -77,7 +77,7 @@ const HeroSection = () => {
             className="shrink-0"
           >
             <div className="relative h-40 w-40 md:h-52 md:w-52">
-              <div className="from-primary/30 to-accent/30 absolute inset-0 rounded-full bg-gradient-to-br blur-xl" />
+              <div className="from-primary/30 to-accent/30 absolute inset-0 rounded-full bg-linear-to-br blur-xl" />
               <div className="border-primary/30 relative h-full w-full overflow-hidden rounded-full border-2">
                 <Image
                   src="/images/avatar/fardin-mahadi.jpg"
@@ -154,6 +154,5 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
 
 export default HeroSection;

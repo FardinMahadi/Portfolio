@@ -1,10 +1,12 @@
-import { BlogTeaserCard } from '@/components/cards/BlogTeaserCard';
+import type { BlogPost } from '@/lib/types/blog';
+
+import Link from 'next/link';
+
+import { cn } from '@/lib/utils';
+import { getAllBlogPosts } from '@/lib/blogData';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { getAllBlogPosts } from '@/lib/blogData';
-import type { BlogPost } from '@/lib/types/blog';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { BlogTeaserCard } from '@/components/cards/BlogTeaserCard';
 
 export function BlogSection({ className }: { className?: string }) {
   const raw = getAllBlogPosts().slice(0, 3);

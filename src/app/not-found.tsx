@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 
 // Note: Metadata export is not supported in client components

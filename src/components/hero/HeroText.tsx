@@ -1,10 +1,12 @@
 'use client';
 
 import type { HeroTextProps } from '@/components/types/hero/hero';
-import { useTypewriter } from '@/hooks/use-typewriter';
-import { cn } from '@/lib/utils';
-import { heroEntrance } from 'config/animations';
+
 import { motion } from 'framer-motion';
+import { heroEntrance } from 'config/animations';
+
+import { cn } from '@/lib/utils';
+import { useTypewriter } from '@/hooks/use-typewriter';
 
 const ROLES = [
   'Full Stack Engineer',

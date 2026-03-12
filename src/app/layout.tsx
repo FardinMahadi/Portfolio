@@ -1,12 +1,13 @@
-import './globals.css';
-
 import type { Metadata } from 'next';
 
 import { Suspense } from 'react';
 import { Syne, DM_Mono } from 'next/font/google';
+
 import { ColorPaletteProvider } from '@/contexts/ColorPaletteContext';
 
 import { Analytics } from './analytics';
+
+import './globals.css';
 
 const syne = Syne({
   variable: '--font-syne',

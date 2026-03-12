@@ -1,12 +1,14 @@
-import { ContactForm } from '@/components/contact/ContactForm';
-import { PageTransition } from '@/components/effects/PageTransition';
+import type { Metadata } from 'next';
+
+import { Clock, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+
+import { site } from '@/lib/data/site';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 import { PulseDot } from '@/components/ui/PulseDot';
-import { site } from '@/lib/data/site';
+import { ContactForm } from '@/components/contact/ContactForm';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
-import { Clock, Github, Linkedin, Mail, MapPin } from 'lucide-react';
-import type { Metadata } from 'next';
+import { PageTransition } from '@/components/effects/PageTransition';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -40,9 +42,7 @@ export default function ContactPage() {
         <main className="container mx-auto px-4 pt-32 pb-24">
           {/* Header */}
           <div className="mb-12 flex flex-col gap-3">
-            <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
-              {'// contact'}
-            </span>
+            <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">// contact</span>
             <h1 className="font-display text-n900 text-4xl font-bold md:text-5xl">
               Got something to build?
             </h1>

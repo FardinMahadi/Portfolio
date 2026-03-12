@@ -1,9 +1,11 @@
 'use client';
 
 import type { ExperienceCardProps } from '@/components/types/cards/cards';
-import { Badge } from '@/components/ui/Badge';
-import { cn } from '@/lib/utils';
+
 import { motion } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/Badge';
 
 const TYPE_LABEL: Record<string, string> = {
   'full-time': 'Full-time',

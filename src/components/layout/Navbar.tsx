@@ -1,15 +1,17 @@
 'use client';
 
-import { MobileNav } from '@/components/layout/MobileNav';
-import { NavLink } from '@/components/layout/NavLink';
 import type { NavbarProps } from '@/components/types/layout/layout';
-import { AvailabilityChip } from '@/components/ui/AvailabilityChip';
-import { site } from '@/lib/data/site';
-import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
-import { Menu } from 'lucide-react';
+
 import Link from 'next/link';
+import { Menu } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+
+import { cn } from '@/lib/utils';
+import { site } from '@/lib/data/site';
+import { NavLink } from '@/components/layout/NavLink';
+import { MobileNav } from '@/components/layout/MobileNav';
+import { AvailabilityChip } from '@/components/ui/AvailabilityChip';
 
 export function Navbar({ className }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
@@ -48,13 +50,15 @@ export function Navbar({ className }: NavbarProps) {
         )}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="text-n900 hover:text-mag-500 font-mono text-sm font-medium transition-colors"
-          >
-            &lt;<span className="text-mag-500">FardinMahadi</span> /&gt;
-          </Link>
+          {/* Logo + version selector */}
+          <div className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="text-n900 hover:text-mag-500 font-mono text-sm font-medium transition-colors"
+            >
+              &lt;<span className="text-mag-500">FardinMahadi</span> /&gt;
+            </Link>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden items-center gap-7 md:flex">

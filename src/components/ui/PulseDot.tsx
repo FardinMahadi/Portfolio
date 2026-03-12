@@ -1,4 +1,5 @@
 import type { PulseDotProps } from '@/components/types/ui/primitives';
+
 import { cn } from '@/lib/utils';
 
 export function PulseDot({ color = 'teal', className }: PulseDotProps) {

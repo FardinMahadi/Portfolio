@@ -20,7 +20,7 @@ export function TextareaField({ label, placeholder, value, error, onChange }: Te
         rows={4}
         value={value}
         onChange={e => onChange(e.target.value)}
-        className={`border-theme-border/70 bg-theme-surface/70 text-theme-text placeholder:text-theme-text/50 focus:border-theme-primary min-h-[44px] resize-none ${
+        className={`border-theme-border/70 bg-theme-surface/70 text-theme-text placeholder:text-theme-text/50 focus:border-theme-primary min-h-11 resize-none ${
           error ? 'border-red-500' : ''
         }`}
         aria-required="true"

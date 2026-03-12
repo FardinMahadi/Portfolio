@@ -1,6 +1,7 @@
 import type { ServiceCardProps } from '@/components/types/cards/cards';
-import { Badge } from '@/components/ui/Badge';
+
 import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/Badge';
 
 export function ServiceCard({ title, description, stack, icon, number, className }: ServiceCardProps) {
   return (

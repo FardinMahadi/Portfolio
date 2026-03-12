@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+
 import { PageLoader } from '@/components/ui/loading';
 
 export default function Loading() {

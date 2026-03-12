@@ -1,12 +1,13 @@
-import { PageTransition } from '@/components/effects/PageTransition';
+import type { Metadata } from 'next';
+
+import { projects } from '@/lib/data/projects';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
-import { ProjectsGallery } from '@/components/sections/ProjectsGallery';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { projects } from '@/lib/data/projects';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
-import type { Metadata } from 'next';
+import { PageTransition } from '@/components/effects/PageTransition';
+import { ProjectsGallery } from '@/components/sections/ProjectsGallery';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -29,7 +30,7 @@ export default function ProjectsPage() {
             <div className="mb-4 flex items-center gap-3">
               <span className="bg-mag-500 block h-px" style={{ width: 22 }} aria-hidden="true" />
               <span className="text-n400 font-mono text-[11px] tracking-[0.25em] uppercase">
-                {'// all · projects'}
+                // all · projects
               </span>
             </div>
 

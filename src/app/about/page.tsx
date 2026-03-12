@@ -1,13 +1,15 @@
-import { PageTransition } from '@/components/effects/PageTransition';
+import type { Metadata } from 'next';
+
+import Link from 'next/link';
+
+import { skills } from '@/lib/data/skills';
+import { Badge } from '@/components/ui/Badge';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
-import { Badge } from '@/components/ui/Badge';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { skills } from '@/lib/data/skills';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import { PageTransition } from '@/components/effects/PageTransition';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -77,7 +79,7 @@ export default function AboutPage() {
               <div className="mb-4 flex items-center gap-3">
                 <span className="bg-mag-500 block h-px" style={{ width: 22 }} aria-hidden="true" />
                 <span className="text-n400 font-mono text-[11px] tracking-[0.25em] uppercase">
-                  {'// about'}
+                  // about
                 </span>
               </div>
               <SectionEyebrow number="01" className="mb-4">
@@ -118,7 +120,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 md:px-10">
               <div className="mb-10">
                 <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
-                  {'// how_i_work'}
+                  // how_i_work
                 </span>
                 <SectionHeading accent="believe" className="mt-3">
                   What I believe.
@@ -144,7 +146,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 md:px-10">
               <div className="mb-10">
                 <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
-                  {'// process'}
+                  // process
                 </span>
                 <SectionHeading accent="ship" className="mt-3">
                   How I ship.
@@ -172,7 +174,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 md:px-10">
               <div className="mb-10">
                 <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
-                  {'// tech_stack'}
+                  // tech_stack
                 </span>
                 <SectionHeading accent="reach" className="mt-3">
                   What I reach for.

@@ -1,10 +1,12 @@
 'use client';
 
 import type { HeroCtasProps } from '@/components/types/hero/hero';
-import { cn } from '@/lib/utils';
-import { staggerContainer, staggerItem } from 'config/animations';
-import { motion } from 'framer-motion';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { staggerContainer, staggerItem } from 'config/animations';
+
+import { cn } from '@/lib/utils';
 
 export function HeroCtas({ className }: HeroCtasProps) {
   return (
@@ -17,7 +19,7 @@ export function HeroCtas({ className }: HeroCtasProps) {
       <motion.div variants={staggerItem}>
         <Link
           href="/#projects"
-          className="font-display from-mag-700 to-mag-500 inline-flex items-center justify-center rounded-sm bg-gradient-to-br px-7 py-3.5 text-[0.82rem] font-bold tracking-[0.07em] text-white uppercase shadow-(--sh-mag) transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(180,0,217,0.45)]"
+          className="font-display from-mag-700 to-mag-500 inline-flex items-center justify-center rounded-sm bg-linear-to-br px-7 py-3.5 text-[0.82rem] font-bold tracking-[0.07em] text-white uppercase shadow-(--sh-mag) transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(180,0,217,0.45)]"
         >
           View My Work ↓
         </Link>

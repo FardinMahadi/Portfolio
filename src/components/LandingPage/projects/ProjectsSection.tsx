@@ -1,15 +1,17 @@
 'use client';
 
 import type { Project } from '@/lib/types/project';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { fadeUp } from 'config/animations';
+import { ArrowRight, ExternalLink, Github } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { featuredProjects, projects } from '@/lib/data/projects';
-import { cn } from '@/lib/utils';
-import { fadeUp } from 'config/animations';
-import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink, Github } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
 
 type ProjectRowProps = {
   project: Project;
@@ -93,7 +95,7 @@ function ProjectRow({ project, index }: ProjectRowProps) {
           >
             #{num}
           </span>
-          <span className="bg-n100 h-px flex-1 max-w-6" aria-hidden="true" />
+          <span className="bg-n100 h-px max-w-6 flex-1" aria-hidden="true" />
           <span className="text-n400 font-mono text-[0.65rem] tracking-[0.15em] uppercase">
             {project.role}
             {project.company && (
@@ -122,7 +124,7 @@ function ProjectRow({ project, index }: ProjectRowProps) {
           ).map(({ label, value }) => (
             <div key={label} className="flex gap-3 text-sm">
               <span
-                className="mt-0.5 shrink-0 select-none font-mono text-[0.65rem] font-bold tracking-[0.15em] uppercase"
+                className="mt-0.5 shrink-0 font-mono text-[0.65rem] font-bold tracking-[0.15em] uppercase select-none"
                 style={{ color: 'var(--mag-500)', minWidth: '4.5rem' }}
               >
                 {label}
@@ -148,7 +150,7 @@ function ProjectRow({ project, index }: ProjectRowProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm px-4 py-2 font-display text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+              className="font-display inline-flex items-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
               style={{ background: 'var(--mag-500)' }}
             >
               <ExternalLink size={14} />
@@ -160,7 +162,7 @@ function ProjectRow({ project, index }: ProjectRowProps) {
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-n500 hover:text-n900 inline-flex items-center gap-2 font-display text-sm font-semibold transition-colors duration-200"
+              className="text-n500 hover:text-n900 font-display inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200"
             >
               <Github size={14} />
               Source
@@ -174,7 +176,11 @@ function ProjectRow({ project, index }: ProjectRowProps) {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="overflow-hidden py-24" style={{ background: 'var(--canvas)' }}>
+    <section
+      id="projects"
+      className="overflow-hidden py-24"
+      style={{ background: 'var(--canvas)' }}
+    >
       <div className="container mx-auto px-4 md:px-10">
         {/* Eyebrow */}
         <motion.div
@@ -193,7 +199,7 @@ export function ProjectsSection() {
             viewport={{ once: true }}
           />
           <span className="text-n400 font-mono text-[11px] tracking-[0.25em] uppercase">
-            {'// 03 · projects'}
+            // 03 · projects
           </span>
         </motion.div>
 

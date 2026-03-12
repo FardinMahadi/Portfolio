@@ -1,11 +1,13 @@
 'use client';
 
 import type { Project } from '@/lib/types/project';
-import { ProjectGalleryCard } from '@/components/cards/ProjectGalleryCard';
-import { cn } from '@/lib/utils';
-import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
-import { AnimatePresence, motion } from 'framer-motion';
+
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
+
+import { cn } from '@/lib/utils';
+import { ProjectGalleryCard } from '@/components/cards/ProjectGalleryCard';
 
 type FilterKey = 'all' | 'frontend' | 'fullstack' | 'ai';
 

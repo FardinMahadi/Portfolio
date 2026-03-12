@@ -1,9 +1,11 @@
 import type { ProjectGalleryCardProps } from '@/components/types/cards/cards';
-import { Badge } from '@/components/ui/Badge';
-import { cn } from '@/lib/utils';
-import { ArrowRight, ExternalLink } from 'lucide-react';
-import Image from 'next/image';
+
 import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/Badge';
 
 const VISIBLE_TAGS = 4;
 

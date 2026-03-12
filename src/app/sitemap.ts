@@ -1,6 +1,7 @@
-import { getAllBlogPosts } from '@/lib/blogData';
+import type { MetadataRoute } from 'next';
+
 import { projects } from '@/lib/data/projects';
-import { MetadataRoute } from 'next';
+import { getAllBlogPosts } from '@/lib/blogData';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 

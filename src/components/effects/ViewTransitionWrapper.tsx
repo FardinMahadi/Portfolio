@@ -4,6 +4,7 @@ import type { ViewTransitionWrapperProps } from '@/components/types/shared/effec
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+
 import { supportsViewTransitions, startViewTransition } from '@/lib/transitions';
 
 /**
@@ -28,9 +29,7 @@ export function ViewTransitionWrapper({ children }: ViewTransitionWrapperProps) 
  * Hook to handle view transitions for programmatic navigation
  */
 export function useViewTransition() {
-  const navigateWithTransition = (callback: () => void | Promise<void>) => {
-    return startViewTransition(callback);
-  };
+  const navigateWithTransition = (callback: () => void | Promise<void>) => startViewTransition(callback);
 
   return { navigateWithTransition };
 }

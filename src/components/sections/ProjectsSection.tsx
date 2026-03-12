@@ -1,17 +1,19 @@
 'use client';
 
 import type { ProjectSlideProps, ProjectsSectionProps } from '@/components/types/sections/projects';
+
+import { gsap } from 'gsap';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLayoutEffect, useRef } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight, ExternalLink, Github } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { featuredProjects, projects } from '@/lib/data/projects';
-import { cn } from '@/lib/utils';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, ExternalLink, Github } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useLayoutEffect, useRef } from 'react';
 
 // ─── Slide: Intro ────────────────────────────────────────────────────────────
 
@@ -29,7 +31,7 @@ function IntroSlide() {
           aria-hidden="true"
         />
         <span className="text-n400 font-mono text-[11px] tracking-[0.25em] uppercase">
-          {'// 02 · projects'}
+          // 02 · projects
         </span>
       </div>
 
@@ -112,7 +114,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
       {/* ── Image panel ── */}
       <Link
         href={`/projects/${slug}`}
-        className="group relative h-full w-[55%] shrink-0 overflow-hidden bg-[#080612] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-mag-500"
+        className="group focus-visible:ring-mag-500 relative h-full w-[55%] shrink-0 overflow-hidden bg-[#080612] focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset"
         aria-label={`View ${title} case study`}
         tabIndex={0}
       >
@@ -236,7 +238,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
         <div className="mt-auto flex flex-wrap gap-2 pt-1">
           <Link
             href={`/projects/${slug}`}
-            className="inline-flex items-center gap-1.5 rounded-sm px-4 py-2 font-display text-sm font-semibold text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px active:translate-y-0"
+            className="font-display inline-flex items-center gap-1.5 rounded-sm px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px hover:brightness-110 active:translate-y-0"
             style={{
               background: 'linear-gradient(135deg, var(--mag-700), var(--mag-500))',
               boxShadow: 'var(--sh-mag)',
@@ -251,7 +253,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-n200 text-n600 inline-flex items-center gap-1.5 rounded-sm border bg-transparent px-4 py-2 font-display text-sm font-semibold transition-all duration-200 hover:border-teal-400 hover:text-teal-500"
+              className="border-n200 text-n600 font-display inline-flex items-center gap-1.5 rounded-sm border bg-transparent px-4 py-2 text-sm font-semibold transition-all duration-200 hover:border-teal-400 hover:text-teal-500"
             >
               Live Demo
               <ExternalLink size={14} aria-hidden="true" />
@@ -263,7 +265,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
               href={codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-n200 text-n600 inline-flex items-center gap-1.5 rounded-sm border bg-transparent px-4 py-2 font-display text-sm font-semibold transition-all duration-200 hover:border-n400 hover:text-n900"
+              className="border-n200 text-n600 font-display hover:border-n400 hover:text-n900 inline-flex items-center gap-1.5 rounded-sm border bg-transparent px-4 py-2 text-sm font-semibold transition-all duration-200"
             >
               <Github size={14} aria-hidden="true" />
               Code
@@ -282,7 +284,7 @@ function ViewAllSlide() {
     <div className="flex h-full w-[60vw] max-w-xl shrink-0 flex-col items-start justify-center gap-6 pl-16">
       {/* Background count texture */}
       <span
-        className="pointer-events-none select-none font-display text-[10rem] font-extrabold leading-none tracking-tighter xl:text-[14rem]"
+        className="font-display pointer-events-none text-[10rem] leading-none font-extrabold tracking-tighter select-none xl:text-[14rem]"
         style={{ color: 'var(--n100)', lineHeight: 1 }}
         aria-hidden="true"
       >
@@ -303,9 +305,7 @@ function ViewAllSlide() {
           <ArrowRight size={18} aria-hidden="true" />
         </Link>
 
-        <span
-          className="border-n200 bg-n100 text-n500 self-start rounded-sm border px-2 py-0.5 font-mono text-[10px]"
-        >
+        <span className="border-n200 bg-n100 text-n500 self-start rounded-sm border px-2 py-0.5 font-mono text-[10px]">
           {projects.length}+ shipped
         </span>
       </div>
@@ -328,7 +328,7 @@ export function ProjectsSection({ className }: ProjectsSectionProps) {
     const section = sectionRef.current;
     const outer = outerRef.current;
     const track = trackRef.current;
-    if (!section || !outer || !track) return;
+    if (!section || !outer || !track) return () => {};
 
     const ctx = gsap.context(() => {
       // ── 1. Calculate how far the track needs to scroll horizontally ──
@@ -358,7 +358,9 @@ export function ProjectsSection({ className }: ProjectsSectionProps) {
               const slideProgress = (self.progress * (total + 2) - 1) / total;
               const current = Math.min(total, Math.max(1, Math.ceil(slideProgress * total)));
               counterRef.current.textContent =
-                slideProgress < 0 ? '··' : `${String(current).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+                slideProgress < 0
+                  ? '··'
+                  : `${String(current).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
             }
           },
         },
@@ -421,7 +423,7 @@ export function ProjectsSection({ className }: ProjectsSectionProps) {
     <section
       ref={sectionRef}
       id="projects"
-      className={cn('relative bg-canvas', className)}
+      className={cn('bg-canvas relative', className)}
       aria-label="Featured projects"
     >
       {/* Ambient glow */}
@@ -444,7 +446,7 @@ export function ProjectsSection({ className }: ProjectsSectionProps) {
           <span className="text-n300 font-mono text-[0.65rem] tracking-[0.2em]">project</span>
           <span
             ref={counterRef}
-            className="text-n500 font-mono text-[0.65rem] font-bold tabular-nums tracking-[0.2em]"
+            className="text-n500 font-mono text-[0.65rem] font-bold tracking-[0.2em] tabular-nums"
           >
             ··
           </span>

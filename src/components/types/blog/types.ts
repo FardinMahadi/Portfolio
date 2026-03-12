@@ -16,6 +16,12 @@ export type BlogPostContentProps = {
 export type BlogCardProps = {
   post: BlogPostsProps;
   index: number;
+  isInView?: boolean;
+};
+
+export type BlogListProps = {
+  posts: BlogPostsProps[];
+  isInView: boolean;
 };
 
 export type CategoryFilterProps = {

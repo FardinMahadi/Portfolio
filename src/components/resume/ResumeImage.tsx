@@ -14,8 +14,6 @@ export function ResumeImage({ src, size = 80, borderRadius = 9999 }: ResumeImage
   if (!src) return null;
   return (
     <View style={[styles.wrapper, { width: size, height: size, borderRadius }]}>
-      {/* React PDF Image component doesn't support alt attributes */}
-      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image src={src} style={{ width: size, height: size, objectFit: 'cover' }} />
     </View>
   );
