@@ -40,7 +40,9 @@ export default function ContactPage() {
         <main className="container mx-auto px-4 pt-32 pb-24">
           {/* Header */}
           <div className="mb-12 flex flex-col gap-3">
-            <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">// contact</span>
+            <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
+              {'// contact'}
+            </span>
             <h1 className="font-display text-n900 text-4xl font-bold md:text-5xl">
               Got something to build?
             </h1>

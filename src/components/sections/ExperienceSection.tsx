@@ -4,15 +4,10 @@ import { ExperienceCard } from '@/components/cards/ExperienceCard';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { education, experience } from '@/lib/data/experience';
+import { site } from '@/lib/data/site';
 import { cn } from '@/lib/utils';
 import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
 import { motion } from 'framer-motion';
-
-const STATS = [
-  { value: '1+', label: 'yrs experience' },
-  { value: '5+', label: 'projects shipped' },
-  { value: '1', label: 'companies' },
-] as const;
 
 export function ExperienceSection({ className }: { className?: string }) {
   return (
@@ -35,7 +30,9 @@ export function ExperienceSection({ className }: { className?: string }) {
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
         >
-          <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">// 03_career</span>
+          <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
+            {'// 03_career'}
+          </span>
           <SectionEyebrow number="03">Career</SectionEyebrow>
           <SectionHeading accent="built">Where I&apos;ve built.</SectionHeading>
           <p className="text-n500 max-w-xl text-base leading-relaxed">
@@ -51,9 +48,11 @@ export function ExperienceSection({ className }: { className?: string }) {
           whileInView="show"
           viewport={{ once: true }}
         >
-          {STATS.map((s, i) => (
+          {site.stats.map((s, i) => (
             <div key={i} className="flex items-baseline gap-2">
-              <span className="font-display text-mag-500 text-2xl font-bold">{s.value}</span>
+              <span className="font-display text-mag-500 text-2xl font-bold">
+                {s.value}{s.suffix}
+              </span>
               <span className="text-n400 font-mono text-xs">{s.label}</span>
             </div>
           ))}

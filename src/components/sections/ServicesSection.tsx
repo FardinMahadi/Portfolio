@@ -43,9 +43,9 @@ export function ServicesSection({ className }: { className?: string }) {
           </div>
 
           <div className="text-n400 flex flex-col gap-2 font-mono text-[0.7rem] tracking-[0.06em] lg:items-end lg:text-right">
-            <span>// three focused disciplines</span>
-            <span>// shipped in production</span>
-            <span>// one goal: solve real problems</span>
+            <span>{'// three focused disciplines'}</span>
+            <span>{'// shipped in production'}</span>
+            <span>{'// one goal: solve real problems'}</span>
           </div>
         </motion.div>
 

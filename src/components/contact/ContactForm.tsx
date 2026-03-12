@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import { FileTab } from '@/components/ui/FileTab';
 import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import { AlertCircle, CheckCircle, Loader, Send } from 'lucide-react';
+import { useState } from 'react';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -19,14 +19,15 @@ type FieldProps = {
 function Field({ id, label, keyword, error, children }: FieldProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="font-mono text-[0.65rem] text-n400">
+      <label htmlFor={id} className="text-n400 font-mono text-[0.65rem]">
         <span className="text-teal-600">const</span> {label} ={' '}
-        <span className="text-n300 text-[0.6rem]">// {keyword}</span>
+        <span className="text-n300 text-[0.6rem]">
+          {'// '}
+          {keyword}
+        </span>
       </label>
       {children}
-      {error && (
-        <span className="font-mono text-[0.62rem] text-red-500">{error}</span>
-      )}
+      {error && <span className="font-mono text-[0.62rem] text-red-500">{error}</span>}
     </div>
   );
 }
@@ -97,16 +98,19 @@ export function ContactForm() {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex flex-col items-center gap-4 rounded-sm border border-teal-200 bg-canvas-raised px-8 py-16 text-center"
+        className="bg-canvas-raised flex flex-col items-center gap-4 rounded-sm border border-teal-200 px-8 py-16 text-center"
       >
         <CheckCircle size={40} className="text-teal-500" />
-        <h3 className="font-display text-xl font-bold text-n900">Message sent.</h3>
-        <p className="max-w-sm text-sm text-n500">
+        <h3 className="font-display text-n900 text-xl font-bold">Message sent.</h3>
+        <p className="text-n500 max-w-sm text-sm">
           Thanks for reaching out — I&apos;ll get back to you within 24 hours.
         </p>
         <button
-          onClick={() => { setState('idle'); setFields({ name: '', email: '', subject: '', message: '' }); }}
-          className="mt-2 font-mono text-xs text-mag-500 underline-offset-4 hover:underline"
+          onClick={() => {
+            setState('idle');
+            setFields({ name: '', email: '', subject: '', message: '' });
+          }}
+          className="text-mag-500 mt-2 font-mono text-xs underline-offset-4 hover:underline"
         >
           Send another →
         </button>
@@ -115,8 +119,8 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-sm border border-n200 bg-canvas-raised">
-      <div className="border-b border-n200">
+    <div className="border-n200 bg-canvas-raised rounded-sm border">
+      <div className="border-n200 border-b">
         <FileTab path="contact-form.ts" active />
       </div>
 
@@ -130,7 +134,12 @@ export function ContactForm() {
               onChange={set('name')}
               placeholder="'Your Name'"
               autoComplete="name"
-              className={cn(inputBase, errors.name ? 'border-red-300 focus:ring-red-300/30' : 'border-n200 focus:border-mag-300')}
+              className={cn(
+                inputBase,
+                errors.name
+                  ? 'border-red-300 focus:ring-red-300/30'
+                  : 'border-n200 focus:border-mag-300'
+              )}
             />
           </Field>
 
@@ -142,7 +151,12 @@ export function ContactForm() {
               onChange={set('email')}
               placeholder="'you@example.com'"
               autoComplete="email"
-              className={cn(inputBase, errors.email ? 'border-red-300 focus:ring-red-300/30' : 'border-n200 focus:border-mag-300')}
+              className={cn(
+                inputBase,
+                errors.email
+                  ? 'border-red-300 focus:ring-red-300/30'
+                  : 'border-n200 focus:border-mag-300'
+              )}
             />
           </Field>
         </div>
@@ -165,9 +179,15 @@ export function ContactForm() {
             value={fields.message}
             onChange={set('message')}
             placeholder="'Tell me about your project...'"
-            className={cn(inputBase, 'resize-none', errors.message ? 'border-red-300 focus:ring-red-300/30' : 'border-n200 focus:border-mag-300')}
+            className={cn(
+              inputBase,
+              'resize-none',
+              errors.message
+                ? 'border-red-300 focus:ring-red-300/30'
+                : 'border-n200 focus:border-mag-300'
+            )}
           />
-          <span className="self-end font-mono text-[0.6rem] text-n300">
+          <span className="text-n300 self-end font-mono text-[0.6rem]">
             {fields.message.length} / 5000
           </span>
         </Field>
@@ -189,7 +209,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={state === 'submitting'}
-          className="inline-flex items-center justify-center gap-2 rounded-sm bg-mag-500 px-6 py-3 font-display text-sm font-bold text-white shadow-(--sh-mag) transition-all duration-200 hover:bg-mag-400 disabled:cursor-not-allowed disabled:opacity-60"
+          className="bg-mag-500 font-display hover:bg-mag-400 inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-bold text-white shadow-(--sh-mag) transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {state === 'submitting' ? (
             <>

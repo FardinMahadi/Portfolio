@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import { Suspense } from 'react';
 import { Syne, DM_Mono } from 'next/font/google';
+import { ColorPaletteProvider } from '@/contexts/ColorPaletteContext';
 
 import { Analytics } from './analytics';
 
@@ -347,7 +348,9 @@ export default function RootLayout({
         <meta name="color-scheme" content="light" />
       </head>
       <body className={`${syne.variable} ${dmMono.variable} overflow-x-hidden antialiased`}>
-        {children}
+        <ColorPaletteProvider>
+          {children}
+        </ColorPaletteProvider>
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>

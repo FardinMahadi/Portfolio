@@ -2,20 +2,23 @@
 
 import type { BlogPostContentProps } from '@/components/types/blog';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { getRelatedPosts } from '@/lib/blogData';
 import { generateArticleSchema } from '@/lib/seo';
-import { Calendar, Clock, ArrowLeft, Home } from 'lucide-react';
-import { getBlogImageTransitionName, getBlogCardTransitionName } from '@/lib/transitions';
-
+import { getBlogCardTransitionName, getBlogImageTransitionName } from '@/lib/transitions';
+import { staggerContainer } from 'config/animations';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Calendar, Clock, Home } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BlogCard } from './BlogCard';
 import { MarkdownRenderer } from './MarkdownRenderer';
 
 export function BlogPostContent({ post }: BlogPostContentProps) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
-
   const publishedTime = new Date(post.date).toISOString();
+  const related = getRelatedPosts(post.slug, 3);
+
   const articleSchema = generateArticleSchema(
     post.title,
     post.excerpt,
@@ -26,47 +29,31 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   );
 
   return (
-    <article
-      className="text-theme-text relative min-h-screen bg-(--color-background)"
-      style={{
-        background:
-          'linear-gradient(to bottom, color-mix(in srgb, var(--color-background) 92%, transparent), var(--color-background))',
-      }}
-    >
-      {/* Structured data */}
+    <article className="bg-canvas relative min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-      {/* Background accents */}
       <div
-        className="absolute top-0 left-0 h-96 w-96 rounded-full blur-3xl"
+        className="pointer-events-none absolute top-0 left-0 h-96 w-96 rounded-full opacity-8 blur-3xl"
         style={{
           background:
-            'radial-gradient(circle at center, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent 70%)',
-        }}
-      />
-      <div
-        className="absolute right-0 bottom-0 h-96 w-96 rounded-full blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%)',
+            'radial-gradient(circle, color-mix(in srgb, var(--mag-500) 24%, transparent), transparent 70%)',
         }}
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
-        {/* Back button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="mb-8"
         >
           <Button
             variant="ghost"
             asChild
-            className="text-theme-text/70 hover:bg-theme-primary/5 hover:text-theme-primary transition-all duration-300"
+            className="text-n600 hover:text-mag-500 hover:bg-mag-500/5 transition-all"
           >
             <Link href="/blog" aria-label="Back to blog">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -75,34 +62,30 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           </Button>
         </motion.div>
 
-        {/* Header */}
         <motion.header
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          {/* Category badge */}
           <div className="mb-6">
-            <span className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 font-mono text-xs text-blue-400">
+            <span className="bg-mag-500/10 text-mag-500 border-mag-500/20 rounded-full border px-3 py-1 font-mono text-xs">
               {post.category}
             </span>
           </div>
 
-          {/* Title */}
-          <h1 className="text-theme-text mb-6 font-mono text-4xl leading-tight font-bold md:text-5xl">
+          <h1 className="text-n900 font-display mb-6 text-4xl leading-tight font-bold md:text-5xl">
             {post.title}
           </h1>
 
-          {/* Meta information */}
-          <div className="text-theme-text/70 mb-8 flex flex-wrap items-center gap-4 text-sm">
+          <div className="text-n500 mb-8 flex flex-wrap items-center gap-4 font-mono text-sm">
             <time dateTime={publishedTime} className="flex items-center gap-2">
               <Calendar className="h-4 w-4" aria-hidden="true" />
-              <span>{post.date}</span>
+              {post.date}
             </time>
             <div className="flex items-center gap-2" aria-label={`Reading time: ${post.readTime}`}>
               <Clock className="h-4 w-4" aria-hidden="true" />
-              <span>{post.readTime}</span>
+              {post.readTime}
             </div>
           </div>
         </motion.header>
@@ -111,17 +94,13 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="border-theme-border/60 shadow-theme-primary/10 mb-10 overflow-hidden rounded-2xl border shadow-lg"
-            style={{
-              viewTransitionName: getBlogCardTransitionName(post.slug),
-            }}
+            transition={{ duration: 0.5 }}
+            className="border-n200 mb-10 overflow-hidden rounded-xl border"
+            style={{ viewTransitionName: getBlogCardTransitionName(post.slug) }}
           >
             <div
               className="relative h-72 w-full sm:h-56 lg:h-80"
-              style={{
-                viewTransitionName: getBlogImageTransitionName(post.slug),
-              }}
+              style={{ viewTransitionName: getBlogImageTransitionName(post.slug) }}
             >
               <Image
                 src={post.image}
@@ -135,37 +114,28 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           </motion.div>
         )}
 
-        {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="prose prose-invert max-w-none"
+          transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div
-            className="border-theme-border/60 rounded-lg border p-8 backdrop-blur-sm"
-            style={{
-              background:
-                'linear-gradient(to bottom right, color-mix(in srgb, var(--color-surface) 92%, transparent), color-mix(in srgb, var(--color-background) 88%, transparent))',
-            }}
-          >
+          <div className="bg-canvas-raised border-n200 rounded-xl border p-8">
             <MarkdownRenderer content={post.content} />
           </div>
         </motion.div>
 
-        {/* Footer actions */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-theme-border/60 mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="border-n200 mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row"
         >
           <Button
             variant="outline"
             asChild
-            className="border-theme-border/70 text-theme-text/80 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary transition-all duration-300"
+            className="border-n300 text-n700 hover:border-mag-500 hover:text-mag-500 transition-all"
           >
-            <Link href="/blog" aria-label="Back to blog">
+            <Link href="/blog">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Blog
             </Link>
@@ -173,14 +143,40 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           <Button
             variant="outline"
             asChild
-            className="border-theme-border/70 text-theme-text/80 hover:border-theme-primary hover:bg-theme-primary/10 hover:text-theme-primary transition-all duration-300"
+            className="border-n300 text-n700 hover:border-mag-500 hover:text-mag-500 transition-all"
           >
-            <Link href="/" aria-label="Go to homepage">
+            <Link href="/">
               <Home className="mr-2 h-4 w-4" />
               Home
             </Link>
           </Button>
         </motion.div>
+
+        {related.length > 0 && (
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-20"
+          >
+            <div className="text-mag-500 mb-2 font-mono text-[0.65rem] tracking-[0.12em] uppercase">
+              {'// related'}
+            </div>
+            <h2 className="text-n900 font-display mb-8 text-2xl font-bold">
+              More in <span className="text-mag-500">{post.category}</span>
+            </h2>
+            <motion.div
+              className="grid gap-6 md:grid-cols-3"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="show"
+            >
+              {related.map((p, i) => (
+                <BlogCard key={p.slug} post={p} index={i} />
+              ))}
+            </motion.div>
+          </motion.section>
+        )}
       </div>
     </article>
   );

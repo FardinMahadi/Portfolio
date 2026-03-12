@@ -42,3 +42,8 @@ export type BlogTeaserCardProps = {
   post: BlogPost;
   className?: string;
 };
+
+export type ProjectGalleryCardProps = {
+  project: Project;
+  className?: string;
+};

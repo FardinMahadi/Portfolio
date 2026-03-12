@@ -13,14 +13,14 @@ export const site = {
   },
   nav: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/#about' },
-    { label: 'Projects', href: '/#projects' },
-    { label: 'Experience', href: '/#experience' },
+    { label: 'About', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Experience', href: '/experience' },
     { label: 'Blog', href: '/blog' },
   ],
   stats: [
     { value: 1, suffix: '+', label: 'Years Experience' },
-    { value: 7, suffix: '+', label: 'Projects Shipped' },
-    { value: 2, suffix: '', label: 'Industries Served' },
+    { value: 2, suffix: '+', label: 'Projects Shipped' },
+    { value: 1, suffix: '', label: 'Companies' },
   ],
 } as const;

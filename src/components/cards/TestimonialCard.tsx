@@ -14,7 +14,7 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
       style={{ borderLeftColor: 'var(--mag-500)' }}
     >
       <blockquote>
-        <p className="font-display text-n700 text-base leading-relaxed">"{quote}"</p>
+        <p className="font-display text-n700 text-base leading-relaxed">&ldquo;{quote}&rdquo;</p>
       </blockquote>
 
       <figcaption className="mt-auto flex items-center gap-3">

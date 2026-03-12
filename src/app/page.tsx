@@ -22,9 +22,9 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <HeroSection />
-        <AboutSection />
         <ServicesSection />
         <ProjectsSection />
+        <AboutSection />
         <ExperienceSection />
         <SkillsSection />
         <BlogSection />

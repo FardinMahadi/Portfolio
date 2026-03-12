@@ -9,14 +9,25 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function Navbar({ className }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 60);
+      if (y < 60) {
+        setVisible(true);
+      } else {
+        setVisible(y < lastScrollY.current);
+      }
+      lastScrollY.current = y;
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -24,15 +35,12 @@ export function Navbar({ className }: NavbarProps) {
   return (
     <>
       <motion.header
-        animate={scrolled ? 'scrolled' : 'top'}
-        variants={{
-          top: { backgroundColor: 'rgba(245,241,237,0)', backdropFilter: 'blur(0px)' },
-          scrolled: {
-            backgroundColor: 'rgba(245,241,237,0.92)',
-            backdropFilter: 'blur(16px)',
-          },
+        animate={{
+          backgroundColor: scrolled ? 'rgba(245,241,237,0.92)' : 'rgba(245,241,237,0)',
+          backdropFilter: scrolled ? 'blur(16px)' : 'blur(0px)',
+          y: visible ? 0 : -80,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={cn(
           'fixed top-0 right-0 left-0 z-30 border-b border-transparent transition-[border-color] duration-300',
           scrolled && 'border-n200',

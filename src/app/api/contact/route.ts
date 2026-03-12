@@ -70,15 +70,6 @@ export async function POST(request: NextRequest) {
           text: `New Contact Form Submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject ?? 'No subject'}\nSubmitted: ${new Date().toLocaleString()}\n\nMessage:\n${message}`,
         });
 
-Name: ${name}
-Email: ${email}
-Submitted: ${new Date().toLocaleString()}
-
-Message:
-${message}
-          `,
-        });
-
       } catch (emailError) {
         console.error('Resend email error:', emailError);
       }
