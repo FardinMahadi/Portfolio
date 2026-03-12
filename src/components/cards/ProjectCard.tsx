@@ -1,12 +1,14 @@
 'use client';
 
 import type { ProjectCardProps } from '@/components/types/cards/cards';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, ExternalLink, Github } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { FileTab } from '@/components/ui/FileTab';
-import { cn } from '@/lib/utils';
-import { ArrowRight, ExternalLink, Github } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const VISIBLE_TAGS = 4;
 

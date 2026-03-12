@@ -1,10 +1,12 @@
 'use client';
 
 import type { HeroPhotoProps } from '@/components/types/hero/hero';
-import { cn } from '@/lib/utils';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+
 import Image from 'next/image';
 import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
 
 const CLIP = 'polygon(12% 0, 100% 0, 100% 100%, 0% 100%)';
 const SPRING = { stiffness: 150, damping: 20, mass: 0.5 };

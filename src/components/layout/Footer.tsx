@@ -1,8 +1,10 @@
 import type { FooterProps } from '@/components/types/layout/layout';
+
 import Link from 'next/link';
 import { Github, Linkedin } from 'lucide-react';
-import { site } from '@/lib/data/site';
+
 import { cn } from '@/lib/utils';
+import { site } from '@/lib/data/site';
 
 export function Footer({ className }: FooterProps) {
   return (

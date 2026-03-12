@@ -1,10 +1,11 @@
 'use client';
 
-import { FileTab } from '@/components/ui/FileTab';
-import { cn } from '@/lib/utils';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AlertCircle, CheckCircle, Loader, Send } from 'lucide-react';
-import { useState } from 'react';
+
+import { cn } from '@/lib/utils';
+import { FileTab } from '@/components/ui/FileTab';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 

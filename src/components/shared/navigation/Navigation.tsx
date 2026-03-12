@@ -1,10 +1,12 @@
 'use client';
 
-import { ColorPaletteSwitcher } from '@/components/ui/ColorPaletteSwitcher';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+
+import { ColorPaletteSwitcher } from '@/components/ui/ColorPaletteSwitcher';
+
 import { NavLink } from './NavLink';
 
 const navItems = [

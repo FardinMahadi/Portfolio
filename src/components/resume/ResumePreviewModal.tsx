@@ -3,10 +3,11 @@
 import type { ResumePreviewModalProps } from '@/components/types/resume';
 
 import { createPortal } from 'react-dom';
-import { Button } from '@/components/ui/button';
 import { X, Download, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useCallback } from 'react';
+
+import { Button } from '@/components/ui/button';
 
 export function ResumePreviewModal({
   isOpen,
@@ -58,7 +59,7 @@ export function ResumePreviewModal({
   }, []);
 
   useEffect(() => {
-    if (!isMounted) return;
+    if (!isMounted) return () => {};
     if (isOpen) {
       const previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
@@ -66,6 +67,7 @@ export function ResumePreviewModal({
         document.body.style.overflow = previousOverflow;
       };
     }
+    return () => {};
   }, [isOpen, isMounted]);
 
   useEffect(() => {

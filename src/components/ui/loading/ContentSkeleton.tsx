@@ -1,8 +1,8 @@
 'use client';
 
-import { SkeletonLoader } from './SkeletonLoader';
-
 import type { ContentSkeletonProps } from './schema';
+
+import { SkeletonLoader } from './SkeletonLoader';
 
 export function ContentSkeleton({ type, count = 1, className }: ContentSkeletonProps) {
   const renderSkeleton = () => {

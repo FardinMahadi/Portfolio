@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Image from 'next/image';
+
 import Link from 'next/link';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+
+import { projects } from '@/lib/data/projects';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
-import { PageTransition } from '@/components/effects/PageTransition';
-import { CaseStudyHero } from '@/components/project/CaseStudyHero';
-import { CaseStudyBody } from '@/components/project/CaseStudyBody';
 import { ProjectMeta } from '@/components/project/ProjectMeta';
-import { projects } from '@/lib/data/projects';
+import { CaseStudyBody } from '@/components/project/CaseStudyBody';
+import { CaseStudyHero } from '@/components/project/CaseStudyHero';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { PageTransition } from '@/components/effects/PageTransition';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
@@ -46,7 +48,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <PageTransition variant="fade">
-      <div className="relative flex min-h-screen flex-col bg-canvas">
+      <div className="bg-canvas relative flex min-h-screen flex-col">
         <Navbar />
         <main id="main-content" className="relative flex-1 pt-16">
           <div className="container mx-auto px-4 py-12 md:px-10">
@@ -67,7 +69,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <div className="mt-16">
                 <div className="mb-6">
                   <span className="text-n400 font-mono text-[0.65rem] tracking-[0.15em] uppercase">
-                    {'// screenshots'}
+                    // screenshots
                   </span>
                   <h2 className="font-display text-n900 mt-2 text-2xl font-bold">
                     In the browser.
@@ -106,7 +108,7 @@ export default async function CaseStudyPage({ params }: Props) {
             )}
 
             {/* Back link */}
-            <div className="mt-16 border-n200 border-t pt-8">
+            <div className="border-n200 mt-16 border-t pt-8">
               <Link
                 href="/projects"
                 className="text-n500 hover:text-mag-500 font-mono text-sm transition-colors"

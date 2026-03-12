@@ -1,4 +1,5 @@
 import type { TestimonialCardProps } from '@/components/types/cards/cards';
+
 import { cn } from '@/lib/utils';
 
 export function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
@@ -19,7 +20,6 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
 
       <figcaption className="mt-auto flex items-center gap-3">
         {avatar && (
-          // eslint-disable-next-line @next/next/no-img-element
           <img src={avatar} alt={name} className="h-9 w-9 rounded-full object-cover" />
         )}
         <div>

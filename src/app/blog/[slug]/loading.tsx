@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+
 import { ContentSkeleton } from '@/components/ui/loading';
 
 export default function BlogPostLoading() {

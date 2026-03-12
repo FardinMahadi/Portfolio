@@ -1,6 +1,7 @@
 'use client';
 
 import type { CursorProps } from '@/components/types/ui/primitives';
+
 import { cn } from '@/lib/utils';
 
 export function Cursor({ className }: CursorProps) {

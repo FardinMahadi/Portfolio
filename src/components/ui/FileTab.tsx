@@ -1,4 +1,5 @@
 import type { FileTabProps } from '@/components/types/ui/primitives';
+
 import { cn } from '@/lib/utils';
 
 export function FileTab({ path, active = false, className }: FileTabProps) {

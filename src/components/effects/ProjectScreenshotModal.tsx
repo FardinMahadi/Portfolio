@@ -6,6 +6,7 @@ import { createPortal } from 'react-dom';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, type Variants } from 'framer-motion';
+
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 
 const overlayVariants: Variants = {
@@ -63,7 +64,7 @@ export function ProjectScreenshotModal({
 
   useEffect(() => {
     if (!isOpen) {
-      return;
+      return () => {};
     }
 
     const originalOverflow = document.body.style.overflow;

@@ -1,10 +1,12 @@
 'use client';
 
 import type { HeroStatsProps } from '@/components/types/hero/hero';
-import { cn } from '@/lib/utils';
-import { fadeIn } from 'config/animations';
-import { motion } from 'framer-motion';
+
 import { Fragment } from 'react';
+import { motion } from 'framer-motion';
+import { fadeIn } from 'config/animations';
+
+import { cn } from '@/lib/utils';
 
 export function HeroStats({ stats, className }: HeroStatsProps) {
   return (

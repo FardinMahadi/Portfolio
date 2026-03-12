@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from 'react';
-
 import type { ProjectsProps } from '../landing/projects';
 
 export interface GlassmorphismPanelProps {

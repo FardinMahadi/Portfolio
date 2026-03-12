@@ -1,6 +1,8 @@
 import type { BlogTeaserCardProps } from '@/components/types/cards/cards';
-import { cn } from '@/lib/utils';
+
 import Link from 'next/link';
+
+import { cn } from '@/lib/utils';
 
 export function BlogTeaserCard({ post, className }: BlogTeaserCardProps) {
   const { slug, title, date, excerpt, category, readTime } = post;

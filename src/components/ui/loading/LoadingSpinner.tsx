@@ -1,10 +1,11 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import type { LoadingSpinnerProps } from './schema';
+
 import { motion } from 'framer-motion';
 import { Loader2, Terminal } from 'lucide-react';
 
-import type { LoadingSpinnerProps } from './schema';
+import { cn } from '@/lib/utils';
 
 const sizeClasses = {
   sm: 'w-4 h-4',

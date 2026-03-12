@@ -1,13 +1,14 @@
 'use client';
 
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
+
+import { cn } from '@/lib/utils';
+import { skills } from '@/lib/data/skills';
 import { SkillCard } from '@/components/cards/SkillCard';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { skills } from '@/lib/data/skills';
-import { cn } from '@/lib/utils';
-import { fadeUp, staggerContainer, staggerItem } from 'config/animations';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
 
 type FilterKey = 'all' | string;
 
@@ -32,7 +33,7 @@ export function SkillsSection({ className }: { className?: string }) {
           viewport={{ once: true, margin: '-80px' }}
         >
           <span className="text-n400 font-mono text-[0.65rem] tracking-[0.12em]">
-            {'// 04_tech_stack'}
+            // 04_tech_stack
           </span>
           <SectionEyebrow number="04">Tech Stack</SectionEyebrow>
           <SectionHeading accent="tools">The tools I reach for.</SectionHeading>

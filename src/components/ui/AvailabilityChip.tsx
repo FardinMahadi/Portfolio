@@ -1,6 +1,7 @@
 import type { AvailabilityChipProps } from '@/components/types/ui/primitives';
-import { PulseDot } from '@/components/ui/PulseDot';
+
 import { cn } from '@/lib/utils';
+import { PulseDot } from '@/components/ui/PulseDot';
 
 const statusConfig = {
   available: { label: 'Available for hire', color: 'teal' as const },

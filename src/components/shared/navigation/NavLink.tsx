@@ -1,8 +1,12 @@
 'use client';
 
-import Link, { LinkProps } from "next/link";
+import type { ReactNode } from "react";
+import type { LinkProps } from "next/link";
+
+import Link from "next/link";
+import { forwardRef } from "react";
 import { usePathname } from "next/navigation";
-import { forwardRef, ReactNode } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface NavLinkProps extends Omit<LinkProps, "className"> {

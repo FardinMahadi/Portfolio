@@ -1,5 +1,7 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+
 import { notFound } from 'next/navigation';
+
 import { getBlogPostBySlug } from '@/lib/blogData';
 import { BlogPostContent } from '@/components/blog/BlogPostContent';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';

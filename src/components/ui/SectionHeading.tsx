@@ -1,4 +1,5 @@
 import type { SectionHeadingProps } from '@/components/types/ui/primitives';
+
 import { cn } from '@/lib/utils';
 
 export function SectionHeading({

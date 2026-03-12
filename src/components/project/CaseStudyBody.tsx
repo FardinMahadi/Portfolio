@@ -1,4 +1,5 @@
 import type { Project } from '@/lib/types/project';
+
 import { cn } from '@/lib/utils';
 
 type CaseStudyBodyProps = {
@@ -32,7 +33,7 @@ export function CaseStudyBody({ project, className }: CaseStudyBodyProps) {
     <div className={cn('flex flex-col gap-10', className)}>
       <div>
         <span className="text-n400 font-mono text-[0.65rem] tracking-[0.15em] uppercase">
-          {'// process'}
+          // process
         </span>
         <h2 className="font-display text-n900 mt-2 text-2xl font-bold md:text-3xl">
           The thinking behind it.

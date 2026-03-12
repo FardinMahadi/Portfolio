@@ -4,8 +4,9 @@ import type { BlogCardProps } from '@/components/types/blog';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { generateArticleSchema } from '@/lib/seo';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+
+import { generateArticleSchema } from '@/lib/seo';
 import { getBlogCardTransitionName } from '@/lib/transitions';
 
 import { Button } from '../../ui/button';
@@ -13,7 +14,7 @@ import { GlassmorphismPanel } from '../../effects/GlassmorphismPanel';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
-export function BlogCard({ post, index, isInView }: BlogCardProps) {
+export function BlogCard({ post, index, isInView = true }: BlogCardProps) {
   const articleSchema = generateArticleSchema(
     post.title,
     post.excerpt,

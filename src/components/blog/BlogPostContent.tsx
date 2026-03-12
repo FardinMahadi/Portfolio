@@ -2,15 +2,17 @@
 
 import type { BlogPostContentProps } from '@/components/types/blog';
 
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { staggerContainer } from 'config/animations';
+import { ArrowLeft, Calendar, Clock, Home } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { getRelatedPosts } from '@/lib/blogData';
 import { generateArticleSchema } from '@/lib/seo';
 import { getBlogCardTransitionName, getBlogImageTransitionName } from '@/lib/transitions';
-import { staggerContainer } from 'config/animations';
-import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, Home } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+
 import { BlogCard } from './BlogCard';
 import { MarkdownRenderer } from './MarkdownRenderer';
 
@@ -160,7 +162,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             className="mt-20"
           >
             <div className="text-mag-500 mb-2 font-mono text-[0.65rem] tracking-[0.12em] uppercase">
-              {'// related'}
+              // related
             </div>
             <h2 className="text-n900 font-display mb-8 text-2xl font-bold">
               More in <span className="text-mag-500">{post.category}</span>

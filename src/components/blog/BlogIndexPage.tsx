@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
+import { staggerContainer } from 'config/animations';
+
 import { blogPosts } from '@/lib/blogData';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { staggerContainer } from 'config/animations';
+
 import { BlogCard } from './BlogCard';
 import { CategoryFilter } from './CategoryFilter';
 
@@ -41,7 +43,7 @@ export function BlogIndexPage({ initialCategory }: BlogIndexPageProps) {
           className="mb-12"
         >
           <div className="text-n400 mb-4 font-mono text-[0.65rem] tracking-[0.12em]">
-            {'// 04_writing'}
+            // 04_writing
           </div>
           <SectionEyebrow number="04">Writing</SectionEyebrow>
           <SectionHeading accent="Articles" className="mt-4">

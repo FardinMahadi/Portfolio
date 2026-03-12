@@ -1,9 +1,11 @@
-import { Badge } from '@/components/ui/Badge';
 import type { Project } from '@/lib/types/project';
-import { cn } from '@/lib/utils';
-import { Calendar, Clock, ExternalLink, Github } from 'lucide-react';
-import Image from 'next/image';
+
 import Link from 'next/link';
+import Image from 'next/image';
+import { Calendar, Clock, ExternalLink, Github } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/Badge';
 
 type CaseStudyHeroProps = {
   project: Project;
