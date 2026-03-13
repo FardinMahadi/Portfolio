@@ -20,7 +20,6 @@ permissions:
 
 env:
   NODE_VERSION: '20'
-  PNPM_VERSION: 'latest'
 
 jobs:
   lint-and-test:
@@ -32,25 +31,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Run linter
-        run: pnpm run lint
+        run: npm run lint
 
       - name: Build application
-        run: pnpm run build
+        run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
@@ -72,11 +66,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest

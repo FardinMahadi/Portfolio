@@ -15,8 +15,13 @@ export function generateStaticParams() {
   return getCategories().map(category => ({ category: encodeURIComponent(category) }));
 }
 
-export function generateMetadata({ params }: { params: { category: string } }): Metadata {
-  const category = decodeURIComponent(params.category);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> {
+  const { category: rawCategory } = await params;
+  const category = decodeURIComponent(rawCategory);
   return generateSEOMetadata({
     title: `${category} Articles`,
     description: `Browse all blog articles in the ${category} category — web development, engineering patterns, and the developer journey.`,
@@ -25,8 +30,13 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   });
 }
 
-export default function BlogCategoryPage({ params }: { params: { category: string } }) {
-  const category = decodeURIComponent(params.category);
+export default async function BlogCategoryPage({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}) {
+  const { category: rawCategory } = await params;
+  const category = decodeURIComponent(rawCategory);
   const validCategories = getCategories();
 
   if (!validCategories.includes(category)) {
