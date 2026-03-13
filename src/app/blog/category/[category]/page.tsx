@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 
 import { notFound } from 'next/navigation';
 
-import { BlogIndexPage } from '@/components/blog/BlogIndexPage';
-import { PageTransition } from '@/components/effects/PageTransition';
+import { getCategories } from '@/lib/blogData';
 import Footer from '@/components/LandingPage/Footer/Footer';
 import Navbar from '@/components/shared/navigation/Navigation';
-import { getCategories } from '@/lib/blogData';
+import { BlogIndexPage } from '@/components/blog/BlogIndexPage';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { PageTransition } from '@/components/effects/PageTransition';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 
