@@ -108,8 +108,6 @@
   --font-body: var(--font-syne), 'Syne', sans-serif;
 }
 
-
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -125,15 +123,29 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--canvas-dark); }
-  ::-webkit-scrollbar-thumb { background: var(--mag-700); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--mag-600); }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--canvas-dark);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--mag-700);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--mag-600);
+  }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Skip link */
@@ -358,21 +370,28 @@ html {
 
   /* Border Glow */
   .border-glow {
-    box-shadow: 0 0 20px hsl(172 66% 50% / 0.1), inset 0 0 20px hsl(172 66% 50% / 0.05);
+    box-shadow:
+      0 0 20px hsl(172 66% 50% / 0.1),
+      inset 0 0 20px hsl(172 66% 50% / 0.05);
   }
 
   /* Grid Background */
   .bg-grid {
     background-size: 60px 60px;
-    background-image: 
+    background-image:
       linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
   }
 
   /* Animations */
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
   .animate-float {
     animation: float 6s ease-in-out infinite;
@@ -382,8 +401,13 @@ html {
     animation: blink 1s step-end infinite;
   }
   @keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+    from,
+    to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 }
 

@@ -35,7 +35,7 @@ export default function BlogCategoryPage({ params }: { params: { category: strin
 
   return (
     <PageTransition variant="fade">
-      <div className="relative flex min-h-screen flex-col bg-canvas">
+      <div className="bg-canvas relative flex min-h-screen flex-col">
         <Navbar />
         <main className="relative flex-1 pt-16" style={{ zIndex: 1 }}>
           <BlogIndexPage initialCategory={category} />

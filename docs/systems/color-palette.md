@@ -1,51 +1,52 @@
 # Color System — Deep Magenta Signal
 
-The v2 palette is fixed. There is no runtime theme switcher. All tokens are CSS custom properties defined in `src/app/globals.css`.
+The v2 palette is fixed. There is no runtime theme switcher. All tokens are CSS
+custom properties defined in `src/app/globals.css`.
 
 ## Token Reference
 
 ### Magenta (Primary Brand)
 
-| Token | Value | Usage |
-|---|---|---|
-| `--mag-400` | `#CC22EE` | Hover states |
+| Token       | Value     | Usage                                      |
+| ----------- | --------- | ------------------------------------------ |
+| `--mag-400` | `#CC22EE` | Hover states                               |
 | `--mag-500` | `#B400D9` | Primary accent: buttons, links, highlights |
-| `--mag-600` | `#9A00BB` | Pressed state |
-| `--mag-800` | `#5C0070` | Dark overlays |
-| `--mag-900` | `#3A0047` | Deepest dark backgrounds |
+| `--mag-600` | `#9A00BB` | Pressed state                              |
+| `--mag-800` | `#5C0070` | Dark overlays                              |
+| `--mag-900` | `#3A0047` | Deepest dark backgrounds                   |
 
 ### Canvas (Background)
 
-| Token | Value | Usage |
-|---|---|---|
-| `--canvas` | `#F5F1ED` | Page background |
-| `--canvas-raised` | `#FDFCFB` | Card / panel surface |
-| `--canvas-dark` | `#1A1A1A` | Dark section backgrounds |
+| Token             | Value     | Usage                    |
+| ----------------- | --------- | ------------------------ |
+| `--canvas`        | `#F5F1ED` | Page background          |
+| `--canvas-raised` | `#FDFCFB` | Card / panel surface     |
+| `--canvas-dark`   | `#1A1A1A` | Dark section backgrounds |
 
 ### Teal (Secondary)
 
-| Token | Value | Usage |
-|---|---|---|
+| Token        | Value     | Usage                           |
+| ------------ | --------- | ------------------------------- |
 | `--teal-500` | `#009B82` | Code strings, status indicators |
-| `--teal-400` | `#00B89B` | Teal hover |
+| `--teal-400` | `#00B89B` | Teal hover                      |
 
 ### Neutrals
 
-| Token | Usage |
-|---|---|
-| `--n-50` | Near-white text on dark |
-| `--n-200` | Muted text |
-| `--n-500` | Body text on light |
-| `--n-800` | Near-black |
-| `--n-900` | Black |
+| Token     | Usage                   |
+| --------- | ----------------------- |
+| `--n-50`  | Near-white text on dark |
+| `--n-200` | Muted text              |
+| `--n-500` | Body text on light      |
+| `--n-800` | Near-black              |
+| `--n-900` | Black                   |
 
 ### Typography
 
-| Token | Font | Usage |
-|---|---|---|
-| `--font-display` | Syne 800 | Section headings, hero |
-| `--font-mono` | DM Mono | Labels, badges, code, terminal |
-| `--font-body` | Inter | Body copy |
+| Token            | Font     | Usage                          |
+| ---------------- | -------- | ------------------------------ |
+| `--font-display` | Syne 800 | Section headings, hero         |
+| `--font-mono`    | DM Mono  | Labels, badges, code, terminal |
+| `--font-body`    | Inter    | Body copy                      |
 
 ## Gradient Pattern
 
@@ -60,7 +61,8 @@ style={{
 ## Rules
 
 - Never hardcode hex values in JSX or CSS files — always use `var(--token)`.
-- Adding new colors: define in `globals.css` and mirror in `src/lib/colorPalettes.ts`.
+- Adding new colors: define in `globals.css` and mirror in
+  `src/lib/colorPalettes.ts`.
 - The old multi-palette `ColorPaletteContext` has been removed in v2.
 
 ---

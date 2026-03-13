@@ -1,6 +1,7 @@
 # Style Guide
 
-Coding standards for the v2 portfolio. These rules are also in `.github/copilot-instructions.md` — this document expands on them with examples.
+Coding standards for the v2 portfolio. These rules are also in
+`.github/copilot-instructions.md` — this document expands on them with examples.
 
 ---
 
@@ -51,13 +52,15 @@ export default function HeroSection() { ... }
 
 ### `'use client'` directive
 
-Add on line 1 when the component uses hooks, event handlers, browser APIs, or Framer Motion. Server components have no directive.
+Add on line 1 when the component uses hooks, event handlers, browser APIs, or
+Framer Motion. Server components have no directive.
 
 ### Prop types
 
 - Use `type`, never `interface`.
 - Name: `{ComponentName}Props`.
-- Location: `src/components/types/<feature>/<file>.ts` — never inside the component file.
+- Location: `src/components/types/<feature>/<file>.ts` — never inside the
+  component file.
 
 ```ts
 // src/components/types/ui/button.ts
@@ -71,11 +74,11 @@ export type ButtonProps = {
 ### File import order
 
 ```ts
-'use client';                              // 1
-import type { ButtonProps } from '...';    // 2 type-only
-import Link from 'next/link';              // 3 React/Next
-import { motion } from 'framer-motion';    // 4 third-party
-import { cn } from '@/lib/utils';          // 5 internal @/
+'use client'; // 1
+import type { ButtonProps } from '...'; // 2 type-only
+import Link from 'next/link'; // 3 React/Next
+import { motion } from 'framer-motion'; // 4 third-party
+import { cn } from '@/lib/utils'; // 5 internal @/
 ```
 
 ---
@@ -94,7 +97,8 @@ className={cn('rounded-sm border', isActive && 'border-[--mag-500]', className)}
 
 ### Inline styles
 
-Only for values that **cannot** be expressed as static Tailwind: dynamic opacity, runtime CSS variable injection, `radial-gradient`, `clip-path`.
+Only for values that **cannot** be expressed as static Tailwind: dynamic
+opacity, runtime CSS variable injection, `radial-gradient`, `clip-path`.
 
 ```tsx
 // ✓ inline is justified — runtime value
@@ -113,10 +117,10 @@ Always use CSS tokens. Never hardcode hex values in JSX or CSS.
 
 ```tsx
 // ✓
-color: 'var(--mag-500)'
+color: 'var(--mag-500)';
 
 // ✗
-color: '#B400D9'
+color: '#B400D9';
 ```
 
 ---
@@ -126,7 +130,8 @@ color: '#B400D9'
 - Strict mode is on. Never use `any`.
 - Use `unknown` + type narrowing for truly unknown shapes.
 - Use `as const` for constant literal objects and arrays.
-- Use `@/` path alias for all internal imports — no `../../` paths beyond one level.
+- Use `@/` path alias for all internal imports — no `../../` paths beyond one
+  level.
 
 ---
 
@@ -138,7 +143,11 @@ All variants are defined in `config/animations.ts` — never inline.
 // config/animations.ts
 export const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 export const staggerContainer = {
@@ -151,11 +160,18 @@ export const staggerContainer = {
 // in component
 import { fadeUp, staggerContainer } from '@/config/animations';
 
-<motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+<motion.div
+  variants={staggerContainer}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
   {items.map((item, i) => (
-    <motion.div key={i} variants={fadeUp}>{item}</motion.div>
+    <motion.div key={i} variants={fadeUp}>
+      {item}
+    </motion.div>
   ))}
-</motion.div>
+</motion.div>;
 ```
 
 ---

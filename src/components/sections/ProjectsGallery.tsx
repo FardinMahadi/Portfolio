@@ -25,8 +25,7 @@ type ProjectsGalleryProps = {
 export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
   const [active, setActive] = useState<FilterKey>('all');
 
-  const filtered =
-    active === 'all' ? projects : projects.filter(p => p.category.includes(active));
+  const filtered = active === 'all' ? projects : projects.filter(p => p.category.includes(active));
 
   return (
     <div>

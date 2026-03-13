@@ -15,7 +15,12 @@ const VISIBLE_TAGS = 4;
 const btnBase =
   'inline-flex items-center gap-1.5 rounded-sm font-display font-semibold transition-all duration-200 select-none text-sm px-4 py-2';
 
-export function ProjectCard({ project, variant = 'default', onOpenModal, className }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  variant = 'default',
+  onOpenModal,
+  className,
+}: ProjectCardProps) {
   const {
     slug,
     title,
@@ -37,10 +42,10 @@ export function ProjectCard({ project, variant = 'default', onOpenModal, classNa
   const imageZone = (
     <button
       type="button"
-      onClick={(e) => onOpenModal(project, e.currentTarget)}
+      onClick={e => onOpenModal(project, e.currentTarget)}
       aria-label={`View ${title} screenshots`}
       className={cn(
-        'relative block w-full cursor-pointer overflow-hidden bg-[#080612] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-mag-500',
+        'focus-visible:ring-mag-500 relative block w-full cursor-pointer overflow-hidden bg-[#080612] focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
         variant === 'hero' ? 'h-72' : 'min-h-80'
       )}
     >
@@ -134,7 +139,10 @@ export function ProjectCard({ project, variant = 'default', onOpenModal, classNa
       <div className="mt-auto flex flex-wrap gap-2">
         <Link
           href={`/projects/${slug}`}
-          className={cn(btnBase, 'text-white shadow-(--sh-mag) transition-all hover:brightness-110 hover:-translate-y-px active:translate-y-0')}
+          className={cn(
+            btnBase,
+            'text-white shadow-(--sh-mag) transition-all hover:-translate-y-px hover:brightness-110 active:translate-y-0'
+          )}
           style={{ background: 'linear-gradient(135deg, var(--mag-700), var(--mag-500))' }}
         >
           View Case Study
@@ -147,7 +155,7 @@ export function ProjectCard({ project, variant = 'default', onOpenModal, classNa
             rel="noopener noreferrer"
             className={cn(
               btnBase,
-              'border border-n200 bg-transparent text-n600 transition-all hover:border-teal-400 hover:text-teal-500'
+              'border-n200 text-n600 border bg-transparent transition-all hover:border-teal-400 hover:text-teal-500'
             )}
           >
             Live Demo
@@ -161,7 +169,7 @@ export function ProjectCard({ project, variant = 'default', onOpenModal, classNa
             rel="noopener noreferrer"
             className={cn(
               btnBase,
-              'border border-n200 bg-transparent text-n600 transition-all hover:border-n400 hover:text-n900'
+              'border-n200 text-n600 hover:border-n400 hover:text-n900 border bg-transparent transition-all'
             )}
           >
             <Github size={14} />

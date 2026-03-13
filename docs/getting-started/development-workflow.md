@@ -19,8 +19,8 @@ cp .env.example .env.local   # add RESEND_API_KEY
 pnpm dev
 ```
 
-Open `http://localhost:3000`.
-The archived v0.1.1 portfolio is accessible at `http://localhost:3000/v0.1.1`.
+Open `http://localhost:3000`. The archived v0.1.1 portfolio is accessible at
+`http://localhost:3000/v0.1.1`.
 
 ### Commands
 
@@ -35,19 +35,21 @@ pnpm lint       # ESLint
 
 ## Build Sequence
 
-Follow the phases in [IMPLEMENTATION_PLAN.md](../../IMPLEMENTATION_PLAN.md) exactly — never start a phase before the previous is complete.
+Follow the phases in [IMPLEMENTATION_PLAN.md](../../IMPLEMENTATION_PLAN.md)
+exactly — never start a phase before the previous is complete.
 
-| Phase | Scope |
-|---|---|
-| 1 — Foundation | `globals.css` tokens, fonts, `tailwind.config.ts`, `config/animations.ts` |
-| 2 — Core Components | All `components/ui/` primitives |
-| 3 — Data Layer | `lib/types/`, `lib/data/`, MDX content |
-| 4 — Page Sections | All `components/sections/` and `components/hero/` |
-| 5 — Inner Pages | `/projects`, `/about`, `/experience`, `/blog`, `/projects/[slug]` |
-| 6 — Animations | Framer Motion scroll triggers, entrance effects |
-| 7 — Polish | SEO, OG images, Lighthouse audit, a11y pass |
+| Phase               | Scope                                                                     |
+| ------------------- | ------------------------------------------------------------------------- |
+| 1 — Foundation      | `globals.css` tokens, fonts, `tailwind.config.ts`, `config/animations.ts` |
+| 2 — Core Components | All `components/ui/` primitives                                           |
+| 3 — Data Layer      | `lib/types/`, `lib/data/`, MDX content                                    |
+| 4 — Page Sections   | All `components/sections/` and `components/hero/`                         |
+| 5 — Inner Pages     | `/projects`, `/about`, `/experience`, `/blog`, `/projects/[slug]`         |
+| 6 — Animations      | Framer Motion scroll triggers, entrance effects                           |
+| 7 — Polish          | SEO, OG images, Lighthouse audit, a11y pass                               |
 
-**Build rule:** data → component → section → page. Never build a page before its components exist.
+**Build rule:** data → component → section → page. Never build a page before its
+components exist.
 
 ---
 
@@ -81,10 +83,14 @@ docs(reference): update component reference for v2
 
 The previous portfolio (v0.1.1) is preserved in two ways:
 
-- **`src/archive/v0.1.1/`** — Read-only code snapshot. Reference old component logic here when rebuilding.
-- **`src/app/v0.1.1/`** — Live route. The page at `/v0.1.1` imports from the current `src/components/` tree.
+- **`src/archive/v0.1.1/`** — Read-only code snapshot. Reference old component
+  logic here when rebuilding.
+- **`src/app/v0.1.1/`** — Live route. The page at `/v0.1.1` imports from the
+  current `src/components/` tree.
 
-> When you overwrite a component during the redesign, the live `/v0.1.1` route reflects the new version. The `src/archive/` copy preserves the original code for reference.
+> When you overwrite a component during the redesign, the live `/v0.1.1` route
+> reflects the new version. The `src/archive/` copy preserves the original code
+> for reference.
 
 ---
 

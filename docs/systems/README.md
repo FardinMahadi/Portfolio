@@ -2,13 +2,14 @@
 
 Core technical systems for the v2 portfolio.
 
-| System | File | Description |
-|---|---|---|
+| System    | File                                         | Description                                      |
+| --------- | -------------------------------------------- | ------------------------------------------------ |
 | Animation | [animation-system.md](./animation-system.md) | Framer Motion variants in `config/animations.ts` |
-| Blog | [blog-system.md](./blog-system.md) | MDX-based blog in `content/blog/*.mdx` |
-| Color | [color-palette.md](./color-palette.md) | Deep Magenta Signal CSS token system |
+| Blog      | [blog-system.md](./blog-system.md)           | MDX-based blog in `content/blog/*.mdx`           |
+| Color     | [color-palette.md](./color-palette.md)       | Deep Magenta Signal CSS token system             |
 
-> **Note:** `cursor-effects.md` documents the v0.1.1 cursor system which was removed in v2.
+> **Note:** `cursor-effects.md` documents the v0.1.1 cursor system which was
+> removed in v2.
 
 **Topics covered:**
 

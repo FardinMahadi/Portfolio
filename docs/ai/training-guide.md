@@ -1,6 +1,7 @@
 # AI Training Guide — v2
 
-Key patterns for AI assistants working on the v2 portfolio. Also see `.github/copilot-instructions.md` for the full rules.
+Key patterns for AI assistants working on the v2 portfolio. Also see
+`.github/copilot-instructions.md` for the full rules.
 
 ## Component Template
 
@@ -79,29 +80,19 @@ style={{ color: '#B400D9' }}
 
   const { currentPalette } = useColorPalette();
 
-  return (
-    <section
-      id="section-id"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-background)] relative overflow-hidden"
-    >
-      <div ref={ref} className="max-w-7xl mx-auto relative z-10">
-        <motion.header
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Icon className="w-6 h-6 text-theme-primary" aria-hidden="true" />
-            <h2 className="text-theme-primary text-3xl font-bold">Title</h2>
-          </div>
-          <p className="text-theme-text/70 max-w-2xl text-lg">Description</p>
-        </motion.header>
-      </div>
-    </section>
-  );
-}
-```
+  return ( <section
+        id="section-id"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-background)] relative overflow-hidden"
+      > <div ref={ref} className="max-w-7xl mx-auto relative z-10">
+  <motion.header initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity:
+  1, y: 0 } : {}} transition={{ duration: 0.6 }} className="mb-12" >
+  <div className="flex items-center gap-3 mb-6">
+  <Icon className="w-6 h-6 text-theme-primary" aria-hidden="true" />
+  <h2 className="text-theme-primary text-3xl font-bold">Title</h2> </div>
+  <p className="text-theme-text/70 max-w-2xl text-lg">Description</p>
+  </motion.header> </div> </section> ); }
+
+````
 
 ## Key Rules
 
@@ -136,7 +127,7 @@ style={{ color: '#B400D9' }}
   aria-current={isActive ? "page" : undefined}
   className="min-h-[44px] min-w-[44px]"
 >
-```
+````
 
 ### Image with Optimization
 

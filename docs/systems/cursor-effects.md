@@ -2,7 +2,8 @@
 
 > **This system was removed in v2.**
 
-The `TargetCursor` and `BlogCursorEffect` GSAP-based cursor components existed in v0.1.1 and are preserved in `src/archive/v0.1.1/components/effects/`.
+The `TargetCursor` and `BlogCursorEffect` GSAP-based cursor components existed
+in v0.1.1 and are preserved in `src/archive/v0.1.1/components/effects/`.
 
 They are **not** part of the v2 redesign.
 
@@ -11,6 +12,7 @@ For reference, see [src/archive/v0.1.1/](../../src/archive/v0.1.1/README.md).
 ---
 
 **Back to**: [Systems Index](./README.md)
+
 - [Customization](#customization)
 - [Implementation Details](#implementation-details)
 

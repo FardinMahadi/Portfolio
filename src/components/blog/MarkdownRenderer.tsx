@@ -17,12 +17,8 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     h2: ({ ...props }) => (
       <h2 className="font-display text-n900 mt-6 mb-3 text-2xl font-bold" {...props} />
     ),
-    h3: ({ ...props }) => (
-      <h3 className="text-n800 mt-5 mb-2 text-xl font-semibold" {...props} />
-    ),
-    h4: ({ ...props }) => (
-      <h4 className="text-n800 mt-4 mb-2 text-lg font-semibold" {...props} />
-    ),
+    h3: ({ ...props }) => <h3 className="text-n800 mt-5 mb-2 text-xl font-semibold" {...props} />,
+    h4: ({ ...props }) => <h4 className="text-n800 mt-4 mb-2 text-lg font-semibold" {...props} />,
     p: ({ ...props }) => <p className="text-n700 mb-4 leading-relaxed" {...props} />,
     ul: ({ ...props }) => <ul className="my-4 list-none space-y-2" {...props} />,
     ol: ({ ...props }) => (
@@ -100,14 +96,9 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     tbody: ({ ...props }) => <tbody {...props} />,
     tr: ({ ...props }) => <tr className="border-n200 border-b" {...props} />,
     th: ({ ...props }) => (
-      <th
-        className="border-n200 text-n900 border px-4 py-2 text-left font-semibold"
-        {...props}
-      />
+      <th className="border-n200 text-n900 border px-4 py-2 text-left font-semibold" {...props} />
     ),
-    td: ({ ...props }) => (
-      <td className="border-n200 text-n700 border px-4 py-2" {...props} />
-    ),
+    td: ({ ...props }) => <td className="border-n200 text-n700 border px-4 py-2" {...props} />,
   };
 
   return (

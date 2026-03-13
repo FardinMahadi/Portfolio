@@ -23,7 +23,11 @@ export function HeroStats({ stats, className }: HeroStatsProps) {
         <Fragment key={stat.label}>
           {i > 0 && <span className="bg-n300 h-[3px] w-[3px] rounded-full" aria-hidden />}
           <div>
-            <span className="text-mag-500 font-medium">
+            <span
+              className="text-mag-500 font-medium"
+              data-stat-target={String(stat.value)}
+              data-stat-suffix={stat.suffix ?? ''}
+            >
               {stat.value}
               {stat.suffix}
             </span>{' '}

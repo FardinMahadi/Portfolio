@@ -1,16 +1,17 @@
 # Roadmap — v2 Implementation
 
-Phase tracking for the v2 redesign. See `IMPLEMENTATION_PLAN.md` for the full spec.
+Phase tracking for the v2 redesign. See `IMPLEMENTATION_PLAN.md` for the full
+spec.
 
-| Phase | Name | Status |
-|---|---|---|
-| 1 | Foundation & Layout | not started |
-| 2 | Hero Section | not started |
-| 3 | Homepage Sections | not started |
-| 4 | Project & Blog Pages | not started |
-| 5 | Resume Page | not started |
-| 6 | Performance & SEO | not started |
-| 7 | Polish & QA | not started |
+| Phase | Name                 | Status      |
+| ----- | -------------------- | ----------- |
+| 1     | Foundation & Layout  | not started |
+| 2     | Hero Section         | not started |
+| 3     | Homepage Sections    | not started |
+| 4     | Project & Blog Pages | not started |
+| 5     | Resume Page          | not started |
+| 6     | Performance & SEO    | not started |
+| 7     | Polish & QA          | not started |
 
 ## Phase 1 — Foundation & Layout
 

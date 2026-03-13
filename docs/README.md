@@ -2,16 +2,21 @@
 
 Fardin Mahadi Portfolio — v2 Redesign documentation.
 
-> **Status:** Active redesign · Theme: Deep Magenta Signal · Previous version live at `/v0.1.1/`
+> **Status:** Active redesign · Theme: Deep Magenta Signal · Previous version
+> live at `/v0.1.1/`
 
 ---
 
 ## Quick Start
 
-1. [Development Workflow](./getting-started/development-workflow.md) — Local setup and commands
-2. [Implementation Plan](../IMPLEMENTATION_PLAN.md) — Full phase-by-phase build order
-3. [Design System](../DESIGN_SYSTEM.md) — Color tokens, typography, spacing, component specs
-4. [UX Architecture](../UX_ARCHITECTURE.md) — UX audit, strategy, and routing decisions
+1. [Development Workflow](./getting-started/development-workflow.md) — Local
+   setup and commands
+2. [Implementation Plan](../IMPLEMENTATION_PLAN.md) — Full phase-by-phase build
+   order
+3. [Design System](../DESIGN_SYSTEM.md) — Color tokens, typography, spacing,
+   component specs
+4. [UX Architecture](../UX_ARCHITECTURE.md) — UX audit, strategy, and routing
+   decisions
 
 ---
 
@@ -19,22 +24,30 @@ Fardin Mahadi Portfolio — v2 Redesign documentation.
 
 ### Getting Started
 
-- **[Development Workflow](./getting-started/development-workflow.md)** — Local setup, commands, Git workflow
-- **[Contributing](./getting-started/contributing.md)** — Code conventions and PR process
-- **[Environment Variables](./getting-started/environment-variables.md)** — Required env vars and setup
+- **[Development Workflow](./getting-started/development-workflow.md)** — Local
+  setup, commands, Git workflow
+- **[Contributing](./getting-started/contributing.md)** — Code conventions and
+  PR process
+- **[Environment Variables](./getting-started/environment-variables.md)** —
+  Required env vars and setup
 
 ### Reference
 
-- **[Component Reference](./reference/components.md)** — All new v2 components, props, and locations
-- **[Data Structures](./reference/data-structures.md)** — TypeScript types and data schema for v2
+- **[Component Reference](./reference/components.md)** — All new v2 components,
+  props, and locations
+- **[Data Structures](./reference/data-structures.md)** — TypeScript types and
+  data schema for v2
 - **[Style Guide](./reference/style-guide.md)** — Coding standards and patterns
-- **[API Documentation](./reference/api.md)** — API routes and request/response formats
+- **[API Documentation](./reference/api.md)** — API routes and request/response
+  formats
 
 ### Systems
 
-- **[Animation System](./systems/animation-system.md)** — Framer Motion variants and GSAP patterns
+- **[Animation System](./systems/animation-system.md)** — Framer Motion variants
+  and GSAP patterns
 - **[Blog System](./systems/blog-system.md)** — MDX-based blog architecture
-- **[Color System](./systems/color-palette.md)** — Deep Magenta Signal token system
+- **[Color System](./systems/color-palette.md)** — Deep Magenta Signal token
+  system
 
 ### Content
 
@@ -43,15 +56,18 @@ Fardin Mahadi Portfolio — v2 Redesign documentation.
 
 ### Roadmap
 
-- **[Portfolio Improvements](./roadmap/portfolio-improvements.md)** — v2 phase tracking
+- **[Portfolio Improvements](./roadmap/portfolio-improvements.md)** — v2 phase
+  tracking
 
 ### AI Documentation
 
-- **[AI Training Guide](./ai/training-guide.md)** — Quick reference for AI assistants
+- **[AI Training Guide](./ai/training-guide.md)** — Quick reference for AI
+  assistants
 
 ### Archive
 
-- **[v0.1.1 Feature Plan](./archive/feature-plan.md)** — Old feature backlog (superseded)
+- **[v0.1.1 Feature Plan](./archive/feature-plan.md)** — Old feature backlog
+  (superseded)
 - **Code Archive** — `src/archive/v0.1.1/` — Full code snapshot of v0.1.1
 - **Live Preview** — `/v0.1.1/` — Running version of the old portfolio
 
@@ -73,8 +89,8 @@ Fardin Mahadi Portfolio — v2 Redesign documentation.
 3. [Design System](../DESIGN_SYSTEM.md)
 4. [Component Reference](./reference/components.md)
 5. [Data Structures](./reference/data-structures.md)
-2. [Development Workflow](./getting-started/development-workflow.md)
-3. [Component Reference](./reference/components.md)
+6. [Development Workflow](./getting-started/development-workflow.md)
+7. [Component Reference](./reference/components.md)
 
 ## Quick Reference
 

@@ -29,7 +29,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
         >
           {/* Hover accent bar */}
           <motion.div
-            className="bg-mag-500 absolute left-0 top-0 h-full w-0.5 origin-top rounded-r"
+            className="bg-mag-500 absolute top-0 left-0 h-full w-0.5 origin-top rounded-r"
             initial={{ scaleY: 0 }}
             whileHover={{ scaleY: 1 }}
             transition={{ duration: 0.2 }}
@@ -37,18 +37,17 @@ export function BlogCard({ post, index }: BlogCardProps) {
 
           {/* Eyebrow */}
           <div className="text-mag-500 mb-3 font-mono text-[0.6rem] tracking-[0.12em] uppercase">
-            {'// '}{post.category}
+            {'// '}
+            {post.category}
           </div>
 
           {/* Title */}
-          <h3 className="text-n900 group-hover:text-mag-500 font-display mb-3 text-lg font-bold leading-snug tracking-tight transition-colors duration-200">
+          <h3 className="text-n900 group-hover:text-mag-500 font-display mb-3 text-lg leading-snug font-bold tracking-tight transition-colors duration-200">
             {post.title}
           </h3>
 
           {/* Excerpt */}
-          <p className="text-n600 mb-4 flex-1 text-sm leading-relaxed">
-            {post.excerpt}
-          </p>
+          <p className="text-n600 mb-4 flex-1 text-sm leading-relaxed">{post.excerpt}</p>
 
           {/* Meta */}
           <div className="border-n200 text-n400 flex items-center justify-between border-t pt-4 font-mono text-xs">
@@ -56,7 +55,10 @@ export function BlogCard({ post, index }: BlogCardProps) {
               <Calendar className="h-3 w-3" aria-hidden="true" />
               {post.date}
             </time>
-            <div className="flex items-center gap-1.5" aria-label={`Reading time: ${post.readTime}`}>
+            <div
+              className="flex items-center gap-1.5"
+              aria-label={`Reading time: ${post.readTime}`}
+            >
               <Clock className="h-3 w-3" aria-hidden="true" />
               {post.readTime}
             </div>

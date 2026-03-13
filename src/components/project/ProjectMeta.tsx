@@ -27,7 +27,7 @@ export function ProjectMeta({ project, className }: ProjectMetaProps) {
     >
       {/* File tab header */}
       <div
-        className="rounded-xs -mt-1 -mx-2 flex items-center gap-2 px-2 py-1.5 font-mono text-[0.62rem]"
+        className="-mx-2 -mt-1 flex items-center gap-2 rounded-xs px-2 py-1.5 font-mono text-[0.62rem]"
         style={{
           background: 'color-mix(in srgb, var(--mag-500) 8%, transparent)',
           color: 'var(--mag-500)',
@@ -51,7 +51,7 @@ export function ProjectMeta({ project, className }: ProjectMetaProps) {
           <span className="text-n400 block font-mono text-[0.6rem] tracking-[0.15em] uppercase">
             Company
           </span>
-          <span className="text-teal-600 mt-1 block text-sm font-semibold">{company}</span>
+          <span className="mt-1 block text-sm font-semibold text-teal-600">{company}</span>
         </div>
       )}
 
