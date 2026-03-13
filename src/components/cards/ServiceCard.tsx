@@ -3,12 +3,19 @@ import type { ServiceCardProps } from '@/components/types/cards/cards';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 
-export function ServiceCard({ title, description, stack, icon, number, className }: ServiceCardProps) {
+export function ServiceCard({
+  title,
+  description,
+  stack,
+  icon,
+  number,
+  className,
+}: ServiceCardProps) {
   return (
     <div
       className={cn(
-        'group bg-canvas-raised relative flex flex-col gap-5 rounded-sm border border-n200 p-6',
-        'transition-all duration-300 hover:-translate-y-1 hover:border-mag-200 hover:shadow-(--sh-mag)',
+        'group bg-canvas-raised border-n200 relative flex flex-col gap-5 rounded-sm border p-6',
+        'hover:border-mag-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-(--sh-mag)',
         'will-change-transform',
         className
       )}
@@ -53,4 +60,3 @@ export function ServiceCard({ title, description, stack, icon, number, className
     </div>
   );
 }
-

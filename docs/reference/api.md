@@ -4,7 +4,8 @@
 
 ### `POST /api/contact`
 
-Handles contact form submissions. Validates input, sends email via Resend, returns a JSON response.
+Handles contact form submissions. Validates input, sends email via Resend,
+returns a JSON response.
 
 #### Request
 
@@ -14,31 +15,32 @@ Content-Type: application/json
 
 ```typescript
 {
-  name: string;     // required
-  email: string;    // required, valid email
-  message: string;  // required, max 5000 chars
+  name: string; // required
+  email: string; // required, valid email
+  message: string; // required, max 5000 chars
 }
 ```
 
 #### Responses
 
-| Status | Body |
-|---|---|
-| 200 | `{ "message": "Thank you for your message! I'll get back to you soon." }` |
-| 400 | `{ "error": "All fields are required" }` |
-| 400 | `{ "error": "Invalid email address" }` |
-| 429 | `{ "error": "Too many requests. Please try again later." }` |
-| 500 | `{ "error": "Failed to send message. Please try again." }` |
+| Status | Body                                                                      |
+| ------ | ------------------------------------------------------------------------- |
+| 200    | `{ "message": "Thank you for your message! I'll get back to you soon." }` |
+| 400    | `{ "error": "All fields are required" }`                                  |
+| 400    | `{ "error": "Invalid email address" }`                                    |
+| 429    | `{ "error": "Too many requests. Please try again later." }`               |
+| 500    | `{ "error": "Failed to send message. Please try again." }`                |
 
 #### Environment variables required
 
-| Variable | Description |
-|---|---|
-| `RESEND_API_KEY` | Resend API key (`re_...`) |
-| `CONTACT_EMAIL` | Destination email address |
+| Variable            | Description                  |
+| ------------------- | ---------------------------- |
+| `RESEND_API_KEY`    | Resend API key (`re_...`)    |
+| `CONTACT_EMAIL`     | Destination email address    |
 | `RESEND_FROM_EMAIL` | Verified sender domain email |
 
-See [Environment Variables](../getting-started/environment-variables.md) for setup.
+See [Environment Variables](../getting-started/environment-variables.md) for
+setup.
 
 #### Security
 

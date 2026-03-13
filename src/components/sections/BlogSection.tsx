@@ -43,7 +43,7 @@ export function BlogSection({ className }: { className?: string }) {
         <div className="mt-10 flex justify-center">
           <Link
             href="/blog"
-            className="font-mono text-sm font-medium underline-offset-4 hover:underline text-mag-500"
+            className="text-mag-500 font-mono text-sm font-medium underline-offset-4 hover:underline"
           >
             Read all posts →
           </Link>

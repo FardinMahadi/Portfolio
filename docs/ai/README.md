@@ -4,17 +4,19 @@ Quick orientation for AI assistants working on this project.
 
 ## Must-Read First
 
-1. **`.github/copilot-instructions.md`** — The authoritative coding rules. Read this file before every code edit.
+1. **`.github/copilot-instructions.md`** — The authoritative coding rules. Read
+   this file before every code edit.
 2. **`DESIGN_SYSTEM.md`** — Typography, color tokens, component anatomy.
-3. **`IMPLEMENTATION_PLAN.md`** — The full v2 redesign spec with component list, data schemas, and phase order.
+3. **`IMPLEMENTATION_PLAN.md`** — The full v2 redesign spec with component list,
+   data schemas, and phase order.
 
 ## Guides in This Folder
 
-| File | Purpose |
-|---|---|
-| [training-guide.md](./training-guide.md) | Component patterns and code templates for v2 |
-| [quick-prompt.md](./quick-prompt.md) | Copy-paste context prompt for new AI sessions |
-| [setup-prompt.md](./setup-prompt.md) | Context prompt for setup/configuration tasks |
+| File                                     | Purpose                                       |
+| ---------------------------------------- | --------------------------------------------- |
+| [training-guide.md](./training-guide.md) | Component patterns and code templates for v2  |
+| [quick-prompt.md](./quick-prompt.md)     | Copy-paste context prompt for new AI sessions |
+| [setup-prompt.md](./setup-prompt.md)     | Context prompt for setup/configuration tasks  |
 
 - Key rules and patterns
 - Common code patterns

@@ -29,7 +29,8 @@ export function ViewTransitionWrapper({ children }: ViewTransitionWrapperProps) 
  * Hook to handle view transitions for programmatic navigation
  */
 export function useViewTransition() {
-  const navigateWithTransition = (callback: () => void | Promise<void>) => startViewTransition(callback);
+  const navigateWithTransition = (callback: () => void | Promise<void>) =>
+    startViewTransition(callback);
 
   return { navigateWithTransition };
 }

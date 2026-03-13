@@ -6,7 +6,8 @@ All content is MDX files. No JSON content files in v2.
 
 Location: `content/blog/*.mdx`
 
-Each file's filename becomes the URL slug. E.g. `content/blog/react-server-components.mdx` → `/blog/react-server-components`.
+Each file's filename becomes the URL slug. E.g.
+`content/blog/react-server-components.mdx` → `/blog/react-server-components`.
 
 See [Blog System](../systems/blog-system.md) for the full frontmatter schema.
 

@@ -137,9 +137,7 @@ export const metadata: Metadata = {
     // bing: "your-bing-verification-code",
   },
   icons: {
-    icon: [
-      { url: '/images/favicon.png', type: 'image/png' },
-    ],
+    icon: [{ url: '/images/favicon.png', type: 'image/png' }],
     apple: '/images/favicon.png',
     shortcut: '/images/favicon.png',
   },
@@ -349,9 +347,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="light" />
       </head>
       <body className={`${syne.variable} ${dmMono.variable} overflow-x-hidden antialiased`}>
-        <ColorPaletteProvider>
-          {children}
-        </ColorPaletteProvider>
+        <ColorPaletteProvider>{children}</ColorPaletteProvider>
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>

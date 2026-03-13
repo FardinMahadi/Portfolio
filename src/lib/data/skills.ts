@@ -46,7 +46,11 @@ export const skills: SkillCategory[] = [
     label: 'AI & Tools',
     skills: [
       { name: 'Vercel AI SDK', level: 3, logo: 'https://cdn.simpleicons.org/vercel/000000' },
-      { name: 'Figma', level: 4, logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      {
+        name: 'Figma',
+        level: 4,
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+      },
       {
         name: 'Git',
         level: 5,
@@ -59,9 +63,7 @@ export const skills: SkillCategory[] = [
   },
   {
     label: 'Mobile',
-    skills: [
-      { name: 'React Native', level: 3, logo: '/images/tech/react.png' },
-    ],
+    skills: [{ name: 'React Native', level: 3, logo: '/images/tech/react.png' }],
   },
 ];
 

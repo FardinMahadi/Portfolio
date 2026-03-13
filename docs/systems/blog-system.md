@@ -15,13 +15,13 @@ content/
 
 ```yaml
 ---
-title: string           # post title
-date: YYYY-MM-DD        # publish date
-excerpt: string         # one-sentence summary (card + meta description)
-category: string        # one of the categories below
-tags: string[]          # optional
-featuredImage: string   # path in /public/blog/
-readTime: string        # e.g. "5 min read" (auto-calculated if omitted)
+title: string # post title
+date: YYYY-MM-DD # publish date
+excerpt: string # one-sentence summary (card + meta description)
+category: string # one of the categories below
+tags: string[] # optional
+featuredImage: string # path in /public/blog/
+readTime: string # e.g. "5 min read" (auto-calculated if omitted)
 ---
 ```
 
@@ -36,12 +36,12 @@ No emoji in category labels. Use plain text:
 
 ## Rendering
 
-| Component | Role |
-|---|---|
-| `BlogBody.tsx` | Renders MDX prose with typography styles from `styles/typography.css` |
-| `BlogMeta.tsx` | DM Mono date / read-time / category row |
-| `BlogCard.tsx` | Card for index page |
-| `CategoryFilter.tsx` | Filter bar |
+| Component            | Role                                                                  |
+| -------------------- | --------------------------------------------------------------------- |
+| `BlogBody.tsx`       | Renders MDX prose with typography styles from `styles/typography.css` |
+| `BlogMeta.tsx`       | DM Mono date / read-time / category row                               |
+| `BlogCard.tsx`       | Card for index page                                                   |
+| `CategoryFilter.tsx` | Filter bar                                                            |
 
 ## Adding a Post
 
@@ -52,7 +52,9 @@ No emoji in category labels. Use plain text:
 
 ## SEO
 
-Each post page generates `<head>` metadata via `generateMetadata()` in `app/blog/[slug]/page.tsx`. The `excerpt` frontmatter field becomes the meta description.
+Each post page generates `<head>` metadata via `generateMetadata()` in
+`app/blog/[slug]/page.tsx`. The `excerpt` frontmatter field becomes the meta
+description.
 
 ---
 

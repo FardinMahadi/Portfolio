@@ -1,6 +1,7 @@
 # AI Setup Prompt — v2
 
-Use this when starting a new AI session focused on configuration or tooling tasks:
+Use this when starting a new AI session focused on configuration or tooling
+tasks:
 
 ---
 
@@ -22,17 +23,17 @@ Key commands:
 For full conventions, read: .github/copilot-instructions.md
 ```
 
-   - MUI imports (@mui/*)
-   - Custom route imports (src/routes/*)
-   - Custom hook imports (src/hooks/*)
-   - Custom utility imports (src/utils/*)
-   - Other internal imports (src/*)
-   - Custom component imports (src/components/*)
-   - Custom section imports (src/sections/*)
-   - Custom auth imports (src/auth/*)
-   - Custom type imports (src/types/*)
-   - Relative imports (parent, sibling, index)
-   - Relative type imports (parent-type, sibling-type, index-type)
+- MUI imports (@mui/\*)
+- Custom route imports (src/routes/\*)
+- Custom hook imports (src/hooks/\*)
+- Custom utility imports (src/utils/\*)
+- Other internal imports (src/\*)
+- Custom component imports (src/components/\*)
+- Custom section imports (src/sections/\*)
+- Custom auth imports (src/auth/\*)
+- Custom type imports (src/types/\*)
+- Relative imports (parent, sibling, index)
+- Relative type imports (parent-type, sibling-type, index-type)
 
 2. **Sorting Style**:
    - Sort imports by line length within each group (creates pyramid structure)
@@ -54,8 +55,10 @@ For full conventions, read: .github/copilot-instructions.md
    - eslint-plugin-unused-imports (for removing unused imports)
 
 Please:
+
 1. Install the required packages if not already installed
-2. Configure eslint.config.mjs (or equivalent ESLint config file) with the perfectionist/sort-imports rule
+2. Configure eslint.config.mjs (or equivalent ESLint config file) with the
+   perfectionist/sort-imports rule
 3. Set up custom groups for the internal import patterns
 4. Ensure the configuration matches the following structure:
 
@@ -101,7 +104,7 @@ Please:
     },
   },
 ],
-````
+```
 
 Also configure:
 

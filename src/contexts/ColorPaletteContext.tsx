@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import type { ColorPalette} from '@/lib/colorPalettes';
+import type { ColorPalette } from '@/lib/colorPalettes';
 
 import { createContext, useContext, useState, useEffect } from 'react';
 

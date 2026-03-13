@@ -83,11 +83,11 @@ export const colorPalettes: Record<string, ColorPalette> = {
 };
 
 export const getPaletteCSSVariables = (palette: ColorPalette): Record<string, string> => ({
-    '--color-primary': palette.primary,
-    '--color-secondary': palette.secondary,
-    '--color-accent': palette.accent,
-    '--color-background': palette.background,
-    '--color-surface': palette.surface,
-    '--color-text': palette.text,
-    '--color-border': palette.border,
-  });
+  '--color-primary': palette.primary,
+  '--color-secondary': palette.secondary,
+  '--color-accent': palette.accent,
+  '--color-background': palette.background,
+  '--color-surface': palette.surface,
+  '--color-text': palette.text,
+  '--color-border': palette.border,
+});

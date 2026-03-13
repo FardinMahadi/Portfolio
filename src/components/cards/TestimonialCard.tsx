@@ -19,9 +19,7 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
       </blockquote>
 
       <figcaption className="mt-auto flex items-center gap-3">
-        {avatar && (
-          <img src={avatar} alt={name} className="h-9 w-9 rounded-full object-cover" />
-        )}
+        {avatar && <img src={avatar} alt={name} className="h-9 w-9 rounded-full object-cover" />}
         <div>
           <p className="font-display text-n900 text-sm font-semibold">{name}</p>
           <p className="text-n400 font-mono text-[0.65rem] tracking-[0.12em] uppercase">

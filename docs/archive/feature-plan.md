@@ -1,19 +1,22 @@
 > **Archived — v0.1.1 Feature Backlog**
 >
-> This document was the feature plan for the old v0.1.1 portfolio. It has been **superseded** by `IMPLEMENTATION_PLAN.md`.
+> This document was the feature plan for the old v0.1.1 portfolio. It has been
+> **superseded** by `IMPLEMENTATION_PLAN.md`.
 >
-> The items below were planned but not implemented before the v2 redesign decision. They are preserved here for reference only.
+> The items below were planned but not implemented before the v2 redesign
+> decision. They are preserved here for reference only.
 >
-> See [roadmap/portfolio-improvements.md](../roadmap/portfolio-improvements.md) for the current v2 phase tracker.
+> See [roadmap/portfolio-improvements.md](../roadmap/portfolio-improvements.md)
+> for the current v2 phase tracker.
 
 ---
 
 # Plan (v0.1.1 — Archived)
 
-   - Create a “Latest Article” preview for the homepage (likely near HeroSection
-     or BlogSection) with thumbnail, title, excerpt, and CTA.
-   - Ensure data pulls from existing blog data and remains performant via
-     memoization or static props.
+- Create a “Latest Article” preview for the homepage (likely near HeroSection or
+  BlogSection) with thumbnail, title, excerpt, and CTA.
+- Ensure data pulls from existing blog data and remains performant via
+  memoization or static props.
 
 3. **Introduce Skills & Strengths (pending)**
    - Add a SkillsSection component detailing soft skills, specialties

@@ -1,6 +1,7 @@
 # Data Structures
 
-TypeScript type definitions and data schemas for the v2 portfolio. All types live in `src/lib/types/`.
+TypeScript type definitions and data schemas for the v2 portfolio. All types
+live in `src/lib/types/`.
 
 ---
 
@@ -10,22 +11,22 @@ TypeScript type definitions and data schemas for the v2 portfolio. All types liv
 export type Project = {
   slug: string;
   title: string;
-  shortDesc: string;        // One-sentence card description
-  problem: string;          // Case study: problem statement
-  decision: string;         // Case study: key engineering/design decision
-  result: string;           // Case study: measurable outcome
-  role: string;             // "Full Stack Engineer", "Product Designer & Engineer"
+  shortDesc: string; // One-sentence card description
+  problem: string; // Case study: problem statement
+  decision: string; // Case study: key engineering/design decision
+  result: string; // Case study: measurable outcome
+  role: string; // "Full Stack Engineer", "Product Designer & Engineer"
   company?: string;
   stack: string[];
   category: ('fullstack' | 'frontend' | 'ai' | 'mobile')[];
-  featured: boolean;        // Show on homepage FeaturedProjectsSection
+  featured: boolean; // Show on homepage FeaturedProjectsSection
   liveUrl?: string;
   codeUrl?: string;
-  thumbnail: string;        // /images/projects/[slug]/thumbnail.png  (800×500)
-  heroImage: string;        // /images/projects/[slug]/hero.png       (1200×675)
-  screens: string[];        // gallery screenshots
-  date: string;             // "2024-12"
-  duration?: string;        // "3 months"
+  thumbnail: string; // /images/projects/[slug]/thumbnail.png  (800×500)
+  heroImage: string; // /images/projects/[slug]/hero.png       (1200×675)
+  screens: string[]; // gallery screenshots
+  date: string; // "2024-12"
+  duration?: string; // "3 months"
 };
 ```
 
@@ -40,12 +41,12 @@ export type ExperienceEntry = {
   company: string;
   role: string;
   type: 'full-time' | 'freelance' | 'contract' | 'part-time';
-  startDate: string;        // "2024-01"
+  startDate: string; // "2024-01"
   endDate: string | 'present';
-  impact: string;           // One-line impact statement (shown in homepage preview)
-  description: string[];    // Bullet points for full /experience timeline
+  impact: string; // One-line impact statement (shown in homepage preview)
+  description: string[]; // Bullet points for full /experience timeline
   stack: string[];
-  logo?: string;            // /images/logos/[company].svg
+  logo?: string; // /images/logos/[company].svg
 };
 
 export type EducationEntry = {
@@ -86,10 +87,10 @@ export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
-  date: string;             // "2025-03-10"
-  readTime: string;         // "8 min read"
-  category: string;         // DM Mono tag — no emojis
-  content?: string;         // MDX content (for JSON-backed posts)
+  date: string; // "2025-03-10"
+  readTime: string; // "8 min read"
+  category: string; // DM Mono tag — no emojis
+  content?: string; // MDX content (for JSON-backed posts)
 };
 ```
 
@@ -99,7 +100,8 @@ export type BlogPost = {
 
 ## `lib/data/site.ts`
 
-Site-wide config — single source of truth for name, email, social URLs, nav items.
+Site-wide config — single source of truth for name, email, social URLs, nav
+items.
 
 ```typescript
 export const site = {

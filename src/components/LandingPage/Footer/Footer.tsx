@@ -1,20 +1,20 @@
 'use client';
 
-import { forwardRef } from "react";
-import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { forwardRef } from 'react';
+import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 
 const Footer = forwardRef<HTMLElement>((_, ref) => (
-  <footer className="border-t border-border py-8" ref={ref}>
-    <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p className="font-mono text-xs text-muted-foreground">
+  <footer className="border-border border-t py-8" ref={ref}>
+    <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
+      <p className="text-muted-foreground font-mono text-xs">
         © {new Date().getFullYear()} Fardin Mahadi. Built with React & Tailwind.
       </p>
       <div className="flex items-center gap-4">
         {[
-          { icon: Github, href: "https://github.com/FardinMahadi" },
-          { icon: Linkedin, href: "https://www.linkedin.com/in/mahadi-hasan-fardin" },
-          { icon: Mail, href: "mailto:mahadihasanfardin2015@gmail.com" },
-          { icon: MessageCircle, href: "https://discord.gg/fardinmahadi" },
+          { icon: Github, href: 'https://github.com/FardinMahadi' },
+          { icon: Linkedin, href: 'https://www.linkedin.com/in/mahadi-hasan-fardin' },
+          { icon: Mail, href: 'mailto:mahadihasanfardin2015@gmail.com' },
+          { icon: MessageCircle, href: 'https://discord.gg/fardinmahadi' },
         ].map(({ icon: Icon, href }) => (
           <a
             key={href}
@@ -31,6 +31,6 @@ const Footer = forwardRef<HTMLElement>((_, ref) => (
   </footer>
 ));
 
-Footer.displayName = "Footer";
+Footer.displayName = 'Footer';
 
 export default Footer;

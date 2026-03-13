@@ -1,20 +1,21 @@
 # Animation System
 
-All Framer Motion variants are centralized in `config/animations.ts`. Components import from there — never define variants inline.
+All Framer Motion variants are centralized in `config/animations.ts`. Components
+import from there — never define variants inline.
 
 ## Variants Reference
 
-| Name | Purpose |
-|---|---|
-| `fadeUp` | Primary entry: fade in + rise 24px |
-| `fadeIn` | Opacity only |
+| Name               | Purpose                                  |
+| ------------------ | ---------------------------------------- |
+| `fadeUp`           | Primary entry: fade in + rise 24px       |
+| `fadeIn`           | Opacity only                             |
 | `staggerContainer` | Parent: staggers `staggerChildren: 0.08` |
-| `staggerItem` | Child of staggerContainer |
-| `scaleIn` | Scale up from 0.94 |
-| `slideInLeft` | Translate from -40px |
-| `countUp` | For stat numbers |
-| `timelineLine` | scaleY grow for experience timeline |
-| `navBackground` | Navbar bg opacity on scroll |
+| `staggerItem`      | Child of staggerContainer                |
+| `scaleIn`          | Scale up from 0.94                       |
+| `slideInLeft`      | Translate from -40px                     |
+| `countUp`          | For stat numbers                         |
+| `timelineLine`     | scaleY grow for experience timeline      |
+| `navBackground`    | Navbar bg opacity on scroll              |
 
 ## Usage
 
@@ -28,7 +29,7 @@ import { fadeUp } from '@/config/animations';
   initial="hidden"
   whileInView="visible"
   viewport={{ once: true }}
-/>
+/>;
 ```
 
 ### Stagger children
@@ -36,11 +37,18 @@ import { fadeUp } from '@/config/animations';
 ```tsx
 import { staggerContainer, staggerItem } from '@/config/animations';
 
-<motion.ul variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+<motion.ul
+  variants={staggerContainer}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
   {items.map((item, i) => (
-    <motion.li key={i} variants={staggerItem}>{item}</motion.li>
+    <motion.li key={i} variants={staggerItem}>
+      {item}
+    </motion.li>
   ))}
-</motion.ul>
+</motion.ul>;
 ```
 
 ## Rules
@@ -51,7 +59,8 @@ import { staggerContainer, staggerItem } from '@/config/animations';
   const animate = prefersReduced ? {} : variants;
   ```
 - GSAP is reserved for complex scroll-driven or timeline sequences only.
-- No raw CSS `animation:` — only `@keyframes` for truly non-JS effects (cursor blink, pulse dot).
+- No raw CSS `animation:` — only `@keyframes` for truly non-JS effects (cursor
+  blink, pulse dot).
 - Default ease: `[0.25, 0.46, 0.45, 0.94]` (ease-out-quad). Duration: `0.4s`.
 - Spring config for hover/magnetic: `stiffness: 150, damping: 15`.
 

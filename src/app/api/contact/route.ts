@@ -1,4 +1,4 @@
-import type { NextRequest} from 'next/server';
+import type { NextRequest } from 'next/server';
 
 import { NextResponse } from 'next/server';
 
@@ -71,12 +71,17 @@ export async function POST(request: NextRequest) {
           `,
           text: `New Contact Form Submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject ?? 'No subject'}\nSubmitted: ${new Date().toLocaleString()}\n\nMessage:\n${message}`,
         });
-
       } catch (emailError) {
         console.error('Resend email error:', emailError);
       }
     } else {
-      console.log('Contact form submission (dev):', { name, email, subject, message, timestamp: new Date().toISOString() });
+      console.log('Contact form submission (dev):', {
+        name,
+        email,
+        subject,
+        message,
+        timestamp: new Date().toISOString(),
+      });
     }
 
     return NextResponse.json(
