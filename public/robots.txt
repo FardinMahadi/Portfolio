@@ -4,9 +4,10 @@
 User-agent: *
 Allow: /
 
-# Disallow admin and API routes
+# Disallow admin, API, and archived version routes
 Disallow: /api/
 Disallow: /admin/
+Disallow: /v1/
 
 # Allow all search engines
 User-agent: Googlebot

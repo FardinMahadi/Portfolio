@@ -112,4 +112,13 @@ export default [
   ...eslintTs.configs.recommended,
   reactPlugin.configs.flat.recommended,
   customConfig,
+  // Relax legacy v1 archive code — these files are frozen snapshots, not new code
+  {
+    files: ['src/archive/**/*.{ts,tsx}'],
+    rules: {
+      'consistent-return': 'off',
+      '@typescript-eslint/no-shadow': 'off',
+      'jsx-a11y/alt-text': 'off',
+    },
+  },
 ];
