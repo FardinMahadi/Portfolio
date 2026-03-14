@@ -19,6 +19,14 @@ import { SocialLinksList } from './SocialLinksList';
 import { ContactFormPanel } from './ContactFormPanel';
 import { ContactBackground } from './ContactBackground';
 
+type ToastKind = 'loading' | 'success' | 'error';
+
+type ContactToast = {
+  id: number;
+  kind: ToastKind;
+  message: string;
+};
+
 const iconMap = {
   Mail,
   Github,
@@ -43,6 +51,27 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<ContactFormStatus>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
+  const [toasts, setToasts] = useState<ContactToast[]>([]);
+
+  const addToast = (kind: ToastKind, message: string, duration = 3000) => {
+    const id = Date.now() + Math.floor(Math.random() * 1000);
+    setToasts(prev => [...prev, { id, kind, message }]);
+
+    if (duration > 0) {
+      window.setTimeout(() => {
+        setToasts(prev => prev.filter(toast => toast.id !== id));
+      }, duration);
+    }
+
+    return id;
+  };
+
+  const updateToast = (id: number, kind: Exclude<ToastKind, 'loading'>, message: string) => {
+    setToasts(prev => prev.map(toast => (toast.id === id ? { ...toast, kind, message } : toast)));
+    window.setTimeout(() => {
+      setToasts(prev => prev.filter(toast => toast.id !== id));
+    }, 3500);
+  };
 
   const handleFormChange = (updated: ContactFormData) => {
     setFormData(updated);
@@ -82,6 +111,7 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const honeypotValue = new FormData(e.currentTarget).get('companyWebsite')?.toString() ?? '';
 
     if (!validateForm()) {
       return;
@@ -90,6 +120,7 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
     setIsSubmitting(true);
     setSubmitStatus('loading');
     setSubmitMessage('');
+    const loadingToastId = addToast('loading', 'Sending your message...', 0);
 
     try {
       const response = await fetch('/api/contact', {
@@ -97,7 +128,10 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          companyWebsite: honeypotValue,
+        }),
       });
 
       const data = await response.json();
@@ -108,6 +142,11 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
 
       setSubmitStatus('success');
       setSubmitMessage(data.message || "Thank you for your message! I'll get back to you soon.");
+      updateToast(
+        loadingToastId,
+        'success',
+        data.message || "Message sent. I'll get back to you soon."
+      );
       setFormData({ name: '', email: '', message: '' });
       setErrors({});
 
@@ -118,9 +157,10 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
       }, 5000);
     } catch (error) {
       setSubmitStatus('error');
-      setSubmitMessage(
-        error instanceof Error ? error.message : 'Failed to send message. Please try again later.'
-      );
+      const errorMessage =
+        error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
+      setSubmitMessage(errorMessage);
+      updateToast(loadingToastId, 'error', errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -141,6 +181,28 @@ export function ContactSection({ variant = 'landing' }: ContactSectionProps) {
     >
       {/* Background effects */}
       <ContactBackground />
+
+      <div className="pointer-events-none fixed right-4 bottom-4 z-50 flex max-w-sm flex-col gap-3">
+        {toasts.map(toast => (
+          <motion.div
+            key={toast.id}
+            initial={{ opacity: 0, y: 14, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.98 }}
+            className={`rounded-lg border p-3 shadow-lg backdrop-blur-sm ${
+              toast.kind === 'success'
+                ? 'border-green-500/50 bg-green-500/15 text-green-200'
+                : toast.kind === 'error'
+                  ? 'border-red-500/50 bg-red-500/15 text-red-200'
+                  : 'border-theme-primary/40 bg-theme-surface/90 text-theme-text'
+            }`}
+            role="status"
+            aria-live="polite"
+          >
+            <p className="text-sm">{toast.message}</p>
+          </motion.div>
+        ))}
+      </div>
 
       <div ref={ref} className="relative z-10 mx-auto max-w-4xl">
         {variant === 'page' && (

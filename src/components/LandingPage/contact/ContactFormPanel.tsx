@@ -28,6 +28,22 @@ export function ContactFormPanel({
     >
       <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
         <div
+          aria-hidden="true"
+          className="pointer-events-none absolute opacity-0"
+          style={{ left: '-9999px', top: '-9999px' }}
+        >
+          <label htmlFor="companyWebsite">Company website</label>
+          <input
+            id="companyWebsite"
+            name="companyWebsite"
+            tabIndex={-1}
+            autoComplete="off"
+            type="text"
+            defaultValue=""
+          />
+        </div>
+
+        <div
           className="border-theme-border/60 bg-theme-surface/70 rounded-t-lg border px-4 py-2 backdrop-blur"
           role="presentation"
         >
@@ -75,7 +91,7 @@ export function ContactFormPanel({
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="text-theme-primary-foreground min-h-[44px] w-full shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
+            className="text-theme-primary-foreground min-h-11 w-full shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
             style={{
               background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))',
               boxShadow:

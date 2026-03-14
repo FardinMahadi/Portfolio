@@ -3,7 +3,15 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, companyWebsite } = body;
+
+    // Honeypot field: if filled, treat as spam and return a generic success response.
+    if (typeof companyWebsite === 'string' && companyWebsite.trim().length > 0) {
+      return NextResponse.json(
+        { message: "Thank you for your message! I'll get back to you soon." },
+        { status: 200 }
+      );
+    }
 
     // Validate input
     if (!name || !email || !message) {
