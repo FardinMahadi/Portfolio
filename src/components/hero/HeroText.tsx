@@ -39,11 +39,8 @@ export function HeroText({ name, tagline, className }: HeroTextProps) {
       {/* ── Name ─────────────────────────────────────────────────────────
           Controlled by GSAP headingRef in HeroSection.
       ──────────────────────────────────────────────────────────────── */}
-      <div className="mb-4">
-        <span
-          id="hero-heading"
-          className="font-display text-n900 block text-[clamp(2.8rem,5vw,4.2rem)] leading-[0.95] font-extrabold tracking-[-0.04em]"
-        >
+      <h1 id="hero-heading" className="mb-4">
+        <span className="font-display text-n900 block text-[clamp(2.8rem,5vw,4.2rem)] leading-[0.95] font-extrabold tracking-[-0.04em]">
           {solid}
         </span>
         <span
@@ -52,7 +49,8 @@ export function HeroText({ name, tagline, className }: HeroTextProps) {
         >
           {outline}
         </span>
-      </div>
+        <span className="sr-only">Full Stack Developer from Dhaka, Bangladesh</span>
+      </h1>
 
       {/* ── Role typewriter ───────────────────────────────────────────────
           Controlled by GSAP taglineRef in HeroSection.
@@ -79,7 +77,7 @@ export function HeroText({ name, tagline, className }: HeroTextProps) {
           data-hero="tagline" kept for any future selector targeting.
       ──────────────────────────────────────────────────────────────── */}
       {tagline ? (
-        <p data-hero="tagline" className="text-n600 max-w-[400px] text-base leading-[1.55]">
+        <p data-hero="tagline" className="text-n600 max-w-100 text-base leading-[1.55]">
           {tagline}
         </p>
       ) : null}

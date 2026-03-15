@@ -5,13 +5,18 @@ import { Download, FileText } from 'lucide-react';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { PageTransition } from '@/components/effects/PageTransition';
 
-export const metadata: Metadata = {
-  title: 'Resume | Mahadi Hasan Fardin',
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
+
+export const metadata: Metadata = generateSEOMetadata({
+  title: 'Resume',
   description:
     'Download the resume of Mahadi Hasan Fardin — Full Stack Engineer · MERN · Next.js · AI Integration.',
-};
+  keywords: ['resume', 'cv', 'full stack developer', 'MERN', 'Next.js', 'React Native'],
+  canonical: `${siteUrl}/resume`,
+});
 
 const CV_URL = '/docs/mahadi-hasan-fardin-cv.pdf';
 

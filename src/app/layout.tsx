@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Suspense } from 'react';
-import { Syne, DM_Mono } from 'next/font/google';
+import { DM_Mono, Syne } from 'next/font/google';
 
 import { ColorPaletteProvider } from '@/contexts/ColorPaletteContext';
 
@@ -24,46 +24,24 @@ const dmMono = DM_Mono({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
-const siteName = 'FardinMahadi - MERN Stack Developer Portfolio';
+const siteName = 'FardinMahadi - Full Stack Developer Portfolio';
+const defaultOgImage = `${siteUrl}/images/og-image.png`;
 
 export const metadata: Metadata = {
   title: {
-    default: 'Mahadi Hasan Fardin - Full Stack Developer Portfolio',
-    template: '%s | FardinMahadi',
+    default: 'Mahadi Hasan Fardin | Full Stack Developer | MERN Stack | React Native',
+    template: '%s | Mahadi Hasan Fardin',
   },
   description:
-    'Portfolio of Mahadi Hasan Fardin, a skilled MERN Stack Developer specializing in React, Next.js, Node.js, MongoDB, and TypeScript. Discover innovative web applications, full-stack projects, and modern web development solutions. Available for hire for React development, Node.js backend, and full-stack projects.',
+    'Full Stack Developer specializing in MERN stack, React Native, and modern web technologies. Building scalable apps with clean UI/UX.',
   keywords: [
-    'MERN Stack Developer',
-    'Full Stack Developer',
-    'React Developer',
-    'Next.js Developer',
-    'TypeScript Developer',
-    'MongoDB Developer',
-    'Node.js Developer',
-    'Express.js Developer',
-    'Web Developer',
-    'Frontend Developer',
-    'Backend Developer',
-    'JavaScript Developer',
-    'React Portfolio',
-    'Next.js Portfolio',
-    'MERN Portfolio',
-    'Web Development',
-    'Full Stack Projects',
-    'React Projects',
-    'Node.js Projects',
-    'MongoDB Projects',
-    'TypeScript Projects',
-    'Tailwind CSS',
-    'Framer Motion',
-    'Vercel',
-    'Portfolio Website',
-    'Developer Portfolio',
-    'Hire React Developer',
-    'Hire MERN Developer',
-    'Mahadi Hasan Fardin',
-    'FardinMahadi',
+    'full stack developer',
+    'MERN',
+    'React',
+    'Next.js',
+    'React Native',
+    'TypeScript',
+    'portfolio',
   ],
   authors: [{ name: 'Mahadi Hasan Fardin', url: siteUrl }],
   creator: 'Mahadi Hasan Fardin',
@@ -89,15 +67,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'Mahadi Hasan Fardin - Full Stack Developer Portfolio',
+    title: 'Mahadi Hasan Fardin | Full Stack Developer | MERN Stack | React Native',
     description:
-      'Professional portfolio showcasing MERN stack development expertise. Specializing in React, Next.js, Node.js, MongoDB, and TypeScript. Explore innovative web applications and modern development solutions.',
+      'Full Stack Developer specializing in MERN stack, React Native, and modern web technologies. Building scalable apps with clean UI/UX.',
     images: [
       {
-        url: `${siteUrl}/og-image.png`,
+        url: defaultOgImage,
         width: 1200,
         height: 630,
-        alt: 'FardinMahadi - MERN Stack Developer Portfolio',
+        alt: 'FardinMahadi - Developer Portfolio',
         type: 'image/png',
       },
     ],
@@ -105,18 +83,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mahadi Hasan Fardin - Full Stack Developer Portfolio',
+    title: 'Mahadi Hasan Fardin | Full Stack Developer | MERN Stack | React Native',
     description:
-      'Professional MERN stack developer portfolio featuring React, Next.js, Node.js, MongoDB, and TypeScript projects. Available for hire.',
+      'Full Stack Developer specializing in MERN stack, React Native, and modern web technologies. Building scalable apps with clean UI/UX.',
     creator: '@FardinMahadi',
     site: '@FardinMahadi',
     images: [
       {
-        url: `${siteUrl}/og-image.png`,
-        alt: 'FardinMahadi Portfolio',
+        url: defaultOgImage,
+        alt: 'Mahadi Hasan Fardin - Developer Portfolio',
       },
     ],
   },
+  themeColor: '#B400D9',
   robots: {
     index: true,
     follow: true,
@@ -137,9 +116,9 @@ export const metadata: Metadata = {
     // bing: "your-bing-verification-code",
   },
   icons: {
-    icon: [{ url: '/images/favicon.png', type: 'image/png' }],
-    apple: '/images/favicon.png',
-    shortcut: '/images/favicon.png',
+    icon: [{ url: '/images/favicon.ico', type: 'image/x-icon' }],
+    apple: '/images/favicon.ico',
+    shortcut: '/images/favicon.ico',
   },
   other: {
     'mobile-web-app-capable': 'yes',
@@ -302,7 +281,7 @@ export default function RootLayout({
     name: 'DevGenit',
     description: 'Software Agency specializing in web development and frontend engineering',
     url: 'https://devgenit.com',
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/images/favicon.ico`,
     sameAs: [],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -337,7 +316,6 @@ export default function RootLayout({
             __html: JSON.stringify(organizationStructuredData),
           }}
         />
-        <link rel="canonical" href={siteUrl} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />

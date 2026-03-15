@@ -5,14 +5,31 @@ export interface SEOConfig {
   description: string;
   keywords?: string[];
   canonical?: string;
+  path?: string;
   ogImage?: string;
+  image?: {
+    url: string;
+    width?: number;
+    height?: number;
+    alt?: string;
+  };
   ogType?: 'website' | 'article' | 'profile';
   noindex?: boolean;
   nofollow?: boolean;
+  twitterHandle?: string;
+  creator?: string;
+  authors?: Array<{ name: string; url?: string }>;
 }
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fardinmahadi.vercel.app';
 const siteName = 'FardinMahadi - MERN Stack Developer Portfolio';
+
+function toAbsoluteUrl(url: string): string {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  return `${siteUrl}${url.startsWith('/') ? url : `/${url}`}`;
+}
 
 /**
  * Generate SEO metadata for a page
@@ -23,34 +40,46 @@ export function generateMetadata(config: SEOConfig): Metadata {
     description,
     keywords = [],
     canonical,
-    ogImage = `${siteUrl}/og-image.png`,
+    path,
+    ogImage = `${siteUrl}/images/og-image.png`,
+    image,
     ogType = 'website',
     noindex = false,
     nofollow = false,
+    twitterHandle = '@FardinMahadi',
+    creator = 'Mahadi Hasan Fardin',
+    authors = [{ name: 'Mahadi Hasan Fardin', url: siteUrl }],
   } = config;
 
   const fullTitle = title.includes('|') ? title : `${title} | ${siteName}`;
+  const canonicalUrl = canonical || (path ? `${siteUrl}${path}` : siteUrl);
+  const resolvedImageUrl = toAbsoluteUrl(image?.url || ogImage);
+  const imageWidth = image?.width ?? 1200;
+  const imageHeight = image?.height ?? 630;
+  const imageAlt = image?.alt || title;
 
   return {
     title: fullTitle,
     description,
     keywords: keywords.length > 0 ? keywords : undefined,
+    authors,
+    creator,
     alternates: {
-      canonical: canonical || siteUrl,
+      canonical: canonicalUrl,
     },
     openGraph: {
       type: ogType,
       locale: 'en_US',
-      url: canonical || siteUrl,
+      url: canonicalUrl,
       siteName,
       title: fullTitle,
       description,
       images: [
         {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
+          url: resolvedImageUrl,
+          width: imageWidth,
+          height: imageHeight,
+          alt: imageAlt,
         },
       ],
     },
@@ -58,7 +87,9 @@ export function generateMetadata(config: SEOConfig): Metadata {
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [ogImage],
+      creator: twitterHandle,
+      site: twitterHandle,
+      images: [resolvedImageUrl],
     },
     robots: {
       index: !noindex,
@@ -99,7 +130,7 @@ export function generateArticleSchema(
       name: siteName,
       url: siteUrl,
     },
-    image: image || `${siteUrl}/og-image.png`,
+    image: image || `${siteUrl}/images/og-image.png`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': siteUrl,
