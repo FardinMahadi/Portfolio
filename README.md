@@ -8,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](./LICENSE)
 
-![Portfolio Preview](public/Images/App/image.png)
+![Portfolio Preview](public/images/site-screenshot/image.png)
 
 ---
 
